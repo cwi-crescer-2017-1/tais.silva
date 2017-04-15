@@ -25,5 +25,29 @@ public class SaintTest {
         Saint hyoga = new Saint ("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
         assertEquals(false, hyoga.getArmaduraVestida());
     }
+    
+    @Test 
+    public void mostrarGeneroDeNascimentoDosSaints() {
+        Armadura aries = new Armadura ("Áries", Categoria.OURO);
+        Saint shion = new Saint("Shion", aries);
+        boolean resultado = false;
+        if (shion.getGenero() == Genero.NAO_INFORMADO){
+            resultado = true;
+        }
+       assertEquals(true, resultado);
+        
+    }
+    
+    @Test
+    public void alterarGeneroParaMasculino() {
+        Armadura aries = new Armadura ("Áries", Categoria.OURO);
+        Saint shion = new Saint("Shion", aries);
+        shion.setGenero(Genero.MASCULINO);
+        boolean resultado = false;
+        if (shion.getGenero() == Genero.MASCULINO){
+            resultado = true;
+        }
+       assertEquals(true, resultado);
+    }
 }
  
