@@ -2,7 +2,7 @@ public class Saint {
   private String nome;
   private Armadura armadura;
   private boolean armaduraVestida;
-  private Genero genero;
+  private Genero genero = Genero.NAO_INFORMADO;
   // armadura 
   public Saint(String nome, Armadura armadura) {
       this.nome = nome;
@@ -17,13 +17,15 @@ public class Saint {
       return this.armaduraVestida;
     } 
     
-    public Genero getGenero() {
+  public Genero getGenero() {
         return this.genero;
     }
     
-    public void setGenero(Genero genero) {
+  public void setGenero(Genero genero) {
         this.genero = genero;
     }
+    
+    
 
 }
 

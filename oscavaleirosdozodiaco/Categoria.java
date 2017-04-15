@@ -2,12 +2,13 @@ public enum Categoria
 {
     OURO(3), PRATA(2), BRONZE(1);
     
-    private int valor;
+    private int valorCategoria;
+    
     private Categoria(int valor) {
-        this.valor = valor;
+        this.valorCategoria = valor;
     }
     
     public int getValor() {
-        return this.valor;
+        return this.valorCategoria;
     }
 }
