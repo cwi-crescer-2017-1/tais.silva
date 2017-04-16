@@ -72,5 +72,20 @@ public class SaintTest {
         }
        assertEquals(true, resultado);
     }
+ 
+    @Test
+    public void iniciarBatalha() {
+        Armadura cisne = new Armadura("Cisne", Categoria.BRONZE);
+        Saint hyoga = new Saint("Hyoga", cisne);
+        Armadura andromeda = new Armadura("Andrômeda", Categoria.OURO);
+        Saint shun = new Saint("Shun", andromeda);
+        Batalha batalhaUm = new Batalha(hyoga, shun);
+        batalhaUm.iniciar();
+        boolean resultado = false;
+        if (hyoga.getVida() == 90.0){
+            resultado = true;
+        }
+       assertEquals(true, resultado);
+    }
 }
  
