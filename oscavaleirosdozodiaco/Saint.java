@@ -34,7 +34,7 @@ public class Saint {
   public Status getStatus() {
       return this.status;
     }
-
+    
   public void perderVida(double inputPerda) {
       if (inputPerda >= this.vida) {
           this.vida = 0.0;
@@ -46,6 +46,14 @@ public class Saint {
   
   public double getVida() {
       return this.vida;
+    }
+    
+  public double setVida(double novaVida){
+      return this.vida = novaVida;
+    }
+    
+  public int getValorDaCategoria(){
+      return this.armadura.getCategoria();
     }
 }
 
