@@ -40,11 +40,22 @@ public class SaintTest {
     
     @Test
     public void alterarGeneroParaMasculino() {
-        Armadura aries = new Armadura ("Áries", Categoria.OURO);
-        Saint shion = new Saint("Shion", aries);
-        shion.setGenero(Genero.MASCULINO);
+        Armadura andromeda = new Armadura ("Andrômeda", Categoria.OURO);
+        Saint shun = new Saint("Shun", andromeda);
+        shun.setGenero(Genero.MASCULINO);
         boolean resultado = false;
-        if (shion.getGenero() == Genero.MASCULINO){
+        if (shun.getGenero() == Genero.MASCULINO){
+            resultado = true;
+        }
+       assertEquals(true, resultado);
+    }
+    
+    @Test
+    public void nascerComStatusVivo() {
+        Armadura dragao = new Armadura ("Dragão", Categoria.BRONZE);
+        Saint shiryu = new Saint("Shiryu", dragao);
+        boolean resultado = false;
+        if (shiryu.getStatus() == Status.VIVO){
             resultado = true;
         }
        assertEquals(true, resultado);
