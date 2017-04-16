@@ -60,5 +60,17 @@ public class SaintTest {
         }
        assertEquals(true, resultado);
     }
+    
+    @Test
+    public void perderMetadeDaVida() {
+        Armadura dragao = new Armadura ("Dragão", Categoria.BRONZE);
+        Saint shiryu = new Saint("Shiryu", dragao);
+        shiryu.perderVida(50.0);
+        boolean resultado = false;
+        if (shiryu.getVida() == 50.0){
+            resultado = true;
+        }
+       assertEquals(true, resultado);
+    }
 }
  
