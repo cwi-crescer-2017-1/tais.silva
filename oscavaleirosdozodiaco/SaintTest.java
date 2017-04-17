@@ -65,7 +65,7 @@ public class SaintTest {
         // Assert 
         assertEquals(90, shiryu.getVida(), 0.01); 
     } 
-     
+
     @Test 
     public void perderDanoComValor100() { 
         // Arrange 
@@ -75,7 +75,7 @@ public class SaintTest {
         // Assert 
         assertEquals(0, shiryu.getVida(), 0.01); 
     } 
-    
+
     @Test 
     public void perderDanoComValorMenos1000() { 
         // Arrange 
@@ -98,7 +98,7 @@ public class SaintTest {
         assertEquals(100, shaina.getVida(), 0.01); 
         assertEquals(90, hyoga.getVida(), 0.01); 
     } 
-     
+
     @Test 
     public void categoriasIguaisSaint2PerdeVida() { 
         // Arrange 
@@ -111,7 +111,7 @@ public class SaintTest {
         assertEquals(100, aldebaran.getVida(), 0.01); 
         assertEquals(90, mascaraMorte.getVida(), 0.01); 
     } 
-    
+
     @Test 
     public void categoriaSaint2MaiorSaint1PerdeVida() { 
         // Arrange 
@@ -123,5 +123,11 @@ public class SaintTest {
         // Assert 
         assertEquals(90, ikki.getVida(), 0.01); 
         assertEquals(100, mascaraMorte.getVida(), 0.01); 
+    } 
+
+    @Test 
+    public void criarSaintNasceCom5SentidosDespertados() { 
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE)); 
+        assertEquals(5, shiryu.getQtsSentidosDespertados()); 
     } 
 }
