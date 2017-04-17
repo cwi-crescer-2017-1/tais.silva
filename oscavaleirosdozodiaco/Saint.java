@@ -3,29 +3,52 @@ public class Saint {
     private Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
-    private Status status = Status.VIVO; 
-    private double vida = 100.0;
-    private int qtsSentidosDespertados = 5;
+    private Status status = Status.VIVO;
+    private double vida = 100.;
+    private int qtdSentidosDespertados;
 
-    // armadura 
-    public Saint(String nome, Armadura armadura) {
+    public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
 
+        /*int valorCategoria = this.armadura.getCategoria().getValor();
+        this.qtdSentidosDespertados += valorCategoria;*/
+
         if (this.armadura.getCategoria() == Categoria.PRATA) {
-            this.qtsSentidosDespertados = 6;
+            this.qtdSentidosDespertados = 6;
         } else if (this.armadura.getCategoria() == Categoria.OURO) {
-            this.qtsSentidosDespertados = 7;
+            this.qtdSentidosDespertados = 7;
+            String constelacao = armadura.getConstelacao();
+            if ( !constelacao.equals("Áries") 
+            && !constelacao.equals("Touro")
+            && !constelacao.equals("Gêmeos")
+            && !constelacao.equals("Câncer")
+            && !constelacao.equals("Virgem")
+            && !constelacao.equals("Leão")
+            && !constelacao.equals("Libra")
+            && !constelacao.equals("Escorpião")
+            && !constelacao.equals("Sagitário")
+            && !constelacao.equals("Capricórnio")
+            && !constelacao.equals("Aquário")
+            && !constelacao.equals("Peixes")) {
+                // dar erro
+                throw new Exception("Constelação inválida");
+            }
+        } else {
+            // bronze
+            this.qtdSentidosDespertados = 5;
         }
+
     }
 
     public void vestirArmadura() {
         this.armaduraVestida = true;
     }
 
-    public boolean getArmaduraVestida(){
+    // camelCase
+    public boolean getArmaduraVestida() {
         return this.armaduraVestida;
-    } 
+    }
 
     public Genero getGenero() {
         return this.genero;
@@ -35,32 +58,25 @@ public class Saint {
         this.genero = genero;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
     public Status getStatus() {
         return this.status;
-    }
-
-    public void perderVida(double dano) {
-        this.vida -= dano;
     }
 
     public double getVida() {
         return this.vida;
     }
 
-    public double setVida(double novaVida){
-        return this.vida = novaVida;
+    public void perderVida(double dano) {
+        //this.vida = this.vida - dano;
+        this.vida -= dano;
     }
 
-    public Armadura getArmadura(){
+    public Armadura getArmadura() {
         return this.armadura;
     }
 
-    public int getQtsSentidosDespertados(){
-        return this.qtsSentidosDespertados;
+    public int getQtdSentidosDespertados() {
+        return this.qtdSentidosDespertados;
     }
-}
 
+}
