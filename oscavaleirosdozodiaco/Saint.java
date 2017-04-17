@@ -5,7 +5,7 @@ public class Saint {
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
     private double vida = 100.;
-    private int qtdSentidosDespertados;
+    protected int qtdSentidosDespertados;
 
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -34,11 +34,7 @@ public class Saint {
                 // dar erro
                 throw new Exception("Constelação inválida");
             }
-        } else {
-            // bronze
-            this.qtdSentidosDespertados = 5;
-        }
-
+        } 
     }
 
     public void vestirArmadura() {
