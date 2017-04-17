@@ -5,6 +5,7 @@ public class Saint {
   private Genero genero = Genero.NAO_INFORMADO;
   private Status status = Status.VIVO; 
   private double vida = 100.0;
+  
   // armadura 
   public Saint(String nome, Armadura armadura) {
       this.nome = nome;
@@ -35,13 +36,16 @@ public class Saint {
       return this.status;
     }
     
-  public void perderVida(double inputPerda) {
-      if (inputPerda >= this.vida) {
+  public void perderVida(double dano) {
+      this.vida -= dano;
+      
+      /* 
+         if (dano >= this.vida) {
           this.vida = 0.0;
           this.status = Status.MORTO;
         } else {
-            this.vida -= inputPerda;
-        }
+            this.vida -= dano;
+        }*/
     }
   
   public double getVida() {
@@ -52,8 +56,8 @@ public class Saint {
       return this.vida = novaVida;
     }
     
-  public int getValorDaCategoria(){
-      return this.armadura.getCategoria();
+  public Armadura getArmadura(){
+      return this.armadura;
     }
 }
 

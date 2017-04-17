@@ -1,10 +1,8 @@
 
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 
 public class SaintTest {
     @Test 
@@ -19,13 +17,13 @@ public class SaintTest {
         boolean resultado = milo.getArmaduraVestida();
         assertEquals(true, resultado);
     }
-    
+
     @Test 
     public void naoVestirArmaduraDeixaArmaduraNaoVestida() {
         Saint hyoga = new Saint ("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
         assertEquals(false, hyoga.getArmaduraVestida());
     }
-    
+
     @Test 
     public void mostrarGeneroDeNascimentoDosSaints() {
         Armadura aries = new Armadura ("Áries", Categoria.OURO);
@@ -34,58 +32,96 @@ public class SaintTest {
         if (shion.getGenero() == Genero.NAO_INFORMADO){
             resultado = true;
         }
-       assertEquals(true, resultado);
-        
+        assertEquals(true, resultado);
+
     }
-    
+
     @Test
     public void alterarGeneroParaMasculino() {
         Armadura andromeda = new Armadura ("Andrômeda", Categoria.OURO);
         Saint shun = new Saint("Shun", andromeda);
         shun.setGenero(Genero.MASCULINO);
-        boolean resultado = false;
-        if (shun.getGenero() == Genero.MASCULINO){
-            resultado = true;
-        }
-       assertEquals(true, resultado);
+        assertEquals(Genero.MASCULINO, shun.getGenero());
     }
-    
+
     @Test
     public void nascerComStatusVivo() {
-        Armadura dragao = new Armadura ("Dragão", Categoria.BRONZE);
-        Saint shiryu = new Saint("Shiryu", dragao);
-        boolean resultado = false;
-        if (shiryu.getStatus() == Status.VIVO){
-            resultado = true;
-        }
-       assertEquals(true, resultado);
+        Saint shiryu = new Saint("Shiryu", new Armadura ("Dragão", Categoria.BRONZE));
+        assertEquals(Status.VIVO, shiryu.getStatus());
     }
+
+    @Test
+    public void vidaInicialDeveSerC100() {
+        Saint shiryu = new Saint("Shiryu", new Armadura ("Dragão", Categoria.BRONZE));
+        assertEquals(100.0, shiryu.getVida(), 0.01);
+    }
+
+    @Test 
+    public void perderDanoComValor10() { 
+        // Arrange 
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE)); 
+        // Act 
+        shiryu.perderVida(10); 
+        // Assert 
+        assertEquals(90, shiryu.getVida(), 0.01); 
+    } 
+     
+    @Test 
+    public void perderDanoComValor100() { 
+        // Arrange 
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE)); 
+        // Act 
+        shiryu.perderVida(100); 
+        // Assert 
+        assertEquals(0, shiryu.getVida(), 0.01); 
+    } 
     
-    @Test
-    public void perderMetadeDaVida() {
-        Armadura dragao = new Armadura ("Dragão", Categoria.BRONZE);
-        Saint shiryu = new Saint("Shiryu", dragao);
-        shiryu.perderVida(50.0);
-        boolean resultado = false;
-        if (shiryu.getVida() == 50.0){
-            resultado = true;
-        }
-       assertEquals(true, resultado);
-    }
- 
-    @Test
-    public void iniciarBatalha() {
-        Armadura cisne = new Armadura("Cisne", Categoria.BRONZE);
-        Saint hyoga = new Saint("Hyoga", cisne);
-        Armadura andromeda = new Armadura("Andrômeda", Categoria.OURO);
-        Saint shun = new Saint("Shun", andromeda);
-        Batalha batalhaUm = new Batalha(hyoga, shun);
-        batalhaUm.iniciar();
-        boolean resultado = false;
-        if (hyoga.getVida() == 90.0){
-            resultado = true;
-        }
-       assertEquals(true, resultado);
-    }
+    @Test 
+    public void perderDanoComValorMenos1000() { 
+        // Arrange 
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE)); 
+        // Act 
+        shiryu.perderVida(-1000); 
+        // Assert 
+        assertEquals(1100, shiryu.getVida(), 0.01); 
+    } 
+
+    @Test 
+    public void categoriaSaint1MaiorQueSaint2() { 
+        // Arrange 
+        Saint shaina = new Saint("Shaina", new Armadura("Serpente", Categoria.PRATA)); 
+        Saint hyoga = new Saint("Hyoga", new Armadura("Cisne", Categoria.BRONZE)); 
+        Batalha batalha = new Batalha(shaina, hyoga); 
+        // Act 
+        batalha.iniciar(); 
+        // Assert 
+        assertEquals(100, shaina.getVida(), 0.01); 
+        assertEquals(90, hyoga.getVida(), 0.01); 
+    } 
+     
+    @Test 
+    public void categoriasIguaisSaint2PerdeVida() { 
+        // Arrange 
+        Saint aldebaran = new Saint("Aldebaran", new Armadura("Touro", Categoria.OURO)); 
+        Saint mascaraMorte = new Saint("Máscara da Morte", new Armadura("Câncer", Categoria.OURO)); 
+        Batalha batalha = new Batalha(aldebaran, mascaraMorte); 
+        // Act 
+        batalha.iniciar(); 
+        // Assert 
+        assertEquals(100, aldebaran.getVida(), 0.01); 
+        assertEquals(90, mascaraMorte.getVida(), 0.01); 
+    } 
+    
+    @Test 
+    public void categoriaSaint2MaiorSaint1PerdeVida() { 
+        // Arrange 
+        Saint ikki = new Saint("Ikki", new Armadura("Fênix", Categoria.BRONZE)); 
+        Saint mascaraMorte = new Saint("Máscara da Morte", new Armadura("Câncer", Categoria.OURO)); 
+        Batalha batalha = new Batalha(ikki, mascaraMorte); 
+        // Act 
+        batalha.iniciar(); 
+        // Assert 
+        assertEquals(90, ikki.getVida(), 0.01); 
+        assertEquals(100, mascaraMorte.getVida(), 0.01); 
+    } 
 }
- 

@@ -1,26 +1,23 @@
-
-public class Batalha
-{
-    private int categoriaUm;
-    private int categoriaDois;
-    private Saint um;
-    private Saint dois;
-
-    public Batalha(Saint um, Saint dois)
-    {
-        this.categoriaUm = um.getValorDaCategoria();
-        this.categoriaDois = dois.getValorDaCategoria();
-        this.um = um;
-        this.dois = dois;
-    }
-
-    //Retira 10.0 pontos do atributo vida do Saint que tiver a armadura menos valiosa em uma comparação/batalha entre dois Saints (OURO>PRATA>BRONZE).
-    public void iniciar()
-    {
-        if (categoriaUm >= categoriaDois) {
-            dois.setVida(dois.getVida() - 10);
-        } else {
-            um.setVida(um.getVida() - 10);
-        }        
-    }
+public class Batalha { 
+ 
+    private Saint saint1, saint2; 
+ 
+    public Batalha(Saint saint1, Saint saint2) { 
+        this.saint1 = saint1; 
+        this.saint2 = saint2; 
+    } 
+ 
+    public void iniciar() { 
+        int valor1 = this.saint1.getArmadura().getCategoria().getValor(); 
+        int valor2 = this.saint2.getArmadura().getCategoria().getValor(); 
+         
+        if (valor1 > valor2) { 
+            this.saint2.perderVida(10); 
+        } else if (valor1 == valor2) { 
+            this.saint2.perderVida(10); 
+        } else { 
+            this.saint1.perderVida(10); 
+        } 
+         
+    } 
 }
