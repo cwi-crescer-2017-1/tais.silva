@@ -1,12 +1,6 @@
-----------------------------------------------------------------------------
-Este é o arquivo README do projeto. Você deve descrever aqui o seu projeto.
-Informe ao usuário (alguém que não sabe nada sobre este projeto!) tudo que
-ele/ela precisa saber. Os comentários devem incluir, pelo menos:
-------------------------------------------------------------------------
-
-TITULO DO PROJETO:
-OBJETIVO DO PROJETO:
-VERSÃO ou DATA:
+TITULO DO PROJETO: Os Cavaleiros do Zodíaco.
+OBJETIVO DO PROJETO: é parte dos exercícios para aprendizado de orientação à objeto, em Java, do Projeto Crescer da CWI Software. Que utiliza da história, elementos e personagens da animação Os Cavaleiros do Zodíaco como referência para criação de classes, atributos, métodos, instâncias, etc.
+DATA: 16/04/2017
 COMO INICIAR O PROJETO:
-AUTORES:
-INSTRUÇÕES PARA O USUÁRIO:
+AUTORES: Taís Jaques da Silva.
+INSTRUÇÕES PARA O USUÁRIO: os arquivos que a pasta contém são: Armadura.java, para criar instâncias de armaduras dos Saints com os atributos constelação e categoria; Categoria.java, fornece as opções de categorias OURO, PRATA e BROZE para a armadura dos Saints; Saint.java, para criar instâncias de cavaleiros ou amazonas do Zodíaco e selecionar sua armadura; Genero.java, fornece as opções de gênero FEMININO, MASCULINO ou NAO_INFORMADO, o padrão inicial dos Saints é NAO_INFORMADO, e pode ser alterado com o método nomeDoSaint.setGenero(); Status.java, fornece o status de vida dos Saints como VIVO, MORTO ou DESACORDADO; Batalha.java, para criar batalhas entre dois Saints fornecidos, o Saint com armadura menos valiosa (OURO>PRATA>BRONZE) no confronto ou segundo a ser dado como argumento perde 10.0 pontos de seu atributo vida, que nasce com 100.0 pontos. 
