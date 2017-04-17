@@ -130,4 +130,16 @@ public class SaintTest {
         Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE)); 
         assertEquals(5, shiryu.getQtsSentidosDespertados()); 
     } 
+    
+    @Test
+    public void criarSaintNasceCom6SentidosDespertados() {
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.PRATA)); 
+        assertEquals(6, shiryu.getQtsSentidosDespertados());
+    }
+        
+    @Test
+    public void criarSaintNasceCom7SentidosDespertados() {
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.OURO)); 
+        assertEquals(7, shiryu.getQtsSentidosDespertados());
+    }
 }
