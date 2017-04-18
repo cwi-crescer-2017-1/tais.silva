@@ -39,9 +39,16 @@ public class Saint {
         return this.vida;
     }
 
-    public void perderVida(double dano) {
+    public void perderVida(double dano) throws Exception{
         //this.vida = this.vida - dano;
-        this.vida -= dano;
+        if (dano < 0) {
+            throw new Exception("InvalidParameterException");
+        } else if (this.getVida() - dano < 1) {
+            this.vida = 0;
+            this.status = Status.MORTO;
+        } else {
+            this.vida -= dano;
+        }
     }
 
     public Armadura getArmadura() {
