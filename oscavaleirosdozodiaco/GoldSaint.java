@@ -1,33 +1,22 @@
-
-/**
- * Write a description of class GoldSaint here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class GoldSaint
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class GoldSaint
-     */
-    public GoldSaint()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+public class GoldSaint extends Saint {
+    public GoldSaint(String nome, Armadura armadura) throws Exception {
+        super(nome, armadura);
+        this.qtdSentidosDespertados = 7;
+        String constelacao = armadura.getConstelacao();
+        if ( !constelacao.equals("Áries") 
+        && !constelacao.equals("Touro")
+        && !constelacao.equals("Gêmeos")
+        && !constelacao.equals("Câncer")
+        && !constelacao.equals("Virgem")
+        && !constelacao.equals("Leão")
+        && !constelacao.equals("Libra")
+        && !constelacao.equals("Escorpião")
+        && !constelacao.equals("Sagitário")
+        && !constelacao.equals("Capricórnio")
+        && !constelacao.equals("Aquário")
+        && !constelacao.equals("Peixes")) {
+            // dar erro
+            throw new Exception("Constelação inválida");
+        }
     }
 }
