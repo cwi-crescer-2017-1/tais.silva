@@ -1,7 +1,6 @@
 public class Constelacao {
     private String nome;
     private Golpe[] golpes = new Golpe[3];
-    private int indice;
 
     public Constelacao(String nome) {
         this.nome = nome;
@@ -9,7 +8,7 @@ public class Constelacao {
 
     public void adicionarGolpe(Golpe golpe) {
         //criar método que insere o golpe sempre no final do array
-        for (int indice = -1; indice < golpes.length; indice++) {
+        for (int indice = 0; indice < golpes.length; indice++) {
             this.golpes[indice] = golpe;
         }
     }
