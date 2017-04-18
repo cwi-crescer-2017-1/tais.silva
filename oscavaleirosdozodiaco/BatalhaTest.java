@@ -7,10 +7,8 @@ public class BatalhaTest {
     @Test
     public void categoriaSaint1MaiorQueSaint2() throws Exception {
         // Arrange
-        Constelacao serpente = new Constelacao("Serpente");
-        Constelacao cisne = new Constelacao("Cisne");
-        Saint shaina = new Saint("Shaina", new Armadura(serpente, Categoria.PRATA));
-        Saint hyoga = new Saint("Hyoga", new Armadura(cisne, Categoria.BRONZE));
+        Saint shaina = new Saint("Shaina", new Armadura(new Constelacao("Serpente"), Categoria.PRATA));
+        Saint hyoga = new Saint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
         Batalha batalha = new Batalha(shaina, hyoga);
         // Act
         batalha.iniciar();
@@ -22,10 +20,8 @@ public class BatalhaTest {
     @Test
     public void categoriasIguaisSaint2PerdeVida() throws Exception {
         // Arrange
-        Constelacao touro = new Constelacao("Touro");
-        Constelacao cancer = new Constelacao("Câncer");
-        Saint aldebaran = new Saint("Aldebaran", new Armadura(touro, Categoria.OURO));
-        Saint mascaraMorte = new Saint("Máscara da Morte", new Armadura(cancer, Categoria.OURO));
+        Saint aldebaran = new Saint("Aldebaran", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint mascaraMorte = new Saint("Máscara da Morte", new Armadura(new Constelacao("Câncer"), Categoria.OURO));
         Batalha batalha = new Batalha(aldebaran, mascaraMorte);
         // Act
         batalha.iniciar();
@@ -37,10 +33,8 @@ public class BatalhaTest {
     @Test
     public void categoriaSaint2MaiorSaint1PerdeVida() throws Exception {
         // Arrange
-        Constelacao fenix = new Constelacao("Fênix");
-        Constelacao cancer = new Constelacao("Câncer");
-        Saint ikki = new Saint("Ikki", new Armadura(fenix, Categoria.BRONZE));
-        Saint mascaraMorte = new Saint("Máscara da Morte", new Armadura(cancer, Categoria.OURO));
+        Saint ikki = new Saint("Ikki", new Armadura(new Constelacao("Fênix"), Categoria.BRONZE));
+        Saint mascaraMorte = new Saint("Máscara da Morte", new Armadura(new Constelacao("Câncer"), Categoria.OURO));
         Batalha batalha = new Batalha(ikki, mascaraMorte);
         // Act
         batalha.iniciar();
