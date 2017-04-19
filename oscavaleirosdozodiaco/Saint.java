@@ -89,4 +89,8 @@ public class Saint {
     public Categoria getCategoria(){
         return this.armadura.getCategoria();
     }
+    
+    public String getNomeSaint(){
+        return this.nome;
+    }
 }

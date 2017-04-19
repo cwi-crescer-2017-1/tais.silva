@@ -7,6 +7,10 @@ public class Constelacao {
     public Constelacao(String nome) {
         this.nome = nome;
     }    
+     
+    public String getNome() {
+        return this.nome;
+    }
     
     public void adicionarGolpe(Golpe golpe) {
         golpes.add(golpe);        
@@ -15,4 +19,6 @@ public class Constelacao {
 	public ArrayList getGolpes() {
         return this.golpes;
     }
+    
+    
 }

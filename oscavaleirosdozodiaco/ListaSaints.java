@@ -7,7 +7,7 @@ public class ListaSaints
     private ArrayList<Saint> arrayLista = new ArrayList<>();
     private Saint saint;
 
-    public ListaSaints(Saint Saint)
+    public ListaSaints()
     {
         this.saint = saint;
     }
@@ -30,40 +30,45 @@ public class ListaSaints
         this.arrayLista.remove(index);
     }
 
-    public String buscarPorNome(String nome) {
-        int index = arrayLista.indexOf(nome);
-        return arrayLista.get(index).toString();
+    public void buscarPorNome(String nome) {
+        for (int i = 0; i < arrayLista.size(); i++){
+            Saint nomeInstancia = this.arrayLista.get(i);
+            if (arrayLista.get(i).getNomeSaint().equals(nome)) {  
+                return arrayLista.get(i);
+            }
+        }
+
     }
 
     public ArrayList buscarPorCategoria(Categoria categoria) {
         ArrayList<Saint> subLista = new ArrayList<>();
-        
+
         for (int i = 0; i < arrayLista.size(); i++){
             Saint nomeSaint = this.arrayLista.get(i);
             if (nomeSaint.getCategoria() == categoria) {
                 subLista.add(nomeSaint);
             }
         }
-        
+
         return subLista;
     }
-    
+
     public ArrayList buscarPorStatus(Status status){
         ArrayList<Saint> subLista = new ArrayList<>();
-        
+
         for (int i = 0; i < arrayLista.size(); i++){
             Saint nomeSaint = this.arrayLista.get(i);
             if (nomeSaint.getStatus() == status) {
                 subLista.add(nomeSaint);
             }
         }
-        
+
         return subLista;
     }
-    
+
     public Saint getSaintMaiorVida(){
         Saint nomeSaintDeMaiorVida = this.arrayLista.get(0);
-        
+
         for (int i = 0; i < arrayLista.size(); i++){
             Saint nomeSaint = this.arrayLista.get(i);
             double maiorVida = this.arrayLista.get(0).getVida();
@@ -73,13 +78,13 @@ public class ListaSaints
                 nomeSaintDeMaiorVida = nomeSaint;
             }
         }
-        
+
         return nomeSaintDeMaiorVida;
     }
-    
+
     public Saint getSaintMenorVida(){
         Saint nomeSaintDeMenorVida = this.arrayLista.get(0);
-        
+
         for (int i = 0; i < arrayLista.size(); i++){
             Saint nomeSaint = this.arrayLista.get(i);
             double menorVida = this.arrayLista.get(0).getVida();
@@ -89,24 +94,24 @@ public class ListaSaints
                 nomeSaintDeMenorVida = nomeSaint;
             }
         }
-        
+
         return nomeSaintDeMenorVida;
     }
-    
+
     /*public void ordenar() {
-        Saint nomeSaintDeMenorVida = this.arrayLista.get(0);
-        
-        for (int i = 0; i < arrayLista.size(); i++){
-            Saint nomeSaint = this.arrayLista.get(i);
-            double menorVida = this.arrayLista.get(0).getVida();
-            Saint saintMenorVida = nomeSaint;
-            if (nomeSaint.getVida() < menorVida) {
-                menorVida = nomeSaint.getVida();
-                nomeSaintDeMenorVida = nomeSaint;
-            }
-        }
-        
-        return nomeSaintDeMenorVida;
+    Saint nomeSaintDeMenorVida = this.arrayLista.get(0);
+
+    for (int i = 0; i < arrayLista.size(); i++){
+    Saint nomeSaint = this.arrayLista.get(i);
+    double menorVida = this.arrayLista.get(0).getVida();
+    Saint saintMenorVida = nomeSaint;
+    if (nomeSaint.getVida() < menorVida) {
+    menorVida = nomeSaint.getVida();
+    nomeSaintDeMenorVida = nomeSaint;
+    }
+    }
+
+    return nomeSaintDeMenorVida;
     }*/
-    
+
 }
