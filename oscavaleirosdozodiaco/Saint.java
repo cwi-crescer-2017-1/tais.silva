@@ -86,5 +86,7 @@ public class Saint {
         return golpes.get(posicao);
     }
     
-
+    public Categoria getCategoria(){
+        return this.armadura.getCategoria();
+    }
 }
