@@ -42,6 +42,10 @@ public class Saint {
     public double getVida() {
         return this.vida;
     }
+    
+    public String getNome() {
+        return this.nome;
+    }
 
     public void perderVida(double dano) {
 
@@ -71,7 +75,7 @@ public class Saint {
         return this.armadura.getConstelacao();
     }
     
-    public ArrayList getGolpes() {
+    public ArrayList<Golpe> getGolpes() {
         return getConstelacao().getGolpes();
     }
     
@@ -79,18 +83,12 @@ public class Saint {
         getConstelacao().adicionarGolpe(golpe);
     }
     
-    public Object getProximoGolpe() {
-        ArrayList golpes = getGolpes();
+    public Golpe getProximoGolpe() {
+        ArrayList<Golpe> golpes = getGolpes();
         int posicao = this.acumuladorProximoGolpe % golpes.size();
         this.acumuladorProximoGolpe++;
         return golpes.get(posicao);
     }
     
-    public Categoria getCategoria(){
-        return this.armadura.getCategoria();
-    }
-    
-    public String getNomeSaint(){
-        return this.nome;
-    }
+
 }
