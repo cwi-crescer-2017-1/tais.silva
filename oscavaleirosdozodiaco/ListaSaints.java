@@ -146,4 +146,8 @@ public class ListaSaints {
         novaLista.addAllList(array);
         return novaLista;	 	
     }
+
+	public Saint getCSV() {
+		return null;
+	   }
 }

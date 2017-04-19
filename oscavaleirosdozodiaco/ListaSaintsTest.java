@@ -424,9 +424,8 @@ public class ListaSaintsTest {
         Saint shun2 = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
         listaSaints2.add(shun);
         listaSaints2.add(misty);
-        listaSaints2.add(june);		
-        listaSaints.unir(listaSaints2);
-        ArrayList<Saint> resultado = listaSaints.todos();
+        listaSaints2.add(june);		        
+		ListaSaints resultado = listaSaints.unir(listaSaints2);
         assertEquals(shun, resultado.get(0));
         assertEquals(misty, resultado.get(1));
         assertEquals(june, resultado.get(2));
