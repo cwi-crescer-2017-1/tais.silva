@@ -90,5 +90,31 @@ public class Saint {
         return golpes.get(posicao);
     }
     
+    // June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false
+    // Dohko,10.0,,OURO,VIVO,NAO_INFORMADO,true
+    
+    public String getCSV() {
+        
+        // Interpolação de Strings: return `${nome},${vida},${status}`;
+        return String.format(
+            "%s,%s,%s,%s,%s,%s,%s",
+            this.nome,
+            this.vida,
+            this.getConstelacao().getNome(),
+            this.armadura.getCategoria(),
+            this.status,
+            this.genero,
+            this.armaduraVestida
+        );
+        
+        /*return  
+            this.nome + "," +
+            this.vida + "," +
+            this.getConstelacao().getNome() + "," +
+            this.armadura.getCategoria() + "," +
+            this.status + "," +
+            this.genero + "," +
+            this.armaduraVestida;*/
+    }
 
 }

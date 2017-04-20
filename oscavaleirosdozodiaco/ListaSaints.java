@@ -84,83 +84,63 @@ public class ListaSaints {
         return menorVida;
     }
 
-    public void ordenar() {
+    public void ordenar(TipoOrdenacao tipoOrdenacao) {
         /*
          * BubbleSort
          * Complexidade: O(n^2)
+         * 
+         * 
          *     [4] [3] [60] [17] [10]
          * i0: [3] [4] [17] [10] [60]
          * i1: [3] [4] [10] [17] [60]
          */
-
+        boolean ascendente = tipoOrdenacao == TipoOrdenacao.ASCENDENTE;
         boolean posicoesSendoTrocadas;
         do {
             posicoesSendoTrocadas = false;
             for (int i = 0; i < this.saints.size() - 1; i++) {
                 Saint atual = this.saints.get(i);
                 Saint proximo = this.saints.get(i + 1);
-                boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                boolean precisaTrocar = 
+                    ascendente ? atual.getVida() > proximo.getVida() :
+                    atual.getVida() < proximo.getVida();
+
                 if (precisaTrocar) {
                     this.saints.set(i, proximo);
                     this.saints.set(i + 1, atual);
                     posicoesSendoTrocadas = true;
                 }
             }
-        } while (posicoesSendoTrocadas);   
-    }   
-
-    public void ordenar(TipoOrdenacao tipo){
-        boolean posicoesSendoTrocadas;
-        TipoOrdenacao tipoAscendente = TipoOrdenacao.ASCENDENTE;
-        TipoOrdenacao tipoDescendente = TipoOrdenacao.DESCENDENTE;
-
-        if (tipoAscendente.equals(tipo)) {
-            this.ordenar();
-        }
-
-        if (tipoDescendente.equals(tipo)) {
-            do {
-                posicoesSendoTrocadas = false;
-                for (int i = 0; i < this.saints.size() - 1; i++) {
-                    Saint atual = this.saints.get(i);
-                    Saint proximo = this.saints.get(i + 1);
-                    boolean precisaTrocar = atual.getVida() < proximo.getVida();
-                    if (precisaTrocar) {
-                        this.saints.set(i, proximo);
-                        this.saints.set(i + 1, atual);
-                        posicoesSendoTrocadas = true;
-                    }
-                }
-            } while (posicoesSendoTrocadas); 
-        }
+        } while (posicoesSendoTrocadas); 
     }
 
-    public void addAllList(ArrayList<Saint> lista){
-        this.saints.addAll(lista);
-    }
-
-    public ListaSaints unir(ArrayList<Saint> array) {
-        ListaSaints novaLista = new ListaSaints();
-
-        novaLista.addAllList(saints);
-        novaLista.addAllList(array);
-        return novaLista;	 	
+    public void ordenar() {
+        this.ordenar(TipoOrdenacao.ASCENDENTE);
     }
 
     public String getCSV() {
-        String csv = new String();
-        csv = csv = String.valueOf(this.get(0).getNome());
-
-        for (int i=0; i < this.saints.size(); i++) {	        
-            csv = String.valueOf(this.get(i).getNome()) + "," + String.valueOf(this.get(i).getVida()) + "," + String.valueOf(this.get(i).getArmadura().getConstelacao().getNome());
-            /*csv = String.valueOf(this.get(i).getArmadura().getConstelacao());
-            csv = String.valueOf(this.get(i).getStatus());
-            csv = String.valueOf(this.get(i).getGenero());
-            csv = String.valueOf(this.get(i).getArmaduraVestida());
-            }*/
-
-            return csv;
+        if (this.saints.isEmpty()) {
+            return "";
         }
-        return csv;
+
+        String separador = System.getProperty("line.separator");
+        StringBuilder builder = new StringBuilder(512);
+
+        builder.append(this.saints.get(0).getCSV());
+        for (int i = 1; i < this.saints.size(); i++) {
+            Saint saint = this.saints.get(i);
+            //resultado += separador + saint.getCSV();
+            //builder.append(String.format("%s%s", separador, saint.getCSV()));
+            builder.append(separador);
+            builder.append(saint.getCSV());
+        }
+
+        return builder.toString();
     }
+
+    /*@Override
+    public String toString() {
+    return String.valueOf(this.saints.size());
+    }*/
+
 }
