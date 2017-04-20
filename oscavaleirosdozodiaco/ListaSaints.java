@@ -136,18 +136,31 @@ public class ListaSaints {
     }
 
     public void addAllList(ArrayList<Saint> lista){
-		this.saints.addAll(lista);
+        this.saints.addAll(lista);
     }
 
     public ListaSaints unir(ArrayList<Saint> array) {
         ListaSaints novaLista = new ListaSaints();
-		
+
         novaLista.addAllList(saints);
         novaLista.addAllList(array);
         return novaLista;	 	
     }
 
-	public Saint getCSV() {
-		return null;
-	   }
+    public String getCSV() {
+        String csv = new String();
+        csv = csv = String.valueOf(this.get(0).getNome());
+
+        for (int i=0; i < this.saints.size(); i++) {	        
+            csv = String.valueOf(this.get(i).getNome()) + "," + String.valueOf(this.get(i).getVida()) + "," + String.valueOf(this.get(i).getArmadura().getConstelacao().getNome());
+            /*csv = String.valueOf(this.get(i).getArmadura().getConstelacao());
+            csv = String.valueOf(this.get(i).getStatus());
+            csv = String.valueOf(this.get(i).getGenero());
+            csv = String.valueOf(this.get(i).getArmaduraVestida());
+            }*/
+
+            return csv;
+        }
+        return csv;
+    }
 }
