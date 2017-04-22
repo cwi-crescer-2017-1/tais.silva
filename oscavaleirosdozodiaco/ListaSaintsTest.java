@@ -436,8 +436,63 @@ public class ListaSaintsTest {
         dohko.perderVida(90);
         dohko.vestirArmadura();
         lista.adicionar(dohko);
-        String esperado = "June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false\nDohko,10.0,,OURO,VIVO,NAO_INFORMADO,true";
+        String separador = System.getProperty("line.separator");
+        String esperado = "June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false"+separador+"Dohko,10.0,,OURO,VIVO,NAO_INFORMADO,true";
         assertEquals(esperado, lista.getCSV());
+    }
+    
+    @Test
+    public void diffSaintRecebeOutraListaIdentificaOQueNaoExisteNela() throws Exception {
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao(""), Categoria.OURO));
+        Saint misty2 = new SilverSaint("Misty2", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun2 = new Saint("Shun2", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.adicionar(june);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(shun);        
+        listaSaints.adicionar(dohko);
+        ListaSaints listaSaints2 = new ListaSaints();
+        listaSaints2.adicionar(june);
+        listaSaints2.adicionar(dohko);
+        listaSaints2.adicionar(misty2);
+        listaSaints2.adicionar(shun2);
+        ListaSaints esperado = new ListaSaints();
+        esperado.adicionar(misty);
+        esperado.adicionar(shun);
+        ListaSaints resposta = listaSaints.diff(listaSaints2);
+        assertEquals(esperado.get(0), resposta.get(0));
+        assertEquals(esperado.get(1), resposta.get(1));
+        assertEquals(esperado.getSize(), resposta.getSize());
+    }
+    
+    @Test
+    public void intersecSaintRecebeOutraListaIdentificaOQueTemIgual() throws Exception {
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao(""), Categoria.OURO));
+        Saint misty2 = new SilverSaint("Misty2", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun2 = new Saint("Shun2", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.adicionar(june);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(shun);        
+        listaSaints.adicionar(dohko);
+        ListaSaints listaSaints2 = new ListaSaints();
+        listaSaints2.adicionar(june);
+        listaSaints2.adicionar(dohko);
+        listaSaints2.adicionar(misty2);
+        listaSaints2.adicionar(shun2);
+        ListaSaints esperado = new ListaSaints();
+        esperado.adicionar(june);
+        esperado.adicionar(dohko);
+        ListaSaints resposta = listaSaints.intersec(listaSaints2);
+        assertEquals(esperado.get(0), resposta.get(0));
+        assertEquals(esperado.get(1), resposta.get(1));
+        assertEquals(esperado.getSize(), resposta.getSize());
     }
 
 }
