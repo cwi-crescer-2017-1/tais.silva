@@ -16,7 +16,7 @@ public class BatalhaTest {
         assertEquals(100, shaina.getVida(), 0.01);
         assertEquals(90, hyoga.getVida(), 0.01);
     }
-    
+
     @Test
     public void categoriasIguaisSaint2PerdeVida() throws Exception {
         // Arrange
@@ -29,7 +29,7 @@ public class BatalhaTest {
         assertEquals(100, aldebaran.getVida(), 0.01);
         assertEquals(90, mascaraMorte.getVida(), 0.01);
     }
-    
+
     @Test
     public void categoriaSaint2MaiorSaint1PerdeVida() throws Exception {
         // Arrange
@@ -41,5 +41,5 @@ public class BatalhaTest {
         // Assert
         assertEquals(90, ikki.getVida(), 0.01);
         assertEquals(100, mascaraMorte.getVida(), 0.01);
-    }
+    }    
 }

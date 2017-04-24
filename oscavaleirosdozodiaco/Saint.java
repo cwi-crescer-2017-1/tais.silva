@@ -10,6 +10,8 @@ public abstract class Saint {
     private double vida = 100.;
     protected int qtdSentidosDespertados;
     private int acumuladorProximoGolpe = 0;
+    private ArrayList<Movimento> listaMovimentos = new ArrayList<>();
+    private int acumuladorProximoMovimento = 0;
 
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -42,7 +44,7 @@ public abstract class Saint {
     public double getVida() {
         return this.vida;
     }
-    
+
     public String getNome() {
         return this.nome;
     }
@@ -70,31 +72,31 @@ public abstract class Saint {
     public int getQtdSentidosDespertados() {
         return this.qtdSentidosDespertados;
     }
-    
+
     private Constelacao getConstelacao() {
         return this.armadura.getConstelacao();
     }
-    
+
     public ArrayList<Golpe> getGolpes() {
         return getConstelacao().getGolpes();
     }
-    
+
     public void aprenderGolpe(Golpe golpe) {
         getConstelacao().adicionarGolpe(golpe);
     }
-    
+
     public Golpe getProximoGolpe() {
         ArrayList<Golpe> golpes = getGolpes();
         int posicao = this.acumuladorProximoGolpe % golpes.size();
         this.acumuladorProximoGolpe++;
         return golpes.get(posicao);
     }
-    
+
     // June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false
     // Dohko,10.0,,OURO,VIVO,NAO_INFORMADO,true
-    
+
     public String getCSV() {
-        
+
         // Interpolação de Strings: return `${nome},${vida},${status}`;
         return String.format(
             "%s,%s,%s,%s,%s,%s,%s",
@@ -106,15 +108,25 @@ public abstract class Saint {
             this.genero,
             this.armaduraVestida
         );
-        
+
         /*return  
-            this.nome + "," +
-            this.vida + "," +
-            this.getConstelacao().getNome() + "," +
-            this.armadura.getCategoria() + "," +
-            this.status + "," +
-            this.genero + "," +
-            this.armaduraVestida;*/
+        this.nome + "," +
+        this.vida + "," +
+        this.getConstelacao().getNome() + "," +
+        this.armadura.getCategoria() + "," +
+        this.status + "," +
+        this.genero + "," +
+        this.armaduraVestida;*/
+    }
+
+    public void adicionarMovimento(Movimento movimento) {
+        this.listaMovimentos.add(movimento);
+    }
+
+    public Movimento getProximoMovimento(){
+        int posicao = this.acumuladorProximoMovimento % listaMovimentos.size();
+        this.acumuladorProximoMovimento++;
+        return listaMovimentos.get(posicao);
     }
 
 }
