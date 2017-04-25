@@ -436,7 +436,8 @@ public class ListaSaintsTest {
         dohko.perderVida(90);
         dohko.vestirArmadura();
         lista.adicionar(dohko);
-        String esperado = "June,84.5,,BRONZE,VIVO,FEMININO,false\nDohko,10.0,Libra,OURO,VIVO,NAO_INFORMADO,true";
+        String separador = System.getProperty("line.separator");
+        String esperado = "June,84.5,,BRONZE,VIVO,FEMININO,false"+separador+"Dohko,10.0,Libra,OURO,VIVO,NAO_INFORMADO,true";
         assertEquals(esperado, lista.getCSV());
     }
 
