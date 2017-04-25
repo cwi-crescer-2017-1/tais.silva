@@ -283,11 +283,39 @@ public class SaintTest {
     public void testarQtsSaints() throws Exception {
         int qtdSaints = Saint.getQtdSaints();        
         Saint saga = new GoldSaint("Saga", "Gêmeos");
-        Saint hyoga = new GoldSaint("Hyoga", "Cisne");
-        Saint seiya = new GoldSaint("Seiya", "Pégaso");
+        Saint dohko = new GoldSaint("Dohko", "Libra");
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         
         assertEquals(3, Saint.getQtdSaints() - qtdSaints);
 
     }
+    /*
+    @Test
+    public void testarGetId() throws Exception {     
+        Saint saga = new GoldSaint("Saga", "Gêmeos");
+        Saint dohko = new GoldSaint("Dohko", "Libra");        
+        
+        assertEquals(1, saga.getId());
+
+    }
+    
+    @Test
+    public void testarGetId2() throws Exception {     
+        Saint saga = new GoldSaint("Saga", "Gêmeos");
+        Saint dohko = new GoldSaint("Dohko", "Libra");        
+        
+        assertEquals(2, dohko.getId());
+
+    }
+    
+    @Test
+    public void testarGetId3() throws Exception {     
+        Saint saga = new GoldSaint("Saga", "Gêmeos");
+        Saint dohko = new GoldSaint("Dohko", "Libra");        
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        
+        assertEquals(3, seiya.getId());
+
+    }*/ 
 
 }

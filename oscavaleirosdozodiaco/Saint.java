@@ -12,11 +12,13 @@ public abstract class Saint {
     private int acumuladorProximoGolpe = 0, acumuladorProximoMovimento = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
     private static int qtdSaints = 0;
+    private static int id = 0;
 
     protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
         Saint.qtdSaints++;
+        this.id++;
         /*int valorCategoria = this.armadura.getCategoria().getValor();
         this.qtdSentidosDespertados += valorCategoria;*/
     }
@@ -24,7 +26,11 @@ public abstract class Saint {
     public static int getQtdSaints() {
         return Saint.qtdSaints;
     }
-
+    
+    public int getId(){
+        return this.id;
+    }
+    
     public void vestirArmadura() {
         this.armaduraVestida = true;
     }
