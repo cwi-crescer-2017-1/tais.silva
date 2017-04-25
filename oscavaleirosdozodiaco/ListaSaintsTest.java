@@ -408,6 +408,19 @@ public class ListaSaintsTest {
         assertEquals(june, resultado.get(2));
     }
 
+    @Test 
+    public void intersecSaintRecebeOutraListaIdentificaOQueTemIgual() throws Exception {
+        BronzeSaint june = new BronzeSaint("June", "Camaleão"); 
+        SilverSaint misty = new SilverSaint("Misty", "Lagarto"); 
+        BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda"); 
+        GoldSaint dohko = new GoldSaint("Dohko", "Touro"); 
+        SilverSaint misty2 = new SilverSaint("Misty2", "Lagarto"); 
+        BronzeSaint shun2 = new BronzeSaint("Shun2", "Andrômeda"); 
+        ListaSaints listaSaints = new ListaSaints(); 
+        listaSaints.adicionar(june); 
+        listaSaints.adicionar(misty); 
+    }
+
     @Test
     public void getCSVComListaVazia() throws Exception {
         ListaSaints lista = new ListaSaints();
