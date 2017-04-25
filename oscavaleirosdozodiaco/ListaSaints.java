@@ -143,32 +143,4 @@ public class ListaSaints {
     return String.valueOf(this.saints.size());
     }*/
 
-    public ListaSaints diff(ListaSaints listaSaints2) {
-        ListaSaints novaLista = new ListaSaints();
-
-        for ( Saint saint : this.saints) {
-            boolean naoExisteNa2 = !listaSaints2.saints.contains(saint);      
-            if (naoExisteNa2) {
-                novaLista.adicionar(saint);
-            }
-        }      
-        return novaLista;
-    }
-
-
-    public int getSize() {
-        return this.saints.size();
-    }
-    
-    public ListaSaints intersec(ListaSaints listaSaints2){
-        ListaSaints novaLista = new ListaSaints();
-
-        for ( Saint saint : this.saints) {
-            boolean naoExisteNa2 = listaSaints2.saints.contains(saint);      
-            if (naoExisteNa2) {
-                novaLista.adicionar(saint);
-            }
-        }      
-        return novaLista;
-    }
 }

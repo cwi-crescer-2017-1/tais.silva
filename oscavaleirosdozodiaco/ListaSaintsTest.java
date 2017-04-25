@@ -8,7 +8,7 @@ public class ListaSaintsTest {
 
     @Test public void buscarSaintExistentePorNome() throws Exception {
         ListaSaints lista = new ListaSaints();
-        BronzeSaint june = new BronzeSaint("June", "Camaleão");
+        Saint june = new BronzeSaint("June", "Camaleão");
         lista.adicionar(june);
         assertEquals(june, lista.buscarPorNome("June"));
     }
@@ -16,7 +16,7 @@ public class ListaSaintsTest {
     @Test public void buscarSaintExistenteComRepeticaoDeNomes() throws Exception {
         ListaSaints lista = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint june2 = new SilverSaint("June", "Camaleão");
+        Saint june2 = new SilverSaint("June", "Camaleão 2");
         lista.adicionar(june2);
         lista.adicionar(june);
         assertEquals(june2, lista.buscarPorNome("June"));
@@ -25,7 +25,7 @@ public class ListaSaintsTest {
     @Test public void buscarSaintInexistente() throws Exception {
         ListaSaints lista = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint june2 = new SilverSaint("June", "Camaleão");
+        Saint june2 = new SilverSaint("June", "Camaleão 2");
         lista.adicionar(june2);
         lista.adicionar(june);
         assertNull(lista.buscarPorNome("San Junipero"));
@@ -55,7 +55,7 @@ public class ListaSaintsTest {
     public void buscarPorCategoriaExistente() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         listaSaints.adicionar(misty);
         listaSaints.adicionar(june);
         ArrayList<Saint> resultadoBusca = listaSaints.buscarPorCategoria(Categoria.BRONZE);
@@ -67,7 +67,7 @@ public class ListaSaintsTest {
     public void buscarPorCategoriaComMaisDeUmExistenteNaCategoria() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -98,7 +98,7 @@ public class ListaSaintsTest {
     public void buscarPorStatusExistente() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         listaSaints.adicionar(misty);
         listaSaints.adicionar(june);
         misty.perderVida(100);
@@ -111,7 +111,7 @@ public class ListaSaintsTest {
     public void buscarPorStatusComMaisDeUmExistenteNaCategoria() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -136,7 +136,7 @@ public class ListaSaintsTest {
     public void getSaintMaiorVidaComApenasTres() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -165,7 +165,7 @@ public class ListaSaintsTest {
     public void getSaintMenorVidaComApenasTres() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -186,7 +186,7 @@ public class ListaSaintsTest {
     public void ordenarComListaTotalmenteDesordenada() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -205,7 +205,7 @@ public class ListaSaintsTest {
     public void ordenarComListaTotalmenteOrdenada() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -244,7 +244,7 @@ public class ListaSaintsTest {
     public void ordenarComListaDeValoresIguais() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -262,7 +262,7 @@ public class ListaSaintsTest {
     public void ordenarTipoOrdenacaoComListaTotalmenteDesordenada() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -281,7 +281,7 @@ public class ListaSaintsTest {
     public void ordenarTipoOrdenacaoComListaTotalmenteOrdenada() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -320,7 +320,7 @@ public class ListaSaintsTest {
     public void ordenarTipoOrdenacaoComListaDeValoresIguais() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -338,7 +338,7 @@ public class ListaSaintsTest {
     public void ordenarTipoOrdenacaoDescendenteComListaTotalmenteDesordenada() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -357,7 +357,7 @@ public class ListaSaintsTest {
     public void ordenarTipoOrdenacaoDescendenteComListaTotalmenteOrdenada() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -396,7 +396,7 @@ public class ListaSaintsTest {
     public void ordenarTipoOrdenacaoDescendenteComListaDeValoresIguais() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
         BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
         listaSaints.adicionar(shun);
         listaSaints.adicionar(misty);
@@ -428,71 +428,16 @@ public class ListaSaintsTest {
     @Test
     public void getCSVComApenasDoisSaints() throws Exception {
         ListaSaints lista = new ListaSaints();
-        BronzeSaint june = new BronzeSaint("June", "Camaleão");
+        BronzeSaint june = new BronzeSaint("June", "");
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
         lista.adicionar(june);
-        GoldSaint dohko = new GoldSaint("Dohko", "Touro");
+        Saint dohko = new GoldSaint("Dohko", "Libra");
         dohko.perderVida(90);
         dohko.vestirArmadura();
         lista.adicionar(dohko);
-        String separador = System.getProperty("line.separator");
-        String esperado = "June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false"+separador+"Dohko,10.0,Touro,OURO,VIVO,NAO_INFORMADO,true";
+        String esperado = "June,84.5,,BRONZE,VIVO,FEMININO,false\nDohko,10.0,Libra,OURO,VIVO,NAO_INFORMADO,true";
         assertEquals(esperado, lista.getCSV());
-    }
-    
-    @Test
-    public void diffSaintRecebeOutraListaIdentificaOQueNaoExisteNela() throws Exception {
-        BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
-        BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
-        GoldSaint dohko = new GoldSaint("Dohko", "Touro");
-        Saint misty2 = new SilverSaint("Misty2", "Lagarto");
-        BronzeSaint shun2 = new BronzeSaint("Shun2", "Andrômeda");
-        ListaSaints listaSaints = new ListaSaints();
-        listaSaints.adicionar(june);
-        listaSaints.adicionar(misty);
-        listaSaints.adicionar(shun);        
-        listaSaints.adicionar(dohko);
-        ListaSaints listaSaints2 = new ListaSaints();
-        listaSaints2.adicionar(june);
-        listaSaints2.adicionar(dohko);
-        listaSaints2.adicionar(misty2);
-        listaSaints2.adicionar(shun2);
-        ListaSaints esperado = new ListaSaints();
-        esperado.adicionar(misty);
-        esperado.adicionar(shun);
-        ListaSaints resposta = listaSaints.diff(listaSaints2);
-        assertEquals(esperado.get(0), resposta.get(0));
-        assertEquals(esperado.get(1), resposta.get(1));
-        assertEquals(esperado.getSize(), resposta.getSize());
-    }
-    
-    @Test
-    public void intersecSaintRecebeOutraListaIdentificaOQueTemIgual() throws Exception {
-        BronzeSaint june = new BronzeSaint("June", "Camaleão");
-        SilverSaint misty = new SilverSaint("Misty", "Lagarto");
-        BronzeSaint shun = new BronzeSaint("Shun", "Andrômeda");
-        GoldSaint dohko = new GoldSaint("Dohko", "Touro");
-        SilverSaint misty2 = new SilverSaint("Misty2", "Lagarto");
-        BronzeSaint shun2 = new BronzeSaint("Shun2", "Andrômeda");
-        ListaSaints listaSaints = new ListaSaints();
-        listaSaints.adicionar(june);
-        listaSaints.adicionar(misty);
-        listaSaints.adicionar(shun);        
-        listaSaints.adicionar(dohko);
-        ListaSaints listaSaints2 = new ListaSaints();
-        listaSaints2.adicionar(june);
-        listaSaints2.adicionar(dohko);
-        listaSaints2.adicionar(misty2);
-        listaSaints2.adicionar(shun2);
-        ListaSaints esperado = new ListaSaints();
-        esperado.adicionar(june);
-        esperado.adicionar(dohko);
-        ListaSaints resposta = listaSaints.intersec(listaSaints2);
-        assertEquals(esperado.get(0), resposta.get(0));
-        assertEquals(esperado.get(1), resposta.get(1));
-        assertEquals(esperado.getSize(), resposta.getSize());
     }
 
 }
