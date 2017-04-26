@@ -1,8 +1,12 @@
 public final class GoldSaint extends Saint {
-    
+
     public GoldSaint(String nome, String constelacao) throws Exception {
         super(nome, new Armadura(new Constelacao(constelacao), Categoria.OURO));
-        this.qtdSentidosDespertados = 7;
+        try {
+            this.qtdSentidosDespertados = 7;
+        } catch (Exception e) {
+            System.out.println("Erro de atribuição dos sentidos");
+        }
         if ( !constelacao.equals("Áries") 
         && !constelacao.equals("Touro")
         && !constelacao.equals("Gêmeos")
@@ -16,14 +20,14 @@ public final class GoldSaint extends Saint {
         && !constelacao.equals("Aquário")
         && !constelacao.equals("Peixes")) {
             // dar erro
-            throw new Exception("Constelação inválida");
+            throw new ConstelacaoInvalidaException("Constelação inválida");
         }
     }
-    
+
     public void moverNaVelocidadeDaLuz() {
         System.out.println(this.getNome() + " na velocidade da Luz!");
     }
-    
+
     public String getNome() {
         return super.getNome() + "!!!!";
     }
