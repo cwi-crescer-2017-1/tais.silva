@@ -13,6 +13,7 @@ public abstract class Saint {
     private int acumuladorProximoGolpe = 0, acumuladorProximoMovimento = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
     private static int qtdSaints = 0, acumuladorQtdSaints = 0;
+    private boolean protecao;
 
     protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -31,7 +32,7 @@ public abstract class Saint {
     public static int getQtdSaints() {
         return Saint.qtdSaints;
     }
-    
+
     public static int getAcumuladorQtdSaints() {
         return Saint.acumuladorQtdSaints;
     }
@@ -106,6 +107,18 @@ public abstract class Saint {
     }
 
     public Golpe getProximoGolpe() {
+        // Caso eu queira utilizar protecao como static
+        /*Golpe resposta;
+        if (protecao) {
+        resposta = new Golpe("Sem Golpe", 0);
+        this.setProtecao(false);
+        } else {
+        ArrayList<Golpe> golpes = getGolpes();
+        int posicao = this.acumuladorProximoGolpe % golpes.size();
+        this.acumuladorProximoGolpe++;
+        resposta = golpes.get(posicao);
+        }	
+        return resposta;*/
         ArrayList<Golpe> golpes = getGolpes();
         int posicao = this.acumuladorProximoGolpe % golpes.size();
         this.acumuladorProximoGolpe++;
@@ -155,4 +168,11 @@ public abstract class Saint {
         this.adicionarMovimento(new Golpear(this, golpeado));
     }
 
+    public void setProtecao(boolean condicao){
+        this.protecao = condicao;
+    }
+
+    public boolean getProtecao() {
+        return this.protecao;
+    }
 }
