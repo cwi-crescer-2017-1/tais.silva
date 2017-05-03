@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="69916421-FCD5-2DC4-2A24-9EFA16EC4709" name="Cliente">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>FA090523-93E5-62E4-8384-A97B6E56C890</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCliente" id="AE990746-F95A-2892-4E00-7E78E127AB04">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>8A145776-DDD4-26A8-D785-1101EFC72870</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="6E31705F-3F9E-6492-9B5B-482A7FE75601">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>91A9EE00-FDFB-6082-A4D7-CCE41CE51063</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CPF" id="FB11985F-3FA2-9752-CDDE-BFABF40464A6">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>542579DD-3BF4-48F0-926B-08D309F50464</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereço" id="D3048B4B-BDD0-C335-787A-29BC14C3F492">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>AA895E1E-8BD8-1630-E542-3DBE01E4D323</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Beneficiario_IDBeneficiario" id="5A2DE51C-9AD6-6E92-E2F4-52150659A0C2">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:08:53 UTC</createdTime>
+<generatorID>35F26139-5E8F-CB7A-222F-118DD7D4E245</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6905CFE4-268B-5CE3-D147-EDB027A45327" referredColumn="04679A3F-7E93-C23C-1E9F-552EE00CF69E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DC9E4873-4E49-F55E-B323-B19A5A691F4F" name="Cliente_PK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>F770214A-760A-410B-6268-341F4C6B44FD</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE990746-F95A-2892-4E00-7E78E127AB04"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="13DE5F72-0212-F796-D70B-4DB0E32E5422" name="Cliente_Beneficiario_FK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:08:53 UTC</createdTime>
+<generatorID>497186E2-0FF1-EE08-A8AB-953CF7EAD37B</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5A2DE51C-9AD6-6E92-E2F4-52150659A0C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

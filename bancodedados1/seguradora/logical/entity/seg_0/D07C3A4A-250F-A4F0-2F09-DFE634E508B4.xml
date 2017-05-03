@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D07C3A4A-250F-A4F0-2F09-DFE634E508B4" name="Beneficiario">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 18:59:13 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDBeneficiario" id="63BBA868-5B66-7B0F-43B6-1C60F5DBE908">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 18:59:28 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDContrato" id="47EA10D1-4A31-C37D-6518-315886E63853">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:12:35 UTC</createdTime>
+<generatorID>BCDA73A2-BD4D-ADE5-2A17-805A3A5D608F</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<referedAttribute>559044F8-95D9-2382-7AF0-A9FF08E7B8A4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3AC2989A-1175-386F-1612-7A20DB7B0E84" name="Beneficiarios PK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 18:59:40 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>63BBA868-5B66-7B0F-43B6-1C60F5DBE908</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

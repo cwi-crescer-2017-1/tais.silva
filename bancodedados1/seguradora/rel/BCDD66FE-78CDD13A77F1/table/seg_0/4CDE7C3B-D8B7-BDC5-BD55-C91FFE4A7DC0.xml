@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4CDE7C3B-D8B7-BDC5-BD55-C91FFE4A7DC0" name="Beneficiario">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>D07C3A4A-250F-A4F0-2F09-DFE634E508B4</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDBeneficiario" id="04679A3F-7E93-C23C-1E9F-552EE00CF69E">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>63BBA868-5B66-7B0F-43B6-1C60F5DBE908</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DAD1E770-B0E3-5210-2273-8A4A38B48245" name="Beneficiario_PK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>3AC2989A-1175-386F-1612-7A20DB7B0E84</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04679A3F-7E93-C23C-1E9F-552EE00CF69E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

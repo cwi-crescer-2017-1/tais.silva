@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="02515A6E-0FFD-ABAD-6463-ED4F2748A8E6" name="Contrato">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 18:54:38 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDContrato" id="559044F8-95D9-2382-7AF0-A9FF08E7B8A4">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 18:55:16 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataInicio" id="0016B34D-DA55-185A-2C2C-B1888975DBCC">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 18:54:50 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataFim" id="375B4FEC-0898-9277-7D3A-82062709CEEC">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 18:55:02 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDCliente" id="8B4FB71E-BAED-AD05-42D1-35585ED0D782">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:14:00 UTC</createdTime>
+<generatorID>A76E44DA-8DB5-402F-AB10-CFF7B5E3E9AB</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<referedAttribute>8A145776-DDD4-26A8-D785-1101EFC72870</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDSeguro" id="065D03EE-9BB5-E006-2847-2FDCC2ECE338">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:15:53 UTC</createdTime>
+<generatorID>71EDE0C8-84B7-75A9-8C1D-025195200A50</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<referedAttribute>1F5E945F-7EFE-98CF-464B-E9B536F3D461</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7ABCFCA3-34ED-3322-E931-F2668AF6F28D" name="Contrato PK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 18:55:00 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>559044F8-95D9-2382-7AF0-A9FF08E7B8A4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

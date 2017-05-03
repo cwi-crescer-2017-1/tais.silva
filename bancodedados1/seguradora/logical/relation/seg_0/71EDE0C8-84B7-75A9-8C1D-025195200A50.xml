@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_1_Contrato_1_Seguro" directorySegmentName="seg_0" id="71EDE0C8-84B7-75A9-8C1D-025195200A50">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:15:53 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BCDD66FE-275D-A58B-1CB4-78CDD13A77F1" value="true"/>
+</engineerTo>
+<sourcePk>E7FB6A07-38D2-8E24-7D82-84AF28429C91</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>75319A1B-C6DF-CF36-C469-C1299DE50433</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>02515A6E-0FFD-ABAD-6463-ED4F2748A8E6</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

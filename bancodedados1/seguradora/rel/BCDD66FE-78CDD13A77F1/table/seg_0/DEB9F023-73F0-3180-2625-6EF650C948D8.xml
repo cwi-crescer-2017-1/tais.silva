@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DEB9F023-73F0-3180-2625-6EF650C948D8" name="Seguros">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>75319A1B-C6DF-CF36-C469-C1299DE50433</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSeguro" id="CD7C4B84-1CAF-6DE0-D02C-25B9033DCCBE">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>1F5E945F-7EFE-98CF-464B-E9B536F3D461</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TipoSeguro" id="B5A1142B-C30F-227A-8955-F03711059A15">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>3B275C33-5E99-527C-9754-2AD2828B414F</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="91C1608B-B329-C582-C7B3-63A9D9A9473D" name="Seguros_PK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 19:06:01 UTC</createdTime>
+<generatorID>E7FB6A07-38D2-8E24-7D82-84AF28429C91</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CD7C4B84-1CAF-6DE0-D02C-25B9033DCCBE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

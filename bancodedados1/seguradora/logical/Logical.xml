@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="18F8EDCC-82FD-62FA-521C-0072F504CC0E" mainViewID="329E469E-30D9-B4DA-68C7-4D62079D7232">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-03 16:58:27 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>
