@@ -23,22 +23,32 @@ Inner Join Departamento d
 Order by e.salario DESC;
 
 -- Exercício 3: reajuste salarial
--- Aplique uma alteração salarial em todos os empregados que o departamento fique na localidade de SAO PAULO, este reajuste deve ser de 17,3%. Por segurança faça uma cópia da tabela Empregado antes de iniciar esta tarefa.
+-- Aplique uma alteração salarial em todos os empregados que o departamento fique na localidade de SAO PAULO,
+-- este reajuste deve ser de 17,3%.
+-- Por segurança faça uma cópia da tabela Empregado antes de iniciar esta tarefa.
+BEGIN TRANSACTION
+
+Select *  
+	   Format(((Salario * 0.173) + Salario), '#,00') as Salario
+From   Empregado e
+Inner Join Departamento d
+				on e.IDDepartamento = d.IDDepartamento
+				Where d.Localizacao = 'SAO PAULO'
+
+				select* from departamento
+
+-- Exercício 4: cidades duplicadas
+-- Liste todas as cidades duplicadas (nome e UF iguais).
+
+Select Nome, 
+	   UF
+From   Cidade
+Group By Nome
 
 
 
-Exercício 4
-
-Cidades duplicadas
-
-Liste todas as cidades duplicadas (nome e UF iguais).
-
-Exercício 5
-
-Definindo Cidades
-
-Faça uma alteraçao nas cidades que tenham nome+UF duplicados, adicione no final do nome um asterisco. Mas atenção! apenas a cidade com maior ID deve ser alterada.
-
+-- Exercício 5: definindo Cidades
+-- Faça uma alteraçao nas cidades que tenham nome+UF duplicados, adicione no final do nome um asterisco. Mas atenção! apenas a cidade com maior ID deve ser alterada.
 Explicação adicional - VIEW
 
 Para reaproveitar uma consulta SQL um dos recursos oferecidos é a criação de VIEWS. Neste recurso o comando SQL é salvo no dicionário de dados do SGBD e pode ser reutilizado novamente.
