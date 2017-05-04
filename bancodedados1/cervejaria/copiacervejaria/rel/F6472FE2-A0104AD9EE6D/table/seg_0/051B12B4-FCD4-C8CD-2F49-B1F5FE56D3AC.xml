@@ -60,6 +60,51 @@
 <ownDataTypeParameters>,20,3</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="Receita_IDReceita" id="00CCE851-C9C1-131A-5F07-2605901AE035">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:17 UTC</createdTime>
+<generatorID>0C3804F1-7E99-0DB0-0A11-686002757719</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B12954BF-24F7-B7F6-429B-90816FD8A55C" referredColumn="95CFFE31-9738-EDB3-EE3E-F4C0246BE90B"/>
+</associations>
+</Column>
+<Column name="Receita_Ingrediente_IDIngrediente" id="327F6CE5-7114-E714-A04E-0D90873F96C8">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:17 UTC</createdTime>
+<generatorID>DD232E97-37BA-62E2-6B17-2439B06915A1</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B12954BF-24F7-B7F6-429B-90816FD8A55C" referredColumn="AFAE9F11-8553-F943-EAA0-5ADA5111ABCF"/>
+</associations>
+</Column>
+<Column name="Receita_Material_IDMaterial" id="A21CA0AD-3114-2E6C-8B30-6154A3647D87">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:17 UTC</createdTime>
+<generatorID>F57CDC8C-7593-1000-82BE-C53ECF314F2B</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B12954BF-24F7-B7F6-429B-90816FD8A55C" referredColumn="856663EB-02AC-FD6A-D419-A1507EAFDFA7"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="2F96D2D3-46C5-C365-CBA6-97D780BFE424" name="Locacao_PK">
@@ -72,6 +117,9 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="92249098-4FE8-4D4B-E6CA-09C0B61C5503"/>
+<colUsage columnID="00CCE851-C9C1-131A-5F07-2605901AE035"/>
+<colUsage columnID="327F6CE5-7114-E714-A04E-0D90873F96C8"/>
+<colUsage columnID="A21CA0AD-3114-2E6C-8B30-6154A3647D87"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="7EF36004-1D1B-5E35-D685-1CED5A38B966" name="Locacao_Venda_FK">
@@ -83,6 +131,19 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="F6C14D42-92DF-7F55-19A6-F6BF42DD4DB8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2681B38C-E013-CF80-0E43-5467B6435FFD" name="Locacao_Receita_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:17 UTC</createdTime>
+<generatorID>BD42C880-80F1-4209-7B5B-52EFA6B8F6C2</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00CCE851-C9C1-131A-5F07-2605901AE035"/>
+<colUsage columnID="327F6CE5-7114-E714-A04E-0D90873F96C8"/>
+<colUsage columnID="A21CA0AD-3114-2E6C-8B30-6154A3647D87"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

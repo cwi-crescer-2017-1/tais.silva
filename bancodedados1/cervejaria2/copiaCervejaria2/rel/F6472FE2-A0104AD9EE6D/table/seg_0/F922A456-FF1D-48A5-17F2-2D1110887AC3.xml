@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F922A456-FF1D-48A5-17F2-2D1110887AC3" name="Receita_Material">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Receita_IDReceita" id="C010C161-2816-1F7B-BA89-D508B6C3CA5D">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="23812B42-A9EC-C2DA-94D7-1717204913DC" referredColumn="95CFFE31-9738-EDB3-EE3E-F4C0246BE90B"/>
+</associations>
+</Column>
+<Column name="Material_IDMaterial" id="AC4128AF-E737-54D4-2948-B22004D6CC99">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F04FAB88-0717-6DE9-AE38-7D58C3A0049A" referredColumn="8CB8A030-69B8-0957-E2D4-4050DE68AEF1"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A37FDFE0-7A13-5776-C680-26E03AEA10E0" name="Receita_Material_PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C010C161-2816-1F7B-BA89-D508B6C3CA5D"/>
+<colUsage columnID="AC4128AF-E737-54D4-2948-B22004D6CC99"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F62C703B-6563-F00B-E5A0-C37C90E76374" name="Receita_Material_Receita_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<generatorID>EE6BF3E2-7925-A6A7-17A7-1D11B2C54246</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C010C161-2816-1F7B-BA89-D508B6C3CA5D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FDAE7DB9-1031-08CD-BEFD-86673A63BD4C" name="Receita_Material_Material_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<generatorID>EE6BF3E2-7925-A6A7-17A7-1D11B2C54246</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AC4128AF-E737-54D4-2948-B22004D6CC99"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -47,6 +47,51 @@
 <colAssociation fkAssociation="3F602DD0-B03B-0CF4-2946-D89D65D5E5C5" referredColumn="30747ECC-5A8D-37C8-2FC3-ABE1B1B8DD2C"/>
 </associations>
 </Column>
+<Column name="Receita_IDReceita" id="41E03E21-D0B5-9E0D-5430-DED233C7DE67">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:17 UTC</createdTime>
+<generatorID>D2881EDE-67F4-45D5-5786-150C12264BBC</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB87399A-37EC-8EA3-2D3B-DE9828215222" referredColumn="95CFFE31-9738-EDB3-EE3E-F4C0246BE90B"/>
+</associations>
+</Column>
+<Column name="Receita_Ingrediente_IDIngrediente" id="4218339F-DAA2-AD43-8F7C-B8FE21B7FFF1">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:17 UTC</createdTime>
+<generatorID>81255FE1-EC33-5CFD-0372-EFED57624C56</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB87399A-37EC-8EA3-2D3B-DE9828215222" referredColumn="AFAE9F11-8553-F943-EAA0-5ADA5111ABCF"/>
+</associations>
+</Column>
+<Column name="Receita_Material_IDMaterial" id="37192B8A-B557-112D-D58B-C1C68EB9EFEC">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:17 UTC</createdTime>
+<generatorID>8B13DBEF-5853-B8E9-7484-69A89BB03949</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB87399A-37EC-8EA3-2D3B-DE9828215222" referredColumn="856663EB-02AC-FD6A-D419-A1507EAFDFA7"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="7AAC85B6-4722-1C3A-AD06-65A840742CED" name="PedidoCerveja_PK">
@@ -59,6 +104,9 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="860A9BF6-7B85-91FD-0255-DCBB781272F3"/>
+<colUsage columnID="41E03E21-D0B5-9E0D-5430-DED233C7DE67"/>
+<colUsage columnID="4218339F-DAA2-AD43-8F7C-B8FE21B7FFF1"/>
+<colUsage columnID="37192B8A-B557-112D-D58B-C1C68EB9EFEC"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="3059F6E1-8996-976D-238F-18064C5C7045" name="PedidoCerveja_Venda_FK">
@@ -70,6 +118,19 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="6F04ED8E-98E4-A87C-15BC-B93CBBF0125D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="84CCFDE2-C120-638A-7DFE-E5B017D1B314" name="PedidoCerveja_Receita_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:17 UTC</createdTime>
+<generatorID>FAFB819F-17FE-5B67-25BA-A1DC6C17A1EA</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="41E03E21-D0B5-9E0D-5430-DED233C7DE67"/>
+<colUsage columnID="4218339F-DAA2-AD43-8F7C-B8FE21B7FFF1"/>
+<colUsage columnID="37192B8A-B557-112D-D58B-C1C68EB9EFEC"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

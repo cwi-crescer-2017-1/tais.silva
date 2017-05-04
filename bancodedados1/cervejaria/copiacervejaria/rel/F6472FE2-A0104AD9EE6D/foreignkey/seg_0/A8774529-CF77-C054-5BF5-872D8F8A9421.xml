@@ -10,7 +10,7 @@
 <keyObject>7AAC85B6-4722-1C3A-AD06-65A840742CED</keyObject>
 <referredKeyID>7AAC85B6-4722-1C3A-AD06-65A840742CED</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>IDPedidoCerveja</refColNames>
+<refColNames>IDPedidoCerveja,Receita_IDReceita,Receita_Ingrediente_IDIngrediente,Receita_Material_IDMaterial</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

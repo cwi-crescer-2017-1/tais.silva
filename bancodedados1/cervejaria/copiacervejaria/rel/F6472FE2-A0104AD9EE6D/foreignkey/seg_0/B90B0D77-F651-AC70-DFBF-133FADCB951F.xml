@@ -10,7 +10,7 @@
 <keyObject>2F96D2D3-46C5-C365-CBA6-97D780BFE424</keyObject>
 <referredKeyID>2F96D2D3-46C5-C365-CBA6-97D780BFE424</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>IDLocacao</refColNames>
+<refColNames>IDLocacao,Receita_IDReceita,Receita_Ingrediente_IDIngrediente,Receita_Material_IDMaterial</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

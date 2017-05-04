@@ -41,29 +41,29 @@
 <dataTypeScale>3</dataTypeScale>
 <ownDataTypeParameters>,20,3</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IDLocacao" id="F979E9B8-5A75-6FB3-FFAA-8CB464C81928">
+<Attribute name="IDIngrediente" id="87AE6A78-6EC3-C7C2-0C06-3CB268492983">
 <createdBy>Tiago</createdBy>
-<createdTime>2017-05-04 02:37:16 UTC</createdTime>
-<generatorID>7A56693D-CCD6-9B34-C909-025699F2BF3F</generatorID>
+<createdTime>2017-05-04 03:56:28 UTC</createdTime>
+<generatorID>D7121926-4A6E-BC7B-71DB-B22EFBD0858E</generatorID>
 <ownerDesignName>copiacervejaria</ownerDesignName>
 <engineerTo>
 <item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
 </engineerTo>
-<referedAttribute>6AC7DB07-910C-737D-3095-0E1114E56928</referedAttribute>
+<referedAttribute>EC947D12-D76C-FC46-61A1-FDA11DD4F11B</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IDPedidoCerveja" id="C8196102-85ED-75AD-6D71-0FFEDC0D1251">
+<Attribute name="IDMaterial" id="07F7E7A3-4019-DC99-3453-577DC3F50F45">
 <createdBy>Tiago</createdBy>
-<createdTime>2017-05-04 02:37:44 UTC</createdTime>
-<generatorID>330288D8-FAC4-E7C3-5E1E-9B28B3EFEDE1</generatorID>
+<createdTime>2017-05-04 03:56:47 UTC</createdTime>
+<generatorID>A9A24F6E-C4F1-E047-6FEB-E8456E6EFDCF</generatorID>
 <ownerDesignName>copiacervejaria</ownerDesignName>
 <engineerTo>
 <item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
 </engineerTo>
-<referedAttribute>971A9B33-A525-6EF1-9781-7A684D368B32</referedAttribute>
+<referedAttribute>AB4E6EEF-85CD-55A3-031C-6BA073D7C238</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -82,6 +82,8 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>B292B6A5-248C-C387-F0AB-0516A696E240</attributeRef>
+<attributeRef>87AE6A78-6EC3-C7C2-0C06-3CB268492983</attributeRef>
+<attributeRef>07F7E7A3-4019-DC99-3453-577DC3F50F45</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

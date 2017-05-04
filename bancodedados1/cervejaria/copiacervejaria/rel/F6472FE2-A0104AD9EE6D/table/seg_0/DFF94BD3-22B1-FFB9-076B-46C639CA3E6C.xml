@@ -13,7 +13,6 @@
 <createdTime>2017-05-04 02:50:17 UTC</createdTime>
 <generatorID>EC947D12-D76C-FC46-61A1-FDA11DD4F11B</generatorID>
 <ownerDesignName>copiacervejaria</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -61,12 +60,23 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CFA18E1B-1B08-8975-3EB6-171E6241AA09" name="Ingrediente_IDIngrediente_UN">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:16 UTC</createdTime>
+<generatorID>3884E905-6874-50FA-9DEB-AD0B10F0FD20</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8A606E26-25AB-2C9B-A491-5B171AA93C1C"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="5254B3FB-C6AD-FE03-22B3-8E14BE05F6C4" name="Ingrediente_PK">
 <createdBy>Tiago</createdBy>
 <createdTime>2017-05-04 02:50:18 UTC</createdTime>
 <ownerDesignName>copiacervejaria</ownerDesignName>
-<pk>true</pk>
-<indexState>Primary Constraint</indexState>
+<indexState>Unique Constraint</indexState>
 <indexColumnUsage>
 <colUsage columnID="5F18B0EC-7C95-278D-7167-7FE62C26CAE6"/>
 </indexColumnUsage>

@@ -10,7 +10,7 @@
 <keyObject>0B858701-795C-F999-0BF6-B81D64E80481</keyObject>
 <referredKeyID>0B858701-795C-F999-0BF6-B81D64E80481</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>IDVenda</refColNames>
+<refColNames>IDVenda,Locacao_IDLocacao,Locacao_Receita_IDReceita,Locacao_Receita_Ingrediente_IDIngrediente,Locacao_Receita_Material_IDMaterial,PedidoCerveja_IDPedidoCerveja,PedidoCerveja_Receita_IDReceita,PedidoCerveja_Receita_Ingrediente_IDIngrediente,PedidoCerveja_Receita_Material_IDMaterial,OutroProduto_IDOutroProduto,Cliente_IDCliente,Cliente_CPF</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

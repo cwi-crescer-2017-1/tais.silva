@@ -22,7 +22,6 @@
 <engineerTo>
 <item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -57,4 +56,18 @@
 <ownDataTypeParameters>,20,3</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3884E905-6874-50FA-9DEB-AD0B10F0FD20" name="Ingrediente PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 03:55:35 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EC947D12-D76C-FC46-61A1-FDA11DD4F11B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>

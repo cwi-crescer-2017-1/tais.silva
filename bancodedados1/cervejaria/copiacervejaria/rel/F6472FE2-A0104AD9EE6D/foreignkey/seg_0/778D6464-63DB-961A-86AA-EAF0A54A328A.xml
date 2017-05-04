@@ -10,7 +10,7 @@
 <keyObject>730AA7B4-560F-E830-31B4-81AC83236A70</keyObject>
 <referredKeyID>730AA7B4-560F-E830-31B4-81AC83236A70</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>IDReceita</refColNames>
+<refColNames>IDReceita,Ingrediente_IDIngrediente,Material_IDMaterial</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

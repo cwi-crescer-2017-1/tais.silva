@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E1A63150-AD2A-621E-EEE7-E30F9A563952" name="PedidoCerveja">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>D4E917AF-B4A8-1729-9AA7-9E4112F1161C</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPedidoCerveja" id="860A9BF6-7B85-91FD-0255-DCBB781272F3">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>971A9B33-A525-6EF1-9781-7A684D368B32</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QtdLitro" id="9636E893-DDDD-CD93-58A5-1142E0C30C1F">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>C6BADC03-8B6F-78C5-FCEF-628C4F1200DD</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Venda_IDVenda" id="6F04ED8E-98E4-A87C-15BC-B93CBBF0125D">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>79651598-56A9-FE29-5E34-58C0FD162DDA</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3F602DD0-B03B-0CF4-2946-D89D65D5E5C5" referredColumn="30747ECC-5A8D-37C8-2FC3-ABE1B1B8DD2C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7AAC85B6-4722-1C3A-AD06-65A840742CED" name="PedidoCerveja_PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>4084ADA8-4BF2-8190-12DA-7077BDE707D6</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="860A9BF6-7B85-91FD-0255-DCBB781272F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3059F6E1-8996-976D-238F-18064C5C7045" name="PedidoCerveja_Venda_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<generatorID>CCE3B185-3DD1-AAC4-6448-0523DFCFCDF1</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6F04ED8E-98E4-A87C-15BC-B93CBBF0125D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -66,20 +66,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IDVenda" id="1446DBE8-926C-801A-0B50-C83D6B583E84">
-<createdBy>Tiago</createdBy>
-<createdTime>2017-05-04 02:25:59 UTC</createdTime>
-<generatorID>9B84AFB1-DEBF-711C-8DA5-F3D718346E21</generatorID>
-<ownerDesignName>copiacervejaria</ownerDesignName>
-<engineerTo>
-<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
-</engineerTo>
-<referedAttribute>6B5A04BB-C5C2-1FD7-EA1D-FB565FC7DCC2</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="6133EA74-C4F1-4594-643A-B472F2CDCB1C" name="OutroProduto PK">

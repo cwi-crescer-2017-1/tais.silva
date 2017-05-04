@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Receita_Material" directorySegmentName="seg_0" id="EE6BF3E2-7925-A6A7-17A7-1D11B2C54246">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:26:59 UTC</createdTime>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>6362B2A8-D04C-750E-3006-A097A8F09C23</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A82E6F41-37F5-4C96-C3DA-A5D12FD3215B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
