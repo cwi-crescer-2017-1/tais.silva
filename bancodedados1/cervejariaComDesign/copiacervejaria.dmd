@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="copiacervejaria" id="F03567D1-B9B0-4038-1821-143CE2A5F765" version="3.5">
-<createdBy>Tiago</createdBy>
-<createdTime>2017-05-04 02:08:48 UTC</createdTime>
-<ownerDesignName>copiacervejaria</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>F03567D1-B9B0-4038-1821-143CE2A5F765</designId>
-</OSDM_Design>

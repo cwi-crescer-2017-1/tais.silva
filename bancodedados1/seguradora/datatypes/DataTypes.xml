@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<DataTypesDesign class="oracle.dbtools.crest.model.design.datatypes.DataTypesDesign" name="DataTypes" id="9909F883-339A-1A0E-396C-84E441F5DC14" mainViewID="1D8CCA88-9FE9-86FE-696B-4551F601C71C">
+<DataTypesDesign class="oracle.dbtools.crest.model.design.datatypes.DataTypesDesign" name="DataTypes" id="89EF829E-323B-4CCC-79CF-810E9B05C030" mainViewID="28796AAE-4E47-22E6-20CA-EED46FC49933">
 <createdBy>tais.silva</createdBy>
-<createdTime>2017-05-03 16:58:27 UTC</createdTime>
+<createdTime>2017-05-04 17:30:26 UTC</createdTime>
 <ownerDesignName>seguradora</ownerDesignName>
 <shouldBeOpen>false</shouldBeOpen>
 <collectionOfRefsPrefix>array_ref_</collectionOfRefsPrefix>

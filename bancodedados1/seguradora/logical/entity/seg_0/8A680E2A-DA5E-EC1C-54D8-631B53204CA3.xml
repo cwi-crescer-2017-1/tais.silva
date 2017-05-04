@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8A680E2A-DA5E-EC1C-54D8-631B53204CA3" name="TipoSeguro">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:35:19 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDTipoSeguro" id="9B10ACDE-81D5-C96F-4DEF-05E1C3E58EF0">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:35:34 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nome" id="0336F222-CE36-51F9-7172-3FEFBD85C636">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:35:46 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="5ABFFBE8-A056-A6DE-C6FA-2D634F0EF489" name="TipoSeguro PK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:35:44 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9B10ACDE-81D5-C96F-4DEF-05E1C3E58EF0</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

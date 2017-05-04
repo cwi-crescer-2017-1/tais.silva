@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="306BFEEF-21DC-E633-78E7-03B5D9DCE177" name="Contrato_Beneficiario">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Beneficiário_IDBeneficiario" id="7C4923EA-1C68-F176-C581-979A03FEC355">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2A072EB7-1C99-9251-6624-B8DBF32F501E" referredColumn="44D40012-8B48-4316-F9F5-912725DB0893"/>
+</associations>
+</Column>
+<Column name="Beneficiário_CPF" id="D5A18994-A2D1-E2D7-DCBA-7FC8B7A802A2">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2A072EB7-1C99-9251-6624-B8DBF32F501E" referredColumn="0FB6B051-7091-39A1-8D2D-FB635EB4F225"/>
+</associations>
+</Column>
+<Column name="Contrato_IDContrato" id="C9EE1574-AF2C-D6E1-116B-FB4AA375C6A2">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BED3356B-DC47-0C9B-8680-3AFB70A31A11" referredColumn="48DCAC4E-4674-1815-C0F5-85998EBDA1BE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C8A4599B-7D27-D45C-7E07-7DB53DB68E01" name="Contrato_Beneficiario_PK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C4923EA-1C68-F176-C581-979A03FEC355"/>
+<colUsage columnID="D5A18994-A2D1-E2D7-DCBA-7FC8B7A802A2"/>
+<colUsage columnID="C9EE1574-AF2C-D6E1-116B-FB4AA375C6A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8C16122D-8977-2FFC-AFEA-FBA79D714B4F" name="FK_ASS_3">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>FC261122-FFF8-486D-DFC1-26FC1943A453</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C4923EA-1C68-F176-C581-979A03FEC355"/>
+<colUsage columnID="D5A18994-A2D1-E2D7-DCBA-7FC8B7A802A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A49783BB-31DD-ED1E-750D-81842EEE711D" name="FK_ASS_4">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>FC261122-FFF8-486D-DFC1-26FC1943A453</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C9EE1574-AF2C-D6E1-116B-FB4AA375C6A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

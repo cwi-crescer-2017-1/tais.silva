@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BF50DC1D-8BEC-FD58-1F0A-6D351053A113" name="Contrato">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>8EE572F9-5E14-B769-0429-E1F294300A76</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDContrato" id="48DCAC4E-4674-1815-C0F5-85998EBDA1BE">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>394A51DE-1409-0625-0C14-ED59E77391C8</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataInicio" id="986B65D0-7441-B2ED-615A-27A3EC255051">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>D4F7070B-110D-E5DE-485A-D7E86F57B293</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFim" id="E9DACF5C-BF8E-9949-1162-CFE6022E47FC">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>688DE95D-9CA6-CFA2-121D-8923180C322F</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorApolice" id="AC01F803-8660-9C52-4C4C-1AB849270EC7">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>19F6C8C9-9DE5-3999-81F6-A2E47C877736</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cliente_IDCliente" id="618C35B2-7631-F6F8-BE7F-50BA82D7AD5C">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>2D85E43E-FCED-BC2C-5241-6CA849F9854E</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="59C58A9A-2675-9F9C-C4FF-BF75484C1405" referredColumn="4020904B-4F0E-419F-E176-998924D7C0F5"/>
+</associations>
+</Column>
+<Column name="Cliente_CPF" id="676BB7BF-7B1C-6B9F-2D63-83463C06F370">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>0D43964C-ED6A-9CF4-CFC3-C21B21166F48</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="59C58A9A-2675-9F9C-C4FF-BF75484C1405" referredColumn="9A2F54CA-5660-0DF6-8FE8-FBD1FF743E2F"/>
+</associations>
+</Column>
+<Column name="TipoSeguro_IDTipoSeguro" id="BE4CB049-9A54-37AA-B7AA-CB8457C5DBFD">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>EAC976D1-25A9-4A74-CD51-7784549B3A1F</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="860C739C-BAAB-FBEF-B8F3-1069CD43399B" referredColumn="CB4FB450-6B85-148A-6DB0-18C02380F825"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E358FED4-97C7-3A05-6336-050FC69B58F6" name="Contrato_PK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>F37A760D-B3CB-7912-19DE-85CFF6A58446</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="48DCAC4E-4674-1815-C0F5-85998EBDA1BE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2DEC6089-150E-D8FC-225F-855DF9B5F7DE" name="Contrato_Cliente_FK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>8052B95E-7D25-1A45-B3A5-24410B5A0546</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="618C35B2-7631-F6F8-BE7F-50BA82D7AD5C"/>
+<colUsage columnID="676BB7BF-7B1C-6B9F-2D63-83463C06F370"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F37982B4-F483-E58C-BD6C-0A184F3F2FA3" name="Contrato_TipoSeguro_FK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:35:14 UTC</createdTime>
+<generatorID>04A9F0AF-29FD-0859-DD51-1BD21459AA76</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE4CB049-9A54-37AA-B7AA-CB8457C5DBFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

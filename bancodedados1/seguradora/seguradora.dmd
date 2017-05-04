@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="seguradora" id="3EFF2C62-54AB-7786-CBC8-5E9F25FF9C23" version="3.5">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:30:26 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>3EFF2C62-54AB-7786-CBC8-5E9F25FF9C23</designId>
+</OSDM_Design>
