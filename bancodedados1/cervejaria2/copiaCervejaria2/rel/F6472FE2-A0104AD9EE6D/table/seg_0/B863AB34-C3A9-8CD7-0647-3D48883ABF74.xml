@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B863AB34-C3A9-8CD7-0647-3D48883ABF74" name="Cliente">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>F6356BF4-A671-FDAE-F053-9183E1CAAFED</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCliente" id="67CAE1E9-0F8B-C7EE-4ADF-5D263D24813B">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>9938CDBF-2BA6-93BA-D160-D2CDD2C49384</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="03128E48-7045-5528-0851-E0FAA21AFA92">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>DA6FF787-BC71-2E36-761B-0DA65A8B556A</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CPF" id="652B922E-949C-2C41-B73A-6790D4185CEE">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>7A2C68AD-2739-F55F-429D-76577B4AAE69</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefone" id="3A9BC862-C71B-2836-AFDC-764E72BCDDD7">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>7E3B157C-912A-C910-3DA4-9C0343D68007</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco" id="B80E0AEA-3635-6CFE-D389-282A22E620EA">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>E1090B2D-2B65-AD58-1D07-074A54D5314C</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero" id="0D2F2F06-3F6B-E876-9E19-1FB9CC4F1283">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>EE93C774-2E95-A84B-3770-FFCD04205607</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Bairro" id="5CC16AF6-F588-1D8D-1149-DD6989D5F556">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>89F4ECEB-1FC0-1382-BF77-7F44694DD882</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CEP" id="4A38336B-B7A6-C656-73F2-90CD3460F8F1">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>D3568A00-BDCA-F838-57E3-54DAD6923FAF</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cidade" id="6C1AF620-596C-4FBC-7B4A-C9B2990E5FF3">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>2EAB52E5-1FE6-3131-1E7E-8234E5686946</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3EF7CCEB-C295-FD37-2184-D6BA95315973" name="Cliente_PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>464C1386-AD44-AF1F-96A4-25C08E9DE8D5</generatorID>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67CAE1E9-0F8B-C7EE-4ADF-5D263D24813B"/>
+<colUsage columnID="652B922E-949C-2C41-B73A-6790D4185CEE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

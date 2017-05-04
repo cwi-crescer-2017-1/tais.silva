@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DF78319C-4CC5-1E4E-163B-EFFC83FBD4AB" containerWithKeyObject="4568A22A-7C14-97FE-DF48-FE8C69E8F4FD" localFKIndex="C7E626F8-FD49-CC07-4C6E-DB8A2BA11FEF" name="Venda_PedidoCerveja_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 04:02:17 UTC</createdTime>
+<generatorID>8C84A6A8-6994-F4E1-963A-26D58165AD43</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<referredTableLongName>PedidoCerveja</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E1A63150-AD2A-621E-EEE7-E30F9A563952</referredTableID>
+<keyObject>7AAC85B6-4722-1C3A-AD06-65A840742CED</keyObject>
+<referredKeyID>7AAC85B6-4722-1C3A-AD06-65A840742CED</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IDPedidoCerveja,Receita_IDReceita,Receita_Ingrediente_IDIngrediente,Receita_Material_IDMaterial</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

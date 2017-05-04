@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0565EA55-E40F-3666-E87D-9E0A7FEEFCBE" name="Ingrediente">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>15F469B6-4470-F902-B3C8-286141CD3EDB</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDIngrediente" id="5B9786AC-0441-D598-FA8E-4DECAAD6B59A">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>31C4298C-B7EF-C12A-50C9-8B48576CBE5B</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QtdEstoque" id="9FA1DCB2-B2F6-7107-8342-F4B151C710C8">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>BF207153-C43B-A1F8-4EEB-A85081B56A1C</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorIngrediente" id="7D245422-4F74-3F3E-7206-524CCDB0618E">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>E47AB091-2360-BD0A-705A-7CAF02713FAF</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D1CD9FBB-40D1-99BF-EC34-57F5ABC873AD" name="Ingrediente_PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>AB7D3F86-7D74-9C1E-E1DE-54FB75E1B1DC</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B9786AC-0441-D598-FA8E-4DECAAD6B59A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

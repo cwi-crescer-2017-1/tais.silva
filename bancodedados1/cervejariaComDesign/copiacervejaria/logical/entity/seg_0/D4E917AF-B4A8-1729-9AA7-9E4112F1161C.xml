@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D4E917AF-B4A8-1729-9AA7-9E4112F1161C" name="PedidoCerveja">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:16:30 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDPedidoCerveja" id="971A9B33-A525-6EF1-9781-7A684D368B32">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:16:38 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="QtdLitro" id="C6BADC03-8B6F-78C5-FCEF-628C4F1200DD">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:16:52 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDReceita" id="D2881EDE-67F4-45D5-5786-150C12264BBC">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 03:53:35 UTC</createdTime>
+<generatorID>FAFB819F-17FE-5B67-25BA-A1DC6C17A1EA</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<referedAttribute>B292B6A5-248C-C387-F0AB-0516A696E240</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDIngrediente" id="81255FE1-EC33-5CFD-0372-EFED57624C56">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 03:56:28 UTC</createdTime>
+<generatorID>FAFB819F-17FE-5B67-25BA-A1DC6C17A1EA</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<referedAttribute>87AE6A78-6EC3-C7C2-0C06-3CB268492983</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDMaterial" id="8B13DBEF-5853-B8E9-7484-69A89BB03949">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 03:56:47 UTC</createdTime>
+<generatorID>FAFB819F-17FE-5B67-25BA-A1DC6C17A1EA</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<referedAttribute>07F7E7A3-4019-DC99-3453-577DC3F50F45</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4084ADA8-4BF2-8190-12DA-7077BDE707D6" name="PedidoCerveja PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:16:51 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>971A9B33-A525-6EF1-9781-7A684D368B32</attributeRef>
+<attributeRef>D2881EDE-67F4-45D5-5786-150C12264BBC</attributeRef>
+<attributeRef>81255FE1-EC33-5CFD-0372-EFED57624C56</attributeRef>
+<attributeRef>8B13DBEF-5853-B8E9-7484-69A89BB03949</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="12299DDB-46EF-EA50-025F-763C81B359E1" name="Material">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:35:43 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDMaterial" id="7BA14882-9027-F5A8-4401-CD257458558B">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:36:17 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="QtdEstoque" id="FF0F812A-0A97-CFE9-4F90-9EAC4D4CF798">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:36:33 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ValorCusto" id="73259BCE-457B-7FF7-1A4A-6106A6859C48">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:35:52 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ValorLocacao" id="6E29FE8C-ADD8-FE53-5C1B-8579F435925E">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:37:16 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BF981960-7700-817C-A422-F401C259A436" name="Material PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:36:28 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7BA14882-9027-F5A8-4401-CD257458558B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

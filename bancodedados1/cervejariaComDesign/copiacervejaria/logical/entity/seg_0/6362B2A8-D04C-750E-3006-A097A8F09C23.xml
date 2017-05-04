@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6362B2A8-D04C-750E-3006-A097A8F09C23" name="Receita">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:20:03 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDReceita" id="B292B6A5-248C-C387-F0AB-0516A696E240">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:20:10 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ValorLucroPorLitroDeReceita" id="91140BF2-CDE6-F9E8-544E-022C1328BCD0">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:20:26 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDIngrediente" id="87AE6A78-6EC3-C7C2-0C06-3CB268492983">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 03:56:28 UTC</createdTime>
+<generatorID>D7121926-4A6E-BC7B-71DB-B22EFBD0858E</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<referedAttribute>EC947D12-D76C-FC46-61A1-FDA11DD4F11B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDMaterial" id="07F7E7A3-4019-DC99-3453-577DC3F50F45">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 03:56:47 UTC</createdTime>
+<generatorID>A9A24F6E-C4F1-E047-6FEB-E8456E6EFDCF</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<referedAttribute>AB4E6EEF-85CD-55A3-031C-6BA073D7C238</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B8177BE2-F962-343E-9AF0-BF2C41DABA13" name="Receita PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:20:25 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B292B6A5-248C-C387-F0AB-0516A696E240</attributeRef>
+<attributeRef>87AE6A78-6EC3-C7C2-0C06-3CB268492983</attributeRef>
+<attributeRef>07F7E7A3-4019-DC99-3453-577DC3F50F45</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

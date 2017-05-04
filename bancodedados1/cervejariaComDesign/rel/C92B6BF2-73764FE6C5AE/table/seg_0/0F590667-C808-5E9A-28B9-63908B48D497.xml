@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0F590667-C808-5E9A-28B9-63908B48D497" name="OutrosProdutos">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>C84E3AEB-F8A1-844C-8A6F-496F20F70B97</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDProduto" id="ED82F293-FA5E-2157-ECA4-72181D71963D">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>C2DDEB9C-CE1B-4354-21E6-F639F0B096ED</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomeProduto" id="D9A60487-DF59-75D0-A31C-E2A5D734D359">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>9B8DBD6B-DB16-96DD-E8BD-77B470B82C92</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorProduto" id="3F45DBDB-F5ED-057A-CCC6-E076E00F2DED">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>25F0BAF2-D6DC-51AE-A80B-F96363495850</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Venda_IDVenda" id="C162822F-D7BB-59B5-C82A-6479D5E05BB6">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>D793AA1D-1D1C-1BCE-B068-028E1F58CA0E</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="99D98968-2AC0-E297-5F69-C044B5BEA10F" referredColumn="9328893C-75CE-C50B-0723-994A4D99EE0F"/>
+</associations>
+</Column>
+<Column name="Quantidade" id="7E16A3D4-4380-63E1-08CD-39B3E91D0C50">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>BC469585-6186-92B7-F698-791A2768D0A7</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5DA754F2-9D78-A019-408D-941DB37F484E" name="OutrosProdutos_PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>0E8734EF-1408-0954-8400-00EDC1CAA37C</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ED82F293-FA5E-2157-ECA4-72181D71963D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D5987693-FF64-ECB9-DC3E-72F3630E1E2C" name="OutrosProdutos_Venda_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 01:09:27 UTC</createdTime>
+<generatorID>A24FBDD3-42C6-3E31-0814-5610C86D2968</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C162822F-D7BB-59B5-C82A-6479D5E05BB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

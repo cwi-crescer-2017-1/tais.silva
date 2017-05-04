@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2D743936-EA97-1FB3-CDD6-92858A843A9F" name="Material">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>A82E6F41-37F5-4C96-C3DA-A5D12FD3215B</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDMaterial" id="8CB8A030-69B8-0957-E2D4-4050DE68AEF1">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>AB4E6EEF-85CD-55A3-031C-6BA073D7C238</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QtdEstoque" id="B430986E-1821-E935-0F26-02BF1225FC4D">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>8963FF38-6823-6A51-9BD0-8BC66B350398</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorCustoPorLitro" id="0ABD255C-5605-776D-8506-426EF43FC74D">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>1921EC0A-81ED-E194-1167-97F69A79E7B7</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorLocacaoPorLitro" id="FC2B2913-790D-900D-9E11-804C4AB42ACD">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>16FCA144-B99F-EFB6-A601-52F646EC6722</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1A397EE2-0DCF-3451-B978-39336172497A" name="Material_PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>40A3DB6D-D4BE-22E8-94AD-7EF46DACCDFB</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8CB8A030-69B8-0957-E2D4-4050DE68AEF1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

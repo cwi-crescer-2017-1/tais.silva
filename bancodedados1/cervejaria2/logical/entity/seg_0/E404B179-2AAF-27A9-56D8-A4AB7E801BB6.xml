@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E404B179-2AAF-27A9-56D8-A4AB7E801BB6" name="Ingrediente">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:22:55 UTC</createdTime>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDIngrediente" id="EC947D12-D76C-FC46-61A1-FDA11DD4F11B">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:23:06 UTC</createdTime>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="QtdEstoque" id="CC7BB8A8-71E5-576D-473D-0D079A160E47">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:23:13 UTC</createdTime>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ValorIngrediente" id="C31714F8-44CE-CEDA-5702-D0329801B982">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:23:37 UTC</createdTime>
+<ownerDesignName>cervejaria2</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

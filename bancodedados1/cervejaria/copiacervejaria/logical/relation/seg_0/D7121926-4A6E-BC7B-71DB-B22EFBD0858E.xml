@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Ingrediente_Receita" directorySegmentName="seg_0" id="D7121926-4A6E-BC7B-71DB-B22EFBD0858E">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 03:56:28 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<sourcePk>3884E905-6874-50FA-9DEB-AD0B10F0FD20</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E404B179-2AAF-27A9-56D8-A4AB7E801BB6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>6362B2A8-D04C-750E-3006-A097A8F09C23</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

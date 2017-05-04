@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="945EFECA-481B-3DC9-DDD4-E6F49DA10115" name="Locação">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:15:28 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDLocação" id="1AB38F74-832D-123D-000E-88B848A129CA">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:15:46 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="QtdLitros" id="5CCAC08B-CA71-3A94-0CDD-8B8C7426663B">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:16:04 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDVenda" id="4C380492-27D4-2B54-DAEA-6BA55E84A58B">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 00:37:28 UTC</createdTime>
+<generatorID>A85B9155-5B2D-D2EA-7B0C-83DCB1AEEBEE</generatorID>
+<ownerDesignName>cervejaria</ownerDesignName>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="true"/>
+</engineerTo>
+<referedAttribute>E6DE1EAE-741B-876F-616D-755ADEFA88AC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4A16C6A3-6940-229C-3E31-DAFBA08E5952" name="Locação PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-03 23:16:02 UTC</createdTime>
+<ownerDesignName>cervejaria</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="C92B6BF2-1AC8-1ADE-C830-73764FE6C5AE" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1AB38F74-832D-123D-000E-88B848A129CA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
