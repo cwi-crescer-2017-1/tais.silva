@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B4ACED7F-E1EA-F9E5-D143-ABC1790BAEDB" name="Receita_Ingrediente">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Receita_IDReceita" id="D963BE6F-AF6F-4CD3-5C55-C5F880BA619C">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="778D6464-63DB-961A-86AA-EAF0A54A328A" referredColumn="95CFFE31-9738-EDB3-EE3E-F4C0246BE90B"/>
+</associations>
+</Column>
+<Column name="Ingrediente_Ingrediente_ID" id="FAFF52F2-D013-E926-CE62-A8581025A337">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0A967DD3-1AFC-7964-99FA-293BB4F90754" referredColumn="5F18B0EC-7C95-278D-7167-7FE62C26CAE6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CFEDF040-0DAB-4F3D-296D-40D62AC26B93" name="Receita_Ingrediente_PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D963BE6F-AF6F-4CD3-5C55-C5F880BA619C"/>
+<colUsage columnID="FAFF52F2-D013-E926-CE62-A8581025A337"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6E849600-1EE3-8851-33F0-30D2D7088DE2" name="Receita_Ingrediente_Receita_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<generatorID>EC697193-7561-EB98-B634-FB68F054585E</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D963BE6F-AF6F-4CD3-5C55-C5F880BA619C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="86032177-B3C0-CA1A-6A5E-9DA62530BBEF" name="Receita_Ingrediente_Ingrediente_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<generatorID>EC697193-7561-EB98-B634-FB68F054585E</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FAFF52F2-D013-E926-CE62-A8581025A337"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
