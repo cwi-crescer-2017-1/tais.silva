@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="051B12B4-FCD4-C8CD-2F49-B1F5FE56D3AC" name="Locacao">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>9F0B8FBE-DA45-0745-C1B8-1F9C3DD64DAA</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDLocacao" id="92249098-4FE8-4D4B-E6CA-09C0B61C5503">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>6AC7DB07-910C-737D-3095-0E1114E56928</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QtdLitro" id="E013507D-45DD-99B4-7151-BE2329105434">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>D2D4199E-0C14-534A-43CF-7ED123B2E754</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Venda_IDVenda" id="F6C14D42-92DF-7F55-19A6-F6BF42DD4DB8">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>C07BDC79-14FB-A02E-4B94-736C5715DFE7</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3808578D-6D5C-A7E9-17BD-E21780789991" referredColumn="30747ECC-5A8D-37C8-2FC3-ABE1B1B8DD2C"/>
+</associations>
+</Column>
+<Column name="ValorLucroAluguelPorLitro" id="BADEE89C-032B-3DE7-801F-EDF783160B4A">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 03:08:07 UTC</createdTime>
+<generatorID>73D4A8A7-A692-8921-F835-16B7DB548E07</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2F96D2D3-46C5-C365-CBA6-97D780BFE424" name="Locacao_PK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:17 UTC</createdTime>
+<generatorID>ED141160-4BF7-C1F9-72F8-E64E0615D8E7</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="92249098-4FE8-4D4B-E6CA-09C0B61C5503"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7EF36004-1D1B-5E35-D685-1CED5A38B966" name="Locacao_Venda_FK">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:50:18 UTC</createdTime>
+<generatorID>3408A409-0017-268D-2395-08644EA56BB1</generatorID>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F6C14D42-92DF-7F55-19A6-F6BF42DD4DB8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Venda_PedidoCerveja" directorySegmentName="seg_0" id="CCE3B185-3DD1-AAC4-6448-0523DFCFCDF1">
+<createdBy>Tiago</createdBy>
+<createdTime>2017-05-04 02:25:41 UTC</createdTime>
+<ownerDesignName>copiacervejaria</ownerDesignName>
+<engineerTo>
+<item key="F6472FE2-B384-8E5C-B57F-A0104AD9EE6D" value="true"/>
+</engineerTo>
+<sourcePk>CFF9D306-8208-F6F2-D6E1-B092718340DA</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0538E79E-C2BE-8D88-96BD-1CDD4C5D0521</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>D4E917AF-B4A8-1729-9AA7-9E4112F1161C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
