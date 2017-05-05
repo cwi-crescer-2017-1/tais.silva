@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8EE572F9-5E14-B769-0429-E1F294300A76" name="Contrato">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:36:34 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDContrato" id="394A51DE-1409-0625-0C14-ED59E77391C8">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:37:05 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataInicio" id="D4F7070B-110D-E5DE-485A-D7E86F57B293">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:37:16 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataFim" id="688DE95D-9CA6-CFA2-121D-8923180C322F">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:37:55 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ValorApolice" id="19F6C8C9-9DE5-3999-81F6-A2E47C877736">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:33:59 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,20,3</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDCliente" id="2D85E43E-FCED-BC2C-5241-6CA849F9854E">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:27:30 UTC</createdTime>
+<generatorID>8052B95E-7D25-1A45-B3A5-24410B5A0546</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<referedAttribute>6C95ACBE-CE4B-5467-3F4B-94B3B6F19DE4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CPF" id="0D43964C-ED6A-9CF4-CFC3-C21B21166F48">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:27:30 UTC</createdTime>
+<generatorID>8052B95E-7D25-1A45-B3A5-24410B5A0546</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<referedAttribute>D803133F-D52F-2270-8B3C-065B84044182</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDTipoSeguro" id="EAC976D1-25A9-4A74-CD51-7784549B3A1F">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 18:28:06 UTC</createdTime>
+<generatorID>04A9F0AF-29FD-0859-DD51-1BD21459AA76</generatorID>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<referedAttribute>9B10ACDE-81D5-C96F-4DEF-05E1C3E58EF0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F37A760D-B3CB-7912-19DE-85CFF6A58446" name="Contrato PK">
+<createdBy>tais.silva</createdBy>
+<createdTime>2017-05-04 17:37:15 UTC</createdTime>
+<ownerDesignName>seguradora</ownerDesignName>
+<engineerTo>
+<item key="BB48D11D-36DD-F410-E566-E677D4C9C922" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>394A51DE-1409-0625-0C14-ED59E77391C8</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

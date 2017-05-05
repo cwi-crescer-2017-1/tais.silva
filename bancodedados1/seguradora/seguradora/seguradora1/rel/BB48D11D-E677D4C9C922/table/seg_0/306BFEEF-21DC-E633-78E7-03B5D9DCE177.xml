@@ -10,7 +10,7 @@
 <Column name="ID" id="25EACFF0-09D6-263B-7561-1DCD4850DA99">
 <createdBy>tais.silva</createdBy>
 <createdTime>2017-05-05 16:28:06 UTC</createdTime>
-<ownerDesignName>seguradora</ownerDesignName>
+<ownerDesignName>seguradora1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -61,7 +61,7 @@
 <ind_PK_UK id="EDB1C115-3390-D79F-725A-81B0DE6EDD5C" name="UK_Contrato_Beneficiario">
 <createdBy>tais.silva</createdBy>
 <createdTime>2017-05-05 16:28:06 UTC</createdTime>
-<ownerDesignName>seguradora</ownerDesignName>
+<ownerDesignName>seguradora1</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>

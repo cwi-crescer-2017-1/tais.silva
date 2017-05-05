@@ -115,7 +115,7 @@
 <ind_PK_UK id="8E429BCE-B137-3467-14A3-6C914E66BA4C" name="UK_Beneficiario_CPF">
 <createdBy>tais.silva</createdBy>
 <createdTime>2017-05-05 16:26:01 UTC</createdTime>
-<ownerDesignName>seguradora</ownerDesignName>
+<ownerDesignName>seguradora1</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
