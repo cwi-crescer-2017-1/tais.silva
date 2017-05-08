@@ -1,0 +1,40 @@
+/*fundo: #fafafa
+header: #c4170c
+noticia: #fff
+titulo da noticia: #c4170c
+subtitulo da noticia: #bbb
+conteudo da noticia: #333
+primeira letra do conteudo: #c4170c
+*/
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+}
+
+p {
+	line-height: 32px;	
+	/*margin: */
+}
+
+.barra {
+	font-size: 24px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	background-color: #c4170c;
+	width: 100%;
+	padding: 20px 0;
+}
+
+p:first-letter {
+	color: #c4170c; 
+	font-size: 45px;
+	float: left;
+	margin-top: 10px;
+	margin-right: 5px; 
+}
+
+img {
+	width: 150px;
+}
