@@ -27,34 +27,34 @@ Order by e.salario DESC;
 -- este reajuste deve ser de 17,3%.
 -- Por segurança faça uma cópia da tabela Empregado antes de iniciar esta tarefa.
 BEGIN TRANSACTION
-
-Select *  
-	   Format(((Salario * 0.173) + Salario), '#,00') as Salario
-From   Empregado e
+ROLLBACK 
+UPDATE  Empregado
+Set     Salario = (Salario * 0.173) + Salario
+From    Empregado e
 Inner Join Departamento d
-				on e.IDDepartamento = d.IDDepartamento
-				Where d.Localizacao = 'SAO PAULO'
-
-				select* from departamento
-
+                on e.IDDepartamento = d.IDDepartamento
+                Where d.Localizacao = 'SAO PAULO'
+COMMIT
+go
 -- Exercício 4: cidades duplicadas
 -- Liste todas as cidades duplicadas (nome e UF iguais).
+select   Nome, UF
+from     Cidade
+Group By Nome, UF
+Having   count(1) > 1
 
-Select Nome, 
-	   UF
-From   Cidade
-Group By Nome
+SELECT a.IDCidade, a.Nome, a.UF FROM Cidade a WHERE EXISTS
+(SELECT b.Nome , b.UF FROM Cidade b WHERE b.Nome = a.Nome AND b.UF = a.UF GROUP BY Nome, UF HAVING COUNT(*) > 1)
+ORDER BY a.Nome;
 
-
-
+select* from cidade
 -- Exercício 5: definindo Cidades
--- Faça uma alteraçao nas cidades que tenham nome+UF duplicados, adicione no final do nome um asterisco. Mas atenção! apenas a cidade com maior ID deve ser alterada.
-Explicação adicional - VIEW
-
-Para reaproveitar uma consulta SQL um dos recursos oferecidos é a criação de VIEWS. Neste recurso o comando SQL é salvo no dicionário de dados do SGBD e pode ser reutilizado novamente.
-
-Um exemplo disso seria uma consulta que retorna apenas as cidades do RS.
-
+-- Faça uma alteraçao nas cidades que tenham nome+UF duplicados, adicione no final do nome um asterisco.
+-- Mas atenção! apenas a cidade com maior ID deve ser alterada.
+-- Para reaproveitar uma consulta SQL um dos recursos oferecidos é a criação de VIEWS.
+-- Neste recurso o comando SQL é salvo no dicionário de dados do SGBD e pode ser reutilizado novamente.
+-- Um exemplo disso seria uma consulta que retorna apenas as cidades do RS.
+--EXEMPLO:
 Create view vwCidades_Gauchas as
    Select IDCidade,
           Nome
@@ -65,3 +65,19 @@ Para utilizar esta consulta ela deve ser referenciada no FROM como se fosse uma 
 Select IDCidade, 
        Nome 
   From vwCidades_Gauchas;
+-- FIM EXEMPLO
+BEGIN TRANSACTION 
+UPDATE Cidade SET Nome = Nome + '*'  WHERE Nome+UF IN(
+		SELECT Nome+UF
+		FROM Cidade
+		GROUP BY Nome, UF
+		HAVING COUNT(1) > 1)
+	AND IDCidade IN(
+		SELECT MAX(IDCidade)
+		FROM Cidade
+		GROUP BY Nome, UF
+		HAVING COUNT(1) > 1)
+
+select* from Cidade order by idcidade
+COMMIT
+go
