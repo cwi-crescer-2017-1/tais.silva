@@ -58,17 +58,16 @@ body {
 	padding-left: 17px;
 }
 .corpo {
-	padding-top: 90px;
 	position: relative;
+	display: inline-block;
 }
-.foto-blanka {
+.foto-ficha {
 	width: 35%;
-	position: absolute;
+	float: left;
 }
 .box-descricao {
+	float: right;
 	width: 60%;
-	position: relative;
-	margin-left: 40%;
 	top: 0;
 }
 @media screen and (min-width: 705px) {

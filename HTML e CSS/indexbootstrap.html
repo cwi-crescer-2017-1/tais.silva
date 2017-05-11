@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>Bootstrap</title>
+	<style>
+    .container-fluid {
+        height: 100vh;
+    }
+
+    .row {
+        height: 25%;        
+        padding-top: 100px;
+    }
+
+    .row div {
+        border: 3px solid black;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<h1>Formulário de Cadastro</h1>
+		<hr>
+		<form>
+			<div class="col-md-6">
+				<div class="form-group">
+						    	<label for="nome">Nome Completo</label>
+						    	<input type="text" class="form-control" id="nome" placeholder="EX: Pedro Henrique Pires">
+						  	</div>
+						  	<div class="form-group">
+						    	<label for="data">Data de Nascimento</label>
+						    	<input type="date" class="form-control" id="data" placeholder="dd/mm/aaaa">
+				  </div>
+				<div class="form-group">
+						    	<label for="cidade">Cidade</label>
+						    	<input type="text" class="form-control" id="cidade" placeholder="">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				  <label for="email">Email</label>
+				  <input type="email" class="form-control" id="email" placeholder="Ex.: pedro.pires@cwi.com.br">
+				</div>
+				<div class="form-group">
+					<label for="estado">Estado</label>
+					<select class="form-control" id="estado">
+						<option value="RS">Rio Grande do Sul</option>
+						<option value="BH">Bahia</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="sexo">Sexo</label>
+					<select class="form-control" id="sexo">
+						<option value="m">Masculino</option>
+						<option value="f">Feminino</option>
+					</select>
+				</div>
+				<hr>
+				<div class="pull-right">
+					<button type="submit" class="btn btn-primary">Enviar</button>
+					<button type="reset" class="btn btn-default">Limpar</button>
+				</div>
+			</div>
+		</form>
+
+		<!-- <div class="row">
+			<div class="col-md-6"></div>
+			<div class="col-md-6"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-1"></div>
+		</div> -->
+	</div>
+</body>
+</html>
