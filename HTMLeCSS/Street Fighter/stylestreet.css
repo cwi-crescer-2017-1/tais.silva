@@ -45,9 +45,6 @@ body {
 	left: 50%;
 	transform: translate(-50%);
 }
-.corpo {	
-	padding: 17px;
-}
 .header {
 	height: 80px;
 	width: 100%;
@@ -58,6 +55,7 @@ body {
 	padding-left: 17px;
 }
 .corpo {
+	padding: 17px;
 	position: relative;
 	display: inline-block;
 }

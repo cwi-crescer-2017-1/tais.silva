@@ -15,21 +15,31 @@
 			margin: 0;
 			font-family: 'Dancing Script', cursive;
 		}
-
+		.item {
+			border-bottom: 1px solid #bbb;
+			line-height: 25px;
+			display: block;
+			width: 50%;
+			margin: 0 auto;
 	</style>
 </head>
-<body>
-	<div class="container-fluid">
-		<h1>To-do List</h1>
-		<form>
-			<div class="checkbox">
+<body>	
+	<form>
+		<center>
+			<h1>To-do List</h1>
+		</center>
+		<div class="checkbox">
+			<div class="item">
 				<label for=""><input type="checkbox">Tomar café</input></label>
+			</div>
+			<div class="item">
 				<label for=""><input type="checkbox">Comer bis</input></label>
+			</div>
+			<div class="item">
 				<label for=""><input type="checkbox">Fazer o tema de casa</input></label>
 			</div>
-		</form>
-	</div>
-
+		</div>
+	</form>
 	<!-- 
 	div.container-fluid>h1{To-do List}+form>div.checkbox>label>input[type="checkbox"]{Tomar café}^label>input[type="checkbox"]{Comer bis}^label>input[type="checkbox"]{Fazer o tema de casa} -->
 </body>
