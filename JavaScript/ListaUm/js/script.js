@@ -1,5 +1,10 @@
 // Exercício 1
 function daisyGame(num){
+	// Interpolação de string 
+	//return `Love me${ numero % 2 !== 0 ? '' : ' not' }`;
+	/*var impar = % 2 !== 0;
+	return `Love me${ impar ? '' : ' not' }`*/
+	// return num % 2 !== 0 ? 'Love me' : 'Love me not';
 	var resposta;
 	if(num%2 == 0) { 
 		resposta = "Love me  not";
@@ -8,7 +13,7 @@ function daisyGame(num){
 	return console.log(resposta);
 }
 
-daisyGame(4);	
+daisyGame(4);
 
 // Exercício 2
 function maiorTexto(array) {
@@ -60,45 +65,52 @@ adicionar(3)(4); // 7
 adicionar(5642)(8749); // 14391
 
 // Exercício 5
-function fiboSum(num) {
+/*function fiboSum(num) {
 	var ant = 1;
 	var soma = 1;
 	for (var i = 1; i <= num; i++) {
 		soma = ant + soma;
 		ant = soma - ant;
 	}
-	console.log(soma-1);
+	return soma-1;
+}*/
+
+function fibonacci(n) {	
+	if (n === 1 || n ===2) return 1;
+	return fibonacci(n-1) + fibonacci(n-2);
 }
 
-fiboSum(7);
+function fiboSum(n) {
+	if (n === 1) { return 1;}
+	return fibonacci(n) + fiboSum(n-1);
+}
+
+console.log(fiboSum(7));
 // 33 (soma dos 7 primeiros números da sequência: 1+1+2+3+5+8+13)
 
 // Exercício 6
 function queroCafe(mascada, precos) {
-	var array = [];
-	var add = 0;	
+/*	Pq o Bernardo tinha pedido na mão:
+	let array = [];
+	let add = 0;	
 	for (var i = 0; i < precos.length; i++) {
 		if(precos[i] <= mascada) {			
 			array[add] = precos[i];			
 			add = add + 1;
 		}
-	}
-/*	console.log(array)
-	var novaArray = [];
-	novaArray[0] = array[0];
-	for (var a = 0; a < array.length; a++) {
-		for (var b = 0; b < array.length; b++) {
-			if(array[a] > array[b] && novaArray[a] > array[b]) {
-				novaArray[a] = array[b];
-			}
-		}
-	}
+	}*/
+/*	let array = [];
+	precos.forEach(p => { if (p <= mascada) array.push(p)});
+	console.log(array.sort((a,b) => a-b).toString());*/
 
-	console.log(novaArray.toString());*/
+	
 
-	console.log(array.sort().toString());
+	return precos
+		.filter(a => a <= mascada)
+		.sort((a,b) => a-b)
+		.join(',')
 }
 
-queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ]);
+console.log(queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ]));
 // '1.15,2.12,3.11'
 
