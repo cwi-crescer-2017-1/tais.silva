@@ -1,23 +1,15 @@
 // Exercício 1: séries inválidas.
 function seriesInvalidas(series) {  
-	var titulosInvalidos = [];
-
+	var titulosInvalidos = series
+							.filter(a => a.anoEstreia > new Date().getFullYear());
+	
 	series
 	.forEach(a => {
 		var atributos = Object.keys(a);
-		atributos.forEach(b => {
-			if (a[b] === null || typeof a[b] === "undefined" ) 
-				titulosInvalidos.push(a["titulo"])    		
-    	})
-	})
+		atributos
+			.forEach(b => {if (a[b] === null || typeof a[b] === "undefined" ) titulosInvalidos.push(a)})})
 
-	series
-	.forEach(a => {
-		if(a.anoEstreia > new Date().getFullYear())
-			titulosInvalidos.push(a.titulo) 
-	});
-
-	return "Séries Inválidas: " + titulosInvalidos.join(" - ");
+	return "Séries Inválidas: " + titulosInvalidos.map(a => a.titulo).join(" - ");
 }
 
 console.log(`Exercício 1: ${seriesInvalidas(series)}`); 
@@ -152,11 +144,9 @@ function sobrenomeAbreviado(series) {
 		}
 	});
 
-	var hashtag = "#";
-
-	elenco
-	.forEach(a => 
-		hashtag += a[a.indexOf(" ") + 1]);
+	var hashtag = "#"+ elenco
+						.map(a => a[a.indexOf(" ") + 1])
+						.reduce((a,b) => a + b);
 
 	return `\nNome da série: ${serie}\nHashtag: ${hashtag}`;
 }
