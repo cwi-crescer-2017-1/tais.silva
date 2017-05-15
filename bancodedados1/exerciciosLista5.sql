@@ -67,16 +67,17 @@ Select IDCidade,
   From vwCidades_Gauchas;
 -- FIM EXEMPLO
 BEGIN TRANSACTION 
-UPDATE Cidade SET Nome = Nome + '*'  WHERE Nome+UF IN(
-		SELECT Nome+UF
-		FROM Cidade
-		GROUP BY Nome, UF
-		HAVING COUNT(1) > 1)
-	AND IDCidade IN(
-		SELECT MAX(IDCidade)
-		FROM Cidade
-		GROUP BY Nome, UF
-		HAVING COUNT(1) > 1)
+UPDATE Cidade 
+WHERE  Nome+UF 
+		IN( SELECT Nome+UF
+			FROM Cidade
+			GROUP BY Nome, UF
+			HAVING COUNT(1) > 1)
+		AND IDCidade IN(
+			SELECT MAX(IDCidade)
+			FROM Cidade
+			GROUP BY Nome, UF
+			HAVING COUNT(1) > 1)
 
 select* from Cidade order by idcidade
 COMMIT
