@@ -1,15 +1,20 @@
 // Exercício 1: séries inválidas.
 function seriesInvalidas(series) {  
-	var titulosInvalidos = series
-							.filter(a => a.anoEstreia > new Date().getFullYear());
-	
+	/*var titulosInvalidos = series
+							.filter(a => a.anoEstreia > new Date().getFullYear());	
 	series
 	.forEach(a => {
 		var atributos = Object.keys(a);
 		atributos
 			.forEach(b => {if (a[b] === null || typeof a[b] === "undefined" ) titulosInvalidos.push(a)})})
-
-	return "Séries Inválidas: " + titulosInvalidos.map(a => a.titulo).join(" - ");
+	return "Séries Inválidas: " + titulosInvalidos.map(a => a.titulo).join(" - ");*/
+	let invalidas = series.filter(serie => {
+	    // for (let campo in serie) { }
+	    let algumCampoInvalido = Object.values(serie).some(v => v === null || typeof v === 'undefined');
+	    let estreiaInvalida = serie.anoEstreia > new Date().getFullYear();
+	    return estreiaInvalida || algumCampoInvalido;
+	});
+	return `Séries Inválidas: ${ invalidas.map(s => s.titulo).join(" - ") }`;
 }
 
 console.log(`Exercício 1: ${seriesInvalidas(series)}`); 
@@ -26,16 +31,18 @@ console.log(`Exercício 2: ${filtrarSeriesPorAno(series, 2017)}`); // retorna um
 // Exercício 3: média de Episódios.
 // Crie uma função chamada mediaDeEpisodios(series) que recebe o array de séries e retorna a média dos episódios de todas as séries contidas no array. 
 function mediaDeEpisodios(series) {
-		var resultado = 0;
+		// var resultado = 0;
 
-		series
-		.forEach(a => {
-			resultado += a.numeroEpisodios 
-		})
+		// series
+		// .forEach(a => {
+		// 	resultado += a.numeroEpisodios 
+		// })
 
-		var mediaEpisodios = resultado / series.length;
+		// var mediaEpisodios = resultado / series.length;
 
-		return mediaEpisodios;
+		return series
+				.map(a => a.numeroEpisodios)
+				.reduce((a,b) => a + b) / series.length;
 }
 
 console.log(`Exercício 3: Média de episódios por série: ${mediaDeEpisodios(series)}`); // retorna o valor da média da soma dos episódios/quantidade de séries no array.
@@ -54,32 +61,36 @@ function procurarPorNome(series, nome) {
 	});
 
 	return resposta;
+	// // indexOf
+	// return series.some(s => s.elenco.some(e => e.includes(nome)));
 }
 
 console.log(`Exercício 4: tem o nome? ${procurarPorNome(series, "Tais")}`); // retorna verdadeiro se tiver um "Mateus" em algum dos elencos. Dica: No campo nome da função experimente passar seu próprio nome.
 
 // Exercício 5: mascada em série
 // Uma série tem seu elenco e diretor(es), mas para ela acontecer, eles devem ser pagos. Crie uma função chamada mascadaEmSerie que retornará o valor total do salário a ser pago por mês para determinada série. Para isso, suponha que os Big-Bosses, os Diretores, ganhem R$ 100.000; Enquanto os operarios os peões o pessoal do elenco ganha R$ 40.000;
-function mascadaEmSerie(n) {
-	return (n.diretor.length * 100000) + (n.elenco.length * 40000);	 
+function mascadaEmSerie(serie) {
+	return (serie.diretor.length * 100000) + (serie.elenco.length * 40000);	 
 }
 
 console.log(`Exercício 5: total mascada $${mascadaEmSerie(series[0])}`); //Retorna o valor total de gastos contando os diretores e o elenco
 
 // Exercício 6: buscas!
 // A) Não sei o que quero assitir, mas quero ver CAOS! Escreva uma função chamada queroGenero que retorne um array, com os títulos das séries que são correspondentes com o genero do parâmetro.
-function queroGenero(generoFornecido) {
-	var arrayGenero = [];
+function queroGenero(genero) {
+	/*var arrayGenero = [];
 	series
 	.forEach(a => 
 		a.genero
 		.forEach( b => {
-			if (generoFornecido === b)
+			if (genero === b)
 				arrayGenero.push(a.titulo)
 		})
 	); 
 
-	return arrayGenero;
+	return arrayGenero;*/
+
+	return series.filter(s => s.genero.includes(genero));
 }
 
 console.log("Exercício 6a: os filmes desse gênero são", queroGenero("Caos")); // Retorna ["Bernardo The Master of the Wizards", "10 Days Why"]
@@ -95,6 +106,17 @@ function queroTitulo(parteTitulo) {
 	}); 
 	
 	return arrayFilmes;
+	/*return series
+		    .filter(s => s.titulo.includes(titulo))
+		    .map(s => s.titulo);
+	
+	let subset = queroTitulo("The");
+	let divSubset = document.getElementById('subset');
+	subset.forEach(titulo => {
+		let h2 = document.createElement('h2');
+		h2.innerText = `${ titulo }`;
+		divSubset.append(h2);
+	}*/
 }
 
 console.log("Exercício 6b: filmes com essa busca", queroTitulo("The")); // Retorna ["The Walking Dead", "Bernardo The Master of the Wizards"]
@@ -115,6 +137,17 @@ function creditosIlluminatis(n) {
 					.join("\n");
 
 	return titulo + "Direção: \n" + diretor + "\n" + "Elenco: \n" + elenco;
+	/*let criterioDeOrdenacao = (s1, s2) => {
+    return s1.pegarUltimoNome().localeCompare(s2.pegarUltimoNome())
+	}
+	let elencoOrdenado = serie.elenco.sort(criterioDeOrdenacao);
+	let diretoresOrdenados = serie.diretor.sort(criterioDeOrdenacao);
+
+	console.log(serie.titulo);
+	console.log("Diretores");
+	console.log(diretoresOrdenados);
+	console.log("Elenco");
+	console.log(elencoOrdenado);*/
 }
 
 console.log("Exercício 7: créditos do episódio.\n" + creditosIlluminatis(series[0]));
@@ -152,3 +185,15 @@ function sobrenomeAbreviado(series) {
 }
 
 console.log("Exercício 8: " + sobrenomeAbreviado(series));
+
+// 8 do Bernardo
+function descobrirSerieComTodosAbreviados() {
+  let elencoSerie = series
+    .find(s => s.elenco.every(e => e.temAbreviacao()))
+    .elenco
+    .map(e => e.match(/ [a-z][.] /gi)[0][1])
+    .join("");
+  return `#${ elencoSerie }`;
+}
+
+console.log("Do Bernardo: " + descobrirSerieComTodosAbreviados());
