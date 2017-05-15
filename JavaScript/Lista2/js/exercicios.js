@@ -6,7 +6,7 @@ function seriesInvalidas(series) {
 	.forEach(a => {
 		var atributos = Object.keys(a);
 		atributos.forEach(b => {
-			if (a[b] === null || a[b] === undefined ) 
+			if (a[b] === null || typeof a[b] === "undefined" ) 
 				titulosInvalidos.push(a["titulo"])    		
     	})
 	})
@@ -25,16 +25,8 @@ console.log(`Exercício 1: ${seriesInvalidas(series)}`);
 // Exercício 2: séries a partir de um determinado ano.
 /*Nesse exercício deverá ser implementada uma função chamada filtrarSeriesPorAno(series, ano) que recebe o array de séries e devolve um outro array contendo apenas as séries com ano maior ou igual ao ano passado por parâmetro.*/
 function filtrarSeriesPorAno(series, ano) {
-	var seriesPorAno = [];
-
-	series
-	.filter(a => {
-		if(a.anoEstreia >= ano)
-			seriesPorAno.push(a)
-	});
-
-	return seriesPorAno;
-
+	return series
+			.filter(a => a.anoEstreia >= ano);
 }
 
 console.log(`Exercício 2: ${filtrarSeriesPorAno(series, 2017)}`); // retorna um array com todas as séries com ano de estreia igual ou maior que 2017.
