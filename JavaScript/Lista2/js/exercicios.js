@@ -197,3 +197,15 @@ function descobrirSerieComTodosAbreviados() {
 }
 
 console.log("Do Bernardo: " + descobrirSerieComTodosAbreviados());
+
+// Exercício de arredondamento
+function parametrizarDecimal(num, dec) {
+	dec = dec || 2;
+	/*if(typeof dec === "undefined") {
+		dec = 2;
+	}*/
+	var round = Math.round(num).toString().length;
+	return  Number(Math.round(num).toString() + "." + num.toString().replace(/[\.-]/g, "").substr(round, dec));
+}
+
+console.log(parametrizarDecimal(10.235, 3));
