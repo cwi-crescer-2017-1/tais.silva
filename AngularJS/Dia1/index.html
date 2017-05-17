@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="modulo1" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+    <script src="js/controllers.js"></script>
+    <title>Dia 1</title>
+</head>
+<body>
+    <div ng-controller="formularioPkn">
+        <div>
+        <label for="form">Escreva</label>
+        <input ng-model="pokemon.nome" type="Ex.: Olá, você!">
+        <h1>Nome: {{ pokemon.nome }}</h1>
+        <input ng-model="pokemon.tipo" type="Ex.: Olá, você!">
+        <h1>Tipo: {{ pokemon.tipo }}</h1>
+        </div>
+        <ul>
+            <li ng-repeat="elemento in pokemon">
+                Nome: {{elemento.nome}} | Tipo: {{elemento.tipo}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
