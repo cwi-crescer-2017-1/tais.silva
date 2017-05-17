@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 }
 body {
-	padding: 5% 10%;
+	padding: 2% 5%;
 	font-family: 'Open Sans', sans-serif; 	
 }
 
@@ -11,10 +11,14 @@ body {
 }
 .formulario {
 	position: relative;
-	top: 60px;
 	left: 50%;
 	transform: translate(-50%);
+
 }
-/*
-.detalhesPkm > h1,  {
-}*/
+ .detalhesPkm {
+ 	display: block;
+} 
+
+li {
+	list-style: none;
+}
