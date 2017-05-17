@@ -10,9 +10,15 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<input id="numeroPkm" type="text" name="numeroPkm" placeholder="Ex: 5 (Squirtle)" value="">
-		    <button type="button" id="btnPesquisar" class="btn-primary btn">Pesquisar!</button>
-		    <div id="detalhesPokemon"></div>
+		<h1>Pokemons</h1>
+		<hr>
+		<div class="col-md-4 formulario">
+			<div class="form-group">
+				<input id="numeroPkm"  class="form-control" type="text" name="numeroPkm" placeholder="Ex: 5 (Squirtle)" value="">
+			</div>		   
+			<button type="button" id="btnPesquisar" class="btn-primary btn">Pesquisar!</button>
+			<div id="detalhesPokemon" class="detalhesPkm"></div>
+		</div> 
 	</div>
 	<script src="js/script.js"></script>
 </body>

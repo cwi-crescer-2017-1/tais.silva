@@ -2,10 +2,19 @@
 	box-sizing: border-box;
 }
 body {
-	margin: 5% 10%;
-	font-family: 'Open Sans', sans-serif; 
+	padding: 5% 10%;
+	font-family: 'Open Sans', sans-serif; 	
 }
-/*h1, h2, h3 {
-	
+
+.container-fluid {
+	text-align: center;		
 }
-*/
+.formulario {
+	position: relative;
+	top: 60px;
+	left: 50%;
+	transform: translate(-50%);
+}
+/*
+.detalhesPkm > h1,  {
+}*/

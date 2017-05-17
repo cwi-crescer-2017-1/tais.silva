@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	      console.log(json.sprites.front_default);
 	      let div = document.getElementById('detalhesPokemon');
 	      let name = document.createElement('h1');
-	      name = json.name;
+	      name = `Nome: ${ json.name }`;
 	      let numero = document.createElement('h2');
-	      numero = json.id;
+	      numero = `Número: ${ json.id }`;
 	      let img = document.createElement('img');
 	      img.src = json.sprites.front_default;
 	      let types = document.createElement('ul');
@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 status.max = 100;
                 status.value = a.base_stat;
                 stats.append(status);
-            });
+            });   
+        let br = document.createElement('br');
 	      div.append(name);
+        div.append(br);
 	      div.append(numero);
 	      div.append(img);
         div.append(types);
