@@ -1,19 +1,48 @@
 var dia2 = angular.module('dia2', []);
 
-dia2.controller('mudarData', function ($scope, $filter) {
+dia2.filter('mascada', function() {
+	return function(nome){
+		return nome.replace('Nunes', `$ ${nome} $`);
+		// return nome.replace(/(nunes)/i, '$ $1 $');
+	}
+})
 
-	$scope.converterData = converterData;
+dia2.controller('mudarNome', function ($scope) {
+	// $scope.instrutores =
+	let instrutores = [{
+	    nome: 'Bernardo',
+	    aula: [{
+	        numero: 1,
+	        nome: 'OO'
+	      },
+	      {
+	        numero: 4,
+	        nome: 'Javascript'
+	      }
+	    ]
+	  },
+	  {
+	    nome: 'Nunes',
+	    aula: [{
+	      numero: 2,
+	      nome: 'Banco de Dados I'
+	    }]
+	  },
+	  {
+	    nome: 'Pedro (PHP)',
+	    aula: [{
+	      numero: 3,
+	      nome: 'HTML e CSS'
+	    }]
+	  },
+	  {
+	    nome: 'Zanatta',
+	    aula: [{
+	      numero: 5,
+	      nome: 'AngularJS'
+	    }]
+	  }
+	];
 
-	function converterData() {
-
-	let pattern = '/(\d{2})\/(\d{2})\/(\d{4})/';
-    let replace = '$1.$2.$3';
-    let dataFormatada = $scope.dataDigitada.replace(pattern, replace);
-
-    let dataObjeto = new Date(dataFormatada);
-    
-    $scope.dataObjeto = dataObjeto;
-    // $scope.dataPronta = $filter('date')(dataObjeto, 'mediumDate')
-  }
-
+	$scope.instrutores = instrutores;
 });

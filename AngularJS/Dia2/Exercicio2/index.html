@@ -8,21 +8,17 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
     <script src="controller.js"></script>
-    <title>Dia 2</title>    
+    <title>Exercício 2</title>    
 </head>
 <body>
-    <div ng-controller="mudarData" class="container-fluid">  
+    <div ng-controller="mudarNome" class="container-fluid">  
         <div class="bloco">
-            <h1>Transforme a data</h1>
-
-            <div  class="form-group">
-                <label for="dataDigitada">Digite a data:</label>
-            	<input type="text" ng-model="dataDigitada" class="form-control" placeholder="dd/mm/aaaa"/>
-            </div> 
-           <button ng-click="converterData()" class="btn btn-primary">Converter!</button>           
-           <span>{{ dataObjeto | date: 'mediumDate' }}</span>		
-        	
-
+            <h1>Transforme nomes</h1>
+            <ul class="list-group">
+                <li ng-repeat="instrutor in instrutores" class="list-group-item">
+                    {{ instrutor.nome | mascada }}
+                </li>
+            </ul>           
     </div>
 </body>
 </html>
