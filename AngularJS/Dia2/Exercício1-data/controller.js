@@ -9,7 +9,6 @@ dia2.controller('mudarData', function ($scope, $filter) {
 	let pattern = '/(\d{2})\/(\d{2})\/(\d{4})/';
     let replace = '$1.$2.$3';
     let dataFormatada = $scope.dataDigitada.replace(pattern, replace);
-    console.log(dataFormatada);
 
     let dataObjeto = new Date(dataFormatada);
     
