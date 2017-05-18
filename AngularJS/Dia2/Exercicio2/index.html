@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
     <script src="controller.js"></script>
-    <title>Dia 2</title>
-    </head>
+    <title>Dia 2</title>    
+</head>
 <body>
     <div ng-controller="mudarData" class="container-fluid">  
         <div class="bloco">
@@ -21,6 +21,8 @@
             </div> 
            <button ng-click="converterData()" class="btn btn-primary">Converter!</button>           
            <span>{{ dataObjeto | date: 'mediumDate' }}</span>		
+        	
+
     </div>
 </body>
 </html>
