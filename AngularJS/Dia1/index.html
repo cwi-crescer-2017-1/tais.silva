@@ -1,27 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="modulo1" >
+<html lang="en" ng-app="dia1" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
     <script src="js/controllers.js"></script>
     <title>Dia 1</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            background-image: url(pokemon.jpg);
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        }
+        .container-fluid {
+            margin: 5px 20px 5px 0;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);        }
+        .bloco {
+           width: 280px;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            background-color: green;
+            opacity: 0.9;
+            filter: alpha(opacity=);
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <div ng-controller="formularioPkn">
-        <div>
-        <label for="form">Escreva</label>
-        <input ng-model="pokemon.nome" type="Ex.: Olá, você!">
-        <h1>Nome: {{ pokemon.nome }}</h1>
-        <input ng-model="pokemon.tipo" type="Ex.: Olá, você!">
-        <h1>Tipo: {{ pokemon.tipo }}</h1>
+    <div ng-controller="formularioPkn" class="container-fluid">  
+        <div class="bloco">
+            <h1>Busque Pokémons</h1>
+
+            <div  class="form-group">
+                <label>Digite o nome:</label>       
+                <input ng-model="searchText" class="form-control" type="text" placeholder="Ex.: Bulbasaur">
+            </div>
+
+            <ul class="list-group">
+                <li ng-repeat="nomePokemon in pokemon | filter:searchText" class="list-group-item">
+                    {{nomePokemon.nome}} ({{nomePokemon.tipo}})
+                </li>
+            </ul>   
         </div>
+
+        <!-- <div>
+        <label for="form">Escreva</label>
+        <input ng-model="pokemon.nome" type="text" placeholder="Ex.: Olá, você!">
+        <h1>Nome: {{ pokemon.nome }}</h1>
+        <input ng-model="pokemon.tipo" type="text" placeholder="Ex.: Olá, você!">
+        <h1>Tipo: {{ pokemon.tipo }}</h1>
         <ul>
             <li ng-repeat="elemento in pokemon">
                 Nome: {{elemento.nome}} | Tipo: {{elemento.tipo}}
             </li>
         </ul>
+        </div> -->
     </div>
 </body>
 </html>
