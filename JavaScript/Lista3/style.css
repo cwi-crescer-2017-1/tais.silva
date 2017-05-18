@@ -1,24 +1,83 @@
 * {
 	box-sizing: border-box;
 }
+
 body {
-	padding: 2% 5%;
-	font-family: 'Open Sans', sans-serif; 	
+	font-family: 'Open Sans', sans-serif; 
+	margin: 0;
+	background-image: url(pokemon.jpg);
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-attachment: scroll;	
 }
 
 .container-fluid {
-	text-align: center;		
+	text-align: center;	
+	background-color: rgb(236, 117, 59)/* rgb(187, 187, 187) */;
+	padding: 20px;	 	
 }
+
+.div-titulo {
+	width: 40%;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+.titulo {
+	margin-bottom: 40px;
+	background-color: rgb(87, 142, 40);
+	padding: 10px;
+	color: #fff;
+	border-radius: 8px;
+}
+
 .formulario {
 	position: relative;
 	left: 50%;
 	transform: translate(-50%);
 
 }
- .detalhesPkm {
- 	display: block;
-} 
 
 li {
 	list-style: none;
+	text-transform:capitalize;
+}
+
+span {
+	text-transform:capitalize;
+	font-size: 2em;
+}
+
+img {
+	width: 80%;
+}
+
+.detalhesPkm h1, .detalhesPkm h2, .detalhesPkm li {
+	text-align: left;
+	text-transform:capitalize;
+}
+
+.row {
+	margin: 50px;
+	background-color: rgb(242, 167, 14);
+	border-radius: 8px;
+}
+
+ul {
+	list-style: none;
+	padding-top: 40px;
+}
+
+@media screen and (min-width: 768px) {
+	.container-fluid {
+		width: 60%;
+		padding: 50px;
+	}
+}
+@media screen and (min-width: 1280px) {
+	.container-fluid {
+		width: 50%;
+		padding: 50px;
+	}
 }

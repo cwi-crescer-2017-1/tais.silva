@@ -10,16 +10,30 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<h1>Pokemons</h1>
-		<hr>
-		<div class="col-md-4 formulario">
+
+		<div class="div-titulo">
+			<h1 class="titulo">Pokémons</h1>
+		</div>
+		
+
+		<div class="formulario">
+
 			<div class="form-group">
+				<label for="numeroPkm">Escreva o número do Pokémon que deseja encontrar:</label>
 				<input id="numeroPkm"  class="form-control" type="text" name="numeroPkm" placeholder="Ex: 5 (Squirtle)" value="">
-			</div>		   
+			</div>		
+
 			<button type="button" id="btnPesquisar" class="btn-primary btn">Pesquisar!</button>
-			<div id="detalhesPokemon" class="detalhesPkm"></div>
-		</div> 
-	</div>
+
+			<div class="row">
+				<div id="detalhesPokemon" class="detalhesPkm col-md-6 col-xs-6"></div>
+				<div id="imagemPokemon" class="imagemPkm col-md-6 "></div>
+			</div>
+
+			<div id="barras"></div>
+		</div>
+
+	</div> 
 	<script src="js/script.js"></script>
 </body>
 </html>
