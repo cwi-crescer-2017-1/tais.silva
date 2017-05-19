@@ -12,10 +12,10 @@ body{
     transform: translate(-50%);       
 }
 .bloco {
-   width: 280px;
-}
-.ladoA .ladoB {
-    width: 50%;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%); 
 }
 h1 {
     text-align: center;
@@ -25,4 +25,14 @@ h1 {
     filter: alpha(opacity=);
     padding: 15px;
     border-radius: 5px;
+}
+@media screen and (min-width: 600px) {
+    .bloco {
+        width: 80%; 
+    }
+}
+@media screen and (min-width: 800px) {
+    .bloco {
+        width: 60%;
+    }
 }

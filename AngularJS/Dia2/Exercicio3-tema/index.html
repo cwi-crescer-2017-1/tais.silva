@@ -11,15 +11,25 @@
     <title>Exercício 2</title>    
 </head>
 <body>
-    <div ng-controller="mudarNome" class="container-fluid">  
+    <div ng-controller="mudarNome" class="container container-fluid">  
         <div class="bloco">
             <h1>Ordenar aula pelo número</h1>
-            <ul class="list-group">
-                <li ng-repeat="aula in aulas | orderBy: 'numero'" class="list-group-item">                    
-                    {{ aula | lpad }}: 
-                    {{ aula.instrutor | mascada }}
-                </li>
-            </ul>             
+            <div>
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Aula</th>
+                            <th>Instrutor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="aula in aulas | orderBy: 'numero'">
+                            <td>{{ aula | lpad }}</td>             
+                            <td>{{ aula.instrutor | mascada }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
