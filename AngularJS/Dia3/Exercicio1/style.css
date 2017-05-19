@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.container-fluid {
+    margin: 5px 20px 5px 0;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);       
+}
+.bloco {
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%); 
+}
+h1 {
+    text-align: center;
+    color: #fff;
+    background-color: green;
+    opacity: 0.9;
+    filter: alpha(opacity=);
+    padding: 15px;
+    border-radius: 5px;
+}
+@media screen and (min-width: 600px) {
+    .bloco {
+        width: 80%; 
+    }
+}
+@media screen and (min-width: 800px) {
+    .bloco {
+        width: 60%;
+    }
+}
