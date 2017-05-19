@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="index" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+    <script src="controller.js"></script>
+    <title>Exercício 2</title>    
+</head>
+<body>
+    <div ng-controller="mudarNome" class="container-fluid">  
+        <div class="bloco">
+            <h1>Ordenar aula pelo número</h1>
+            <ul class="list-group">
+                <li ng-repeat="aula in aulas | orderBy: 'numero'" class="list-group-item">                    
+                    {{ aula | lpad }}: 
+                    {{ aula.instrutor | mascada }}
+                </li>
+            </ul>             
+        </div>
+    </div>
+</body>
+</html>
