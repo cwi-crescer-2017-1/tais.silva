@@ -1,14 +1,15 @@
 var app = angular.module('app', []);
 
-app.filter('incluir', function() {
-	return function(){
-		console.log(nome);
-		return instrutores.push({nome: instrutores.nome, sobrenome: sobrenome, idade: idade, email: email, jaDeuAula: jaDeuAula, aula: aula});
-	}
-})
-
 app.controller('exercicio', function ($scope) {
 	
+	$scope.incluir = function (novoInstrutor) {
+		if ($scope.formInstrutores.$valid) {
+			$scope.instrutores.push(angular.copy(novoInstrutor));
+			$scope.novoInstrutor = {};		
+	 	}
+	 };
+
+
 	$scope.instrutores = 
 	[{
     nome: 'Bernardo',
