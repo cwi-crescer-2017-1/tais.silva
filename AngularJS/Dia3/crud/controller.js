@@ -1,7 +1,8 @@
 var app = angular.module('app', []);
 
 app.controller('exercicio', function ($scope) {
-	// $scope.novoInstrutor = { "nome": "Taís" };
+	
+	$scope.chimia = "lua";
 
 	// $scope.array = $scope.array.filter(objeto => objeto.id !== id);
 	$scope.removerAula = function(aula) {
@@ -34,11 +35,27 @@ app.controller('exercicio', function ($scope) {
 		}
 		
 	}
+
 	// editar, está igual ao outro, customizar
-	$scope.alterarInstrutor = function (instrutor){
-		let promptNome = prompt("Digite o novo nome:");
-		console.log(promptNome);
-		promptNome === "" || promptNome === null ? console.log("Não incluiu nome na edição.") : aula.nome = promptNome;
+	$scope.editarInstrutor = function (instrutor){
+		console.log("fora")
+
+		// if ($scope.formEditarInstrutores.$valid) {
+			console.log("dentro")
+			
+		let possui = !$scope.instrutores.find(a => instrutor.nome === a.nome);
+		let emailUtilizado = $scope.instrutores.find(a => instrutor.email === a.email);
+
+			if(possui) {
+				 return window.alert("Instrutor já cadastrado.");
+			}if(emailUtilizado){
+				return window.alert("Email já está sendo utilizado.");
+			}else {
+				instrutor.id = gerarProximoId($scope.instrutores);
+				$scope.instrutores.push(angular.copy(instrutor));
+				$scope.instrutor = {};	
+			}	
+	 	// }
 	}
 
 	$scope.editarNomeAula = function (aula){
@@ -127,3 +144,4 @@ app.controller('exercicio', function ($scope) {
 		nome: 'Banco de Dados I'
 	}];
 });
+

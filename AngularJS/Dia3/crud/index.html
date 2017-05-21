@@ -51,7 +51,7 @@
             <form novalidate name="formInstrutores">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
-                    <input class="form-control" type="text" name="nome" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" required>
+                    <input class="form-control" type="text" name="nome" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" required> 
                 </div>
                 <div class="form-group">
                     <label for="sobrenome">Sobrenome:</label>
@@ -70,10 +70,10 @@
                         <input type="checkbox" name="checkbox-dandoAula" ng-model="novoInstrutor.dandoAula" value="true">
                 </div>
                 <div class="form-group btn-group">
-                    <label class="btn btn-primary" for="radio-aula" ng-repeat="aula in aulas | orderBy: 'nome'">
+                    <label class="btn btn-primary" for="checkbox-aula" ng-repeat="aula in aulas | orderBy: 'nome'">
                         {{ aula.nome }}
                     </label>
-                        <input type="radio" name="radio-aula" ng-model="novoInstrutor.aula" value="aula.id">                    
+                        <input type="checkbox" name="checkbox-aula" ng-model="novoInstrutor.aula" value="aula.id">                    
                 </div>              
                 <div class="form-group">
                     <label for="foto">Incluir foto do instrutor</label>
@@ -85,23 +85,28 @@
                 <div>
                     <h2>Instrutores</h2>
                     <div>
-                        <table class="table table-striped table-bordered table-hover table-condensed">
-                            <thead>
-                                <tr>
-                                    <th>Lista de instrutores</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
-                                    <td>{{ instrutor.nome }} {{ instrutor.sobrenome }}
-                                    <button class="btn btn-danger btn-xs pull-right" ng-click="remove(instrutor, instrutores)">Excluir</button>
-                                    <button type="button" class="btn btn-warning btn-xs pull-right" data-toggle="modal" data-target="#editarInstrutorModal">Editar</button></td>
-                                    <td ng-repeat="aula in instrutor.aula">{{ aulas[aula].nome }}</td>
-                                     <!-- ng-click="alterarInstrutor(instrutor)" -->
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div id="editarInstrutorModal" class="modal fade" role="dialog">
+                    <table class="table table-striped table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Lista de instrutores</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+                                <td>{{ instrutor.nome }} {{ instrutor.sobrenome }}
+
+                                <button class="btn btn-danger btn-xs pull-right" ng-click="removerInstrutor(instrutor)">Excluir</button>
+
+                                <button type="button" class="btn btn-warning btn-xs pull-right" data-toggle="modal" data-target="#formModal">Editar</button></td>
+
+                                <td ng-repeat="aula in instrutor.aula">{{ aulas[aula].nome }}</td>
+                                 <!-- ng-click="alterarInstrutor(instrutor)" -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form> 
+                        <div  ng-repeat="instrutor in instrutores" id="formModal" class="modal fade" role="dialog">
                             <div class="modal-dialog">
 
                             <!-- Modal content-->
@@ -111,7 +116,41 @@
                                         <h4 class="modal-title">Editar informações de instrutor</h4>
                                     </div>
                                     <div class="modal-body">
-                                        
+                                        <form novalidate name="formEditarInstrutores">
+                                            <div class="form-group">
+                                                <label for="nome">Nome:</label>
+                                                <input class="form-control ng-dirty" type="text" name="nome" ng-model="instrutor.nome" ng-minlength="3" ng-maxlength="20" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sobrenome">Sobrenome:</label>
+                                                <input class="form-control ng-dirty" type="text" name="sobrenome" ng-model="instrutor.sobrenome" ng-maxlength="30">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="idade">Idade:</label>
+                                                <input class="form-control ng-dirty" type="number" name="idade" ng-model="instrutor.idade" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">Email:</label>
+                                                <input class="form-control ng-dirty" type="email" name="email" ng-model="instrutor.email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="checkbox-dandoAula">Está dando aula?</label>
+                                                    <input type="checkbox" name="checkbox-dandoAula" ng-model="instrutor.dandoAula" value="true">
+                                            </div>
+                                            <div class="form-group btn-group">
+                                                <label class="btn btn-primary" for="checkbox-aula" ng-repeat="aula in aulas | orderBy: 'nome'">
+                                                    {{ aula.nome }}
+                                                </label>
+                                                    <input type="checkbox" name="checkbox-aula" ng-model="instrutor.aula" value="aula.id">                    
+                                            </div>              
+                                            <div class="form-group">
+                                                <label for="foto">Incluir foto do instrutor</label>
+                                                    <input type="file" class="btn btn-default">                    
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary" ng-click="editarInstrutor(instrutor)">Incluir</button>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -121,8 +160,7 @@
                             </div> <!-- fim do modal -->
                         </div>
                     </div>
-                </div>
-            </form>           
+                </div>                      
         </div>
     </div>
     <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
