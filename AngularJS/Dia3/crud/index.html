@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.css">
+    <!-- <link rel="stylesheet" href="style.css">     -->
+    <title>Exercício 2</title>    
+</head>
+<body>
+    <div ng-controller="exercicio" class="container container-fluid">  
+        <div class="bloco bloco1">
+            <h1>CRUD Aulas</h1>
+            <form novalidate name="formAula">
+                <h2>Incluir nova aula</h2>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input class="form-control" type="text" name="nome" ng-model="novaAula.nome" ng-minlength="3" ng-maxlength="20" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click="incluirAula(novaAula)">Incluir</button>
+                </div>
+            </form>
+            <div>
+                <h2>Lista de aulas</h2>
+                <div>
+                    <table class="table table-striped table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+                                <td>{{ aula.id }}</td>
+                                <td>{{ aula.nome }}
+                                    <button class="btn btn-danger btn-xs pull-right" ng-click="removerAula(aula)">Excluir</button>
+                                    <button class="btn btn-warning btn-xs pull-right" ng-click="editarNomeAula(aula)">Editar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>                       
+        </div>    
+        <div class="bloco bloco2">
+            <h1>Lista de instrutores</h1>
+            <form novalidate name="formInstrutores">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input class="form-control" type="text" name="nome" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" required>
+                </div>
+                <div class="form-group">
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input class="form-control" type="text" name="sobrenome" ng-model="novoInstrutor.sobrenome" ng-maxlength="30">
+                </div>
+                <div class="form-group">
+                    <label for="idade">Idade:</label>
+                    <input class="form-control" type="number" name="idade" ng-model="novoInstrutor.idade" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="email" name="email" ng-model="novoInstrutor.email" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkbox-dandoAula">Está dando aula?</label>
+                        <input type="checkbox" name="checkbox-dandoAula" ng-model="novoInstrutor.dandoAula" value="true">
+                </div>
+                <div class="form-group btn-group">
+                    <label class="btn btn-primary" for="radio-aula" ng-repeat="aula in aulas | orderBy: 'nome'">
+                        {{ aula.nome }}
+                    </label>
+                        <input type="radio" name="radio-aula" ng-model="novoInstrutor.aula" value="aula.id">                    
+                </div>              
+                <div class="form-group">
+                    <label for="foto">Incluir foto do instrutor</label>
+                        <input type="file" class="btn btn-default">                    
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click="incluirInstrutor(novoInstrutor)">Incluir</button>
+                </div>
+                <div>
+                    <h2>Instrutores</h2>
+                    <div>
+                        <table class="table table-striped table-bordered table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Lista de instrutores</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+                                    <td>{{ instrutor.nome }} {{ instrutor.sobrenome }}
+                                    <button class="btn btn-danger btn-xs pull-right" ng-click="remove(instrutor, instrutores)">Excluir</button>
+                                    <button type="button" class="btn btn-warning btn-xs pull-right" data-toggle="modal" data-target="#editarInstrutorModal">Editar</button></td>
+                                    <td ng-repeat="aula in instrutor.aula">{{ aulas[aula].nome }}</td>
+                                     <!-- ng-click="alterarInstrutor(instrutor)" -->
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div id="editarInstrutorModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Editar informações de instrutor</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div> <!-- fim do modal -->
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+    </div>
+    <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  -->   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>
+
