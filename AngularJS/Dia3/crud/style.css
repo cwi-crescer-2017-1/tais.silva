@@ -3,36 +3,41 @@
 }
 body{
     margin: 0;
+    padding: 10px 0 20px 0;
 }
-.container-fluid {
-    margin: 5px 20px 5px 0;
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);       
-}
-.bloco {
-    width: 100%;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%); 
-}
-h1 {
+h1{
     text-align: center;
-    color: #fff;
-    background-color: green;
-    opacity: 0.9;
-    filter: alpha(opacity=);
-    padding: 15px;
-    border-radius: 5px;
 }
-@media screen and (min-width: 600px) {
-    .bloco {
-        width: 80%; 
-    }
+.p-relative {
+    position: relative;
 }
-@media screen and (min-width: 800px) {
-    .bloco {
-        width: 60%;
-    }
+.p-absolute {
+    position: absolute;
+}
+.botao {
+    
+}
+img.img-instrutor { 
+    height: 10rem;
+    float: right;    
+}
+.mright-5 {
+    margin-right: 5px;
+    margin: 5px;
+}
+input.ng-invalid.ng-touched.ng-dirty.ng-not-empty {
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,0,0,.6);      
+}
+input.ng-invalid.ng-touched.ng-dirty.ng-not-empty:after {
+    content: "<span>Campo Obrigatório</span>";
+    color: red;
+}
+input.ng-invalid.ng-touched {
+    border-color: #FFBC00;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,188,0,.6);     
+}
+input.ng-valid.ng-dirty.ng-not-empty {
+    border-color: #6FDF53;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(111,123,83,.6);     
 }

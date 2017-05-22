@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.css">
-    <!-- <link rel="stylesheet" href="style.css">     -->
-    <title>Exercício 2</title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    <link rel="stylesheet" href="style.css">    
+    <title>CRUD</title> 
 </head>
 <body>
     <div ng-controller="exercicio" class="container container-fluid">  
@@ -37,8 +39,8 @@
                             <tr ng-repeat="aula in aulas | orderBy: 'nome'">
                                 <td>{{ aula.id }}</td>
                                 <td>{{ aula.nome }}
-                                    <button class="btn btn-danger btn-xs pull-right" ng-click="removerAula(aula)">Excluir</button>
-                                    <button class="btn btn-warning btn-xs pull-right" ng-click="editarNomeAula(aula)">Editar</button>
+                                    <button class="btn btn-danger btn-xs pull-right mright-5" ng-click="removerAula(aula)">Excluir</button>
+                                    <button class="btn btn-warning btn-xs pull-right mright-5" ng-click="editarNomeAula(aula)">Editar</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -47,128 +49,149 @@
             </div>                       
         </div>    
         <div class="bloco bloco2">
-            <h1>Lista de instrutores</h1>
-            <form novalidate name="formInstrutores">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input class="form-control" type="text" name="nome" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" required> 
-                </div>
-                <div class="form-group">
-                    <label for="sobrenome">Sobrenome:</label>
-                    <input class="form-control" type="text" name="sobrenome" ng-model="novoInstrutor.sobrenome" ng-maxlength="30">
-                </div>
-                <div class="form-group">
-                    <label for="idade">Idade:</label>
-                    <input class="form-control" type="number" name="idade" ng-model="novoInstrutor.idade" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input class="form-control" type="email" name="email" ng-model="novoInstrutor.email" required>
-                </div>
-                <div class="form-group">
-                    <label for="checkbox-dandoAula">Está dando aula?</label>
-                        <input type="checkbox" name="checkbox-dandoAula" ng-model="novoInstrutor.dandoAula" value="true">
-                </div>
-                <div class="form-group btn-group">
-                    <label class="btn btn-primary" for="checkbox-aula" ng-repeat="aula in aulas | orderBy: 'nome'">
-                        {{ aula.nome }}
-                    </label>
-                        <input type="checkbox" name="checkbox-aula" ng-model="novoInstrutor.aula" value="aula.id">                    
-                </div>              
-                <div class="form-group">
-                    <label for="foto">Incluir foto do instrutor</label>
-                        <input type="file" class="btn btn-default">                    
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" ng-click="incluirInstrutor(novoInstrutor)">Incluir</button>
-                </div>
+            <div>
+                <h2>Instrutores</h2>
                 <div>
-                    <h2>Instrutores</h2>
-                    <div>
-                    <table class="table table-striped table-bordered table-hover table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Lista de instrutores</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
-                                <td>{{ instrutor.nome }} {{ instrutor.sobrenome }}
-
-                                <button class="btn btn-danger btn-xs pull-right" ng-click="removerInstrutor(instrutor)">Excluir</button>
-
-                                <button type="button" class="btn btn-warning btn-xs pull-right" data-toggle="modal" data-target="#formModal">Editar</button></td>
-
-                                <td ng-repeat="aula in instrutor.aula">{{ aulas[aula].nome }}</td>
-                                 <!-- ng-click="alterarInstrutor(instrutor)" -->
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </form> 
-                        <div  ng-repeat="instrutor in instrutores" id="formModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-
-                            <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Editar informações de instrutor</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form novalidate name="formEditarInstrutores">
-                                            <div class="form-group">
-                                                <label for="nome">Nome:</label>
-                                                <input class="form-control ng-dirty" type="text" name="nome" ng-model="instrutor.nome" ng-minlength="3" ng-maxlength="20" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="sobrenome">Sobrenome:</label>
-                                                <input class="form-control ng-dirty" type="text" name="sobrenome" ng-model="instrutor.sobrenome" ng-maxlength="30">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="idade">Idade:</label>
-                                                <input class="form-control ng-dirty" type="number" name="idade" ng-model="instrutor.idade" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email">Email:</label>
-                                                <input class="form-control ng-dirty" type="email" name="email" ng-model="instrutor.email" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="checkbox-dandoAula">Está dando aula?</label>
-                                                    <input type="checkbox" name="checkbox-dandoAula" ng-model="instrutor.dandoAula" value="true">
-                                            </div>
-                                            <div class="form-group btn-group">
-                                                <label class="btn btn-primary" for="checkbox-aula" ng-repeat="aula in aulas | orderBy: 'nome'">
-                                                    {{ aula.nome }}
-                                                </label>
-                                                    <input type="checkbox" name="checkbox-aula" ng-model="instrutor.aula" value="aula.id">                    
-                                            </div>              
-                                            <div class="form-group">
-                                                <label for="foto">Incluir foto do instrutor</label>
-                                                    <input type="file" class="btn btn-default">                    
-                                            </div>
-                                            <div class="form-group">
-                                                <button class="btn btn-primary" ng-click="editarInstrutor(instrutor)">Incluir</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-
-                            </div> <!-- fim do modal -->
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                      <div class="panel panel-default" ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+                        <div class="panel-heading" role="tab" id="heading{{ instrutor.id }}">
+                          <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ instrutor.id }}" aria-expanded="true" aria-controls="collapse{{ instrutor.id }}">
+                              {{ instrutor.nome }} {{instrutor.sobrenome}} 
+                            </a>
+                          </h4>
                         </div>
+                        <div id="collapse{{ instrutor.id }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ instrutor.id }}">
+                          <div class="div-painel panel-body p-relative">
+                            <div class="pull-left">
+                                ID: {{ instrutor.id }} <br>
+                                Idade: {{ instrutor.idade }} anos <br>
+                                Email: {{ instrutor.email }} <br>
+                                Dando aula: {{ instrutor.dandoAula }} <br>
+                                Instrutor nas aulas de:
+                                <ul class="ul-instrutor">
+                                    <li ng-repeat="aula in instrutor.aula">{{ aulas[aula].nome }}</li>
+                                </ul>
+                            </div>
+                            <img class="img-instrutor img-responsive img-rounded" ng-src="{{ instrutor.urlFoto }}" alt="Foto do rosto do instrutor {{ instrutor.nome }}">
+                            <div class="botao">
+                                <button type="button" class="button btn btn-danger btn-xs pull-right mright-5" ng-click="removerInstrutor(instrutor)">Excluir</button>
+                                <button type="button" class="btn btn-warning btn-xs pull-right mright-5" data-toggle="modal" data-target="#formModal{{instrutor.id}}">Editar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>  
                     </div>
-                </div>                      
-        </div>
-    </div>
+                </div>
+
+                <div  ng-repeat="instrutor in instrutores" id="formModal{{instrutor.id}}" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Editar informações de instrutor</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form novalidate name="formEditarInstrutores">
+                                    <div class="form-group">
+                                        <label for="nome">Nome:</label>
+                                        <input class="form-control ng-dirty" type="text" name="nome" ng-model="instrutor.nome" ng-minlength="3" ng-maxlength="20" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sobrenome">Sobrenome:</label>
+                                        <input class="form-control ng-dirty" type="text" name="sobrenome" ng-model="instrutor.sobrenome" ng-maxlength="30">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="idade">Idade:</label>
+                                        <input class="form-control ng-dirty" type="number" name="idade" ng-model="instrutor.idade" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input class="form-control ng-dirty" type="email" name="email" ng-model="instrutor.email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="checkbox-dandoAula">Está dando aula?</label>
+                                            <input type="checkbox" name="checkbox-dandoAula" ng-model="instrutor.dandoAula" value="true">
+                                    </div>
+                                    <div class="form-group btn-group">
+                                        <select multiple ng-model="instrutor.aula">
+                                            <option ng-repeat="aula in aulas | orderBy: 'nome'" ng-value="{{aula.id}}">
+                                                {{ aula.nome }}                                       
+                                            </option>
+                                        </select>       
+                                    </div>               
+                                    <div class="form-group">
+                                        <label for="foto">Incluir foto do instrutor(url):</label>
+                                        <input type="text" class="btn btn-default" ng-model="instrutor.urlFoto">                    
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-primary" ng-click="editarInstrutor(instrutor)">Alterar</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div> 
+                </div> <!-- FIM DO MODAL --> 
+
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  Incluir instrutor
+                <i class="fa fa-angle-down"></i></button>
+
+                    <div class="collapse" id="collapseExample">
+                        <div class="well">
+                            <form novalidate name="formInstrutores">
+                                <div class="form-group">
+                                    <label for="nome">Nome:</label>
+                                    <input class="form-control" type="text" name="nome" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" required> 
+                                </div>
+                                <div class="form-group">
+                                    <label for="sobrenome">Sobrenome:</label>
+                                    <input class="form-control" type="text" name="sobrenome" ng-model="novoInstrutor.sobrenome" ng-maxlength="30">
+                                </div>
+                                <div class="form-group">
+                                    <label for="idade">Idade:</label>
+                                    <input class="form-control" type="number" name="idade" ng-model="novoInstrutor.idade" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input class="form-control" type="email" name="email" ng-model="novoInstrutor.email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="checkbox-dandoAula">Está dando aula?</label>
+                                    <input type="checkbox" name="checkbox-dandoAula" ng-model="novoInstrutor.dandoAula" value="true">
+                                </div>
+                                <div class="form-group btn-group">
+                                    <select multiple ng-model="novoInstrutor.aula">
+                                        <option ng-repeat="aula in aulas | orderBy: 'nome'" ng-value="{{aula.id}}">
+                                            {{ aula.nome }}                                       
+                                        </option>
+                                    </select>       
+                                </div>              
+                                <div class="form-group">
+                                    <label for="foto">Incluir foto do instrutor(url):</label>
+                                    <input type="text" class="btn btn-default" ng-model="novoInstrutor.urlFoto">                    
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" ng-click="incluirInstrutor(novoInstrutor)">Incluir</button>
+                                </div>
+                            </form>             
+                        </div>
+                    </div>            
+            </div>
+        </div> <!-- END BLOCO 2 -->
+    </div> <!-- END CONTAINER -->
     <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  -->   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>   
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-checkbox/1.4.0/bootstrap-checkbox.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="controller.js"></script>
 </body>
 </html>

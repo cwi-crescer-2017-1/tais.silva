@@ -1,8 +1,34 @@
 var app = angular.module('app', []);
 
 app.controller('exercicio', function ($scope) {
-	
-	$scope.chimia = "lua";
+
+	$scope.sucesso = function() {
+		return swal("Pronto!", "Ação realizada com Sucesso!", "success");		
+	}
+
+	$scope.editarNomeAula = function (aula){
+		
+		swal({
+		  title: "Editar nome",
+		  text: "Digite o novo nome:",
+		  type: "input",
+		  showCancelButton: true,
+		  closeOnConfirm: false,
+		  animation: "slide-from-top",
+		  inputPlaceholder: "Novo nome"
+		},		
+		function(inputValue){
+		  if (inputValue === false) return false;
+		  
+		  if (inputValue === "") {
+		    swal.showInputError("Você precisa escrever o novo nome!");
+		    return false
+		  }
+		  
+		  swal("Pronto!", "Você escreveu: " + inputValue, "success");
+		  aula.nome = inputValue;
+		});
+	}
 
 	// $scope.array = $scope.array.filter(objeto => objeto.id !== id);
 	$scope.removerAula = function(aula) {
@@ -15,53 +41,61 @@ app.controller('exercicio', function ($scope) {
 		let possui = $scope.instrutores.some(i => i.aula.some(a => a === aula.id));
 
 		if(possui) {
-			window.alert("Não é possível excluir esta aula. Está sendo utilizada.");
+			swal("Não é possível excluir esta aula. Está sendo utilizada.");
 		}else {
 			tirar();
+			return $scope.sucesso();
 		}
 	}
 
 	$scope.removerInstrutor = function(instrutor) {
-		var index = $scope.aulas.indexOf(instrutor);
+		
+		var index = $scope.instrutores.indexOf(instrutor);
 
 		function tirar() {			
-			$scope.aulas.splice(index, 1);
+			$scope.instrutores.splice(index, 1);
 		}
 
-		if(item.dandoAula === true) {
-			window.alert("Não é possível excluir este instrutor. Está dando instrutor.");
+		if(instrutor.dandoAula === true) {
+			swal("Não é possível excluir este instrutor. Está dando instrutor.");
 		}else {
 			tirar();
+			return $scope.sucesso();
 		}
 		
 	}
 
-	// editar, está igual ao outro, customizar
 	$scope.editarInstrutor = function (instrutor){
-		console.log("fora")
+		console.log("fora");
 
-		// if ($scope.formEditarInstrutores.$valid) {
-			console.log("dentro")
+		// if ($scope.formInstrutores.$valid) {
+			console.log("dentro");
+			let validaNome = function(instrutor) {
+				let valido = true;				
+		 		for (i = 0; i < $scope.instrutores.length; i++ ){
+		 			if (instrutor.id == $scope.instrutores[i].id) {
+		 				continue;
+		 			}if (instrutor.nome == $scope.instrutores[i].nome) {
+		 				swal("Instrutor já cadastrado.");
+		 				valido = false;
+		 				break;
+		 			}if(instrutor.email == $scope.instrutores[i].email) {
+		 				swal("Email já está sendo utilizado.");
+		 				valido = false;
+		 				break;
+		 			}
+		 		}
+		 		return valido;
+		 	}
+
+		 	if(validaNome(instrutor)){
+		 		console.log("entrou no valido");
+		 		var index = $scope.instrutores.indexOf(instrutor);
+				$scope.instrutores[index] = instrutor;
+				return $scope.sucesso();				
+			}
 			
-		let possui = !$scope.instrutores.find(a => instrutor.nome === a.nome);
-		let emailUtilizado = $scope.instrutores.find(a => instrutor.email === a.email);
-
-			if(possui) {
-				 return window.alert("Instrutor já cadastrado.");
-			}if(emailUtilizado){
-				return window.alert("Email já está sendo utilizado.");
-			}else {
-				instrutor.id = gerarProximoId($scope.instrutores);
-				$scope.instrutores.push(angular.copy(instrutor));
-				$scope.instrutor = {};	
-			}	
 	 	// }
-	}
-
-	$scope.editarNomeAula = function (aula){
-		let promptNome = prompt("Digite o novo nome:");
-		console.log(promptNome);
-		promptNome === "" || promptNome === null ? console.log("Não incluiu nome na edição.") : aula.nome = promptNome;
 	}
 
 	function gerarProximoId(lista){
@@ -71,45 +105,50 @@ app.controller('exercicio', function ($scope) {
 	$scope.incluirAula = function (novaAula) {
 		if ($scope.formAula.$valid) {
 			novaAula.id = gerarProximoId($scope.aulas);
-			let valido = !$scope.aulas.find(a => novaAula.nome === a.nome);
+			let valido = !$scope.aulas.some(a => novaAula.nome === a.nome);
 			 
 			if(valido) {
 			    $scope.aulas.push(angular.copy(novaAula));
 			    $scope.novaAula = {}
+			    return $scope.sucesso();
 			} else {
-			    window.alert("Aula já cadastrada.");
+			    swal("Aula já cadastrada.");
 			}
 		}
 	};
 	
 	$scope.incluirInstrutor = function (novoInstrutor) {
 		if ($scope.formInstrutores.$valid) {
-			
-		let possui = $scope.instrutores.find(a => novoInstrutor.nome === a.nome);
-		let emailUtilizado = $scope.instrutores.find(a => novoInstrutor.email === a.email);
+
+			let possui = $scope.instrutores.find(a => novoInstrutor.nome === a.nome);
+			let emailUtilizado = $scope.instrutores.find(a => novoInstrutor.email === a.email);
+			if (novoInstrutor.urlFoto === " ") {
+				novoInstrutor.urlFoto = "foto-padrao.jpg";
+			}
 
 			if(possui) {
-				 return window.alert("Instrutor já cadastrado.");
+				 return swal("Instrutor já cadastrado.");
 			}if(emailUtilizado){
-				return window.alert("Email já está sendo utilizado.");
+				return swal("Email já está sendo utilizado.");
 			}else {
 				novoInstrutor.id = gerarProximoId($scope.instrutores);
 				$scope.instrutores.push(angular.copy(novoInstrutor));
 				$scope.novoInstrutor = {};	
+				return $scope.sucesso();
 			}	
 	 	}
 	 };
 
 	$scope.instrutores = 
 	[{
-	    id: 0,                            // Gerado
-	    nome: 'Pedro',                     // Obrigatório (length = min 3, max 20)
-	    sobrenome: 'Henrique Pires',           // Opcional (length = max 30)
-	    idade: 21,                        // Obrigatório (max 90)
-	    email: 'pedro.pires@cwi.com.br',        // Obrigatório (type=email)
-	    dandoAula: true,                  // true ou false
-	    aula: [3],                     // Opcional (array)
-	    urlFoto: 'pedro.jpg'  // Opcional (porém tem uma default de livre escolha)
+	    id: 0,                            	// Gerado
+	    nome: 'Pedro',                     	// Obrigatório (length = min 3, max 20)
+	    sobrenome: 'Henrique Pires',       	// Opcional (length = max 30)
+	    idade: 21,                       	// Obrigatório (max 90)
+	    email: 'pedro.pires@cwi.com.br',   	// Obrigatório (type=email)
+	    dandoAula: false,                  	// true ou false
+	    aula: [3],                     		// Opcional (array)
+	    urlFoto: 'pedro.jpg'  				// Opcional (porém tem uma default de livre escolha)
 	},
 	{
 	    id: 1,
@@ -117,7 +156,7 @@ app.controller('exercicio', function ($scope) {
 	    sobrenome: 'Rezende',
 	    idade: 30,
 	    email: 'bernardo@cwi.com.br',
-	    dandoAula: true,
+	    dandoAula: false,
 	    aula: [0, 4],
 	    urlFoto: 'bernardo.jpg'
     }];
@@ -144,4 +183,7 @@ app.controller('exercicio', function ($scope) {
 		nome: 'Banco de Dados I'
 	}];
 });
+
+// Inicia todas as divs Accordion fechadas
+$('[id^=collapse]').collapse('hide');
 
