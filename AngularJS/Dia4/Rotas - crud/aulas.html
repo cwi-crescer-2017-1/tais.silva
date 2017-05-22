@@ -1,0 +1,45 @@
+<div class="bloco bloco1"> 
+    <div>
+        <h2><i class="glyphicon glyphicon-book mright-5" aria-hidden="true"></i>Lista de aulas</h2>
+        <div>
+            <table class="table table-striped table-bordered table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+                        <td>{{ aula.id }}</td>
+                        <td>{{ aula.nome }}
+                            <button class="btn btn-danger btn-xs pull-right mright-5" ng-click="removerAula(aula)">Excluir</button>
+                            <button class="btn btn-warning btn-xs pull-right mright-5" ng-click="editarNomeAula(aula)">Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>                       
+          
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseAula" aria-expanded="false" aria-controls="collapseExample">
+              Incluir nova aula
+    <i class="fa fa-angle-down"></i></button>
+
+    <div class="collapse" id="collapseAula">
+        <div class="well">
+            <form novalidate name="formAula">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <div class="iconInput">
+                        <i class="glyphicon glyphicon-pencil pull-right" aria-hidden="true"></i>
+                        <input class="form-control" type="text" name="nome" ng-model="novaAula.nome" ng-minlength="3" ng-maxlength="20" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click="incluirAula(novaAula)">Incluir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
