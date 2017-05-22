@@ -66,9 +66,8 @@ app.controller('exercicio', function ($scope) {
 	}
 
 	$scope.editarInstrutor = function (instrutor){
-		console.log("fora");
-
-		// if ($scope.formInstrutores.$valid) {
+		
+		if ($scope.formInstrutores.$valid) {
 			console.log("dentro");
 			let validaNome = function(instrutor) {
 				let valido = true;				
@@ -92,10 +91,11 @@ app.controller('exercicio', function ($scope) {
 		 		console.log("entrou no valido");
 		 		var index = $scope.instrutores.indexOf(instrutor);
 				$scope.instrutores[index] = instrutor;
+
 				return $scope.sucesso();				
 			}
 			
-	 	// }
+	 	}
 	}
 
 	function gerarProximoId(lista){
@@ -122,10 +122,12 @@ app.controller('exercicio', function ($scope) {
 
 			let possui = $scope.instrutores.find(a => novoInstrutor.nome === a.nome);
 			let emailUtilizado = $scope.instrutores.find(a => novoInstrutor.email === a.email);
-			if (novoInstrutor.urlFoto === " ") {
-				novoInstrutor.urlFoto = "foto-padrao.jpg";
+			if (!novoInstrutor.urlFoto) {
+			    novoInstrutor.urlFoto = "foto-padrao.jpg";
 			}
-
+			if(!novoInstrutor.dandoAula) {
+				novoInstrutor.dandoAula = false;
+			}
 			if(possui) {
 				 return swal("Instrutor já cadastrado.");
 			}if(emailUtilizado){
