@@ -3,18 +3,18 @@ let app = angular.module('app', ['ngRoute']);
 app.config(function ($routeProvider) {
 
   $routeProvider
-    .when('/pagina01', {
+    .when('/aulas', {
       controller: 'aulasController',
       templateUrl: 'aulas.html'
     })
-    .when('/pagina02', {
+    .when('/instrutores', {
       controller: 'instrutoresController',
       templateUrl: 'instrutores.html'
     })
-    .otherwise({redirectTo: '/pagina01'});
+    .otherwise({redirectTo: '/aulas'});
 });
 
-app.controller('principalController', function ($scope) {
+app.controller('principalController', function ($scope, $routeParams, aulaService) {
 	$scope.controller = 'principalController';	
 	$scope.sucesso = function() {
 		return swal("Pronto!", "Ação realizada com Sucesso!", "success");		
@@ -24,56 +24,28 @@ app.controller('principalController', function ($scope) {
 		return lista.length !== 0 ? lista[lista.length-1].id + 1 : 0;
 	}	
 
-	$scope.instrutores = 
-	[{
-	    id: 0,                            	// Gerado
-	    nome: 'Pedro',                     	// Obrigatório (length = min 3, max 20)
-	    sobrenome: 'Henrique Pires',       	// Opcional (length = max 30)
-	    idade: 21,                       	// Obrigatório (max 90)
-	    email: 'pedro.pires@cwi.com.br',   	// Obrigatório (type=email)
-	    dandoAula: false,                  	// true ou false
-	    aula: [1],                     		// Opcional (array)
-	    urlFoto: 'pedro.jpg'  				// Opcional (porém tem uma default de livre escolha)
-	},
-	{
-	    id: 1,
-	    nome: 'Bernardo',
-	    sobrenome: 'Rezende',
-	    idade: 30,
-	    email: 'bernardo@cwi.com.br',
-	    dandoAula: false,
-	    aula: [0, 2],
-	    urlFoto: 'bernardo.jpg'
-    }];
-
-	$scope.aulas = [
-	{
-		id: 0,
-		nome: 'OO',
-	},
-	{
-		id: 1,
-		nome: 'HTML e CSS'
-	},
-	{
-		id: 2,
-		nome: 'Javascript' 
-	},
-	{
-		id: 3,
-		nome: 'AngularJS'
-	},
-	{
-		id: 4,
-		nome: 'Banco de Dados I'
-	}];
-
-	// Inicia todas as divs Accordion fechadas
-	$('[id^=collapse]').collapse('hide');
+	$scope.aulas = aulaService.list().then(function (response) {
+          $scope.aulas = response.data;
+    });
 });
 
-app.controller('aulasController', function ($scope) {
+app.controller('aulasController', function ($scope, aulaService) {
 	$scope.controller = 'aulasController';
+
+	// // $scope.aulas = 	function list() {
+ // //    	aulaService.list().then(function (response) {
+ // //      	$scope.aulas = response.data;
+ // //    });
+ // //        instrutorService.list().then(function (response) {
+ // //      	$scope.instrutores = response.data;
+ // //    })};
+ // 	instrutorService.list().then(function (response) {
+ // //      	$scope.instrutores = response.data;
+
+ // 	$scope.aulas = aulaService.list().then(function (response) {
+ //          $scope.aulas = response.data;
+ //    });
+
 	$scope.editarNomeAula = function (aula){
 		
 		swal({
@@ -94,6 +66,7 @@ app.controller('aulasController', function ($scope) {
 		  }
 		  
 		  swal("Pronto!", "Você escreveu: " + inputValue, "success");
+
 		  aula.nome = inputValue;
 		});
 	}
@@ -132,10 +105,7 @@ app.controller('aulasController', function ($scope) {
 
 app.controller('instrutoresController', function ($scope) {
 	$scope.controller = 'instrutoresController';
-
-	// Inicia todas as divs Accordion fechadas
-	$('[id^=collapse]').collapse('hide');
-
+	
 	$scope.removerInstrutor = function(instrutor) {
 		
 		var index = $scope.instrutores.indexOf(instrutor);
@@ -212,4 +182,12 @@ app.controller('instrutoresController', function ($scope) {
 	 	}
 	 };
 
+});
+
+// Inicia todas as divs Accordion fechadas
+$('[id^=collapse]').collapse('hide');
+
+
+swal.setDefaults({
+    confirmButtonColor: '#3399FF'
 });

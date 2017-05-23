@@ -1,0 +1,46 @@
+{
+  "aula": [
+    {
+      "id": 0,
+      "nome": "OO"
+    },
+    {
+      "id": 1,
+      "nome": "HTML e CSS"
+    },
+    {
+      "id": 2,
+      "nome": "Javascript"
+    },
+    {
+      "nome": "AngularJs",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "nome": "Banco de Dados I"
+    }
+  ],
+
+  "instrutor": [
+    {
+	    "id": 0,                         
+	    "nome": "Pedro",                     	
+	    "sobrenome": "Henrique Pires",       	
+	    "idade": 21,                       	
+	    "email": "pedro.pires@cwi.com.br",   
+	    "dandoAula": false,                  
+	    "aula": [1],                     		
+	    "urlFoto": "pedro.jpg"  				
+	},
+	{
+	    "id": 1,
+	    "nome": "Bernardo",
+	    "sobrenome": "Rezende",
+	    "idade": 30,
+	    "email": "bernardo@cwi.com.br",
+	    "dandoAula": false,
+	    "aula": [0, 2],
+	    "urlFoto": "bernardo.jpg"
+    }]	
+}

@@ -1,0 +1,37 @@
+{
+  "aula": [
+    {
+      "id": 1,
+      "nome": "OO"
+    },
+    {
+      "id": 2,
+      "nome": "HTML e CSS"
+    },
+    {
+      "id": 3,
+      "nome": "Javascript"
+    },
+    {
+      "id": 4,
+      "nome": "AngularJs"
+    },
+    {
+      "id": 5,
+      "nome": "Banco de Dados I"
+    }
+  ],
+
+  "instrutor": [
+    {
+      "id": 1,
+      "nome": "Nome",
+      "sobrenome": "Sobrenome",
+      "idade": 25,
+      "email": "email@cwi.com.br",
+      "dandoAula": true,
+      "aula": [1, 4],
+      "urlFoto": "http://foto.com/3.png"
+    }
+  ]
+}

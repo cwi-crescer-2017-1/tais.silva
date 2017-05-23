@@ -8,16 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-    <link rel="stylesheet" href="style.css">    
+    <!-- <link rel="stylesheet" href="style.css">     -->
     <title>CRUD</title> 
 </head>
 <body>
-    <div ng-controller="principalController" class="container container-fluid">  
-        <h1>CRUD</h1>
-        <h1>{{ aulas }}</h1>
-        {{ instrutores }}
-        <ng-view></ng-view>        
-    </div> <!-- END CONTAINER -->
+    <div class="container">
+
+    <h3>Sempre Aqui!</h3>
+
+    <p>{{controller}}</p>
+
+    <a href="#!/aulas">Página 01</a>
+    <a href="#!/instrutores">Página 02</a>
+    <a href="#!/pagina03/1">Página 03 (1)</a>
+    <a href="#!/pokemon">Pokemon</a>
+
+    <ng-view></ng-view>
+
+  </div> 
 
     <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
     <script src="https://code.angularjs.org/1.6.4/angular-route.js"></script>
