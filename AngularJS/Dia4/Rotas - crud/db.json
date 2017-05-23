@@ -31,7 +31,7 @@
 	    "email": "pedro.pires@cwi.com.br",   
 	    "dandoAula": false,                  
 	    "aula": [1],                     		
-	    "urlFoto": "pedro.jpg"  				
+	    "urlFoto": "imagens/pedro.jpg"  				
 	},
 	{
 	    "id": 1,
@@ -41,6 +41,6 @@
 	    "email": "bernardo@cwi.com.br",
 	    "dandoAula": false,
 	    "aula": [0, 2],
-	    "urlFoto": "bernardo.jpg"
+	    "urlFoto": "imagens/bernardo.jpg"
     }]	
 }
