@@ -14,7 +14,7 @@ angular.module('app')
         controller: 'InstrutoresController',
         templateUrl: 'instrutores/instrutores.html'
       })
-      .otherwise({redirectTo: '/aulas'});
+      .otherwise({redirectTo: '/home'});
   });
 
  

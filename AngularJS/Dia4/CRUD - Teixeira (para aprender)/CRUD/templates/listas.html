@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="col-md-4">
+        <h4>Aulas</h4>
+        <p>Lista de aulas cadastradas:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Aula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+                    <td>{{aula.id}}</td>
+                    <td>{{aula.nome}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-8">
+        <h4>Instrutores</h4>
+        <p>Lista de instrutores cadastrados:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Foto de Perfil</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>E-mail</th>
+                    <th>Aulas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="instrutor in instrutores">
+                    <td>{{instrutor.id}}</td>
+                    <td><img ng-src="{{instrutor.urlFoto}}" width="150px" height="100px" class="img-thumbnail"></td>
+                    <td>{{instrutor.nome}} {{instrutor.sobrenome}}</td>
+                    <td>{{instrutor.idade}}</td>
+                    <td>{{instrutor.email}}</td>
+                    <td>
+                        <div ng-repeat="aula in instrutor.aula">
+                            {{geraNomeAula(aula).nome}}
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

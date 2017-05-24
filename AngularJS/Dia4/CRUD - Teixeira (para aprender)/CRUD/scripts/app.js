@@ -1,0 +1,1 @@
+var crud = angular.module('crud', ['ngRoute', 'ngAnimate', 'toastr']);

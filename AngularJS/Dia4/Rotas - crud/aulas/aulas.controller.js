@@ -3,12 +3,46 @@ angular
 	.controller('AulasController', function ($scope, aulasService) {
 		$scope.controller = 'AulasController';
 
-		// $scope.update = update;
+		$scope.carregarAulas = carregarAulas;
 
-	 	$scope.aulas = aulasService.list().then(function (response) {
-	          $scope.aulas = response.data;
-	    });
+		$scope.aulas = aulasService.listar().then(function (response) {
+			$scope.aulas = response.data;
+		});
 
+		$scope.sucesso = function() {
+			return swal("Pronto!", "Ação realizada com Sucesso!", "success");		
+		}
+
+		function gerarProximoId(lista){
+			return lista.length !== 0 ? lista[lista.length-1].id + 1 : 0;
+		}
+
+		function carregarAulas() {
+			let promessa = aulasService.listar();
+
+			promessa.then(function (response) {
+				$scope.aulas = response.data;
+		    })
+		};
+
+		// Acrescentar nova aula.
+		$scope.incluirAula = function (novaAula) {
+			if ($scope.formAula.$valid) {
+				novaAula.id = gerarProximoId($scope.aulas);
+				
+			    $scope.aulas.push(angular.copy(novaAula));
+			    $scope.novaAula = {}			    
+
+			    promise = aulaService.incluir(aula);
+
+			    promise.then(function () {
+			    	carregarAulas();
+			    	return $scope.sucesso();
+			    });	
+			}
+		};		
+
+		// Editar nome de aula.
 		$scope.editarNomeAula = function (aula){
 			
 			swal({
@@ -24,47 +58,26 @@ angular
 				if (inputValue === false) return false;
 
 				if (inputValue === "") {
-				swal.showInputError("Você precisa escrever o novo nome!");
-				return false
-				}
+					swal.showInputError("Você precisa escrever o novo nome!");
+					return false;
+				}				
 
-				swal("Pronto!", "Você escreveu: " + inputValue, "success");
-
-				$scope.aulasService.update(aula, inputValue).then(function (response){
+				aulasService.alterar(inputValue).then(function (response){
 					aula.nome = response.data;
+					carregarAulas();
+					return swal("Pronto!", "Você escreveu: " + inputValue, "success");
 				})
 			});
-		}
-		// $scope.array = $scope.array.filter(objeto => objeto.id !== id);
-		// $scope.removerAula = function(aula) {
-			
-		// 	function tirar() {	
-		// 		var index = $scope.aulas.indexOf(aula);		
-		// 		$scope.aulas.splice(index, 1);
-		// 	}
-
-			
-
-		// 	if(possui) {
-		// 		swal("Não é possível excluir esta aula. Está sendo utilizada.");
-		// 	}else {
-		// 		tirar();
-		// 		return $scope.sucesso();
-		// 	}
-		// }
-
-		$scope.incluirAula = function (novaAula) {
-			if ($scope.formAula.$valid) {
-				novaAula.id = gerarProximoId($scope.aulas);
-				let valido = !$scope.aulas.some(a => novaAula.nome === a.nome);
-				 
-				if(valido) {
-				    $scope.aulas.push(angular.copy(novaAula));
-				    $scope.novaAula = {}
-				    return $scope.sucesso();
-				} else {
-				    swal("Aula já cadastrada.");
-				}
-			}
 		};
-	});
+
+		// Remover aula.
+		//$scope.array = $scope.array.filter(objeto => objeto.id !== id);
+		$scope.removerAula = function(aula) {
+			
+			aulasService.excluir(aula).then(function () {
+				carregarAulas();
+				return $scope.sucesso();
+			})				
+			
+		}
+});

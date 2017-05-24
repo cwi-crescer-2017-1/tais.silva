@@ -2,29 +2,29 @@ angular
   .module('app')
   .factory('aulasService', function ($http) {
 
-    let urlBase = 'http://localhost:3000';
+  let urlBase = 'http://localhost:3000/aula';
 
-    function getTodasAsAulas() {
-      return $http.get(urlBase + '/aula');
-    };
+  function listar() {
+    return $http.get(urlBase);
+  };
 
-    function getAulaPorId(id) {
-      return $http.get(urlBase + '/aula' + '/' + id);
-    };
+  function alterar(aula) {
+    return $http.put(urlBase + '/' + aula.id, aula);
+  };
+  
+  function incluir(aula) {
+    return $http.post(urlBase, aula);
+  };
 
-    function atualizar(aula) {
-      return $http.put(urlBase + '/aula' + '/' + aula.id, aula);
-    };
+  function excluir(aula) {
+    return $http.delete(urlBase + '/' + aula.id);
+  };
 
-    function criar(aula) {
-      aula.id = ++idAtual;
-      aulas.push(angular.copy(aula));
-    };
+  return {
 
-    return {
-      list: getTodasAsAulas,
-      findById: getAulaPorId,
-      update: atualizar,
-      create: criar
-    };
-  });
+    listar: listar,
+    alterar: alterar,
+    incluir: incluir,
+    excluir: excluir
+  };
+})

@@ -1,22 +1,19 @@
 angular
   .module('app')
-  .controller('HomeController', function ($scope, $rootScope, serviceAulas, serviceInstrutores) {
+  .controller('HomeController', function ($scope, aulasService, instrutoresService) {
   	$scope.controller = 'HomeController';	
+
   	$scope.sucesso = function() {
   		return swal("Pronto!", "Ação realizada com Sucesso!", "success");		
   	}
 
-  	function gerarProximoId(lista){
-  		return lista.length !== 0 ? lista[lista.length-1].id + 1 : 0;
-  	}	
-
-  	$scope.aulas = serviceAulas.list().then(function (response) {
+  	$scope.aulas = aulasService.listar().then(function (response) {
             $scope.aulas = response.data;
-      });
+    });
 
-      $scope.aulas = serviceInstrutores.list().then(function (response) {
+    $scope.aulas = instrutoresService.listar().then(function (response) {
             $scope.instrutores = response.data;
-      });
+    });
   });
 
 

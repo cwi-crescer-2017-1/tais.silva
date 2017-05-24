@@ -2,29 +2,29 @@ angular
   .module('app')
   .factory('instrutoresService', function ($http) {
 
-    let urlBase = 'http://localhost:3000';
+    let urlBase = 'http://localhost:3000/instrutor';
 
-    function getTodosOsInstrutores() {
-      return $http.get(urlBase + '/instrutor');
-    };
+  function listar() {
+    return $http.get(urlBase);
+  };
 
-    function getInstrutorPorId(id) {
-      return $http.get(urlBase + '/instrutor' + '/' + id);
-    };
+  function alterar(instrutor) {
+    return $http.put(urlBase + '/' + instrutor.id, instrutor);
+  };
+  
+  function incluir(instrutor) {
+    return $http.post(urlBase, instrutor);
+  };
 
-    function atualizar(instrutor) {
-      return $http.put(urlBase + '/instrutor' + '/' + instrutor.id, instrutor);
-    };
+  function excluir(instrutor) {
+    return $http.delete(urlBase + '/' + instrutor.id);
+  };
 
-    function criar(instrutor) {
-      instrutor.id = ++idAtual;
-      instrutores.push(angular.copy(instrutor));
-    };
+  return {
 
-    return {
-      list: getTodosOsInstrutores,
-      findById: getInstrutorPorId,
-      update: atualizar,
-      create: criar
-    };
+    listar: listar,
+    alterar: alterar,
+    incluir: incluir,
+    excluir: excluir
+  }
   });
