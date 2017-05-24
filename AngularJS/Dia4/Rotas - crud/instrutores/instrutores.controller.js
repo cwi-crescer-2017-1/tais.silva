@@ -2,18 +2,25 @@ angular
     .module('app')
     .controller('InstrutoresController', function ($scope, instrutoresService, aulasService) {
     	$scope.controller = 'InstrutoresController';
+		$scope.instrutores = [];
+		$scope.aulas = [];
+		carregar();
+
+		function carregar() {
+			instrutoresService.listar().then(function (response) {				
+				setTimeout(function() {
+				   $('[data-toggle="tooltip"]').tooltip()
+				}, 0); 
+				$scope.instrutores = response.data;
+			});
+			aulasService.listar().then(function (response) {
+				setTimeout(function() {
+				   $('[data-toggle="tooltip"]').tooltip()
+				}, 0); 
+				$scope.aulas = response.data;
+			});
+    	}
     	
-    	$scope.instrutores = instrutoresService.listar().then(function(response){
-    		setTimeout(function() {
-    		   $('[data-toggle="tooltip"]').tooltip()
-    		}, 0);        		
-    		$scope.instrutores = response.data;
-    	});    	
-
-    	$scope.aulas = aulasService.listar().then(function (response) {
-	          $scope.aulas = response.data;
-	    });
-
 	    $scope.sucesso = function() {
 	    	return swal("Pronto!", "Ação realizada com Sucesso!", "success");		
 	    }

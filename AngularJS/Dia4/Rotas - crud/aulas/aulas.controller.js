@@ -3,12 +3,18 @@ angular
 	.controller('AulasController', function ($scope, aulasService) {
 		$scope.controller = 'AulasController';
 
-		$scope.carregarAulas = carregarAulas;
+		// $scope.carregarAulas = carregarAulas;
 
-		$scope.aulas = aulasService.listar().then(function (response) {
-			$scope.aulas = response.data;
-		});
 
+		$scope.aulas = [];
+		carregar();
+
+		function carregar() {
+			aulasService.listar().then(function (response) {
+				$scope.aulas = response.data;
+			});
+		}
+		
 		$scope.sucesso = function() {
 			return swal("Pronto!", "Ação realizada com Sucesso!", "success");		
 		}
