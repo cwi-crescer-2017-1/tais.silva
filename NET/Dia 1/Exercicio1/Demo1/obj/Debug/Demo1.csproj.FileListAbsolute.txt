@@ -1,0 +1,6 @@
+c:\users\tais.silva\documents\tais.silva\NET\Dia 1\Exercicio1\Demo1\bin\Debug\Demo1.exe.config
+c:\users\tais.silva\documents\tais.silva\NET\Dia 1\Exercicio1\Demo1\obj\Debug\Demo1.csprojResolveAssemblyReference.cache
+c:\users\tais.silva\documents\tais.silva\NET\Dia 1\Exercicio1\Demo1\bin\Debug\Demo1.exe
+c:\users\tais.silva\documents\tais.silva\NET\Dia 1\Exercicio1\Demo1\bin\Debug\Demo1.pdb
+c:\users\tais.silva\documents\tais.silva\NET\Dia 1\Exercicio1\Demo1\obj\Debug\Demo1.exe
+c:\users\tais.silva\documents\tais.silva\NET\Dia 1\Exercicio1\Demo1\obj\Debug\Demo1.pdb
