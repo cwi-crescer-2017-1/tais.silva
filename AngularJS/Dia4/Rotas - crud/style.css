@@ -23,20 +23,18 @@ h2 {
     padding-top: 3rem;
 }
 img.img-instrutor { 
-    height: 10rem;
-    float: right;    
+    height: 13rem;
+    right: 0; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .mright-5 {
     margin-right: 5px;
-    margin: 5px;
 }
 input.ng-invalid.ng-touched.ng-dirty.ng-not-empty {
     border-color: red;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,0,0,.6);      
-}
-input.ng-invalid.ng-touched.ng-dirty.ng-not-empty:after {
-    content: "<span>Campo Obrigatório</span>";
-    color: red;
 }
 input.ng-invalid.ng-touched {
     border-color: #FFBC00;
@@ -58,4 +56,17 @@ input.ng-valid.ng-dirty.ng-not-empty {
 a, a:link{
     text-decoration: none;
     color: inherit;
+}
+
+@media screen and (max-width: 420px) {
+    img.img-instrutor { 
+        display: inline-block;
+        top: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+
+    }
+    .div-painel {
+        height: 23em;
+    }
 }

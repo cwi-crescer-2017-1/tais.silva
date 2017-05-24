@@ -1,1 +1,0 @@
-crud.controller('AulaController', function ($scope) {});

@@ -4,8 +4,11 @@ angular
     	$scope.controller = 'InstrutoresController';
     	
     	$scope.instrutores = instrutoresService.listar().then(function(response){
+    		setTimeout(function() {
+    		   $('[data-toggle="tooltip"]').tooltip()
+    		}, 0);        		
     		$scope.instrutores = response.data;
-    	})
+    	});    	
 
     	$scope.aulas = aulasService.listar().then(function (response) {
 	          $scope.aulas = response.data;
@@ -30,7 +33,7 @@ angular
 		function carregarInstrutores() {
 			instrutoresService
 			.listar()
-			.then(function (response) {
+			.then(function (response) {				
 				$scope.instrutores = response.data;
 		    })
 		};
@@ -88,5 +91,9 @@ angular
 
 		swal.setDefaults({
 		  confirmButtonColor: '#3399FF'
-		});			     
+		});		
+
+		// setTimeout(function() {
+		//    $('[data-toggle="tooltip"]').tooltip()
+		// }, 0);    
 });
