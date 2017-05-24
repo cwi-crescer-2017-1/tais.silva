@@ -14,15 +14,8 @@ angular
     $scope.aulas = instrutoresService.listar().then(function (response) {
             $scope.instrutores = response.data;
     });
+
+    swal.setDefaults({
+      confirmButtonColor: '#3399FF'
+    });
   });
-
-
-
-
-  // // Inicia todas as divs Accordion fechadas
-  // $('[id^=collapse]').collapse('hide');
-
-
-  // swal.setDefaults({
-  //     confirmButtonColor: '#3399FF'
-  // });

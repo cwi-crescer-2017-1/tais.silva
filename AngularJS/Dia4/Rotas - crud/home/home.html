@@ -1,7 +1,7 @@
 <div class="bloco container">
 
     <a href="/#!/aulas">
-        <div class="div-link">
+        <div>
             <h2><i class="glyphicon glyphicon-book mright-5" aria-hidden="true"></i>Lista de aulas</h2>
             <div>
                 <table class="table table-striped table-bordered table-hover table-condensed">
@@ -24,8 +24,8 @@
 
 
     <a href="/#!/instrutores">
-        <div class="div-link">
-            <h2><i class="glyphicon glyphicon-book mright-5" aria-hidden="true"></i>Lista de Instrutores</h2>
+        <div>
+            <h2><i class="glyphicon glyphicon-user mright-5" aria-hidden="true"></i>Lista de Instrutores</h2>
             <div>
                 <table class="table table-striped table-bordered table-hover table-condensed">
                     <thead>
@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
-                            <td>{{ instrutor.nome }}{{ instrutor.sobrenome }}</td>
+                            <td>{{ instrutor.nome }}{{" " + instrutor.sobrenome }}</td>
                             <td>{{ instrutor.idade }}</td>
                         </tr>
                     </tbody>

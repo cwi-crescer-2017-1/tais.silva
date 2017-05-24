@@ -28,9 +28,9 @@ angular
 		};
 
 		function carregarInstrutores() {
-			let promessa = instrutoresService.listar();
-
-			promessa.then(function (response) {
+			instrutoresService
+			.listar()
+			.then(function (response) {
 				$scope.instrutores = response.data;
 		    })
 		};
@@ -39,17 +39,20 @@ angular
 	    $scope.incluirInstrutor = function (novoInstrutor) {
 	    	if ($scope.formInstrutores.$valid) {
 	    		if (!novoInstrutor.urlFoto) {
-	    		    novoInstrutor.urlFoto = "foto-padrao.jpg";
+	    		    novoInstrutor.urlFoto = "imagens/foto-padrao.jpg";
 	    		}if(!novoInstrutor.dandoAula) {
 	    			novoInstrutor.dandoAula = false;
 	    		}
 
     			novoInstrutor.id = gerarProximoId($scope.instrutores);
 
-    			instrutoresService.incluir(novoInstrutor).then(function(response) {
-    				$scope.novoInstrutor = {};	
-    				return $scope.sucesso();
-    			})	    		
+    			instrutoresService
+	    			.incluir(novoInstrutor)
+	    			.then(function(response) {
+	    				$scope.novoInstrutor = {};
+	    				carregarInstrutores();	
+	    				return $scope.sucesso();
+	    			})	    		
 	     	}
 	     };
 
@@ -61,10 +64,12 @@ angular
                 var index = $scope.instrutores.indexOf(aux);
     			$scope.instrutores[index] = instrutor;
 
-    			instrutoresService.alterar(instrutor).then(function(response) {
-    				carregarInstrutores();
-    				return $scope.sucesso();
-    			})    								
+    			instrutoresService
+	    			.alterar(instrutor)
+	    			.then(function(response) {
+	    				carregarInstrutores();
+	    				return $scope.sucesso();
+	    			})    								
     	 	}else {
     	 		swal("Preencha todos os campos em vermelho corretamente.");
     	 	}
@@ -73,9 +78,15 @@ angular
         // Remover instrutor.
     	$scope.removerInstrutor = function(instrutor) {
 
-			instrutoresService.excluir(instrutor).then(function() {
-				carregarInstrutores();
-				return $scope.sucesso();
-			})		
-		};			     
+			instrutoresService
+				.excluir(instrutor)
+				.then(function() {
+					carregarInstrutores();
+					return $scope.sucesso();
+				})		
+		};
+
+		swal.setDefaults({
+		  confirmButtonColor: '#3399FF'
+		});			     
 });
