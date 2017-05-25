@@ -15,7 +15,7 @@ namespace TaisSIlva
             double totalHorasDescontadas = arredondarValor(horasDescontadas * valorHora);
             double totalProventos = salarioBase + totalHorasExtras - totalHorasDescontadas;
             var totalDescontos = calcularIrrf(totalProventos).Valor + calcularInss(totalProventos).Valor;
-            var salarioLiquido = totalProventos - totalDescontos;
+            var salarioLiquido = arredondarValor(totalProventos - totalDescontos);
             var fgts = new Desconto(0.11, arredondarValor(salarioBase * 0.11));            
 
             return new Demonstrativo(salarioBase, horasCategoria, new HorasCalculadas(horasExtras, totalHorasExtras), new HorasCalculadas(horasDescontadas, totalHorasDescontadas), totalProventos, calcularInss(totalProventos), calcularIrrf(totalProventos), totalDescontos,
@@ -52,21 +52,22 @@ namespace TaisSIlva
 
         private Desconto calcularIrrf(double totalProventos)
         {
+            var valorBase = (totalProventos - calcularInss(totalProventos).Valor);
             var aliquota = 0.0;
 
-            if (totalProventos <= 1710.78)
+            if (valorBase <= 1710.78)
             {
                 aliquota = 0.0;
             }
-            else if(totalProventos <= 2563.91)
+            else if(valorBase <= 2563.91)
             {
                 aliquota = 0.075;
             }
-            else if(totalProventos <= 3418.59)
+            else if(valorBase <= 3418.59)
             {
                 aliquota = 0.15;
             }
-            else if(totalProventos <= 4271.59)
+            else if(valorBase <= 4271.59)
             {
                 aliquota = 0.225;
             }
@@ -75,7 +76,7 @@ namespace TaisSIlva
                 aliquota = 0.275;
             }
 
-            var irrf = arredondarValor((totalProventos - calcularInss(totalProventos).Valor) * aliquota);
+            var irrf = arredondarValor(valorBase * aliquota);
             return new Desconto(aliquota, irrf);
 
         }

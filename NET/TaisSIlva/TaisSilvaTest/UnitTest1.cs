@@ -237,7 +237,7 @@ namespace TaisSilvaTest
             var totalDescontosEsperado = 2085;
             var totalLiquidoEsperado = 3915;
             var fgtsAliquotaEsperado = 0.11;
-            var fgtsValorEsperado = 660;
+            var fgtsValorEsperado = 550;
 
             Assert.AreEqual(demonstrativo.SalarioBase, salarioBase);
             Assert.AreEqual(demonstrativo.HorasExtras.QtdHoras, quantidadeHorasExtrasEsperado);
