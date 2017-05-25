@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaisSIlva", "TaisSIlva\TaisSIlva.csproj", "{3D3AE89B-70D1-4CC0-9831-04F55EC7BD7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaisSilvaTest", "TaisSilvaTest\TaisSilvaTest.csproj", "{6D14D5B7-35DD-465A-BCEE-9154A40C486E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D3AE89B-70D1-4CC0-9831-04F55EC7BD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3AE89B-70D1-4CC0-9831-04F55EC7BD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3AE89B-70D1-4CC0-9831-04F55EC7BD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3AE89B-70D1-4CC0-9831-04F55EC7BD7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D14D5B7-35DD-465A-BCEE-9154A40C486E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D14D5B7-35DD-465A-BCEE-9154A40C486E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D14D5B7-35DD-465A-BCEE-9154A40C486E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D14D5B7-35DD-465A-BCEE-9154A40C486E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
