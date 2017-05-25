@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaisSIlva
 {
-    class HorasCalculadas
+    public class HorasCalculadas
     {
         public HorasCalculadas(double qtdHoras, double valorTotalHoras)
         {

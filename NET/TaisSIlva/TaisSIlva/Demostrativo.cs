@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TaisSIlva
 {
-    class Demostrativo
+    public class Demonstrativo
     {
         public Demonstrativo(
-            double salarioBase, 
+            double salarioBase,
             double hrsConvencao,
             HorasCalculadas horasExtras,
             HorasCalculadas horasDescontadas,
@@ -45,4 +45,4 @@ namespace TaisSIlva
 
     }
 }
-}
+

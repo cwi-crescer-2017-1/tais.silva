@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaisSIlva
 {
-    class Desconto
+    public class Desconto
     {
         public Desconto(double aliquota, double valor)
         {

@@ -6,23 +6,27 @@ using System.Threading.Tasks;
 
 namespace TaisSIlva
 {
-    class FolhaPagamento : IFolhaPagamento
+    public class FolhaPagamento : IFolhaPagamento
     {
         public Demonstrativo GerarDemonstrativo(int horasCategoria, double salarioBase, double horasExtras, double horasDescontadas)
         {
-            double valorHora = salarioBase / horasCategoria;
-            double totalHorasExtras = horasExtras * valorHora;
-            double totalHorasDescontadas = horasDescontadas * valorHora;
+            double valorHora = arredondarValor(salarioBase / horasCategoria);
+            double totalHorasExtras = arredondarValor(horasExtras * valorHora);
+            double totalHorasDescontadas = arredondarValor(horasDescontadas * valorHora);
             double totalProventos = salarioBase + totalHorasExtras - totalHorasDescontadas;
-            var TotalDescontos = calcularIrrf(totalProventos).Valor + calcularInss(totalProventos).Valor;
+            var totalDescontos = calcularIrrf(totalProventos).Valor + calcularInss(totalProventos).Valor;
             var salarioLiquido = totalProventos - totalDescontos;
-            var salarioLiquido = totalProventos - totalDescontos;
-            var fgts = new Desconto(0.11, salarioBase * 0.11);
+            var fgts = new Desconto(0.11, arredondarValor(salarioBase * 0.11));            
 
+            return new Demonstrativo(salarioBase, horasCategoria, new HorasCalculadas(horasExtras, totalHorasExtras), new HorasCalculadas(horasDescontadas, totalHorasDescontadas), totalProventos, calcularInss(totalProventos), calcularIrrf(totalProventos), totalDescontos,
+           salarioLiquido, fgts);
 
+        }
+
+        
         private double arredondarValor(double valor)
         {
-            return Math.round(valor, 2);
+            return Math.Truncate(valor * 100) / 100;
         }
 
         private Desconto calcularInss(double totalProventos)
@@ -33,34 +37,36 @@ namespace TaisSIlva
             {
                 aliquota = 0.08;
             }
-            if (totalProventos <= 1500)
+            else if (totalProventos <= 1500)
             {
                 aliquota = 0.09;
             }
             else
             {
-                aliquota = 0.10;
+                aliquota = 0.1;
             }
 
             var inss = totalProventos * aliquota;
-            arredondarValor(inss);
-            return new Desconto(aliquota, inss);
+            return new Desconto(aliquota, arredondarValor(inss));
         }
-                    
-            private Desconto calcularIRRF(double totalProventos)
+
+        private Desconto calcularIrrf(double totalProventos)
         {
             var aliquota = 0.0;
 
             if (totalProventos <= 1710.78)
             {
                 aliquota = 0.0;
-            }if(totalProventos <= 2563.91)
+            }
+            else if(totalProventos <= 2563.91)
             {
                 aliquota = 0.075;
-            }if (totalProventos <= 3418.59)
+            }
+            else if(totalProventos <= 3418.59)
             {
                 aliquota = 0.15;
-            }if (totalProventos <= 4271.59)
+            }
+            else if(totalProventos <= 4271.59)
             {
                 aliquota = 0.225;
             }
@@ -69,14 +75,10 @@ namespace TaisSIlva
                 aliquota = 0.275;
             }
 
-            var irrf = totalProventos - inss * aliquota;
-            arredondarValor(irrf);
+            var irrf = arredondarValor((totalProventos - calcularInss(totalProventos).Valor) * aliquota);
             return new Desconto(aliquota, irrf);
 
-    }    
-            return new Demonstrativo(salarioBase, horasCategoria, new HorasCalculadas(horasExtras, valorHorasExtras), new HorasCalculadas(horasDescontadas, valorHora), totalProventos, inss, calcularIrrf(valorProventos), totalDescontos,
-            double totalLiquido, Desconto fgts) );
-            // throw new NotImplementedException();
+        }
     }
 }
-}
+

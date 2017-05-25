@@ -1,0 +1,5 @@
+C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSIlva\obj\Debug\TaisSIlva.csprojResolveAssemblyReference.cache
+C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSIlva\bin\Debug\TaisSIlva.dll
+C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSIlva\bin\Debug\TaisSIlva.pdb
+C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSIlva\obj\Debug\TaisSIlva.dll
+C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSIlva\obj\Debug\TaisSIlva.pdb
