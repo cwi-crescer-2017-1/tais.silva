@@ -133,29 +133,25 @@ namespace Repositorio
 
         private int CalcularIdade(DateTime dataNascimento)
         {
-            var hoje = new DateTime(DateTime.Today.Year, month, day);
+            var hoje = new DateTime.Now;
             int idade = hoje.Year - dataNascimento.Year;
-            if (dataNascimento > hoje.AddYears(-idade)) idade--;
-            return idade;
+            var compararMes = hoje.Month > dataNascimento.Month;
+			var compararDia = hoje.Month == dataNascimento.Month 
+				&& hoje.Day > dataNascimento.Day;
+            return idadecompararDia || compararMes ? idade-1: idade;;
         }
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {   
-            var salarioMedio;
+            var salarioMedio = Funcionarios;
+			
             if(!turno.Equals(null))
             {
-            salarioMedio = 
-                Funcionarios
-                .Where(f => f.TurnoTrabalho.Equals(turno))
-                .Average(f => f.Cargo.Salario);
-            }
-            else 
-            {
-            salarioMedio =
-                Funcionarios
-                .Average(f => f.Cargo.Salario);
-            }
-            return salarioMedio;
+               salarioMedio = 
+                    salarioMedio
+                    .Where(f => f.TurnoTrabalho.Equals(turno));
+			}       
+            return salarioMedio.Average(f => f.Cargo.Salario);
         }
 
         public IList<Funcionario> AniversariantesDoMes()
@@ -170,13 +166,35 @@ namespace Repositorio
         }
 
         public IList<dynamic> BuscaRapida()
-        {
-            throw new NotImplementedException();
+        {   
+            var listaDeTodosFuncionarios = 
+                Funcionarios
+                .Select(f => (dynamic) new { 
+                NomeFuncionario = f.Nome,
+                TituloCargo = f.Cargo.Titulo
+                })
+                .ToList();
+
+            return listaDeTodosFuncionarios;
         }
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
-        {
-            throw new NotImplementedException();
+        {   
+            var turnos = [TurnoTrabalho.Manha, TurnoTrabalho.Tarde, TurnoTrabalho.Noite];
+            var listaDeTodosFuncionarios;
+            foreach (TurnoTrabalho turno in turnos) {
+            var lista = 
+             Funcionarios 
+            .Where(f => f.TurnoTrabalho.Equals(turno))
+            .Select(f => (dynamic) new { 
+                Turno = turno,
+                Quantidade = f.Count()
+                })
+                .ToList();
+                listaDeTodosFuncionarios.Add(lista)
+            }
+
+            return listaDeTodosFuncionarios;
         }
 
         public dynamic FuncionarioMaisComplexo()
