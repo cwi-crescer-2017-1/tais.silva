@@ -14,7 +14,7 @@
 		</div> -->
 
 		<!-- antigo -->
-		<div class="scroll">
+		<div scroll-glue class="scroll">
             <div class="p-10 mensagens" ng-class="{'usuario-local': mensagem.Usuario.Id == usuarioLocal.Id}" ng-repeat="mensagem in mensagens">
                 <div>                     
                     <span class="data"><small>{{ mensagem.DateTimeEnvio | date : "dd/MM hh:mm" }}</small></span> <br>

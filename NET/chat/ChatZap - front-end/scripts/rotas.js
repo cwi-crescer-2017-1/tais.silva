@@ -1,5 +1,9 @@
 chatzap.config(function($routeProvider) {
     $routeProvider
+        .when('/home', {
+            controller: 'HomeController',
+            templateUrl: 'templates/home.html'
+        })
         .when('/chat', {
             controller: 'ChatController',
             templateUrl: 'templates/chat.html'
@@ -9,6 +13,6 @@ chatzap.config(function($routeProvider) {
             templateUrl: 'templates/login.html'
         })
         .otherwise({
-            redirectTo: '/login'
+            redirectTo: '/chat'
         });
 });

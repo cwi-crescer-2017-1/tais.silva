@@ -6,8 +6,8 @@ chatzap.controller('ChatController', function($scope, $location, MensagemService
 	carregar();
 	
 	function verificaUsuarioLogado() {
-	    if ($localStorage.usuario == null) {
-	        $location.url('#!/login');
+	    if ($localStorage.usuario === null) {
+	        $location.url('/login');
 	    }
 	};		
 

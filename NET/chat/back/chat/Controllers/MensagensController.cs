@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using chat.Models;
 using chat.Controllers;
+using System.Text.RegularExpressions;
 
 namespace chat.Controllers
 {
@@ -13,6 +14,7 @@ namespace chat.Controllers
     {
         public static List<Mensagem> listaMensagens = new List<Mensagem>();
         private static int contadorId = 0;
+        private static object @lock = new object();
 
         public List<Mensagem> Get()
         {
@@ -21,11 +23,20 @@ namespace chat.Controllers
 
         public IHttpActionResult Post(Mensagem mensagem)
         {
-            mensagem.Id = contadorId++;
-            mensagem.Texto = mensagem.Texto.Replace("André Nunes", "$$$$$ $$$$$");            
-            listaMensagens.Add(mensagem);
-            return Ok(listaMensagens);
+            if (mensagem == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                lock (@lock)
+                {
+                    mensagem.Id = contadorId++;
+                    mensagem.Texto = mensagem.Texto.Replace("André Nunes", "$$$$$ $$$$$");
+                    listaMensagens.Add(mensagem);
+                }
+                return Ok(listaMensagens);
+            }
         }
-
     }
 }

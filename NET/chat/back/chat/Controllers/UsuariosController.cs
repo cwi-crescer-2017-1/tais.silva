@@ -13,17 +13,29 @@ namespace chat.Controllers
     {
         public static List<Usuario> listaUsuarios = new List<Usuario>();
         private static int contadorId = 0;
+        private static object @lock = new object();
 
         public List<Usuario> Get()
         {
-            return listaUsuarios;
+            return listaUsuarios.OrderByDescending(u => u.Id).Take(5).ToList(); ;
         }
 
         public IHttpActionResult Post(Usuario usuario)
         {
-            usuario.Id = contadorId++;
-            listaUsuarios.Add(usuario);
-            return Ok(usuario);
+            if (usuario == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                lock (@lock)
+                {
+                    usuario.Id = contadorId++;
+                    listaUsuarios.Add(usuario);
+                }
+
+                return Ok(usuario);
+            }
         }        
     }
 }

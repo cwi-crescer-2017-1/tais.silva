@@ -1,0 +1,18 @@
+<div class="container">
+	<div>
+		<div scroll-glue class="scroll">
+            <div class="p-10 mensagens" ng-repeat="usuario in ultimosCadastrados">
+                <div>                     
+                    <span class="data"><small>{{ usuario.DateTimeCadastro | date : "dd/MM hh:mm" }}</small></span> <br>
+                    <span>Nome:{{usuario.Nome}}</span>    
+                    oii
+                </div>                
+                <img class="img-responsive img-perfil img-circle" ng-src="{{usuario.UrlImagemPerfil}}" alt="Imagem de perfil do usuário {{usuario.Usuario.Nome}}">      
+            </div>
+        </div>
+
+		<div class="digitar">
+		<button tyoe="button" class="btn form-control m-10 sair" ng-click="encerrarSessao()">Sair</button>
+		</div>
+	</div>	
+</div>
