@@ -22,6 +22,8 @@ body {
 	padding: 30px;	
 	height: 95vh;
 	max-height: 95vh;
+	display: flex;
+	flex-direction: column;
 }
 .scroll {
 	overflow: auto;	
@@ -48,13 +50,16 @@ body {
 	height: 60px;
 	width: 60px;
 	object-fit: cover;
-	margin-left: auto;
 	align-items: center;	
+}
+.usuario-local .img-perfil {
+	margin-left: auto;
 }
 .digitar {
 	display: flex;
 	flex-direction: row;
 	margin: 10px;
+	padding-bottom: 5px;
 }
 .sair {
 	color: #fff;
