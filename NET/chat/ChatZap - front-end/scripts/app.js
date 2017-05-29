@@ -1,0 +1,1 @@
+var chatzap = angular.module('chatzap', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'toastr', 'ngStorage']);
