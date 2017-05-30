@@ -112,13 +112,8 @@ namespace Demo1.Infraestrutura.Repositorios
                 }
             }
         }
-
+        
         public void Excluir(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void excluir(int id)
         {
             using (var conexao = new SqlConnection(stringConexao))
             {
@@ -126,7 +121,7 @@ namespace Demo1.Infraestrutura.Repositorios
 
                 using (var comando = conexao.CreateCommand())
                 {
-                    comando.CommandText = "delete pedido where id = @id";
+                    comando.CommandText = "DELETE Pedido WHERE Id = @id";
 
                     comando.Parameters.AddWithValue("@id", id);
 
@@ -206,22 +201,7 @@ namespace Demo1.Infraestrutura.Repositorios
                         pedido.Id = (int)dataReader["Id"];
                         pedido.NomeCliente = (string)dataReader["NomeCliente"];
                         pedido.Itens = ObterItens((int)dataReader["Id"]);
-
-
-                        foreach (var item in pedido.Itens)
-                        {
-                            comando.CommandText =
-                                @"SELECT (Id, ProdutoId, Quantidade) FROM ItemPedido WHERE Id = @id";
-
-                            var itens = new ItemPedido();
-
-                            itens.Id = (int)dataReader["Id"];
-                            //itens.PedidoId = (int)dataReader["PedidoId"];
-                            itens.ProdutoId = (int)dataReader["ProdutoId"];
-                            itens.Quantidade = (int)dataReader["Quantidade"];
-
-                            pedido.Itens.Add(itens);
-                        }
+                                                
                         return pedido;
                     }
                 }
