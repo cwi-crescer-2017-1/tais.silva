@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Demo1.Dominio.Entidades;
+using Demo1.Infraestrutura.Repositorios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+
 
 namespace Demo1.WebApi.Controllers
 {
@@ -13,10 +16,10 @@ namespace Demo1.WebApi.Controllers
 
         public IHttpActionResult Post(Pedido pedido)
         {
-            var mensagens = new List<string>();
+            //var mensagens = new List<string>();
 
-            if (!pedido.Validar(out mensagens))
-                return BadRequest(string.Join(".", mensagens.ToArray()));
+            //if (!pedido.Validar(out mensagens))
+            //    return BadRequest(string.Join(".", mensagens.ToArray()));
 
             _pedidoRepositorio.Criar(pedido);
 
@@ -25,10 +28,10 @@ namespace Demo1.WebApi.Controllers
 
         public IHttpActionResult Put(Pedido pedido)
         {
-            var mensagens = new List<string>();
+            //var mensagens = new List<string>();
 
-            if (!pedido.Validar(out mensagens))
-                return BadRequest(string.Join(".", mensagens.ToArray()));
+            //if (!pedido.Validar(out mensagens))
+            //    return BadRequest(string.Join(".", mensagens.ToArray()));
 
             _pedidoRepositorio.Alterar(pedido);
 

@@ -40,25 +40,22 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var comando = conexao.CreateCommand())
                 {
                     // Executa o UPDATE o Estoque
-                    foreach (ItemPedido item in pedido.Itens)
+                    foreach (var item in pedido.Itens)
                     {
                         comando.CommandText =
-                            @"UPDATE PRODUTO SET Estoque = @estoque WHERE Id = @id";
+                            @"UPDATE PRODUTO SET Estoque = Estoque - @quantidade WHERE Id = @id";
 
-                        var estoqueProduto = "SELECT Estoque FROM Produto WHERE Id = item.ProcutoId";
-                        var estoqueAtual = estoqueProduto - item.Quantidade;
-
-                        comando.Parameters.AddWithValue("@estoque", estoqueAtual);
+                        comando.Parameters.AddWithValue("@quantidade", item.Quantidade);
                         comando.Parameters.AddWithValue("@id", item.ProdutoId);
 
                         // Executa o comando e 
                         // retorna somente a quantidade de linhas afetadas
                         comando.ExecuteNonQuery();
                     }
-                }     
+                }
 
-            }   
-            
+            }
+
         }
 
         public void Criar(Pedido pedido)
@@ -77,33 +74,14 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var comando = conexao.CreateCommand())
                 {
                     comando.CommandText =
-                        @"INSERT INTO Pedido (NomeCliente, Itens) 
-                        VALUES (@nomeCliente, @itens)";
+                        @"INSERT INTO Pedido (NomeCliente) 
+                        VALUES (@nomeCliente)";
 
                     comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
-                    comando.Parameters.AddWithValue("@itens", pedido.Itens);
 
                     // Executa o comando e 
                     // retorna somente a quantidade de linhas afetads
                     comando.ExecuteNonQuery();
-                }
-
-                // Executa o INSERT de itens
-                using (var comando = conexao.CreateCommand())
-                {
-                    foreach(ItemPedido item in pedido.Itens)
-                    {
-                    comando.CommandText =
-                        @"INSERT INTO ItemPedido (ProdutoId, Quantidade) 
-                        VALUES (@itensId, @quantidade)";
-
-                    comando.Parameters.AddWithValue("@itemId", item.ProdutoId);
-                    comando.Parameters.AddWithValue("@quantidade", item.Quantidade);
-
-                    // Executa o comando e 
-                    // retorna somente a quantidade de linhas afetads
-                    comando.ExecuteNonQuery();
-                    }
                 }
 
                 // Obtém o último ID criado
@@ -116,53 +94,89 @@ namespace Demo1.Infraestrutura.Repositorios
                     pedido.Id = (int)result;
                 }
 
+                // Executa o INSERT de itens
+                using (var comando = conexao.CreateCommand())
+                {
+                    foreach (var item in pedido.Itens)
+                    {
+                        comando.CommandText =
+                            @"INSERT INTO ItemPedido (PedidoId, ProdutoId, Quantidade) VALUES (@pedidoId, @produtoId, @quantidade)";
 
+                        comando.Parameters.AddWithValue("@pedidoId", pedido.Id);
+                        comando.Parameters.AddWithValue("@produtoId", item.ProdutoId);
+                        comando.Parameters.AddWithValue("@quantidade", item.Quantidade);
+                        comando.ExecuteNonQuery();
+                    }
+
+
+                }
             }
         }
 
         public void Excluir(int id)
         {
+            throw new NotImplementedException();
+        }
+
+        public void excluir(int id)
+        {
             using (var conexao = new SqlConnection(stringConexao))
             {
                 conexao.Open();
 
-                // Executa o DELETE
                 using (var comando = conexao.CreateCommand())
                 {
-                    comando.CommandText = @"DELETE Pedido WHERE Id = @id";
+                    comando.CommandText = "delete pedido where id = @id";
 
                     comando.Parameters.AddWithValue("@id", id);
 
-                    // Executa o comando e 
-                    // retorna somente a quantidade de linhas afetads
                     comando.ExecuteNonQuery();
+                }
+              
+                // executa o delete
+                using (var comando = conexao.CreateCommand())
+                {
+                    var pedidoItens = Obter(id);
+
+                    foreach (var item in pedidoItens.Itens)
+                    {
+                        comando.CommandText =
+                            @"update produto set Estoque = Estoque + @quantidade where id = @id";
+
+                        comando.Parameters.AddWithValue("@quantidade", item.Quantidade);
+                        comando.Parameters.AddWithValue("@id", item.ProdutoId);
+                        
+                        comando.ExecuteNonQuery();
+                    }
                 }
             }
         }
 
         public IEnumerable<Pedido> Listar()
         {
-            var pedidos = new List<Produto>();
+            var pedidos = new List<Pedido>();
 
             using (var conexao = new SqlConnection(stringConexao))
             {
                 conexao.Open();
 
                 using (var comando = conexao.CreateCommand())
-                {
+                {                   
                     comando.CommandText =
-                        @"SELECT Id, NomeCliente, Itens FROM Pedido";
+                        @"SELECT Id, NomeCliente FROM Pedido";
 
                     var dataReader = comando.ExecuteReader();
                     while (dataReader.Read())
                     {
                         var pedido = new Pedido();
+                        var idPedido = (int)dataReader["Id"];
+                        var obterpedidos = Obter(idPedido);
 
-                        pedido.Id = (int)dataReader["Id"];
-                        pedido.NomeCliente = (string)dataReader["NomeCliente"];
-                        pedido.Itens = (Array)dataReader["Itens"];
+                        //pedido.Id = (int)dataReader["Id"];
+                        //pedido.NomeCliente = (string)dataReader["NomeCliente"];
+                        //pedido.Itens = (Array)dataReader["Itens"];
 
-                        pedidos.Add(pedido);
+                        pedidos.Add(obterpedidos);
                     }
                 }
             }
@@ -172,7 +186,81 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public Pedido Obter(int id)
         {
-            throw new NotImplementedException();
+            Pedido pedido = null;
+
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText =
+                        "SELECT Id, NomeCliente FROM Pedido WHERE Id = @id";
+
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    var dataReader = comando.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        pedido = new Pedido();
+                        pedido.Id = (int)dataReader["Id"];
+                        pedido.NomeCliente = (string)dataReader["NomeCliente"];
+                        pedido.Itens = ObterItens((int)dataReader["Id"]);
+
+
+                        foreach (var item in pedido.Itens)
+                        {
+                            comando.CommandText =
+                                @"SELECT (Id, ProdutoId, Quantidade) FROM ItemPedido WHERE Id = @id";
+
+                            var itens = new ItemPedido();
+
+                            itens.Id = (int)dataReader["Id"];
+                            //itens.PedidoId = (int)dataReader["PedidoId"];
+                            itens.ProdutoId = (int)dataReader["ProdutoId"];
+                            itens.Quantidade = (int)dataReader["Quantidade"];
+
+                            pedido.Itens.Add(itens);
+                        }
+                        return pedido;
+                    }
+                }
+            }
+
+            return pedido;
+        }
+
+
+        public List<ItemPedido> ObterItens(int id)
+        {
+            var itensLista = new List<ItemPedido>();
+
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText =
+                         @"SELECT Id, ProdutoId, Quantidade FROM ItemPedido WHERE PedidoId = @id";
+
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    var dataReader = comando.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        var itens = new ItemPedido();
+                        itens.Id = (int)dataReader["Id"];
+                        //itens.PedidoId = (int)dataReader["PedidoId"];
+                        itens.ProdutoId = (int)dataReader["ProdutoId"];
+                        itens.Quantidade = (int)dataReader["Quantidade"];
+
+                        itensLista.Add(itens);
+                    }
+                }
+            }
+
+            return itensLista;
         }
     }
 }
