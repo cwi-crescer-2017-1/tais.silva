@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo1.Dominio.Entidades
 {
-    public class ItemPedido
+    class ItemPedido
     {
         public int Id { get; set; }
         public int ProdutoId { get; set; }

@@ -1,9 +1,9 @@
-﻿using Demo1.Dominio.Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Demo1.Dominio.Entidades;
 
 namespace Demo1.Infraestrutura.Repositorios
 {

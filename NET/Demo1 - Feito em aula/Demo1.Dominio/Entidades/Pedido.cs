@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Demo1.Dominio.Entidades
 {
-    public class ItemPedido
+    public class Pedido
     {
         public int Id { get; set; }
-        public int ProdutoId { get; set; }
-        public int Quantidade { get; set; }
+        public string NomeCliente { get; set; }
+        public List<ItemPedido> Itens { get; set; }
     }
 }
