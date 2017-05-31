@@ -12,8 +12,8 @@ namespace EditoraCrescer
     {
         static void Main(string[] args)
         {
-            var autor1 = new Autor() { Nome = "Tolkien" };
-            var autor2 = new Autor() { Nome = "Machado de Assis" };
+            var autor1 = new Livro() { Nome = "Tolkien" };
+            var autor2 = new Livro() { Nome = "Machado de Assis" };
 
             using (var contexto = new Contexto())
             {
@@ -31,7 +31,7 @@ namespace EditoraCrescer
                     DataPublicacao = DateTime.Now
                 };
 
-                contexto.Livros.Add(livro);
+                contexto.Autores.Add(livro);
             }
         }
     }

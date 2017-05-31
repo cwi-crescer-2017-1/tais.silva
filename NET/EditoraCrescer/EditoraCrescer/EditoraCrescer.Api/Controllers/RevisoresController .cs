@@ -9,31 +9,31 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    public class LivrosController : ApiController
+    public class RevisoresController : ApiController
     {
         private Contexto contexto = new Contexto();
 
-        private LivroRepositorio repositorio = new LivroRepositorio();
+        private RevisorRepositorio repositorio = new RevisorRepositorio();
 
         public IHttpActionResult Get()
         {
-            var livros = repositorio.Obter();
+            var revisores = repositorio.Obter();
 
-            return Ok(livros);
+            return Ok(revisores);
         }
 
         public IHttpActionResult Post(int id)
         {
-            var livros = repositorio.Criar();
+            var revisores = repositorio.Criar();
 
-            return Ok(livros);
+            return Ok(revisores);
         }
 
         public IHttpActionResult Delete()
         {
-            var livros = repositorio.Deletar();
+            var revisores = repositorio.Deletar();
 
-            return Ok(livros);
+            return Ok(revisores);
         } 
     }
     

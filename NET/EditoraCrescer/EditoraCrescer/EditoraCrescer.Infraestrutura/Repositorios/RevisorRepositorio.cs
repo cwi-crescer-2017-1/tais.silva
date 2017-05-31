@@ -7,28 +7,23 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
 {
-    public class LivroRepositorio
+    public class RevisorRepositorio
     {
         private Contexto contexto = new Contexto();
 
         public List<Livro> Obter()
         {
-            var listaLivros = new List<Livro>();
-
-           // listaLivros.Select()
-
-            return listaLivros;
+            return contexto.Revisores.ToList();
         }
 
-        public void Criar(Livro livro)
+        public List<Livro> Criar()
         {
-            
-            return contexto.Livros.Add(novoLivro);
+            return contexto.Revisores.ToList();
         }
 
         public List<Livro> Deletar()
         {
-            return contexto.Livros.ToList();
+            return contexto.Revisores.ToList();
         }
     }
 }
