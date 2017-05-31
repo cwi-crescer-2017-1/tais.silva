@@ -10,20 +10,20 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    public class LivrosController : ApiController
+    public class RevisoresController : ApiController
     {
         private Contexto contexto = new Contexto();
 
-        private LivroRepositorio repositorio = new LivroRepositorio();
+        private RevisorRepositorio repositorio = new RevisorRepositorio();
 
-        public List<Livro> Get()
+        public List<Revisor> Get()
         {
             return repositorio.Obter();
         }
 
-        public IHttpActionResult Post(Livro livro)
+        public IHttpActionResult Post(Revisor revisor)
         {
-            repositorio.Criar(livro);
+            repositorio.Criar(revisor);
             return Ok();
         }
 
@@ -39,6 +39,6 @@ namespace EditoraCrescer.Api.Controllers
             base.Dispose(disposing);
         }
     }
-
+    
 
 }

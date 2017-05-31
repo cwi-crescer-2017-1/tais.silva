@@ -12,21 +12,15 @@ namespace EditoraCrescer
     {
         static void Main(string[] args)
         {
-            //using (var contexto = new Contexto())
-            //{
-            //    var autor = contexto.Autores
-            //}
-
-
             var autor1 = new Autor() { Nome = "Tolkien" };
             var autor2 = new Autor() { Nome = "Machado de Assis" };
 
             using (var contexto = new Contexto())
             {
                 //Inclusão
-                //contexto.Autores.Add(autor1);
-                //contexto.Autores.Add(autor2);
-                //contexto.SaveChanges();
+                contexto.Autores.Add(autor1);
+                contexto.Autores.Add(autor2);
+                contexto.SaveChanges();
 
                 var livro = new Livro()
                 {
@@ -38,7 +32,6 @@ namespace EditoraCrescer
                 };
 
                 contexto.Livros.Add(livro);
-                contexto.SaveChanges();
             }
         }
     }

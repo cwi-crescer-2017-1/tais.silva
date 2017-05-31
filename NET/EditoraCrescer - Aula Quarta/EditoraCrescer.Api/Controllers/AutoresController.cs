@@ -10,20 +10,36 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    public class LivrosController : ApiController
-    {
-        private Contexto contexto = new Contexto();
+	public class AutoresController : ApiController
+	{
+		private Contexto contexto = new Contexto();
 
-        private LivroRepositorio repositorio = new LivroRepositorio();
+		private AutorRepositorio repositorio = new AutorRepositorio();
 
-        public List<Livro> Get()
+		[Route("{id}")]
+		[HttpGet]
+		public List<Autor> ObterAutores()
+		{
+			return repositorio.Obter();
+		}
+
+		[Route("{id}")]
+		[HttpGet]
+		public Autor ObterAutorPeloId(int id)
+		{
+			return repositorio.Obter(id);
+		}
+
+		[Route("{id:int}/Livros")]
+		[HttpGet]
+		public List<Livro> ObterLivrosDoAutor(int id)
+		{
+			return repositorio.ObterLista(id);
+		}
+
+		public IHttpActionResult Post(Autor autor)
         {
-            return repositorio.Obter();
-        }
-
-        public IHttpActionResult Post(Livro livro)
-        {
-            repositorio.Criar(livro);
+            repositorio.Criar(autor);
             return Ok();
         }
 
@@ -32,7 +48,6 @@ namespace EditoraCrescer.Api.Controllers
             repositorio.Deletar(id);
             return Ok();
         }
-
         protected override void Dispose(bool disposing)
         {
             repositorio.Dispose();
