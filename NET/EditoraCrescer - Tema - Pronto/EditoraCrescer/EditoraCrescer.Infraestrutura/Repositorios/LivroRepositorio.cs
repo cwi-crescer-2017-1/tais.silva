@@ -13,22 +13,23 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public List<Livro> Obter()
         {
-            var listaLivros = new List<Livro>();
-
-           // listaLivros.Select()
-
-            return listaLivros;
+            return contexto.Livros.ToList();
         }
 
         public void Criar(Livro livro)
         {
-            
-            return contexto.Livros.Add(novoLivro);
+            contexto.Livros.Add(livro);
+            contexto.SaveChanges();
         }
 
-        public List<Livro> Deletar()
+        public void Deletar(int id)
         {
-            return contexto.Livros.ToList();
+            var primeiroId = contexto.Livros.FirstOrDefault(r => r.Isbn == id);
+            if (primeiroId != null)
+            {
+                contexto.Livros.Remove(primeiroId);
+                contexto.SaveChanges();
+            }
         }
     }
 }

@@ -11,19 +11,25 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
     {
         private Contexto contexto = new Contexto();
 
-        public List<Livro> Obter()
+        public List<Autor> Obter()
         {
             return contexto.Autores.ToList();
         }
 
-        public List<Livro> Criar()
+        public void Criar(Autor autor)
         {
-            return contexto.Autores.ToList();
+            contexto.Autores.Add(autor);
+            contexto.SaveChanges();
         }
 
-        public List<Livro> Deletar()
+        public void Deletar(int id)
         {
-            return contexto.Autores.ToList();
+            var primeiroId = contexto.Autores.FirstOrDefault(r => r.Id == id);
+            if (primeiroId != null)
+            {
+                contexto.Autores.Remove(primeiroId);
+                contexto.SaveChanges();
+            }
         }
     }
 }
