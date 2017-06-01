@@ -41,19 +41,32 @@ namespace EditoraCrescer.Api.Controllers
 
         [Route("{id:int}")]
         [HttpDelete]
-        public IHttpActionResult Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            var revisor = repositorio.Obter(id);
+            if (revisor == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound,
+                    new { mensagens = new string[] { "Revisor não encontrado" } });
+
             repositorio.Deletar(id);
-            return Ok();
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [Route("{id:int}")]
         [HttpPut]
-        public IHttpActionResult AtualizarRevisor(int id, Revisor revisor)
+        public HttpResponseMessage AtualizarRevisor(int id, Revisor revisor)
         {
+            if (id != revisor.Id)
+                return Request.CreateResponse(HttpStatusCode.BadRequest,
+                    new { mensagens = new string[] { "Ids não conferem" } });
+
+            if (!repositorio.VerificarSeRevisorExiste(id))
+                return Request.CreateResponse(HttpStatusCode.NotFound,
+                    new { mensagens = new string[] { "Revisor não encontrado" } });
+
             repositorio.Atualizar(id, revisor);
-            return Ok();
-        }
+            return Request.CreateResponse(HttpStatusCode.OK);           
+        }        
 
         protected override void Dispose(bool disposing)
         {

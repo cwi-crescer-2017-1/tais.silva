@@ -54,9 +54,14 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 			}
 		}
 
-		public void Dispose()
+        public bool VerificarSeAutorExiste(int id)
+        {
+            return contexto.Autores.Count(a => a.Id == id) > 0;
+        }
+
+        public void Dispose()
         {
             ((IDisposable)contexto).Dispose();
-        }
+        }        
     }
 }

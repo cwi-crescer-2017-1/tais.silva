@@ -49,18 +49,34 @@ namespace EditoraCrescer.Api.Controllers
 
         [Route("{isbn:int}")]
         [HttpPut]
-        public IHttpActionResult AtualizarLivro(int isbn, Livro livro)
+        public HttpResponseMessage AtualizarLivro(int isbn, Livro livro)
         {
+            if (isbn != livro.Isbn)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest,
+                    new { mensagens = new string[] { "Ids não conferem" } });
+            }
+            if (!repositorio.VerificarSeLivroExiste(isbn))
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound,
+                                    new { mensagens = new string[] { "Livro não encontrado" } });
+            }
+
             repositorio.Atualizar(isbn, livro);
-            return Ok();
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [Route("{isbn:int}")]
         [HttpDelete]
-        public IHttpActionResult DeletarLivro(int isbn)
+        public HttpResponseMessage DeletarLivro(int isbn)
         {
+            var livro = repositorio.Obter(isbn);
+            if (livro == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound,
+                    new { mensagens = new string[] { "Livro não encontrado" } });
+
             repositorio.Deletar(isbn);
-            return Ok();
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         protected override void Dispose(bool disposing)
