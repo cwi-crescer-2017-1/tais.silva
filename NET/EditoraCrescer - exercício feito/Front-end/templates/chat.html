@@ -1,0 +1,32 @@
+<div class="container">
+		<!-- <div class="scroll">
+			<div class="wrapper" ng-class="{'usuario-local': mensagem.Usuario.Id == usuarioLocal.Id}" ng-repeat="mensagem in mensagens">				
+				<div class="p-10 mensagens" >
+					<div> 					
+						<div class="data"><small>{{ mensagem.DateTimeEnvio | date : "dd/MM hh:mm" }}</small></div> 
+						<span>{{mensagem.Usuario.Nome}} disse:</span>	
+						<span>{{mensagem.Texto}}</span>
+					</div>				
+				</div>
+				<img class="img-responsive img-perfil img-circle" ng-src="{{mensagem.Usuario.UrlImagemPerfil}}" alt="Imagem de perfil do usuário {{mensagem.Usuario.Nome}}">
+			</div>
+		</div> -->
+
+		<!-- antigo -->
+		<div scroll-glue class="scroll">
+            <div class="p-10 mensagens" ng-class="{'usuario-local': mensagem.Usuario.Id == usuarioLocal.Id}" ng-repeat="mensagem in mensagens">
+                <div>                     
+                    <span class="data"><small>{{ mensagem.DateTimeEnvio | date : "dd/MM hh:mm" }}</small></span> <br>
+                    <span>{{mensagem.Usuario.Nome}} disse:</span>    
+                    <span>{{mensagem.Texto}}</span>
+                </div>                
+                <img class="img-responsive img-perfil img-circle" ng-src="{{mensagem.Usuario.UrlImagemPerfil}}" alt="Imagem de perfil do usuário {{mensagem.Usuario.Nome}}">                
+            </div>
+        </div>
+
+		<div class="digitar">
+		<button tyoe="button" class="btn form-control m-10 sair" ng-click="encerrarSessao()">Sair</button>		
+		<input type="text" class="form-control m-10" placeholder="Escreva sua mensagem..." ng-model="novaMensagem.Texto">
+		<button type="button" class="btn m-10" ng-click="enviarMensagem(novaMensagem)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+		</div>
+</div>

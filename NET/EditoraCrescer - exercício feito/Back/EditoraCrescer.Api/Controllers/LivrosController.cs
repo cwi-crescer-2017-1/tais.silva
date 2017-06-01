@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    [RoutePrefix("api/Livros")]
+    [RoutePrefix("api/livros")]
     public class LivrosController : ApiController
     {
         private Contexto contexto = new Contexto();
@@ -40,7 +40,7 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dados = livro });
         }
 
-        [Route("{lancamentos}")]
+        [Route("lancamentos")]
         [HttpGet]
         public IHttpActionResult ObterLivrosDeLancamento()
         {

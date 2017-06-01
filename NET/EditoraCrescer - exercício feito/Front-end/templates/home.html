@@ -1,0 +1,19 @@
+<div class="container">
+  <div uib-carousel active="active" interval="5000" no-wrap="noWrapSlides">
+    <div uib-slide ng-repeat="livro in Livros track by livro.Isbn" index="livro.Isbn">
+        <img ng-src="{{livro.Capa}}">
+        <div class="carousel-caption">
+            <h4>{{livro.Titulo}}</h4>
+            <p>{{livro.Descricao}}</p>
+        </div>
+    </div>
+</div>
+  
+  {{Lancamentos}}
+  {{Livros}}
+  <!-- LIVROS GERAIS -->
+  <!-- <div>
+    div.
+
+  </div> -->
+</div>

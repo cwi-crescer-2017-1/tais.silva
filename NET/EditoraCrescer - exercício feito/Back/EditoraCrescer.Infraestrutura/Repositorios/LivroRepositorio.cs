@@ -63,7 +63,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             var data7Dias = DateTime.Now.AddDays(-7); 
             var listaLivrosLancamentos = contexto
                                             .Livros
-                                            .Where(l => l.DataPublicacao < data7Dias )
+                                            .Where(l => l.DataPublicacao >= data7Dias)
                                             .Select(l => new
                                             {
                                                 Isbn = l.Isbn,
