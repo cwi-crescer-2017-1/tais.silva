@@ -1,5 +1,0 @@
-C:\Users\Taís\Documents\tais.silva\NET\ExercicioLambdaLinq\RepositorioFuncionarios\obj\Debug\Repositorio.csprojResolveAssemblyReference.cache
-C:\Users\Taís\Documents\tais.silva\NET\ExercicioLambdaLinq\RepositorioFuncionarios\bin\Debug\Repositorio.dll
-C:\Users\Taís\Documents\tais.silva\NET\ExercicioLambdaLinq\RepositorioFuncionarios\bin\Debug\Repositorio.pdb
-C:\Users\Taís\Documents\tais.silva\NET\ExercicioLambdaLinq\RepositorioFuncionarios\obj\Debug\Repositorio.dll
-C:\Users\Taís\Documents\tais.silva\NET\ExercicioLambdaLinq\RepositorioFuncionarios\obj\Debug\Repositorio.pdb

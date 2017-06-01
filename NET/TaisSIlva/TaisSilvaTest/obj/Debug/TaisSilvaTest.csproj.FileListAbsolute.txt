@@ -1,8 +1,0 @@
-C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSilvaTest\obj\Debug\TaisSilvaTest.csprojResolveAssemblyReference.cache
-C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSilvaTest\bin\Debug\TaisSilvaTest.dll
-C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSilvaTest\bin\Debug\TaisSilvaTest.pdb
-C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSilvaTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSilvaTest\bin\Debug\TaisSIlva.dll
-C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSilvaTest\bin\Debug\TaisSIlva.pdb
-C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSilvaTest\obj\Debug\TaisSilvaTest.dll
-C:\Users\tais.silva\Documents\tais.silva\NET\TaisSIlva\TaisSilvaTest\obj\Debug\TaisSilvaTest.pdb
