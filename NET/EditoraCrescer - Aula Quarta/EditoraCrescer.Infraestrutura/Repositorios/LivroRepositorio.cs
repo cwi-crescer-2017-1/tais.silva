@@ -12,9 +12,27 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
     {
         private Contexto contexto = new Contexto();
 
-        public List<Livro> Obter()
+        //private Contexto contexto;
+        //public LivroRepositorio()
+        //{
+        //    contexto = new Contexto();
+        //}
+
+        public object Obter()
         {
-            return contexto.Livros.ToList();
+            var listaLivros =  contexto
+                                .Livros
+                                .Select(l => new
+                                {
+                                    Isbn = l.Isbn,
+                                    Titulo = l.Titulo,
+                                    Capa = l.Capa,
+                                    NomeAutor = l.Autor.Nome,
+                                    Genero = l.Genero
+                                })
+                                .ToList();
+
+            return listaLivros;
         }
 
         public Livro Obter(int isbn)
@@ -22,9 +40,41 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return contexto.Livros.FirstOrDefault(l => l.Isbn == isbn);            
         }
 
-        public List<Livro> Obter(string genero)
+        public object Obter(string genero)
         {  
-            return contexto.Livros.Where(l => l.Genero.Contains(genero)).ToList();
+            var listaLivros = contexto
+                                .Livros
+                                .Where(l => l.Genero.Contains(genero))
+                                .Select(l => new
+                                {
+                                    Isbn = l.Isbn,
+                                    Titulo = l.Titulo,
+                                    Capa = l.Capa,
+                                    NomeAutor = l.Autor.Nome,
+                                    Genero = l.Genero
+                                })
+                                .ToList();
+
+            return listaLivros;
+        }
+
+        public object ObterLancamentos()
+        {
+            var data7Dias = DateTime.Now.AddDays(-7); 
+            var listaLivrosLancamentos = contexto
+                                            .Livros
+                                            .Where(l => l.DataPublicacao < data7Dias )
+                                            .Select(l => new
+                                            {
+                                                Isbn = l.Isbn,
+                                                Titulo = l.Titulo,
+                                                Capa = l.Capa,
+                                                NomeAutor = l.Autor.Nome,
+                                                Genero = l.Genero
+                                            })
+                                            .ToList();
+
+            return listaLivrosLancamentos;
         }
 
         public void Criar(Livro livro)
