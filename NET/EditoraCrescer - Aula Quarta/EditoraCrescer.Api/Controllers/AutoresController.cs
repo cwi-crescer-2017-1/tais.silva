@@ -20,22 +20,25 @@ namespace EditoraCrescer.Api.Controllers
         [HttpGet]
 		public IHttpActionResult ObterAutores()
 		{
-			return Ok(repositorio.Obter());
+            var autores = repositorio.Obter();
+            return Ok(new { dados = autores });
 		}
 
 		[Route("{id}")]
 		[HttpGet]
 		public IHttpActionResult ObterAutorPeloId(int id)
 		{
-			return Ok(repositorio.Obter(id));
+            var autor = repositorio.Obter(id);
+			return Ok( new { dados = autor }); 
 		}
 
 		[Route("{id:int}/Livros")]
 		[HttpGet]
 		public IHttpActionResult ObterLivrosDoAutor(int id)
 		{
-			return Ok(repositorio.ObterLista(id));
-		}
+            var livros = repositorio.ObterLista(id);
+			return Ok( new { dados = livros });
+        }
 
 		public IHttpActionResult Post(Autor autor)
         {
@@ -50,6 +53,7 @@ namespace EditoraCrescer.Api.Controllers
             repositorio.Deletar(id);
             return Ok();
         }
+
         protected override void Dispose(bool disposing)
         {
             repositorio.Dispose();

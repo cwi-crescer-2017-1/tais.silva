@@ -20,14 +20,16 @@ namespace EditoraCrescer.Api.Controllers
         [HttpGet]
         public IHttpActionResult Obter()
         {
-           return Ok(repositorio.Obter());
+            var revisores = repositorio.Obter();
+            return Ok(new { dados = revisores });
         }
 
         [Route("{id:int}")]
         [HttpGet]
         public IHttpActionResult ObterRevisorPorId(int id)
         {
-            return Ok(repositorio.Obter(id));
+            var revisor = repositorio.Obter(id);
+            return Ok(new { dados = revisor });
         }
 
         [HttpPost]
@@ -59,6 +61,6 @@ namespace EditoraCrescer.Api.Controllers
             base.Dispose(disposing);
         }
     }
-    
+
 
 }

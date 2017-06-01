@@ -20,21 +20,24 @@ namespace EditoraCrescer.Api.Controllers
         [HttpGet]
         public IHttpActionResult ObterTodosLivros()
         {
-            return Ok(repositorio.Obter());
+            var livros = repositorio.Obter();
+            return Ok(new { dados = livros });
         }
 
         [Route("{isbn:int}")]
         [HttpGet]
         public IHttpActionResult ObterLivroPorIsdn(int isbn)
         {
-            return Ok(repositorio.Obter(isbn));
+            var livro = repositorio.Obter(isbn);
+            return Ok(new { dados = livro });
         }
 
         [Route("{genero}")]
         [HttpGet]
         public IHttpActionResult ObterLivroPorGenero(string genero)
         {
-            return Ok(repositorio.Obter(genero));
+            var livro = repositorio.Obter(genero);
+            return Ok(new { dados = livro });
         }
 
         [HttpPost]
