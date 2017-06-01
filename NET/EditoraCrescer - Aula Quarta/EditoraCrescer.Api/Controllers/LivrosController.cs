@@ -18,23 +18,23 @@ namespace EditoraCrescer.Api.Controllers
         private LivroRepositorio repositorio = new LivroRepositorio();
 
         [HttpGet]
-        public List<Livro> ObterTodosLivros()
+        public IHttpActionResult ObterTodosLivros()
         {
-            return repositorio.Obter();
+            return Ok(repositorio.Obter());
         }
 
         [Route("{isbn:int}")]
         [HttpGet]
-        public Livro ObterLivroPorIsdn(int isbn)
+        public IHttpActionResult ObterLivroPorIsdn(int isbn)
         {
-            return repositorio.Obter(isbn);
+            return Ok(repositorio.Obter(isbn));
         }
 
         [Route("{genero}")]
         [HttpGet]
-        public List<Livro> ObterLivroPorGenero(string genero)
+        public IHttpActionResult ObterLivroPorGenero(string genero)
         {
-            return repositorio.Obter(genero);
+            return Ok(repositorio.Obter(genero));
         }
 
         [HttpPost]

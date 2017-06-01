@@ -22,9 +22,9 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 			return contexto.Autores.FirstOrDefault(l => l.Id == id);
 		}
 
-		public List<Autor> ObterLista(int id)
+		public List<Livro> ObterLista(int id)
 		{
-			return contexto.Livros.Where(l => l.Id == id).ToList();
+			return contexto.Livros.Where(l => l.IdAutor == id).ToList();
 		}
 
 		public void Criar(Autor autor)

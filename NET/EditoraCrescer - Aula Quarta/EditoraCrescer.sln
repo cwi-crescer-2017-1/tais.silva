@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditoraCrescer", "EditoraCrescer\EditoraCrescer.csproj", "{129EEB36-4B96-445D-9E81-665E2A54A7ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditoraCrescerConsole", "EditoraCrescer\EditoraCrescerConsole.csproj", "{129EEB36-4B96-445D-9E81-665E2A54A7ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditoraCrescer.Infraestrutura", "EditoraCrescer.Infraestrutura\EditoraCrescer.Infraestrutura.csproj", "{86A98D39-FF16-44E7-A73F-8C92808E21CA}"
 EndProject
