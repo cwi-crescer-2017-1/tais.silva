@@ -7,13 +7,21 @@
             <p>{{livro.Descricao}}</p>
         </div>
     </div>
-</div>
+  </div>
   
-  {{Lancamentos}}
-  {{Livros}}
   <!-- LIVROS GERAIS -->
-  <!-- <div>
-    div.
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2" ng-repeat="livro in Livros">
+      <div class="div-livro">
+        <img alt="Imagem da capa do livro {{livro.Titulo}}" class="img-responsive capa" ng-src="{{livro.Capa}}">
+        <div class="hover-livro">
+          <h1>{{livro.Titulo}}</h1>
+          <p>{{livro.NomeAutor}}</p>
+        </div>
+      </div>
+    </div>      
+  </div>
 
-  </div> -->
+  <!-- <ul uib-pager previous-text="<< Anterior" next-text="Próximo >>" total-items="QUANTIDADE DE ITENS" ng-model="PAGINA ATUAL"></ul> -->
+
 </div>

@@ -58,6 +58,26 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return listaLivros;
         }
 
+        public object ObterLivrosPorPagina(int quantidadePular, int quantidadeTrazer)
+        {
+            var listaLivros = contexto
+                                            .Livros
+                                            .OrderBy(l => l.Isbn)
+                                            .Skip(quantidadePular)
+                                            .Take(quantidadeTrazer)
+                                            .Select(l => new
+                                            {
+                                                Isbn = l.Isbn,
+                                                Titulo = l.Titulo,
+                                                Capa = l.Capa,
+                                                NomeAutor = l.Autor.Nome,
+                                                Genero = l.Genero
+                                            })
+                                            .ToList();
+
+            return listaLivros;
+        }
+
         public object ObterLancamentos()
         {
             var data7Dias = DateTime.Now.AddDays(-7); 
@@ -67,7 +87,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                                             .Select(l => new
                                             {
                                                 Isbn = l.Isbn,
-                                                Titulo = l.Titulo,
+                                                Titulo = l.Titulo,  
                                                 Capa = l.Capa,
                                                 NomeAutor = l.Autor.Nome,
                                                 Genero = l.Genero

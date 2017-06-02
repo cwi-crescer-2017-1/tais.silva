@@ -2,8 +2,16 @@ editora.factory('LivrosService', function($http) {
 
     var urlLivros = 'http://localhost:54198/api/livros';
 
-    function carregarLivros() {
+    function carregar() {
         return $http.get(urlLivros);
+    };
+
+    function carregarLivros(parametros) {
+        return $http({
+             url: urlLivros,
+             method: 'GET',
+             params: parametros
+           });
     };
 
     function carregarLancamentos() {
@@ -15,8 +23,9 @@ editora.factory('LivrosService', function($http) {
     };
 
     return {
-        carregarLivros,
-        carregarLancamentos,
-        adicionarLivro
+        carregar: carregar,
+        carregarLivros: carregarLivros,
+        carregarLancamentos: carregarLancamentos,
+        adicionarLivro: adicionarLivro
     };
 });

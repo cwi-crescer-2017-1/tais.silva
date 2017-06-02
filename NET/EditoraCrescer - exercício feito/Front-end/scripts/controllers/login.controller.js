@@ -1,4 +1,4 @@
-chatzap.controller('LoginController', function($scope, $localStorage, toastr, $location, UsuarioService) {
+editora.controller('LoginController', function($scope, $localStorage, toastr, $location, UsuarioService) {
 	$scope.controller = 'LoginController';	
 	$localStorage.usuario = $localStorage.usuario || null;
 	// $localStorage.usuario = $localStorage.length > 0 ? $localStorage.usuario: null;

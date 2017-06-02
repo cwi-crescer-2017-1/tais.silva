@@ -8,10 +8,10 @@ editora.config(function($routeProvider) {
         //     controller: 'ChatController',
         //     templateUrl: 'templates/chat.html'
         // })
-        // .when('/login', {
-        //     controller: 'LoginController',
-        //     templateUrl: 'templates/login.html'
-        // })
+        .when('/login', {
+            controller: 'LoginController',
+            templateUrl: 'templates/login.html'
+        })
         .otherwise({
             redirectTo: '/home'
         });

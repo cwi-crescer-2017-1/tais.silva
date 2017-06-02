@@ -1,6 +1,26 @@
 * {
 	box-sizing: border-box;
 }
+.hover-livro {
+	background-color: red;
+	opacity: 0;
+	position: absolute;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+}
+.hover-livro:hover {
+	opacity: 1;
+}
+.capa {
+	height: 370px;
+	width: 538px;
+	object-fit: cover;
+	align-items: center;
+}
+.div-livro {
+	position: relative;
+}
 /*body {
 	margin: 0;
 	padding: 18px 0 2px 0;
