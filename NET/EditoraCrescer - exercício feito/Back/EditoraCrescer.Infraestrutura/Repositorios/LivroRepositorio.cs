@@ -78,6 +78,12 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return listaLivros;
         }
 
+        public int quantidadeLivros()
+        {
+            var quantidadeLivros = contexto.Livros.Count();
+            return quantidadeLivros;
+        }
+
         public object ObterLancamentos()
         {
             var data7Dias = DateTime.Now.AddDays(-7); 

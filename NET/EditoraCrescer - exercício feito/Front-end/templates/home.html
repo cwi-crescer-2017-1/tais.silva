@@ -1,27 +1,26 @@
 <div class="container">
-  <div uib-carousel active="active" interval="5000" no-wrap="noWrapSlides">
-    <div uib-slide ng-repeat="livro in Livros track by livro.Isbn" index="livro.Isbn">
+  
+  <div uib-carousel active="active" interval="5000">
+    <div uib-slide ng-repeat="livro in Lancamentos track by livro.Isbn" index="$index">
         <img ng-src="{{livro.Capa}}">
         <div class="carousel-caption">
             <h4>{{livro.Titulo}}</h4>
-            <p>{{livro.Descricao}}</p>
+            <p>{{livro.Autor}}</p>
         </div>
     </div>
-  </div>
+  </div>  
   
   <!-- LIVROS GERAIS -->
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2" ng-repeat="livro in Livros">
-      <div class="div-livro">
-        <img alt="Imagem da capa do livro {{livro.Titulo}}" class="img-responsive capa" ng-src="{{livro.Capa}}">
+  <div class="row text-center">
+      <div class="div-livro" ng-repeat="livro in Livros">
+        <div class="capa" style="background-image: url({{livro.Capa}})"></div>
         <div class="hover-livro">
-          <h1>{{livro.Titulo}}</h1>
+          <h2>{{livro.Titulo}}</h2>
           <p>{{livro.NomeAutor}}</p>
         </div>
-      </div>
     </div>      
   </div>
 
-  <!-- <ul uib-pager previous-text="<< Anterior" next-text="Próximo >>" total-items="QUANTIDADE DE ITENS" ng-model="PAGINA ATUAL"></ul> -->
+ <ul uib-pagination total-items="quantidadeLivros" ng-model="paginaAtual" ng-change="trocarPaginas()" items-per-page="parametros.quantidadeTrazer"></ul>
 
 </div>

@@ -8,18 +8,21 @@
 	top: 0px;
 	height: 100%;
 	width: 100%;
+	transition-duration: 0.5s;
 }
 .hover-livro:hover {
 	opacity: 1;
 }
 .capa {
 	height: 370px;
-	width: 538px;
-	object-fit: cover;
-	align-items: center;
+	width: 260px;
+	background-size: cover;
 }
 .div-livro {
+	margin: 0 10px;
+	display: inline-block;
 	position: relative;
+	margin-top: 25px;
 }
 /*body {
 	margin: 0;

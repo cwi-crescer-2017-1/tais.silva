@@ -52,7 +52,8 @@ namespace EditoraCrescer.Api.Controllers
         public IHttpActionResult ObterLivrosPorPagina(int quantidadePular, int quantidadeTrazer)
         {
             var livros = repositorio.ObterLivrosPorPagina(quantidadePular, quantidadeTrazer);
-            return Ok(new { dados = livros });
+            var quantidade = repositorio.quantidadeLivros();
+            return Ok(new { dados = livros, quantidade = quantidade });
         }
 
         [HttpPost]
