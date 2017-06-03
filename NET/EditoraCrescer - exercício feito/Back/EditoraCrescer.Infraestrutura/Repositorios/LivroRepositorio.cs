@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
 {
-    public class LivroRepositorio : IDisposable 
+    public class LivroRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
 
@@ -20,7 +20,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public object Obter()
         {
-            var listaLivros =  contexto
+            var listaLivros = contexto
                                 .Livros
                                 .Select(l => new
                                 {
@@ -37,11 +37,11 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public Livro Obter(int isbn)
         {
-            return contexto.Livros.FirstOrDefault(l => l.Isbn == isbn);            
+            return contexto.Livros.FirstOrDefault(l => l.Isbn == isbn);
         }
 
         public object Obter(string genero)
-        {  
+        {
             var listaLivros = contexto
                                 .Livros
                                 .Where(l => l.Genero.Contains(genero))
@@ -86,14 +86,14 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public object ObterLancamentos()
         {
-            var data7Dias = DateTime.Now.AddDays(-7); 
+            var data7Dias = DateTime.Now.AddDays(-7);
             var listaLivrosLancamentos = contexto
                                             .Livros
                                             .Where(l => l.DataPublicacao >= data7Dias)
                                             .Select(l => new
                                             {
                                                 Isbn = l.Isbn,
-                                                Titulo = l.Titulo,  
+                                                Titulo = l.Titulo,
                                                 Capa = l.Capa,
                                                 NomeAutor = l.Autor.Nome,
                                                 Genero = l.Genero
@@ -137,9 +137,9 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public void Dispose()
         {
-            ((IDisposable)contexto).Dispose();
+            contexto.Dispose();
         }
 
-        
+
     }
 }
