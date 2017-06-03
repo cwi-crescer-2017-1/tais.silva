@@ -1,1 +1,0 @@
-var editora = angular.module('editora', ['ngRoute', 'auth', 'ui.bootstrap', 'ngAnimate', 'toastr', 'ngStorage', 'luegg.directives']);

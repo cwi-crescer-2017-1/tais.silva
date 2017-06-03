@@ -1,0 +1,11 @@
+<div class="container">
+
+  <h1 class="page-header">Página Privada</h1>
+
+  <p><a href="/#!/home">Home</a></p>
+
+  <p>{{ mensagem.colaborador }}</p>
+
+  <p ng-if="auth.possuiPermissao('Administrador')">{{ mensagem.administrador }}</p>
+
+</div>
