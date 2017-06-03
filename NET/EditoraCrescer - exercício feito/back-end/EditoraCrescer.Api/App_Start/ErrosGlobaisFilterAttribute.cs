@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Web.Http.Filters;
 
-namespace AutDemo.WebApi
+namespace EditoraCrescer.WebApi
 {
     public class ErrosGlobaisFilterAttribute : ExceptionFilterAttribute
     {
