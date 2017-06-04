@@ -12,9 +12,9 @@ angular
                 })
 
                 // privado
-            .when('/privado', {
-              controller: 'PrivadoController',
-              templateUrl: 'privado/privado.html',
+            .when('/adminstrativo', {
+              controller: 'AdminstrativoController',
+              templateUrl: 'adminstrativo/adminstrativo.html',
               resolve: {
 
                 // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)

@@ -1,6 +1,6 @@
 angular
 	.module('app')
-	.controller('PrivadoController', function ($scope, authService) {
+	.controller('AdminstrativoController', function ($scope, authService) {
 
 	  $scope.auth = authService;
 

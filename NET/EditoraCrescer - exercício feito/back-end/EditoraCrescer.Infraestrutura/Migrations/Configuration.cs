@@ -1,5 +1,6 @@
-namespace EditoraCrescer.Infraestrutura.Migrations
+﻿namespace EditoraCrescer.Infraestrutura.Migrations
 {
+    using EditoraCrescer.Dominio.Entidades;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +27,9 @@ namespace EditoraCrescer.Infraestrutura.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            var usuario1 = new Usuario("Tais Jaques", "tais.silva@cwi.com.br", "123456");
+            usuario1.AtribuirPermissoes("Revisor", "Publicador");
+            context.Usuario.AddOrUpdate(usuario1);
         }
     }
 }
