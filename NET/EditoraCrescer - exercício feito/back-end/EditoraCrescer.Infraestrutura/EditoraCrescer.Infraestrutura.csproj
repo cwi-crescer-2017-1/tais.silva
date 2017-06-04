@@ -52,7 +52,6 @@
     <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Livro.cs" />
     <Compile Include="Entidades\Permissao.cs" />
-    <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
