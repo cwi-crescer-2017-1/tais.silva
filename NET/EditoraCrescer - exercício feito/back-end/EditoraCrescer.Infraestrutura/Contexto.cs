@@ -1,4 +1,5 @@
-﻿using EditoraCrescer.Infraestrutura.Entidades;
+﻿using EditoraCrescer.Dominio.Entidades;
+using EditoraCrescer.Infraestrutura.Entidades;
 using EditoraCrescer.Infraestrutura.Mappings;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,15 @@ namespace EditoraCrescer.Infraestrutura
 
         public DbSet<Livro> Livros { get; set; }
         public DbSet<Autor> Autores { get; set; }
-        public DbSet<Revisor> Revisores { get; set; }
+        public DbSet<Permissao> Permissao { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new LivroMap());
             modelBuilder.Configurations.Add(new AutorMap());
-            modelBuilder.Configurations.Add(new RevisorMap());
-            
+            modelBuilder.Configurations.Add(new PermissaoMap());
+            modelBuilder.Configurations.Add(new UsuarioMap());
         }
     }
 }

@@ -57,7 +57,7 @@
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
-    <Compile Include="Mappings\RevisorMap.cs" />
+    <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Migrations\201705301955309_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705301955309_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301955309_CriacaoDoBanco.cs</DependentUpon>
@@ -90,7 +90,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
-    <Compile Include="Repositorios\RevisorRepositorio.cs" />
     <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>

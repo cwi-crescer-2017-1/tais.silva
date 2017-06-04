@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EditoraCrescer.Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,12 @@ namespace EditoraCrescer.Infraestrutura.Entidades
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public string Genero { get; set; }
-        public DateTime DataPublicacao { get; set; }
+        public DateTime? DataPublicacao { get; set; }
         public int IdAutor { get; set; }
         public Autor Autor { get; set; }
         public int IdRevisor { get; set; }
-        public Revisor Revisor { get; set; }
-        public DateTime DataRevisao { get; set; }
+        public Usuario Revisor { get; set; }
+        public DateTime? DataRevisao { get; set; }
         public string Capa { get; set; }
     }    
 }

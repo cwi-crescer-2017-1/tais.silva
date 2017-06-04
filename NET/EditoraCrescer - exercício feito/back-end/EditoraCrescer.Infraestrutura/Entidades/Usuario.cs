@@ -10,7 +10,7 @@ namespace EditoraCrescer.Dominio.Entidades
         static readonly char[] _caracteresNovaSenha = "abcdefghijklmnopqrstuvzwyz1234567890*-_".ToCharArray();
         static readonly int _numeroCaracteresNovaSenha = 10;
 
-        public Guid Id { get; private set; }
+        public int Id { get; private set; }
         public string Nome { get; private set; }
         public string Email { get; private set; }
         public string Senha { get; private set; }
@@ -25,11 +25,12 @@ namespace EditoraCrescer.Dominio.Entidades
         {
             Nome = nome;
             Email = email;
-            Id = Guid.NewGuid();
             if (!string.IsNullOrWhiteSpace(senha))
+            {
                 Senha = CriptografarSenha(senha);
-            Permissoes = new List<Permissao>();
-            AtribuirPermissoes("Colaborador");
+                Permissoes = new List<Permissao>();
+                AtribuirPermissoes("Colaborador");
+            }
         }
 
         public string ResetarSenha()
@@ -44,7 +45,7 @@ namespace EditoraCrescer.Dominio.Entidades
 
             return senha;
         }
-
+        
         private string CriptografarSenha(string senha)
         {
             MD5 md5 = MD5.Create();

@@ -4,11 +4,21 @@ angular
 
         var urlUsuarios = 'http://localhost:54198/api/usuario';
 
-        function carregar() {
-            return $http.get(urlUsuarios);
+        function carregarUsuario() {
+            return $http.post(`$(urlUsuarios)/usuario`);
+        };
+
+        function criarUsuario() {
+            return $http.post(`$(urlUsuarios)/registrar`);
+        };
+        
+        function resetarSenha() {
+            return $http.post(`$(urlUsuarios)/resetarsenha`);
         };
 
         return {
-            carregar: carregar
+            carregar: carregarUsuario,
+            criar: criarUsuario,
+            resetar: resetarSenha
         };
     });

@@ -8,12 +8,15 @@ namespace EditoraCrescer.Infraestrutura.Mappings
     {
         public UsuarioMap()
         {
-            HasMany(x => x.Permissoes).WithMany().Map(x =>
+            ToTable("Usuario");
+            HasMany(x => x.Permissoes)
+                .WithMany()
+                .Map(x =>
             {
-                x.MapLeftKey("IdUsuario");
-                x.MapRightKey("IdPermissao");
-                x.ToTable("UsuarioPermissao");
-            });
+            x.MapLeftKey("IdUsuario");
+            x.MapRightKey("IdPermissao");
+            x.ToTable("UsuarioPermissao");
+        });
         }
-    }
+}
 }

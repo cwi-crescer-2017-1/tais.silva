@@ -1,4 +1,5 @@
-﻿using EditoraCrescer.Infraestrutura.Entidades;
+﻿using EditoraCrescer.Dominio.Entidades;
+using EditoraCrescer.Infraestrutura.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraestrutura.Mappings
 {
-    class RevisorMap : EntityTypeConfiguration<Revisor>
+    class PermissaoMap : EntityTypeConfiguration<Permissao>
     {
-        public RevisorMap()
+        public PermissaoMap()
         {
-            ToTable("Revisores");
+            ToTable("Permissao");
 
         }
     }
