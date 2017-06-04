@@ -41,7 +41,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public Usuario Obter(string email)
         {
-            return contexto.Usuario.Where(u => u.Email == email).Include(p => p.Permissoes).FirstOrDefault();
+            return contexto.Usuario.Include("Permissoes").FirstOrDefault(u => u.Email.Equals(email));
         }
 
         public void Dispose()

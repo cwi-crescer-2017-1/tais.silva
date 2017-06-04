@@ -16,7 +16,7 @@ namespace EditoraCrescer.Api.Controllers
     public class UsuarioController : ControllerBasica
     {
         private UsuarioRepositorio repositorio = new UsuarioRepositorio();
-        
+
         [HttpPost, Route("registrar")]
         public HttpResponseMessage Registrar([FromBody]RegistrarUsuarioModel model)
         {
