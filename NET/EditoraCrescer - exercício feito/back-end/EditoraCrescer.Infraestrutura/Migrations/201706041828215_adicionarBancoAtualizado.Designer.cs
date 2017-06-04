@@ -7,13 +7,13 @@ namespace EditoraCrescer.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CriacaoDoBanco : IMigrationMetadata
+    public sealed partial class adicionarBancoAtualizado : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CriacaoDoBanco));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(adicionarBancoAtualizado));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705301955309_CriacaoDoBanco"; }
+            get { return "201706041828215_adicionarBancoAtualizado"; }
         }
         
         string IMigrationMetadata.Source

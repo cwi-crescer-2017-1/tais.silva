@@ -87,11 +87,11 @@ namespace EditoraCrescer.WebApi
                 actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized, new { mensagens = new string[] { "Usuário ou senha inválidos." } });
         }
 
-        private bool ValidarUsuario(string login, string senha, out Usuario usuarioRetorno)
+        private bool ValidarUsuario(string email, string senha, out Usuario usuarioRetorno)
         {
             usuarioRetorno = null;
 
-            var usuario = _usuarioRepositorio.Obter(login);
+            var usuario = _usuarioRepositorio.Obter(email);
 
             if (usuario != null && usuario.ValidarSenha(senha))
                 usuarioRetorno = usuario;

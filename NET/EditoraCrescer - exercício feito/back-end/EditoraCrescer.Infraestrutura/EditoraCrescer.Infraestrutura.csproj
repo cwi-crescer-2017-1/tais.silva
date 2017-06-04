@@ -57,37 +57,9 @@
     <Compile Include="Mappings\LivroMap.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Mappings\PermissaoMap.cs" />
-    <Compile Include="Migrations\201705301955309_CriacaoDoBanco.cs" />
-    <Compile Include="Migrations\201705301955309_CriacaoDoBanco.Designer.cs">
-      <DependentUpon>201705301955309_CriacaoDoBanco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705310346126_AdicionarTabelaRevisor.cs" />
-    <Compile Include="Migrations\201705310346126_AdicionarTabelaRevisor.Designer.cs">
-      <DependentUpon>201705310346126_AdicionarTabelaRevisor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705312004147_AdicionarCampoAoLivro.cs" />
-    <Compile Include="Migrations\201705312004147_AdicionarCampoAoLivro.Designer.cs">
-      <DependentUpon>201705312004147_AdicionarCampoAoLivro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705312204388_AlterarColunaDataRevisao.cs" />
-    <Compile Include="Migrations\201705312204388_AlterarColunaDataRevisao.Designer.cs">
-      <DependentUpon>201705312204388_AlterarColunaDataRevisao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706031838543_adicionarEntidadeUsuario.cs" />
-    <Compile Include="Migrations\201706031838543_adicionarEntidadeUsuario.Designer.cs">
-      <DependentUpon>201706031838543_adicionarEntidadeUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706031841349_adicionarEntidadeBasica.cs" />
-    <Compile Include="Migrations\201706031841349_adicionarEntidadeBasica.Designer.cs">
-      <DependentUpon>201706031841349_adicionarEntidadeBasica.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706031849263_adicionarPermissoes.cs" />
-    <Compile Include="Migrations\201706031849263_adicionarPermissoes.Designer.cs">
-      <DependentUpon>201706031849263_adicionarPermissoes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706040513158_acrescentarPermissoes.cs" />
-    <Compile Include="Migrations\201706040513158_acrescentarPermissoes.Designer.cs">
-      <DependentUpon>201706040513158_acrescentarPermissoes.cs</DependentUpon>
+    <Compile Include="Migrations\201706041828215_adicionarBancoAtualizado.cs" />
+    <Compile Include="Migrations\201706041828215_adicionarBancoAtualizado.Designer.cs">
+      <DependentUpon>201706041828215_adicionarBancoAtualizado.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,29 +74,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705301955309_CriacaoDoBanco.resx">
-      <DependentUpon>201705301955309_CriacaoDoBanco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705310346126_AdicionarTabelaRevisor.resx">
-      <DependentUpon>201705310346126_AdicionarTabelaRevisor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705312004147_AdicionarCampoAoLivro.resx">
-      <DependentUpon>201705312004147_AdicionarCampoAoLivro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705312204388_AlterarColunaDataRevisao.resx">
-      <DependentUpon>201705312204388_AlterarColunaDataRevisao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706031838543_adicionarEntidadeUsuario.resx">
-      <DependentUpon>201706031838543_adicionarEntidadeUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706031841349_adicionarEntidadeBasica.resx">
-      <DependentUpon>201706031841349_adicionarEntidadeBasica.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706031849263_adicionarPermissoes.resx">
-      <DependentUpon>201706031849263_adicionarPermissoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706040513158_acrescentarPermissoes.resx">
-      <DependentUpon>201706040513158_acrescentarPermissoes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706041828215_adicionarBancoAtualizado.resx">
+      <DependentUpon>201706041828215_adicionarBancoAtualizado.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
