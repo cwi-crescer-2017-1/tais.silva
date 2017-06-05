@@ -1,3 +1,4 @@
+
 angular
 	.module('app')
 	.controller('HomeController', function($scope, $localStorage, $location, livrosService) {
@@ -5,7 +6,7 @@ angular
 		$scope.Livros = [];
 		$scope.Lancamentos = [];
 		$scope.parametros = {
-	      quantidadeTrazer: 5,
+	      quantidadeTrazer: 6,
 	      quantidadePular: 0,
 	    };   
 	    $scope.quantidadeLivros = 0; 
@@ -13,6 +14,12 @@ angular
 	  	carregarLivros($scope.parametros);
 		carregarLancamentos();
 		$scope.trocarPaginas = trocarPaginas;
+
+		$scope.carregarInformacoes = function (isbn){
+			livrosService.carregarIsbn(isbn).then(function(response){
+				$scope.livroComp = response.data.dados;
+			});
+		};
 
 		function carregarLancamentos(){
 			livrosService

@@ -8,6 +8,10 @@ angular
             return $http.get(urlLivros);
         };
 
+        function carregarIsbn(isbn) {
+            return $http.get(`${urlLivros}/${isbn}`);
+        };
+
         function carregarLivros(parametros) {
             return $http({
                  url: urlLivros,
@@ -42,6 +46,7 @@ angular
 
         return {
             carregar: carregar,
+            carregarIsbn: carregarIsbn,
             carregarLivros: carregarLivros,
             carregarLancamentos: carregarLancamentos,
             adicionarLivro: adicionarLivro,

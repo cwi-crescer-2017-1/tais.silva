@@ -1,19 +1,13 @@
 * {
 	box-sizing: border-box;
 }
-/*body {
-	margin: 0;
-	padding: 18px 0 2px 0;
-	background-color: #ffbbbb;
-	background-image: url("../images/background.jpg");
-	width: 100%;
-	background-position: center;
-}*/
 body {
-	background-color: #458997;
+  margin: 0;
+	background-color: #8FD2E2;
 }
 .hover-livro {
-	background-color: red;
+	background-color: #B26E93;
+  padding: 10px;
 	opacity: 0;
 	position: absolute;
 	top: 0px;
@@ -34,6 +28,11 @@ body {
 	display: inline-block;
 	position: relative;
 	margin-top: 25px;
+}
+.botao-detalhes {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
 }
 .adicionar-autor,
 .adicionar-livro {
@@ -72,14 +71,22 @@ body {
 /*Fim Menu principal*/
 
  /*Caixa cadastro email*/
-.newsletter {
+.form-control:focus {
+  border: none;
+  border-bottom: 2px solid #999;
+  box-shadow: none;
+}
+.float-right {
+  float: right;
+}
+.newsletter {   
   background-color: #B26E93;
   border-radius: 3px;
   padding: 35px;
   width: 75%;
   margin: 20px auto;
+   margin-top: 40px;
 }
-
 .newsletter input {
   color: white;
   max-width: 50%;
@@ -88,6 +95,7 @@ body {
   border-bottom: 2px solid #999;
   border-radius: 0;
   background-color: #B26E93;
+   box-shadow: none;
 }
 .newsletter input::placeholder {
   color: white;

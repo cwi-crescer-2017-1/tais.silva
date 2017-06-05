@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container text-center">
   
   <div uib-carousel active="active" interval="5000">
     <div uib-slide ng-repeat="livro in Lancamentos track by livro.Isbn" index="$index">
@@ -27,10 +27,37 @@
         <div class="hover-livro">
           <h2>{{livro.Titulo}}</h2>
           <p>Autor: {{livro.NomeAutor}}</p>
-          <p>Gênero: {{livro.NomeAutor}}</p>
+          <p>Gênero: {{livro.Genero}}</p>
+          <div class="botao-detalhes">
+            <button type="button" class="btn" aria-hidden="true"  data-toggle="modal" data-toggle="tooltip" data-target="#descricaoModal" ng-click="carregarInformacoes(livro.Isbn)" data-placement="bottom" title="detalhes">Ver detalhes</button>
+          </div>
         </div>
     </div>      
   </div>
+
+          <div id="descricaoModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Detalhes do livro</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                          <h5>{{livroComp.Titulo}}</h5>
+                          <p>Autor: {{livroComp.NomeAutor}}</p>
+                          <p>Gênero: {{livroComp.NomeAutor}}</p>
+                          <p>Descrição: {{livroComp.NomeAutor}}</p>
+                          <p>Data da publicação: {{livroComp.DataPublicacao}}</p>
+                          <p>Isbn: {{livroComp.Isbn}}</p>
+                        </div>
+                        <div>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>  
+                </div>
+            </div> 
+        </div> 
 
  <ul uib-pagination total-items="quantidadeLivros" ng-model="paginaAtual" ng-change="trocarPaginas()" items-per-page="parametros.quantidadeTrazer"></ul>
 

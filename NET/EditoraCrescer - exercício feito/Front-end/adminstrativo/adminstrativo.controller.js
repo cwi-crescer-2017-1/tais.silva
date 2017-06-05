@@ -10,13 +10,13 @@ angular
 		$scope.editarAutor = editarAutor;
 		$scope.excluirLivro = excluirLivro;
 		$scope.excluirAutor = excluirAutor;
+		$scope.revisar = revisarLivro;
+		$scope.publicar = publicarLivro;
 		$scope.usuarioAtual = authService.getUsuario();
+		$scope.revisor = authService.possuiPermissao("Revisor");
+		$scope.publicador = authService.possuiPermissao("Publicador");
+		$scope.revisado = revisado;
 		carregarAutores();
-
-		$scope.mensagem = {
-		colaborador: 'Mensagem incrível para o usuário AUTENTICADO',
-		administrador: 'Mensagem incrível para o usuário ADMINISTRADOR',
-		};
 
 		function carregarAutores(){
 			autoresService
@@ -138,5 +138,11 @@ angular
 			} else {
 				toastr.warning('Preencha todos os dados corretamente.', 'Depois tente novamente!');
 			}
+		}
+
+		function revisado(isbn){
+			livrosService.carregarIsbn(isbn).then(function(response){
+				$scope.revisado = response.data.dados.DataRevisao != null;
+			})
 		}
 	});
