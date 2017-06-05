@@ -1,6 +1,10 @@
 angular
 	.module('app')
-	.controller('LoginController', function ($scope, authService) {
+	.controller('LoginController', function ($scope, authService, $location) {
+
+		if(authService.isAutenticado()){
+			$location.path('/adminstrativo');
+		}
 
 	  $scope.login = function (usuario) {
 

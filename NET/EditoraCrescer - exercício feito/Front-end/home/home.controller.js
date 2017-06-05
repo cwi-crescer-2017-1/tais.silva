@@ -1,6 +1,6 @@
 angular
 	.module('app')
-	.controller('HomeController', function($scope, $localStorage, $location, LivrosService) {
+	.controller('HomeController', function($scope, $localStorage, $location, livrosService) {
 		$scope.controller = 'HomeController';	
 		$scope.Livros = [];
 		$scope.Lancamentos = [];
@@ -15,10 +15,12 @@ angular
 		$scope.trocarPaginas = trocarPaginas;
 
 		function carregarLancamentos(){
-			LivrosService.carregarLivros().then(function(response){
-				console.log("lancamentos", response.data);
-				$scope.Lancamentos = response.data.dados;
-			})
+			livrosService
+				.carregarLancamentos()
+				.then(function(response){
+					console.log("lancamentos", response.data);
+					$scope.Lancamentos = response.data.dados;
+				})
 		}
 
 		function trocarPaginas(){
@@ -27,10 +29,12 @@ angular
 		}
 
 		function carregarLivros(parametros){
-			LivrosService.carregarLivros(parametros).then(function(response){
-				console.log("Livros", response.data.dados);
-				$scope.quantidadeLivros = response.data.quantidade;			
-				$scope.Livros = response.data.dados;
-			})
+			livrosService
+				.carregarLivros(parametros)
+				.then(function(response){
+					console.log("Livros", response.data.dados);
+					$scope.quantidadeLivros = response.data.quantidade;			
+					$scope.Livros = response.data.dados;
+				})
 		}	
 	});

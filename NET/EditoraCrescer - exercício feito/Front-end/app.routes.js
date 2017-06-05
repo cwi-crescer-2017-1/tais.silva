@@ -16,7 +16,6 @@ angular
               controller: 'AdminstrativoController',
               templateUrl: 'adminstrativo/adminstrativo.html',
               resolve: {
-
                 // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
                 autenticado: function (authService) {
                   return authService.isAutenticadoPromise();

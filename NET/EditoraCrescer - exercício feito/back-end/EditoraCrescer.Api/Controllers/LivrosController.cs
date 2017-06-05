@@ -3,6 +3,7 @@ using EditoraCrescer.Infraestrutura.Entidades;
 using EditoraCrescer.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -78,6 +79,46 @@ namespace EditoraCrescer.Api.Controllers
                                     new { mensagens = new string[] { "Livro não encontrado" } });
             }
 
+            repositorio.Atualizar(isbn, livro);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [Route("{isbn:int}/revisar")]
+        [HttpPut]
+        public HttpResponseMessage RevisarLivro(int isbn, Livro livro)
+        {
+            if (isbn != livro.Isbn)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest,
+                    new { mensagens = new string[] { "Ids não conferem" } });
+            }
+            if (!repositorio.VerificarSeLivroExiste(isbn))
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound,
+                                    new { mensagens = new string[] { "Livro não encontrado" } });
+            }
+
+            livro.DataRevisao = DateTime.Now;
+            repositorio.Atualizar(isbn, livro);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [Route("{isbn:int}/publicar")]
+        [HttpPut]
+        public HttpResponseMessage PublicarLivro(int isbn, Livro livro)
+        {
+            if (isbn != livro.Isbn)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest,
+                    new { mensagens = new string[] { "Ids não conferem" } });
+            }
+            if (!repositorio.VerificarSeLivroExiste(isbn))
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound,
+                                    new { mensagens = new string[] { "Livro não encontrado" } });
+            }
+
+            livro.DataPublicacao = DateTime.Now;
             repositorio.Atualizar(isbn, livro);
             return Request.CreateResponse(HttpStatusCode.OK);
         }

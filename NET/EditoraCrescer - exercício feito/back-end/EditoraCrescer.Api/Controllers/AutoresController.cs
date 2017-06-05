@@ -47,7 +47,7 @@ namespace EditoraCrescer.Api.Controllers
             return Ok();
         }
 
-        [Route("{isbn:int}")]
+        [Route("{id:int}")]
         [HttpPut]
         public HttpResponseMessage AtualizarAutor(int id, Autor autor)
         {
