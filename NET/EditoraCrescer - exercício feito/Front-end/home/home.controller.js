@@ -1,10 +1,10 @@
 
 angular
 	.module('app')
-	.controller('HomeController', function($scope, $localStorage, $location, livrosService) {
-		$scope.controller = 'HomeController';	
-		$scope.Livros = [];
+	.controller('HomeController', function($scope, $uibModal, $localStorage, $location, livrosService) {
+		$scope.controller = 'HomeController';		
 		$scope.Lancamentos = [];
+		$scope.Livros = [];
 		$scope.parametros = {
 	      quantidadeTrazer: 6,
 	      quantidadePular: 0,
@@ -18,6 +18,16 @@ angular
 		$scope.carregarInformacoes = function (isbn){
 			livrosService.carregarIsbn(isbn).then(function(response){
 				$scope.livroComp = response.data.dados;
+				$uibModal.open({
+					backdrop: true,
+					templateUrl: 'myModalContent.html',
+					controller: function($scope, $uibModalInstance) {
+						$scope.livroComp = response.data.dados;
+						$scope.cancel = function(){
+							$uibModalInstance.dismiss();
+						}
+					}
+				})
 			});
 		};
 

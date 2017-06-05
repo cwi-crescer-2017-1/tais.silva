@@ -1,6 +1,7 @@
 angular
 	.module('app')
-	.controller('AdminstrativoController', function ($scope, authService, autoresService, livrosService, toastr) {
+	.controller('AdminstrativoController', function ($scope, $uibModal, authService, autoresService, livrosService, toastr) {
+		var autores;
 		$scope.controller = 'AdminstrativoController';
 		$scope.auth = authService;
 		$scope.autores = [];
@@ -18,10 +19,68 @@ angular
 		$scope.revisado = revisado;
 		carregarAutores();
 
+		$scope.Livros = [];
+		$scope.parametros = {
+	      quantidadeTrazer: 6,
+	      quantidadePular: 0,
+	    };   
+	    $scope.quantidadeLivros = 0; 
+	    $scope.paginaAtual = 0;
+	  	carregarLivros($scope.parametros);
+
+	  	function trocarPaginas(){
+			$scope.parametros.quantidadePular = ($scope.paginaAtual - 1) * $scope.parametros.quantidadeTrazer;
+			carregarLivros($scope.parametros);
+		}
+
+		function carregarLivros(parametros){
+			livrosService
+				.carregarLivros(parametros)
+				.then(function(response){
+					console.log("Livros", response.data.dados);
+					$scope.quantidadeLivros = response.data.quantidade;			
+					$scope.Livros = response.data.dados;
+				})
+		}
+
+		$scope.carregarInformacoes = function (isbn){
+			livrosService.carregarIsbn(isbn).then(function(response){
+				$scope.livroComp = response.data.dados;
+				$uibModal.open({
+					backdrop: true,
+					templateUrl: 'myModalContent.html',
+					controller: function($scope, $uibModalInstance) {
+						$scope.livroComp = response.data.dados;
+						$scope.cancel = function(){
+							$uibModalInstance.dismiss();
+						}
+						$scope.carregarInformacoes2 = carregarInformacoes2;
+					}
+				})
+			});
+		};
+
+		var carregarInformacoes2 = function (livro){	
+				debugger
+				$uibModal.open({
+					backdrop: true,
+					templateUrl: 'myModalContent2.html',
+					controller: function($scope, $uibModalInstance) {
+						$scope.livro = livro;
+						$scope.cancel = function(){
+							$uibModalInstance.dismiss();
+						}
+						$scope.autores = autores;
+					}
+				})
+		
+		};
+
 		function carregarAutores(){
 			autoresService
 				.carregarAutores()
 				.then(function(response){
+				autores = response.data.dados;
 				$scope.autores = response.data.dados;
 			})
 		}

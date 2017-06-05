@@ -29,35 +29,32 @@
           <p>Autor: {{livro.NomeAutor}}</p>
           <p>Gênero: {{livro.Genero}}</p>
           <div class="botao-detalhes">
-            <button type="button" class="btn" aria-hidden="true"  data-toggle="modal" data-toggle="tooltip" data-target="#descricaoModal" ng-click="carregarInformacoes(livro.Isbn)" data-placement="bottom" title="detalhes">Ver detalhes</button>
+            <button type="button" class="btn" ng-click="carregarInformacoes(livro.Isbn)" title="detalhes">Ver detalhes</button>
           </div>
         </div>
     </div>      
-  </div>
-
-          <div id="descricaoModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>  
+      <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+                        <button type="button" class="close" ng-click="cancel()">&times;</button>
                         <h4 class="modal-title">Detalhes do livro</h4>
                     </div>
                     <div class="modal-body">
                         <div>
                           <h5>{{livroComp.Titulo}}</h5>
-                          <p>Autor: {{livroComp.NomeAutor}}</p>
-                          <p>Gênero: {{livroComp.NomeAutor}}</p>
-                          <p>Descrição: {{livroComp.NomeAutor}}</p>
+                          <p>Autor: {{livroComp.Autor.Nome}}</p>
+                          <p>Gênero: {{livroComp.Genero}}</p>
+                          <p>Descrição: {{livroComp.Descricao}}</p>
                           <p>Data da publicação: {{livroComp.DataPublicacao}}</p>
                           <p>Isbn: {{livroComp.Isbn}}</p>
                         </div>
-                        <div>
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>  
-                </div>
-            </div> 
-        </div> 
+                    </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>  
+    </script>
+
+         
 
  <ul uib-pagination total-items="quantidadeLivros" ng-model="paginaAtual" ng-change="trocarPaginas()" items-per-page="parametros.quantidadeTrazer"></ul>
 
