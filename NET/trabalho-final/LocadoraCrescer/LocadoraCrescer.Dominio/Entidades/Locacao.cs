@@ -11,9 +11,9 @@ namespace LocadoraCrescer.Dominio.Entidades
         public int Id { get; set; }
         public Cliente Cliente { get; set; }
         public Funcionario Funcionario { get; set; }
-        public Console Console { get; set; }
+        public Poduto Produto { get; set; }
         public Pacote Pacote { get; set; }
-        public List<Extra>  Extras { get; set; }
+        public List<Extra> Extras { get; set; }
         public DateTime DataPedido { get; set; }
         public DateTime DataPrevista { get; set; }
         public DateTime? DataDevolucao { get; set; }

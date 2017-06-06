@@ -54,7 +54,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mapping\" />
+    <Folder Include="Mappings\" />
     <Folder Include="Repositorio\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

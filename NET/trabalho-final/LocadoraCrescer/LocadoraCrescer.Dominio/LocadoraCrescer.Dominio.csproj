@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Console.cs" />
+    <Compile Include="Entidades\Poduto.cs" />
     <Compile Include="Entidades\Extra.cs" />
     <Compile Include="Entidades\Enum\Genero.cs" />
     <Compile Include="Entidades\Enum\Cargo.cs" />

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Dominio.Entidades
 {
-    public class Console
+    public class Poduto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
         public decimal Decimal { get; set; }
         public int Quantidade { get; set; }
 
-        public Console()
+        public Poduto()
         { }
     }
 }
