@@ -47,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappings\LocacaoMap.cs" />
+    <Compile Include="Mappings\PacoteExtraMap.cs" />
+    <Compile Include="Mappings\LocacaoExtraMap.cs" />
+    <Compile Include="Mappings\PacoteMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,8 +58,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mappings\" />
     <Folder Include="Repositorio\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraCrescer.Dominio\LocadoraCrescer.Dominio.csproj">
+      <Project>{7DA69A14-BAC5-4037-B454-7060D0010079}</Project>
+      <Name>LocadoraCrescer.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

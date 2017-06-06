@@ -8,12 +8,22 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Infraestrutura.Mappings
 {
-    public LocacaoMap() : EntityTypeConfiguration<Locacao>
+    class LocacaoMap : EntityTypeConfiguration<Locacao>
     {
-        ToTable("Locacao");
+        public LocacaoMap()
+        {
+            ToTable("Locacao");
+            HasMany(x => x.Extras)
+                .WithMany()
+                .Map(x =>
+                {
+                    x.MapLeftKey("IdLocacao");
+                    x.MapRightKey("IdExtra");
+                    x.ToTable("LocacaoExtra");
+                });
+            HasKey(p => p.Pacote).HasRequired();
+        }
 
-        HasRequired(x => x.Extras)
-            .WithMany()
-            .HasForeignKey(x => x.Extras);
     }
+
 }

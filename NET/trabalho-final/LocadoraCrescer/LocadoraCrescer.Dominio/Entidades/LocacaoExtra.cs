@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Dominio.Entidades
 {
-    public class Extra
+    public class LocacaoExtra
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public decimal Valor { get; set; }
+        public int IdLocacao { get; set; }
+        public int IdExtra { get; set; }
         public int Quantidade { get; set; }
 
-        protected Extra() { }
+        public LocacaoExtra()
+        { }
     }
 }

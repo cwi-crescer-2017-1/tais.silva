@@ -8,13 +8,15 @@ using LocadoraCrescer.Dominio.Entidades;
 
 namespace LocadoraCrescer.Infraestrutura.Mappings
 {
-    class PacoteMap : EntityTypeConfiguration<Pacote>
+    class PacoteExtraMap : EntityTypeConfiguration<PacoteExtra>
     {
-        public PacoteMap()
+        public PacoteExtraMap()
         {
-            ToTable("Pacote");
-            HasRequired(x => x."PacoteExtra").WithMany().HasForeignKey(x => x."IdPacoteExtra");
+            ToTable("PacoteExtra");
+
+            HasRequired(x => x.IdExtra);
+
+            HasRequired(x => x.IdPacote);
         }
-        
     }
 }

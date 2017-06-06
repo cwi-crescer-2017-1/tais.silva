@@ -11,8 +11,8 @@ namespace LocadoraCrescer.Dominio.Entidades
         public int Id { get; set; }
         public string Nome { get; set; }
         public int Duracao { get; set; }
-
-        public Pacote()
-        { }
+        public PacoteExtra PacoteExtra { get; set; }
+            
+        protected Pacote() { }
     }
 }
