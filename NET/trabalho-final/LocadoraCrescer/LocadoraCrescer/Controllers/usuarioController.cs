@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Web;
 using System.Web.Http;
+using LocadoraCrescer.Api.App_Start;
 
 namespace LocadoraCrescer.Api.Controllers
 {
@@ -15,7 +16,7 @@ namespace LocadoraCrescer.Api.Controllers
     {
         private UsuarioRepositorio repositorio = new UsuarioRepositorio();
 
-        //[BasicAuthorization]
+        [BasicAuthorization]
         [HttpGet, Route("usuario")]
         public HttpResponseMessage Obter()
         {
@@ -25,7 +26,7 @@ namespace LocadoraCrescer.Api.Controllers
             if (usuario == null)
                 return ResponderErro("Usuário não encontrado.");
 
-            return ResponderOK(new { Usuario = usuario.Nome, Permissoes = usuario.Permissoes, Email = usuario.Email });
+            return ResponderOK(new { Usuario = usuario.Nome, Permissao = usuario.Permissao, Email = usuario.Email });
         }
     }
 }

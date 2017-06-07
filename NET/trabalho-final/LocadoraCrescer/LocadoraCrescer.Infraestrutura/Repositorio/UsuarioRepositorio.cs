@@ -15,7 +15,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
 
         public Usuario Obter(string email)
         {
-            return contexto.Usuario.Include("Permissoes").FirstOrDefault(u => u.Email.Equals(email));
+            return contexto.Usuario.Include("Permissao").FirstOrDefault(u => u.Email.Equals(email));
         }
 
         public void Dispose()
