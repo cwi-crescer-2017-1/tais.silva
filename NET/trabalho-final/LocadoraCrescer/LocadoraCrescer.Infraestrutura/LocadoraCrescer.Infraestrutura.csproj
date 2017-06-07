@@ -47,10 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexto.cs" />
     <Compile Include="Mappings\LocacaoMap.cs" />
-    <Compile Include="Mappings\PacoteExtraMap.cs" />
-    <Compile Include="Mappings\LocacaoExtraMap.cs" />
-    <Compile Include="Mappings\PacoteMap.cs" />
+    <Compile Include="Migrations\201706070553578_criacaoTabelas.cs" />
+    <Compile Include="Migrations\201706070553578_criacaoTabelas.Designer.cs">
+      <DependentUpon>201706070553578_criacaoTabelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +68,11 @@
       <Project>{7DA69A14-BAC5-4037-B454-7060D0010079}</Project>
       <Name>LocadoraCrescer.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706070553578_criacaoTabelas.resx">
+      <DependentUpon>201706070553578_criacaoTabelas.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

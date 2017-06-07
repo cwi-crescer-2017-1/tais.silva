@@ -1,0 +1,121 @@
+* {
+	box-sizing: border-box;
+}
+body {
+  margin: 0;
+	background-color: #8FD2E2;
+}
+.hover-livro {
+	background-color: #B26E93;
+  padding: 10px;
+	opacity: 0;
+	position: absolute;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+	transition-duration: 0.5s;
+}
+.hover-livro:hover {
+	opacity: 1;
+}
+.capa {
+	height: 370px;
+	width: 260px;
+	background-size: cover;
+}
+.div-livro {
+	margin: 0 10px;
+	display: inline-block;
+	position: relative;
+	margin-top: 25px;
+}
+.botao-detalhes {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+.adicionar-autor,
+.adicionar-livro {
+	margin: 20px;
+}
+.formAutores,
+.formLivros {
+	min-width: 300px;
+	width: 80vw;
+	padding: 2rem;
+}
+
+
+/* Menu principal */
+.menu {
+  background-color: #fff;
+  padding: 20px 0;
+  font-size: 20px;
+}
+.fa-sign-in {
+  margin-right: 40px;
+}
+.login a {
+  color: #A3718C;
+}
+.nome-logo {
+  color: #458997;
+}
+.crescer {
+  color: #4F5963;
+}
+.login a:hover {
+  color: #4F5963;
+  text-decoration: none;
+}
+/*Fim Menu principal*/
+
+ /*Caixa cadastro email*/
+.form-control:focus {
+  border: none;
+  border-bottom: 2px solid #999;
+  box-shadow: none;
+}
+.float-right {
+  float: right;
+}
+.newsletter {   
+  background-color: #B26E93;
+  border-radius: 3px;
+  padding: 35px;
+  width: 75%;
+  margin: 20px auto;
+   margin-top: 40px;
+}
+.newsletter input {
+  color: white;
+  max-width: 50%;
+  margin: 20px auto;
+  border: none;
+  border-bottom: 2px solid #999;
+  border-radius: 0;
+  background-color: #B26E93;
+   box-shadow: none;
+}
+.newsletter input::placeholder {
+  color: white;
+}
+.newsletter input:focus {
+  background-color: #B26E91;
+}
+.newsletter .btn {
+  width: 50%;
+  background-color: white;
+  border-radius: 30px;
+  color: #B26E93;
+  border: 2px solid #B26E93;
+}
+.newsletter .btn:hover {
+  color: white;
+  background-color: #B26E93;
+  border-color: #fff;
+}
+.newsletter h3 {
+  color: white;
+}
+/*Fim cadastro email*/

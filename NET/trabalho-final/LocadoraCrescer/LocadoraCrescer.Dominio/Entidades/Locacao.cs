@@ -13,7 +13,7 @@ namespace LocadoraCrescer.Dominio.Entidades
         public Funcionario Funcionario { get; set; }
         public Produto Produto { get; set; }
         public Pacote Pacote { get; set; }
-        public LocacaoExtra IdLocacaoExtra { get; set; }
+        public List<Extra> Extras { get; set; }
         public DateTime DataPedido { get; set; }
         public DateTime DataPrevista { get; set; }
         public DateTime? DataDevolucao { get; set; }
@@ -22,14 +22,13 @@ namespace LocadoraCrescer.Dominio.Entidades
 
         protected Locacao() { }
 
-        public Locacao(int id, Cliente cliente, Funcionario funcionario, Produto produto, Pacote pacote, LocacaoExtra idLocacaoExtra, DateTime dataPedido, DateTime dataPrevista, DateTime? dataDevolucao, decimal valorPrevisto, decimal valorFinal)
+        public Locacao(Cliente cliente, Funcionario funcionario, Produto produto, Pacote pacote, List<Extra> extra, DateTime dataPedido, DateTime dataPrevista, DateTime dataDevolucao, decimal valorPrevisto, decimal valorFinal)
         {
-            Id = id;
             Cliente = cliente;
             Funcionario = funcionario;
             Produto = produto;
             Pacote = pacote;
-            IdLocacaoExtra = idLocacaoExtra;
+            Extras = extra;
             DataPedido = dataPedido;
             DataPrevista = dataPrevista;
             DataDevolucao = dataDevolucao;
