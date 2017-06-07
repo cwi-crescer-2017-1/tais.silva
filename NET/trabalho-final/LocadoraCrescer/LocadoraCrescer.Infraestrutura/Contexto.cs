@@ -27,6 +27,7 @@ namespace LocadoraCrescer.Infraestrutura
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new LocacaoMap());
+            modelBuilder.Configurations.Add(new UsuarioMap());
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }

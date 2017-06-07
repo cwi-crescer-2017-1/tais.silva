@@ -6,12 +6,13 @@ using System.Threading;
 using System.Web;
 using System.Web.Http;
 using LocadoraCrescer.Api.App_Start;
+using LocadoraCrescer.Api.Models;
 using LocadoraCrescer.Dominio;
 using LocadoraCrescer.Infraestrutura.Repositorio;
 
 namespace LocadoraCrescer.Api.Controllers
 {
-    [RoutePrefix("api/acessos")]
+    [RoutePrefix("api/cliente")]
     public class ClienteController : ControllerBasica
     {
         private ClienteRepositorio repositorio = new ClienteRepositorio();
@@ -30,7 +31,7 @@ namespace LocadoraCrescer.Api.Controllers
         }
 
         [HttpPost, Route("registrar")]
-        public HttpResponseMessage Registrar(Cliente novoCliente)
+        public HttpResponseMessage Registrar([FromBody]RegistrarClienteModel novoCliente)
         {
             if (repositorio.Obter(novoCliente.Cpf) == null)
             {
@@ -52,5 +53,6 @@ namespace LocadoraCrescer.Api.Controllers
 
             return ResponderOK();
         }
+
     }
 }

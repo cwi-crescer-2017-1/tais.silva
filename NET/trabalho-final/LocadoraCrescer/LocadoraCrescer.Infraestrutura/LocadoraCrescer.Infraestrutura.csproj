@@ -48,14 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto.cs" />
+    <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Mappings\LocacaoMap.cs" />
-    <Compile Include="Migrations\201706070553578_criacaoTabelas.cs" />
-    <Compile Include="Migrations\201706070553578_criacaoTabelas.Designer.cs">
-      <DependentUpon>201706070553578_criacaoTabelas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706071731375_modificarClasses.cs" />
-    <Compile Include="Migrations\201706071731375_modificarClasses.Designer.cs">
-      <DependentUpon>201706071731375_modificarClasses.cs</DependentUpon>
+    <Compile Include="Migrations\201706071828397_criarTabelas.cs" />
+    <Compile Include="Migrations\201706071828397_criarTabelas.Designer.cs">
+      <DependentUpon>201706071828397_criarTabelas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,20 +63,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706071828397_criarTabelas.resx">
+      <DependentUpon>201706071828397_criarTabelas.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LocadoraCrescer.Dominio\LocadoraCrescer.Dominio.csproj">
       <Project>{7DA69A14-BAC5-4037-B454-7060D0010079}</Project>
       <Name>LocadoraCrescer.Dominio</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706070553578_criacaoTabelas.resx">
-      <DependentUpon>201706070553578_criacaoTabelas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071731375_modificarClasses.resx">
-      <DependentUpon>201706071731375_modificarClasses.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

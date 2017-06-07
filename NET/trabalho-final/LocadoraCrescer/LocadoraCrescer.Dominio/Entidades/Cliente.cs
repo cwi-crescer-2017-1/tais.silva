@@ -20,20 +20,20 @@ namespace LocadoraCrescer.Dominio
 
         public Cliente(string nome, string endereco, string cpf, Genero genero, DateTime dataNascimento)
         {
-            string Nome = nome;
-            string Endereco = endereco;
-            string Cpf = cpf;
-            Genero Genero = genero;
-            DateTime DataNascimento = dataNascimento;
+            Nome = nome;
+            Endereco = endereco;
+            Cpf = cpf;
+            Genero = genero;
+            DataNascimento = dataNascimento;
         }
 
         public void Alterar(string nome, string endereco, string cpf, Genero genero, DateTime dataNascimento)
         {
-            string Nome = nome;
-            string Endereco = endereco;
-            string Cpf = cpf;
-            Genero Genero = genero;
-            DateTime DataNascimento = dataNascimento;
+            Nome = nome;
+            Endereco = endereco;
+            Cpf = cpf;
+            Genero = genero;
+            DataNascimento = dataNascimento;
         }
 
         public override bool Validar()

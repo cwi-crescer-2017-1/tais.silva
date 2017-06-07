@@ -7,13 +7,13 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class modificarClasses : IMigrationMetadata
+    public sealed partial class criarTabelas : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(modificarClasses));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(criarTabelas));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706071731375_modificarClasses"; }
+            get { return "201706071828397_criarTabelas"; }
         }
         
         string IMigrationMetadata.Source

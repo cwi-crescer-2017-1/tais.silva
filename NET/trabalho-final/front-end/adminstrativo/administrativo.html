@@ -2,11 +2,8 @@
 
  	<h1 class="page-header">Página Administrativa</h1>
 
-<uib-accordion close-others="true">
-    <div uib-accordion-group class="panel-default" is-open="!1">
-        <uib-accordion-heading>
+
             <h3>Adicionar Autor</h3>
-        </uib-accordion-heading>
 		<form novalidate name="formAutores">
 			<div class="form-group">
 			    <label for="nome">Nome<small> (mínimo 2 e máximo 20 caracteres - obrigatório)</small></label>
@@ -16,28 +13,39 @@
 			    <button class="btn btn-primary" ng-click="incluirAutor(autor)">Incluir</button>
 			</div>
 		</form>
-    </div>
-    <div uib-accordion-group class="panel-default" is-open="!2">
-        <uib-accordion-heading>
+    
+    Dados de cadastro: Nome Completo, Endereço, CPF, Genero, Data de Nascimento.
+ 
             <h3>Adicionar Livro</h3>
-        </uib-accordion-heading>
+     
      	<form novalidate name="formLivros">
      	   <div class="form-group">
-     	       <label for="titulo">Titulo<small> (mínimo 2 e máximo 30 caracteres - obrigatório)</small></label>
-     	       <input class="form-control" type="text" name="titulo" ng-model="livro.Titulo" ng-minlength="2" ng-maxlength="30" placeholder="Ex.: O Arquipélago" required> 
+     	       <label for="titulo">Nome Completo<small> (mínimo 4 e máximo 30 caracteres - obrigatório)</small></label>
+     	       <input class="form-control" type="text" name="titulo" ng-model="livro.Nome" ng-minlength="4" ng-maxlength="30" placeholder="Ex.: João Silva" required> 
      	   </div> 
      	   <div class="form-group">
-     	       <label for="descricao">Descrição<small> (mínimo 2 e máximo 300 caracteres - obrigatório)</small></label>
-     	       <input class="form-control" type="text" name="descricao" ng-model="livro.Descricao" ng-minlength="2" ng-maxlength="300" placeholder="Ex.: 'O Arquipélago', última parte da trilogia. 'O Tempo e o Vento', encerra a saga da família Terra Cambará..." required> 
-     	   </div>
+     	       <label for="descricao">Endereço<small> (mínimo 5 e máximo 300 caracteres - obrigatório)</small></label>
+     	       <input class="form-control" type="text" name="descricao" ng-model="livro.Endereco" ng-minlength="5" ng-maxlength="300" placeholder="Ex.: Rua Flores, 30, Centro, Novo Hamburgo" required> 
+         </div>
      	   <div class="form-group">
-     	       <label for="genero">Gênero<small> (mínimo 2 e máximo 40 caracteres - obrigatório)</small></label>
-     	       <input class="form-control" type="text" name="genero" ng-model="livro.Genero" ng-minlength="2" ng-maxlength="40" placeholder="Ex.: Romance" required> 
-     	   </div>
-     	   <div class="form-group">
-     	       <label for="capa">Imagem da capa<small> (mínimo 2 e máximo 30 caracteres - obrigatório)</small></label>
-     	       <input class="form-control" type="text" name="capa" ng-model="livro.Capa" ng-minlength="2" ng-maxlength="30" placeholder="Ex.: http://site.com.br/imagem.jpg" required> 
+     	       <label for="capa">CPF<small> (mínimo 2 e máximo 30 caracteres - obrigatório)</small></label>
+     	       <input class="form-control" type="text" name="cpf" ng-model="livro.Cpf" ng-minlength="2" ng-maxlength="30" placeholder="Ex.: http://site.com.br/imagem.jpg" required> 
      	   </div> 
+         <div class="form-group btn-group">
+             <label for="genero">Gênero<small> (obrigatório)</small></label>
+             <br>
+             <select ng-model="livro.Genero" name="genero">
+                 <option ng-value="1">
+                     {{ Feminino }}                                       
+                 </option>
+                 <option ng-value="2">
+                     {{ Masculino }}                                       
+                 </option>
+                 <option ng-value="3">
+                     {{ Outro }}                                       
+                 </option>
+             </select>       
+         </div> 
      	   <div class="form-group btn-group">
      	       <label for="autores">Autor da obra<small> (obrigatório)</small></label>
      	       <br>
@@ -51,8 +59,7 @@
      	       <button class="btn btn-primary" ng-click="incluirLivro(livro)">Incluir</button>
      	   </div>
      	</form>
-    </div>
-</uib-accordion>
+ 
 
 <!-- LIVROS GERAIS -->
   <div class="row text-center">

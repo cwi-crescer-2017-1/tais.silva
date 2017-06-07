@@ -21,6 +21,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
         public void Criar(Usuario usuario)
         {
             contexto.Usuario.Add(usuario);
+            contexto.Entry(usuario.Cargo).State = System.Data.Entity.EntityState.Unchanged;
             contexto.SaveChanges();
         }
 
