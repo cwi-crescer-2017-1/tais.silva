@@ -7,6 +7,8 @@ using System.Threading;
 using System.Web;
 using System.Web.Http;
 using LocadoraCrescer.Api.App_Start;
+using LocadoraCrescer.Dominio.Entidades;
+using LocadoraCrescer.Api.Models;
 
 namespace LocadoraCrescer.Api.Controllers
 {
@@ -27,6 +29,30 @@ namespace LocadoraCrescer.Api.Controllers
                 return ResponderErro("Usuário não encontrado.");
 
             return ResponderOK(new { Usuario = usuario.Nome, Cargo = usuario.Cargo, Email = usuario.Email });
+        }
+
+        [HttpPost, Route("registrar")]
+        public HttpResponseMessage Registrar([FromBody]RegistrarUsuarioModel model)
+        {
+            if (repositorio.Obter(model.Email) == null)
+            {
+                var usuario = new Usuario(model.Nome, model.Email, model.Senha, model.Cargo);
+
+                if (usuario.Validar())
+                {
+                    repositorio.Criar(usuario);
+                }
+                else
+                {
+                    return ResponderErro(usuario.Mensagens);
+                }
+            }
+            else
+            {
+                return ResponderErro("Usuário já existe.");
+            }
+
+            return ResponderOK();
         }
     }
 }

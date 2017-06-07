@@ -18,6 +18,12 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
             return contexto.Usuario.Include("Cargo").FirstOrDefault(u => u.Email.Equals(email));
         }
 
+        public void Criar(Usuario usuario)
+        {
+            contexto.Usuario.Add(usuario);
+            contexto.SaveChanges();
+        }
+
         public void Dispose()
         {
             ((IDisposable)contexto).Dispose();

@@ -24,15 +24,8 @@ namespace LocadoraCrescer.Dominio.Entidades
         {
             Nome = nome;
             Email = email;
-            Senha = senha;
-            Cargo = cargo;
-        }
-
-        public void Alterar(string nome, string email, string senha, Cargo cargo)
-        {
-            Nome = nome;
-            Email = email;
-            Senha = senha;
+            if (!string.IsNullOrWhiteSpace(senha))
+                Senha = CriptografarSenha(senha);
             Cargo = cargo;
         }
 

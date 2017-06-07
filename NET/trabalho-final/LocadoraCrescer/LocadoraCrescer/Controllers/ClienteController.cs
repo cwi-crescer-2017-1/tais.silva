@@ -18,10 +18,10 @@ namespace LocadoraCrescer.Api.Controllers
 
         [BasicAuthorization]
         [HttpGet, Route("cliente")]
-        public HttpResponseMessage Obter()
+        public HttpResponseMessage Obter(string cpf)
         {
             // só pode obter as informações do usuário corrente (logado, autenticado)
-            var cliente = repositorio.Obter(Thread.CurrentPrincipal.Identity.Name);
+            var cliente = repositorio.Obter(cpf);
 
             if (cliente == null)
                 return ResponderErro("Cliente não encontrado.");

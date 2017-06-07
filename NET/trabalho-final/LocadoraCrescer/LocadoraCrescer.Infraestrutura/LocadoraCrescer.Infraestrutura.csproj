@@ -53,6 +53,10 @@
     <Compile Include="Migrations\201706070553578_criacaoTabelas.Designer.cs">
       <DependentUpon>201706070553578_criacaoTabelas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706071731375_modificarClasses.cs" />
+    <Compile Include="Migrations\201706071731375_modificarClasses.Designer.cs">
+      <DependentUpon>201706071731375_modificarClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\ClienteRepositório.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706070553578_criacaoTabelas.resx">
       <DependentUpon>201706070553578_criacaoTabelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706071731375_modificarClasses.resx">
+      <DependentUpon>201706071731375_modificarClasses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

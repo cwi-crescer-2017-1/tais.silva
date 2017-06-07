@@ -13,7 +13,7 @@ namespace LocadoraCrescer.Infraestrutura
 {
     public class Contexto : DbContext
     {
-        public Contexto() : base("Locadora")
+        public Contexto() : base("BaseContexto")
         { }
 
         public DbSet<Usuario> Usuario { get; set; }
