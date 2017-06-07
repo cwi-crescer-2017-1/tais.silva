@@ -16,37 +16,24 @@ namespace LocadoraCrescer.Dominio.Entidades
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public Permissao Permissao { get; private set; }
+        public Cargo Cargo { get; private set; }
 
         protected Usuario() { }
 
-        public Usuario(string nome, string email, string senha, Permissao permissao)
+        public Usuario(string nome, string email, string senha, Cargo cargo)
         {
             Nome = nome;
             Email = email;
             Senha = senha;
-            Permissao = permissao;
+            Cargo = cargo;
         }
 
-        public void Alterar(string nome, string email, string senha, Permissao permissao)
+        public void Alterar(string nome, string email, string senha, Cargo cargo)
         {
             Nome = nome;
             Email = email;
             Senha = senha;
-            Permissao = permissao;
-        }
-
-        public string ResetarSenha()
-        {
-            var senha = string.Empty;
-            for (int i = 0; i < _numeroCaracteresNovaSenha; i++)
-            {
-                senha += new Random().Next(0, _caracteresNovaSenha.Length);
-            }
-
-            Senha = CriptografarSenha(senha);
-
-            return senha;
+            Cargo = cargo;
         }
 
         private string CriptografarSenha(string senha)
@@ -63,7 +50,7 @@ namespace LocadoraCrescer.Dominio.Entidades
 
         public bool ValidarSenha(string senha)
         {
-            return CriptografarSenha(senha) == Senha;
+            return CriptografarSenha(senha).Equals(Senha);
         }
 
         public override bool Validar()

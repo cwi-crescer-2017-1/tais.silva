@@ -1,8 +1,8 @@
 angular
 	.module('app')
-	.controller('AdminstrativoController', function ($scope, $uibModal, authService, autoresService, livrosService, toastr) {
+	.controller('AdministrativoController', function ($scope, $uibModal, authService, autoresService, livrosService, toastr) {
 		var autores;
-		$scope.controller = 'AdminstrativoController';
+		$scope.controller = 'AdministrativoController';
 		$scope.auth = authService;
 		$scope.autores = [];
 		$scope.incluirAutor = incluirAutor;

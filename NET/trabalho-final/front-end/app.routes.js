@@ -13,8 +13,8 @@ angular
 
                 // privado
             .when('/adminstrativo', {
-              controller: 'AdminstrativoController',
-              templateUrl: 'adminstrativo/adminstrativo.html',
+              controller: 'AdministrativoController',
+              templateUrl: 'administrativo/administrativo.html',
               resolve: {
                 // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
                 autenticado: function (authService) {

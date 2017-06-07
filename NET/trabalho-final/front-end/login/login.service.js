@@ -2,7 +2,7 @@ angular
     .module('app')
     .factory('LoginService', function($http) {
 
-        var urlUsuarios = 'http://localhost:54198/api/funcionario';
+        var urlUsuarios = 'http://localhost:54198/api/usuario';
 
         function carregarUsuario() {
             return $http.post(`$(urlUsuarios)/usuario`);

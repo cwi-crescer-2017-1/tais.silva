@@ -7,7 +7,7 @@ using LocadoraCrescer.Dominio.Entidades;
 
 namespace LocadoraCrescer.Dominio
 {
-    public class Cliente
+    public class Cliente : EntidadeBasica
     {
         public int Id { get; private set; }
         public string Nome { get; private set; }
@@ -34,6 +34,28 @@ namespace LocadoraCrescer.Dominio
             string Cpf = cpf;
             Genero Genero = genero;
             DateTime DataNascimento = dataNascimento;
+        }
+
+        public override bool Validar()
+        {
+            Mensagens.Clear();
+
+            if (string.IsNullOrWhiteSpace(Nome))
+                Mensagens.Add("Nome é inválido.");
+
+            if (string.IsNullOrWhiteSpace(Endereco))
+                Mensagens.Add("Endereço é inválido.");
+
+            if (string.IsNullOrWhiteSpace(Cpf))
+                Mensagens.Add("Cpf é inválido.");
+
+            if (Genero.IsNullOrWhiteSpace(Genero))
+                Mensagens.Add("Genero é inválido.");
+
+            if (DateTime.IsNullOrWhiteSpace(DataNascimento))
+                Mensagens.Add("Data de nascimento é inválido.");
+
+            return Mensagens.Count == 0;
         }
     }
 }

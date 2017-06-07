@@ -4,18 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LocadoraCrescer.Dominio;
 
 namespace LocadoraCrescer.Infraestrutura.Repositorio
 {
-    public class UsuarioRepositorio : IDisposable
+    public class ClienteRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
 
-        public UsuarioRepositorio() { }
+        public ClienteRepositorio() { }
 
-        public Usuario Obter(string email)
+        public Cliente Obter(string cpf)
         {
-            return contexto.Usuario.Include("Cargo").FirstOrDefault(u => u.Email.Equals(email));
+            return contexto.Cliente.FirstOrDefault(u => u.Cpf.Equals(cpf));
+        }
+
+        public void Criar(Cliente cliente)
+        {
+            contexto.Cliente.Add(cliente);
+            contexto.SaveChanges();
         }
 
         public void Dispose()

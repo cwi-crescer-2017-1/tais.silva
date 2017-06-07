@@ -26,7 +26,7 @@ namespace LocadoraCrescer.Api.Controllers
             if (usuario == null)
                 return ResponderErro("Usuário não encontrado.");
 
-            return ResponderOK(new { Usuario = usuario.Nome, Permissao = usuario.Permissao, Email = usuario.Email });
+            return ResponderOK(new { Usuario = usuario.Nome, Cargo = usuario.Cargo, Email = usuario.Email });
         }
     }
 }
