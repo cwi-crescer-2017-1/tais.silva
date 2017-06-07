@@ -107,6 +107,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\RegistrarClienteModel .cs" />
+    <Compile Include="Models\RegistrarLocacaoModel.cs" />
     <Compile Include="Models\RegistrarUsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
