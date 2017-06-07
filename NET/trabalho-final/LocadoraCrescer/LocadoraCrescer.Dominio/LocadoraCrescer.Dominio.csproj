@@ -41,11 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\EntidadeBasica.cs" />
-    <Compile Include="Entidades\Permissao.cs" />
+    <Compile Include="Entidades\Cargo.cs" />
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\Extra.cs" />
     <Compile Include="Entidades\Enum\Genero.cs" />
-    <Compile Include="Entidades\Enum\Cargo.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Locacao.cs" />

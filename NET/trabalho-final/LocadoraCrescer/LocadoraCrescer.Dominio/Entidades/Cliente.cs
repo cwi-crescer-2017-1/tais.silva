@@ -49,12 +49,6 @@ namespace LocadoraCrescer.Dominio
             if (string.IsNullOrWhiteSpace(Cpf))
                 Mensagens.Add("Cpf é inválido.");
 
-            if (Genero.IsNullOrWhiteSpace(Genero))
-                Mensagens.Add("Genero é inválido.");
-
-            if (DateTime.IsNullOrWhiteSpace(DataNascimento))
-                Mensagens.Add("Data de nascimento é inválido.");
-
             return Mensagens.Count == 0;
         }
     }
