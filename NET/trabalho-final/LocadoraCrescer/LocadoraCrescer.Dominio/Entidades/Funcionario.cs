@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Dominio.Entidades
 {
-    public class Funcionario
+    public class Usuario
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -14,9 +14,9 @@ namespace LocadoraCrescer.Dominio.Entidades
         public string Senha { get; set; }
         public Cargo Cargo { get; set; }
 
-        protected Funcionario() { }
+        protected Usuario() { }
 
-        public Funcionario(string nome, string email, string senha, Cargo cargo)
+        public Usuario(string nome, string email, string senha, Cargo cargo)
         {
             string Nome = nome;
             string Email = email;

@@ -14,7 +14,7 @@ namespace LocadoraCrescer.Infraestrutura.Mappings
         {
             ToTable("Locacao");
             HasRequired(x => x.Cliente).WithMany().Map(x => x.MapKey("IdCliente"));
-            HasRequired(x => x.Funcionario).WithMany().Map(x => x.MapKey("IdFuncionario"));
+            HasRequired(x => x.Usuario).WithMany().Map(x => x.MapKey("IdFuncionario"));
             HasRequired(x => x.Produto).WithMany().Map(x => x.MapKey("IdProduto"));
             HasOptional(x => x.Pacote).WithMany().Map(x => x.MapKey("IdPacote"));
             HasMany(x => x.Extras)

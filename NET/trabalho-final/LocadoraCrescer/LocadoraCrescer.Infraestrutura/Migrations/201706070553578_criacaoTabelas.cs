@@ -32,7 +32,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Funcionario",
+                "dbo.Usuario",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -60,7 +60,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cliente", t => t.IdCliente, cascadeDelete: true)
-                .ForeignKey("dbo.Funcionario", t => t.IdFuncionario, cascadeDelete: true)
+                .ForeignKey("dbo.Usuario", t => t.IdFuncionario, cascadeDelete: true)
                 .ForeignKey("dbo.Pacote", t => t.IdPacote)
                 .ForeignKey("dbo.Produto", t => t.IdProduto, cascadeDelete: true)
                 .Index(t => t.IdCliente)
@@ -111,7 +111,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
         {
             DropForeignKey("dbo.Locacao", "IdProduto", "dbo.Produto");
             DropForeignKey("dbo.Locacao", "IdPacote", "dbo.Pacote");
-            DropForeignKey("dbo.Locacao", "IdFuncionario", "dbo.Funcionario");
+            DropForeignKey("dbo.Locacao", "IdFuncionario", "dbo.Usuario");
             DropForeignKey("dbo.LocacaoExtra", "Extra_Id", "dbo.Extra");
             DropForeignKey("dbo.LocacaoExtra", "IdExtra", "dbo.Locacao");
             DropForeignKey("dbo.Locacao", "IdCliente", "dbo.Cliente");
@@ -125,7 +125,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
             DropTable("dbo.Produto");
             DropTable("dbo.Pacote");
             DropTable("dbo.Locacao");
-            DropTable("dbo.Funcionario");
+            DropTable("dbo.Usuario");
             DropTable("dbo.Extra");
             DropTable("dbo.Cliente");
         }

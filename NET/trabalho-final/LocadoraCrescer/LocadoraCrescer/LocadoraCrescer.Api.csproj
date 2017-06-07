@@ -96,8 +96,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BasicAuthorization.cs" />
+    <Compile Include="App_Start\ErrosGlobaisFilterAttribute.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ControllerBasica.cs" />
     <Compile Include="Controllers\LocacaoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -115,6 +119,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraCrescer.Dominio\LocadoraCrescer.Dominio.csproj">
+      <Project>{7DA69A14-BAC5-4037-B454-7060D0010079}</Project>
+      <Name>LocadoraCrescer.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraCrescer.Infraestrutura\LocadoraCrescer.Infraestrutura.csproj">
+      <Project>{1BA7891B-6615-4092-BBCF-654A047021B9}</Project>
+      <Name>LocadoraCrescer.Infraestrutura</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
