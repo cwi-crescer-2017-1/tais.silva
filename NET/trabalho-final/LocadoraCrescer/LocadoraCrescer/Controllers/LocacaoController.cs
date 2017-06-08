@@ -3,6 +3,7 @@ using System.Web.Http;
 using LocadoraCrescer.Api.Models;
 using LocadoraCrescer.Dominio.Entidades;
 using LocadoraCrescer.Infraestrutura.Repositorio;
+using System;
 
 namespace LocadoraCrescer.Api.Controllers
 {   
@@ -39,6 +40,22 @@ namespace LocadoraCrescer.Api.Controllers
         {
             var cliente = repositorioCliente.Obter(cpf);
             return ResponderOK(repositorio.ObterPorCliente(cliente));
+        }
+
+        [HttpGet, Route("relatorio")]
+        public HttpResponseMessage RelatorioMensal(DateTime data)
+        {
+            var relatorio = repositorio.ObterFinalizadasUltimos30Dias(data);
+
+            return ResponderOK(relatorio);
+        }
+
+        [HttpGet, Route("atrasados")]
+        public HttpResponseMessage RelatorioAtrasados(DateTime data)
+        {
+            var relatorio = repositorio.ObterAtrasados();
+
+            return ResponderOK(relatorio);
         }
 
         [HttpPost]

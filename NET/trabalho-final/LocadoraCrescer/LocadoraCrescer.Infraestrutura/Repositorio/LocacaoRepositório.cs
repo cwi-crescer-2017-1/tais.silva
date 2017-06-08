@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LocadoraCrescer.Dominio;
+using System.Data.Entity;
 
 namespace LocadoraCrescer.Infraestrutura.Repositorio
 {
@@ -38,9 +39,21 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
         public void Devolver(Locacao atualizacao)
         {
             var antigo = Obter(atualizacao.Id);
-            antigo.DataDevolucao = DateTime.Now;
+            antigo.DataDevolucao = DateTime.Now;            
             antigo.ValorFinal = atualizacao.ValorFinal;
+            contexto.Entry(antigo).State = EntityState.Modified;
             contexto.SaveChanges();
+        }
+
+        public List<Locacao> ObterFinalizadasUltimos30Dias(DateTime data)
+        {
+            var data30Dias = data.AddDays(-30).Date;
+            return contexto.Locacao.Where(l => l.DataDevolucao != null && l.DataDevolucao >= data30Dias && l.DataDevolucao <= data).ToList();
+        }
+
+        public List<Locacao> ObterAtrasados()
+        {
+            return contexto.Locacao.Where(l => l.DataDevolucao == null && l.DataDevolucao > l.DataPrevista).ToList();
         }
 
         public void Dispose()

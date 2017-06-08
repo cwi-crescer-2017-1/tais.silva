@@ -9,7 +9,7 @@ namespace LocadoraCrescer.Api.Controllers
     public class ProdutoController : ControllerBasica
     {
         private ProdutoRepositorio repositorio = new ProdutoRepositorio();
-        
+
         [HttpGet]
         public HttpResponseMessage Obter(int id)
         {
@@ -18,10 +18,10 @@ namespace LocadoraCrescer.Api.Controllers
             if (produto == null)
                 return ResponderErro("Produto não encontrado.");
 
-            return ResponderOK(new {Id = produto.Id, Nome = produto.Nome, Valor = produto.Valor, Quantidade = produto.Quantidade});
+            return ResponderOK(new { Id = produto.Id, Nome = produto.Nome, Valor = produto.Valor, Quantidade = produto.Quantidade });
         }
 
-        [HttpGet]
+        [HttpGet, Route("{id: int}")]
         public HttpResponseMessage Obter()
         {
             var produtos = repositorio.Obter();
@@ -29,7 +29,7 @@ namespace LocadoraCrescer.Api.Controllers
             if (produtos == null)
                 return ResponderErro("Produtos não encontrado.");
 
-            return ResponderOK(produtos);
+            return ResponderOK(new { produtos });
         }
     }
 }
