@@ -27,19 +27,4 @@ angular
 				})
 		}
 
-		// $scope.carregarInformacoes = function (isbn){
-		// 	livrosService.carregarIsbn(isbn).then(function(response){
-		// 		$scope.livroComp = response.data.dados;
-		// 		$uibModal.open({
-		// 			backdrop: true,
-		// 			templateUrl: 'myModalContent.html',
-		// 			controller: function($scope, $uibModalInstance) {
-		// 				$scope.livroComp = response.data.dados;
-		// 				$scope.cancel = function(){
-		// 					$uibModalInstance.dismiss();
-		// 				}
-		// 			}
-		// 		})
-		// 	});
-		// };
 	});
