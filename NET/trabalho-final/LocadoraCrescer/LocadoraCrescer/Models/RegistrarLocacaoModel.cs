@@ -9,15 +9,15 @@ namespace LocadoraCrescer.Api.Models
 {
     public class RegistrarLocacaoModel
     {
-        public string cpfCliente { get; set; }
-        public string emailUsuario { get; set; }
-        public Produto Produto { get; set; }
-        public Pacote Pacote { get; set; }
+        public string CpfCliente { get; set; }
+        public string EmailUsuario { get; set; }
+        public int IdProduto { get; set; }
+        public int IdPacote { get; set; }
         public List<Extra> Extras { get; set; }
         public DateTime DataPedido { get; set; }
         public DateTime DataPrevista { get; set; }
         public DateTime? DataDevolucao { get; set; }
         public decimal ValorPrevisto { get; set; }
-        public decimal ValorFinal { get; set; }
+        public decimal? ValorFinal { get; set; }
     }
 }

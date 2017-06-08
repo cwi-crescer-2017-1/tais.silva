@@ -18,9 +18,21 @@ namespace LocadoraCrescer.Dominio.Entidades
         public DateTime DataPrevista { get; set; }
         public DateTime? DataDevolucao { get; set; }
         public decimal ValorPrevisto { get; set; }
-        public decimal ValorFinal { get; set; }
+        public decimal? ValorFinal { get; set; }
 
         protected Locacao() { }
+
+        public Locacao(Cliente cliente, Usuario usuario, Produto produto, Pacote pacote, List<Extra> extra, DateTime dataPedido, DateTime dataPrevista, decimal valorPrevisto)
+        {
+            Cliente = cliente;
+            Usuario = usuario;
+            Produto = produto;
+            Pacote = pacote;
+            Extras = extra;
+            DataPedido = dataPedido;
+            DataPrevista = dataPrevista;
+            ValorPrevisto = valorPrevisto;
+        }
 
         public Locacao(Cliente cliente, Usuario usuario, Produto produto, Pacote pacote, List<Extra> extra, DateTime dataPedido, DateTime dataPrevista, DateTime dataDevolucao, decimal valorPrevisto, decimal valorFinal)
         {

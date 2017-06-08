@@ -1,71 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Web.Http;
 using LocadoraCrescer.Api.Models;
 using LocadoraCrescer.Dominio.Entidades;
 using LocadoraCrescer.Infraestrutura.Repositorio;
 
 namespace LocadoraCrescer.Api.Controllers
-{
-    public class LocacaoController : ApiController
+{   
+    [RoutePrefix("api/locacao")]
+    public class LocacaoController : ControllerBasica
     {
         private LocacaoRepositorio repositorio = new LocacaoRepositorio();
         private ClienteRepositorio repositorioCliente = new ClienteRepositorio();
         private UsuarioRepositorio repositorioUsuario = new UsuarioRepositorio();
-
-        // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        public string cpfCliente { get; set; }
-        public string emailUsuario { get; set; }
-        public Produto Produto { get; set; }
-        public Pacote Pacote { get; set; }
-        public List<Extra> Extras { get; set; }
-        public DateTime DataPedido { get; set; }
-        public DateTime DataPrevista { get; set; }
-        public DateTime? DataDevolucao { get; set; }
-        public decimal ValorPrevisto { get; set; }
-        public decimal ValorFinal { get; set; }
-
+        private ProdutoRepositorio repositorioProduto = new ProdutoRepositorio();
+        private PacoteRepositorio repositorioPacote = new PacoteRepositorio();
+        
         [HttpGet]
-        public void Orcamento([FromBody]RegistrarLocacaoModel model)
+        public HttpResponseMessage Orcamento([FromBody]RegistrarLocacaoModel model)
         {
-            var cliente = repositorioCliente.Obter(model.cpfCliente);
-            var usuario = repositorioUsuario.Obter(model.emailUsuario);
-            var produto = repositorioUsuario.Obter(model.emailUsuario);
-            var pacote = repositorioUsuario.Obter(model.emailUsuario);
+            var cliente = repositorioCliente.Obter(model.CpfCliente);
+            var usuario = repositorioUsuario.Obter(model.EmailUsuario);
+            var produto = repositorioProduto.Obter(model.IdProduto);
+            var pacote = repositorioPacote.Obter(model.IdPacote);
 
-            var locacao = new Locacao(cliente, usuario, produto, pacote);
+            var locacao = new Locacao(cliente, usuario, produto, pacote, model.Extras, model.DataPedido, model.DataPrevista, model.ValorPrevisto);
 
-            repositorio.Salvar(locacao);
+            return ResponderOK(locacao);
         }
 
         [HttpPost]
-        public void Post([FromBody]RegistrarLocacaoModel model)
+        public void Confirmar(Locacao locacao)
         {
+            repositorio.Confirmar(locacao);
+        }        
 
-        }
-
-            // PUT api/<controller>/5
-            public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public HttpResponseMessage Devolver(Locacao atualizacao)
         {
-        }
+            repositorio.Devolver(atualizacao);
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }
+            return ResponderOK();
+        } 
     }
 }

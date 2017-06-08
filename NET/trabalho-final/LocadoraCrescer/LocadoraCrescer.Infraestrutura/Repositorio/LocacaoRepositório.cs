@@ -14,7 +14,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
 
         public LocacaoRepositorio() { }
 
-        public Locacao Obter(string id)
+        public Locacao Obter(int id)
         {
             return contexto.Locacao.FirstOrDefault(u => u.Id.Equals(id));
         }
@@ -22,6 +22,14 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
         public void Confirmar(Locacao locacao)
         {
             contexto.Locacao.Add(locacao);
+            contexto.SaveChanges();
+        }
+
+        public void Devolver(Locacao atualizacao)
+        {
+            var antigo = Obter(atualizacao.Id);
+            antigo.DataDevolucao = DateTime.Now;
+            antigo.ValorFinal = atualizacao.ValorFinal;
             contexto.SaveChanges();
         }
 
