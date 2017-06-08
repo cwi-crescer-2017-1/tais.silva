@@ -28,6 +28,19 @@ namespace LocadoraCrescer.Api.Controllers
             return ResponderOK(locacao);
         }
 
+        [HttpGet, Route("lista")]
+        public HttpResponseMessage ListaLocacoes()
+        {            
+            return ResponderOK(repositorio.ObterTodos());
+        }
+
+        [HttpGet, Route("lista")]
+        public HttpResponseMessage ListaLocacoes(string cpf)
+        {
+            var cliente = repositorioCliente.Obter(cpf);
+            return ResponderOK(repositorio.ObterPorCliente(cliente));
+        }
+
         [HttpPost]
         public void Confirmar(Locacao locacao)
         {

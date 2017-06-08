@@ -25,9 +25,9 @@ namespace LocadoraCrescer.Api.Controllers
             var cliente = repositorio.Obter(cpf);
 
             if (cliente == null)
-                return ResponderErro("Cliente não encontrado.");
+                return ResponderErro("Cliente não encontrado."); 
 
-            return ResponderOK(new { Cliente = cliente.Nome, Endereco = cliente.Endereco, Cpf = cliente.Cpf, Genero = cliente.Genero, DataNascimento = cliente.DataNascimento });
+            return ResponderOK(new { Nome = cliente.Nome, Endereco = cliente.Endereco, Cpf = cliente.Cpf, Genero = cliente.Genero, DataNascimento = cliente.DataNascimento });
         }
 
         [HttpPost, Route("registrar")]

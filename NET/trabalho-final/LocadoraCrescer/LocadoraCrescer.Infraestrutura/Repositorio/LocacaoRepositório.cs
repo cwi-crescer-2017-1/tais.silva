@@ -19,6 +19,16 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
             return contexto.Locacao.FirstOrDefault(u => u.Id.Equals(id));
         }
 
+        public List<Locacao> ObterTodos()
+        {
+            return contexto.Locacao.ToList();
+        }
+
+        public List<Locacao> ObterPorCliente(Cliente cliente)
+        {
+            return contexto.Locacao.Where(x => x.Cliente.Equals(cliente)).ToList();
+        }
+
         public void Confirmar(Locacao locacao)
         {
             contexto.Locacao.Add(locacao);

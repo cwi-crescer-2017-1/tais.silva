@@ -17,7 +17,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
         public Cliente Obter(string cpf)
         {
             return contexto.Cliente.FirstOrDefault(u => u.Cpf.Equals(cpf));
-        }
+        }        
 
         public void Criar(Cliente cliente)
         {

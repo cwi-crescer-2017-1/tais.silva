@@ -18,6 +18,11 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
             return contexto.Pacote.FirstOrDefault(x => x.Id.Equals(id));
         }
 
+        public List<Pacote> Obter()
+        {
+            return contexto.Pacote.ToList();
+        }
+
         public void Dispose()
         {
             ((IDisposable)contexto).Dispose();
