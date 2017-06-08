@@ -17,7 +17,7 @@ angular
         };
 
         function relatorioMensal(data) {
-            return $http.get(`${urlLocacao}/relatorio`, data);
+            return $http.post(`${urlLocacao}/relatorio`, data);
         };
 
         function relatorioAtrasados() {

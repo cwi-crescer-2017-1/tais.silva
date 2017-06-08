@@ -1,61 +1,77 @@
 <div class="container text-center">
-  
-  <div uib-carousel active="active" interval="5000">
-    <div uib-slide ng-repeat="livro in Lancamentos track by livro.Isbn" index="$index">
-        <img ng-src="{{livro.Capa}}">
-        <div class="carousel-caption">
-            <h4>{{livro.Titulo}}</h4>
-            <p>{{livro.Autor}}</p>
-        </div>
+
+  <div>
+    <h2>Lista de produtos</h2>
+    <div>
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Estoque</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="produto in produtos | orderBy: 'Nome'">
+                    <td>{{ produto.Id }}</td>
+                    <td>{{ produto.Nome }}</td>
+                    <td>{{ produto.Quantidade }} itens</td>
+                    <td>{{ produto.Valor }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-  </div>  
+  </div> 
 
-  <div class="container">
-    <div class="newsletter text-center">
-      <h3>Receba nossos e-mails com novidades!</h3>
-      <form action="">
-        <input class="form-control" type="mail" placeholder="E-mail"/>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
+  <div>
+    <h2>Lista de pacotes</h2>
+    <div>
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Estoque</th>
+                    <th>Valor</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pacote in pacotes | orderBy: 'Nome'">
+                    <td>{{ pacote.Id }}</td>
+                    <td>{{ pacote.Nome }}</td>
+                    <td>{{ pacote.Quantidade }} itens</td>
+                    <td>{{ pacote.Valor }}</td>
+                    <td>{{ pacote.Descricao }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-  </div>
-  
-  <!-- LIVROS GERAIS -->
-  <div class="row text-center">
-      <div class="div-livro" ng-repeat="livro in Livros">
-        <div class="capa" style="background-image: url({{livro.Capa}})"></div>
-        <div class="hover-livro">
-          <h2>{{livro.Titulo}}</h2>
-          <p>Autor: {{livro.NomeAutor}}</p>
-          <p>Gênero: {{livro.Genero}}</p>
-          <div class="botao-detalhes">
-            <button type="button" class="btn" ng-click="carregarInformacoes(livro.Isbn)" title="detalhes">Ver detalhes</button>
-          </div>
-        </div>
-    </div>      
-  </div>  
-      <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-                        <button type="button" class="close" ng-click="cancel()">&times;</button>
-                        <h4 class="modal-title">Detalhes do livro</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div>
-                          <h5>{{livroComp.Titulo}}</h5>
-                          <p>Autor: {{livroComp.Autor.Nome}}</p>
-                          <p>Gênero: {{livroComp.Genero}}</p>
-                          <p>Descrição: {{livroComp.Descricao}}</p>
-                          <p>Data da publicação: {{livroComp.DataPublicacao}}</p>
-                          <p>Isbn: {{livroComp.Isbn}}</p>
-                        </div>
-                    </div>
-        <div class="modal-footer">
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>  
-    </script>
+  </div> 
 
-         
-
- <ul uib-pagination total-items="quantidadeLivros" ng-model="paginaAtual" ng-change="trocarPaginas()" items-per-page="parametros.quantidadeTrazer"></ul>
+  <div>
+    <h2>Lista de extras</h2>
+    <div>
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Estoque</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="extra in extras | orderBy: 'Nome'">
+                    <td>{{ extra.Id }}</td>
+                    <td>{{ extra.Nome }}</td>
+                    <td>{{ extra.Quantidade }} itens</td>
+                    <td>{{ extra.Valor }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div> 
 
 </div>

@@ -3,8 +3,8 @@ angular
     .factory('administrativoService', function($http) {
 
         var urlCliente = 'http://localhost:64006/api/cliente';
-        var urlPacote = 'http://localhost:64006/api/pacote';
         var urlProduto = 'http://localhost:64006/api/produto';
+        var urlPacote = 'http://localhost:64006/api/pacote';
         var urlExtra = 'http://localhost:64006/api/extra';
 
         function carregarCliente(cpf) {
@@ -19,10 +19,6 @@ angular
             return $http.get(`${urlPacote}/${id}`);
         };
 
-        function carregarPacote() {
-            return $http.get(urlPacote);
-        };
-
         function carregarProdutoId(id) {
             return $http.get(`${urlProduto}/${id}`);
         };
@@ -30,6 +26,10 @@ angular
         function carregarProduto() {
             return $http.get(urlProduto);
         };
+
+        function carregarPacote() {
+            return $http.get(urlPacote);
+        };        
 
         function carregarExtraId(id) {
             return $http.get(`${urlExtra}/${id}`);
@@ -41,11 +41,11 @@ angular
 
         return {
         	carregarCliente: carregarCliente,
-        	registrarCliente: registrarCliente,
-            carregarPacoteId: carregarPacoteId,
-            carregarPacote: carregarPacote,
+        	registrarCliente: registrarCliente,            
             carregarProdutoId: carregarProdutoId,
             carregarProduto: carregarProduto,
+            carregarPacoteId: carregarPacoteId,
+            carregarPacote: carregarPacote,
             carregarExtraId: carregarExtraId,
             carregarExtra: carregarExtra
         }

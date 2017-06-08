@@ -1,57 +1,45 @@
 
 angular
 	.module('app')
-	.controller('HomeController', function($scope, $uibModal, $localStorage, $location, livrosService) {
+	.controller('HomeController', function($scope, $uibModal, $localStorage, $location, administrativoService) {
 		$scope.controller = 'HomeController';		
-		$scope.Lancamentos = [];
-		$scope.Livros = [];
-		$scope.parametros = {
-	      quantidadeTrazer: 6,
-	      quantidadePular: 0,
-	    };   
-	    $scope.quantidadeLivros = 0; 
-	    $scope.paginaAtual = 0;
-	  	carregarLivros($scope.parametros);
-		carregarLancamentos();
-		$scope.trocarPaginas = trocarPaginas;
+		$scope.produtos = [];
+		$scope.pacotes = [];
+		$scope.extras = [];
+	  	carregarTabelas();
 
-		$scope.carregarInformacoes = function (isbn){
-			livrosService.carregarIsbn(isbn).then(function(response){
-				$scope.livroComp = response.data.dados;
-				$uibModal.open({
-					backdrop: true,
-					templateUrl: 'myModalContent.html',
-					controller: function($scope, $uibModalInstance) {
-						$scope.livroComp = response.data.dados;
-						$scope.cancel = function(){
-							$uibModalInstance.dismiss();
-						}
-					}
-				})
-			});
-		};
-
-		function carregarLancamentos(){
-			livrosService
-				.carregarLancamentos()
+		function carregarTabelas(){
+			administrativoService
+				.carregarProduto()
 				.then(function(response){
-					console.log("lancamentos", response.data);
-					$scope.Lancamentos = response.data.dados;
+					console.log("carregarProduto", response.data);
+					$scope.produtos = response.data.dados;
+				})
+				.carregarPacote()
+				.then(function(response){
+					console.log("carregarPacote", response.data);
+					$scope.pacotes = response.data.dados;
+				})
+				.carregarExtra()
+				.then(function(response){
+					console.log("carregarExtra", response.data);
+					$scope.extras = response.data.dados;
 				})
 		}
 
-		function trocarPaginas(){
-			$scope.parametros.quantidadePular = ($scope.paginaAtual - 1) * $scope.parametros.quantidadeTrazer;
-			carregarLivros($scope.parametros);
-		}
-
-		function carregarLivros(parametros){
-			livrosService
-				.carregarLivros(parametros)
-				.then(function(response){
-					console.log("Livros", response.data.dados);
-					$scope.quantidadeLivros = response.data.quantidade;			
-					$scope.Livros = response.data.dados;
-				})
-		}	
+		// $scope.carregarInformacoes = function (isbn){
+		// 	livrosService.carregarIsbn(isbn).then(function(response){
+		// 		$scope.livroComp = response.data.dados;
+		// 		$uibModal.open({
+		// 			backdrop: true,
+		// 			templateUrl: 'myModalContent.html',
+		// 			controller: function($scope, $uibModalInstance) {
+		// 				$scope.livroComp = response.data.dados;
+		// 				$scope.cancel = function(){
+		// 					$uibModalInstance.dismiss();
+		// 				}
+		// 			}
+		// 		})
+		// 	});
+		// };
 	});
