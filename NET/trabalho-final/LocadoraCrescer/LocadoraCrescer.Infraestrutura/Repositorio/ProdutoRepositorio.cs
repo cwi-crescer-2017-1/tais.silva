@@ -15,7 +15,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
 
         public Produto Obter(int id)
         {
-            return contexto.Produto.FirstOrDefault(x => x.Id.Equals(id));
+            return contexto.Produto.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
         public List<Produto> Obter()

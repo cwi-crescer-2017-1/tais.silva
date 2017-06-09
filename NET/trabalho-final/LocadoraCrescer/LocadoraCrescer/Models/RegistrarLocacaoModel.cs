@@ -10,7 +10,6 @@ namespace LocadoraCrescer.Api.Models
     public class RegistrarLocacaoModel
     {
         public string CpfCliente { get; set; }
-        public string EmailUsuario { get; set; }
         public int IdProduto { get; set; }
         public int IdPacote { get; set; }
         public List<int> IdExtras { get; set; }

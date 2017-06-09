@@ -24,12 +24,12 @@ angular
             return $http.get(`${urlLocacao}/relatorio`);
         };
 
-        function listaLocacaoCpf(id) {
-            return $http.get(`${urlLocacao}/listacpf/${id}`);
+        function listaLocacaoCpf(cpf) {
+            return $http.get(`${urlLocacao}/listacpf/${cpf}`);
         };
 
         function confirmar(locacao) {
-            return $http.post(urlLocacao, locacao);
+            return $http.post(`${urlLocacao}/confirmar`, locacao);
         };
 
         function devolver(locaco) {

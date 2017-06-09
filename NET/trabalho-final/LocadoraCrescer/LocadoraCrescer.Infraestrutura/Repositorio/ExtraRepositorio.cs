@@ -15,7 +15,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
 
         public Extra Obter(int id)
         {
-            return contexto.Extra.FirstOrDefault(x => x.Id.Equals(id));
+            return contexto.Extra.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
         public List<Extra> Obter()

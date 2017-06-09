@@ -15,7 +15,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
 
         public Pacote Obter(int id)
         {
-            return contexto.Pacote.FirstOrDefault(x => x.Id.Equals(id));
+            return contexto.Pacote.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
         public List<Pacote> Obter()

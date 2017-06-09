@@ -22,19 +22,10 @@ namespace LocadoraCrescer.Api.Controllers
         [HttpPost, Route("orcamento")]
         public HttpResponseMessage Orcamento([FromBody]RegistrarLocacaoModel model)
         {
-            var cliente = repositorioCliente.Obter(model.CpfCliente);
-            var produto = repositorioProduto.Obter(model.IdProduto);
-            var pacote = repositorioPacote.Obter(model.IdPacote);
-            var extras = new List<Extra>();
-            foreach (int id in model.IdExtras)
-            {
-                var extraAtual = repositorioExtra.Obter(id);
-                extras.Add(extraAtual);
-            }            
-            var DataPedido = repositorio.DataAtual();
-            var DataPrevista = repositorio.DataPrevista(pacote.Duracao); 
 
-            var locacao = new Locacao(cliente, produto, pacote, extras, DataPedido, DataPrevista, model.ValorPrevisto);
+            var novaModel = repositorio.ObterOrcamento(model.CpfCliente, model.IdProduto, model.IdPacote, model.IdExtras, model.ValorPrevisto);
+
+            var locacao = new Locacao(novaModel.Cliente, novaModel.Produto, novaModel.Pacote, novaModel.Extras, novaModel.DataPedido, novaModel.DataPrevista, novaModel.ValorPrevisto);
 
             return ResponderOK(locacao);
         }
@@ -45,11 +36,12 @@ namespace LocadoraCrescer.Api.Controllers
             return ResponderOK(repositorio.ObterTodos());
         }
 
-        [HttpGet, Route("listacpf")]
+        [HttpGet, Route("listacpf/{cpf}")]
         public HttpResponseMessage ListaLocacoes(string cpf)
         {
             var cliente = repositorioCliente.Obter(cpf);
-            return ResponderOK(repositorio.ObterPorCliente(cliente));
+            var lista = repositorio.ObterPorCliente(cliente);
+            return ResponderOK(lista);
         }
         
         [Authorize(Roles = "Gerente")]
@@ -71,9 +63,9 @@ namespace LocadoraCrescer.Api.Controllers
         }
 
         [HttpPost, Route("confirmar")]
-        public void Confirmar(Locacao locacao)
+        public HttpResponseMessage Confirmar(Locacao locacao)
         {
-            repositorio.Confirmar(locacao);
+            return ResponderOK(repositorio.Confirmar(locacao));
         }        
 
         [HttpPut]

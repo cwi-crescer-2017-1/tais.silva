@@ -20,6 +20,25 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
             return contexto.Locacao.FirstOrDefault(u => u.Id.Equals(id));
         }
 
+        public Locacao ObterOrcamento(string CpfCliente, int IdProduto, int IdPacote, List<int> IdExtras, decimal ValorPrevisto)
+        {
+            var cliente = contexto.Cliente.FirstOrDefault(x => x.Cpf.Equals(CpfCliente));
+            var produto = contexto.Produto.FirstOrDefault(x => x.Id.Equals(IdProduto));
+            var pacote = contexto.Pacote.FirstOrDefault(x => x.Id.Equals(IdPacote));
+            var extras = new List<Extra>();
+            foreach (int id in IdExtras)
+            {
+                var extraAtual = contexto.Extra.FirstOrDefault(x => x.Id.Equals(id));
+                extras.Add(extraAtual);
+            }
+            var DataPedido = DateTime.Now;
+            var DataPrevista = DateTime.Now.AddDays(pacote.Duracao);
+
+            var novaModel = new Locacao(cliente, produto, pacote, extras, DataPedido, DataPrevista, ValorPrevisto);
+
+            return novaModel;
+        }
+
         public List<Locacao> ObterTodos()
         {
             return contexto.Locacao.ToList();
@@ -27,7 +46,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
 
         public List<Locacao> ObterPorCliente(Cliente cliente)
         {
-            return contexto.Locacao.Where(x => x.Cliente.Equals(cliente)).ToList();
+            return contexto.Locacao.Where(x => x.Cliente.Id.Equals(cliente.Id)).ToList();
         }
 
         public DateTime DataAtual()
@@ -40,10 +59,11 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
             return DateTime.Now.AddDays(duracao);
         }
 
-        public void Confirmar(Locacao locacao)
+        public Locacao Confirmar(Locacao locacao)
         {
             contexto.Locacao.Add(locacao);
             contexto.SaveChanges();
+            return locacao;
         }
 
         public void Devolver(Locacao atualizacao)
