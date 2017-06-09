@@ -22,13 +22,32 @@ namespace LocadoraCrescer.Api.Controllers
         [HttpPost, Route("orcamento")]
         public HttpResponseMessage Orcamento([FromBody]RegistrarLocacaoModel model)
         {
+            var valorOrcamento = repositorio.valorLocacao(model.IdProduto, model.IdPacote, model.IdExtras);
 
+            model.ValorPrevisto = valorOrcamento;
+
+            return ResponderOK(new { CpfCliente = model.CpfCliente, IdProduto = model.IdProduto, IdPacote = model.IdPacote, IdExtras = model.IdExtras, ValorPrevisto = model.ValorPrevisto });
+        }
+
+        [HttpPost, Route("confirmar")]
+        public HttpResponseMessage Confirmar([FromBody]RegistrarLocacaoModel model)
+        {
             var novaModel = repositorio.ObterOrcamento(model.CpfCliente, model.IdProduto, model.IdPacote, model.IdExtras, model.ValorPrevisto);
 
             var locacao = new Locacao(novaModel.Cliente, novaModel.Produto, novaModel.Pacote, novaModel.Extras, novaModel.DataPedido, novaModel.DataPrevista, novaModel.ValorPrevisto);
 
+            repositorio.Confirmar(locacao);
+
             return ResponderOK(locacao);
-        }
+        }        
+
+        [HttpPut]
+        public HttpResponseMessage Devolver(Locacao atualizacao)
+        {
+            repositorio.Devolver(atualizacao);
+
+            return ResponderOK();
+        } 
 
         [HttpGet, Route("lista")]
         public HttpResponseMessage ListaLocacoes()
@@ -61,19 +80,5 @@ namespace LocadoraCrescer.Api.Controllers
 
             return ResponderOK(relatorio);
         }
-
-        [HttpPost, Route("confirmar")]
-        public HttpResponseMessage Confirmar(Locacao locacao)
-        {
-            return ResponderOK(repositorio.Confirmar(locacao));
-        }        
-
-        [HttpPut]
-        public HttpResponseMessage Devolver(Locacao atualizacao)
-        {
-            repositorio.Devolver(atualizacao);
-
-            return ResponderOK();
-        } 
     }
 }

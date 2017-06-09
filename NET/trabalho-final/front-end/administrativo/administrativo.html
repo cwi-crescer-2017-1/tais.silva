@@ -82,10 +82,10 @@
                 <div class="form-group">
                   <label for="nome">Produto</label>
                   <select ng-model="locacao.IdProduto " type="text" class="form-control" name="nome" >
-                    <option type="text" class="form-control" name="nome" ng-value="1">Consoles PS3</option>
-                    <option type="text" class="form-control" name="nome" ng-value="2">Nintendo</option>
-                    <option type="text" class="form-control" name="nome" ng-value="3">X-Box</option>
-                    <option type="text" class="form-control" name="nome" ng-value="4">Atari</option>
+                    <option type="text" class="form-control" name="nome" ng-value="2">Consoles PS3</option>
+                    <option type="text" class="form-control" name="nome" ng-value="3">Nintendo</option>
+                    <option type="text" class="form-control" name="nome" ng-value="4">X-Box</option>
+                    <option type="text" class="form-control" name="nome" ng-value="5">Atari</option>
                   </select>
                 </div> 
 
@@ -106,11 +106,6 @@
                     <option type="text" class="form-control" name="nome" ng-value="3">Controles</option>
                     <option type="text" class="form-control" name="nome" ng-value="4">Guia de Cheat</option>
                   </select>
-                </div> 
-
-                <div class="form-group">
-                  <label for="nome">Valor Previsto</label>
-                  <input ng-model="locacao.ValorPrevisto" type="text" class="form-control" name="nome">
                 </div>                                      
           
                 <button type="submit" class="btn btn-default">Cadastrar</button>
@@ -140,7 +135,7 @@
     <div>
       <div>
         {{orcamentoSelecionado}}
-        <button class="btn btn-default" ng-click="confirmarLocacao(locacaoDevolver)">Confirmar</button>       
+        <button class="btn btn-default" ng-click="devolverLocacao(locacaoDevolver)">Confirmar</button>       
     </div>
   </div>
 

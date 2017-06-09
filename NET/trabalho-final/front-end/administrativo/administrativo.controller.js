@@ -46,11 +46,11 @@ angular
 
 		$scope.orcamento = function(locacao){
 			if ($scope.formLocacao.$valid) {
-				console.log("variavel", locacao);
+				console.log("parametro orçamento", locacao);
 				locacaoService
 					.orcamento(locacao)
 					.then(function(response){
-						console.log("respose", response.data.dados);
+						console.log("response orçamento:", response.data.dados);
 						$scope.orcamentoFeito = response.data.dados;
 						toastr.success('Orçamento realizado com sucesso.', 'Orçamento solicitado!');
 		            }, function(response){
@@ -69,22 +69,23 @@ angular
 					var locacaoResponse = response.data.dados;
 					console.log("locacaoResponse", locacaoResponse.Cliente.Cpf);
 					console.log("locacaoResponse", locacaoResponse);
-					verificarDevolucaoPendente(locacaoResponse.Cliente.Cpf);
+					// verificarDevolucaoPendente(locacaoResponse.Cliente.Cpf);
+					$scope.locacaoDevolver = response.data.dados;
 					toastr.success('Locação realizada com sucesso.', 'Locação realizada!');
 	            }, function(response){
 						toastr.error('Ocorreu um erro ao locar.', 'Depois tente novamente!');
 				});
 		}
 
-		function verificarDevolucaoPendente(cpf){
-			console.log("cpf", cpf);
-			locacaoService
-				.listaLocacaoCpf(cpf)
-				.then(function(response){
-					console.log("dentro de verificar", response.data.dados);
-					$scope.locacaoDevolver = response.data.dados;
-	            });
-		}
+		// function verificarDevolucaoPendente(cpf){
+		// 	console.log("cpf", cpf);
+		// 	locacaoService
+		// 		.listaLocacaoCpf(cpf)
+		// 		.then(function(response){
+		// 			console.log("dentro de verificar", response.data.dados);
+		// 			$scope.locacaoDevolver = response.data.dados;
+	 //            });
+		// }
 
 		$scope.devolverLocacao = function(locacaoDevolver){
 			locacaoService

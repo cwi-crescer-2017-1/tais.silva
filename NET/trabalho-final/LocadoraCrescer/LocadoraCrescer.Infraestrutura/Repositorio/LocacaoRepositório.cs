@@ -17,7 +17,26 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
 
         public Locacao Obter(int id)
         {
-            return contexto.Locacao.FirstOrDefault(u => u.Id.Equals(id));
+            return contexto.Locacao.Include(x => x.Cliente).Include(x => x.Pacote).FirstOrDefault(u => u.Id.Equals(id));
+        }
+
+        public dynamic valorLocacao(int IdProduto, int IdPacote, List<int> IdExtras)
+        {
+            decimal valorExtras = 0;
+            var produto = contexto.Produto.FirstOrDefault(x => x.Id.Equals(IdProduto));
+            var pacote = contexto.Pacote.FirstOrDefault(x => x.Id.Equals(IdPacote));
+            var extras = new List<Extra>();
+            foreach (int id in IdExtras)
+            {
+                var extraAtual = contexto.Extra.FirstOrDefault(x => x.Id.Equals(id));
+                extras.Add(extraAtual);
+                valorExtras += extraAtual.Valor;
+            }
+            var DataPedido = DateTime.Now;
+            var DataPrevista = DateTime.Now.AddDays(pacote.Duracao);
+            var ValorPrevisto = produto.Valor + pacote.Valor + valorExtras;
+
+            return ValorPrevisto;
         }
 
         public Locacao ObterOrcamento(string CpfCliente, int IdProduto, int IdPacote, List<int> IdExtras, decimal ValorPrevisto)
@@ -38,15 +57,30 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
 
             return novaModel;
         }
+        
+        public Locacao Confirmar(Locacao locacao)
+        {
+            contexto.Locacao.Add(locacao);
+            contexto.Entry(locacao.Cliente).State = EntityState.Unchanged;
+            contexto.Entry(locacao.Produto).State = EntityState.Unchanged;
+            contexto.Entry(locacao.Pacote).State = EntityState.Unchanged;
+            contexto.Entry(locacao.Produto).State = EntityState.Unchanged;
+            foreach (Extra atual in locacao.Extras)
+            {
+                contexto.Entry(atual).State = EntityState.Unchanged;
+            }
+            contexto.SaveChanges();
+            return locacao;
+        }
 
         public List<Locacao> ObterTodos()
         {
             return contexto.Locacao.ToList();
         }
 
-        public List<Locacao> ObterPorCliente(Cliente cliente)
+        public Locacao ObterPorCliente(Cliente cliente)
         {
-            return contexto.Locacao.Where(x => x.Cliente.Id.Equals(cliente.Id)).ToList();
+            return contexto.Locacao.Where(x => x.Cliente.Id.Equals(cliente.Id)).FirstOrDefault();
         }
 
         public DateTime DataAtual()
@@ -59,18 +93,18 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
             return DateTime.Now.AddDays(duracao);
         }
 
-        public Locacao Confirmar(Locacao locacao)
-        {
-            contexto.Locacao.Add(locacao);
-            contexto.SaveChanges();
-            return locacao;
-        }
-
         public void Devolver(Locacao atualizacao)
         {
             var antigo = Obter(atualizacao.Id);
-            antigo.DataDevolucao = DateTime.Now;            
-            antigo.ValorFinal = atualizacao.ValorPrevisto;
+            antigo.DataDevolucao = DateTime.Now.Date;
+            var prevista = atualizacao.DataPrevista;
+            var pedido = atualizacao.DataPedido;
+            var devolucao = antigo.DataDevolucao;
+
+            var diasPacote = (int)prevista.Subtract(pedido).TotalDays;            
+            var diasAtraso = (int)devolucao.Value.Subtract(prevista).TotalDays;
+            antigo.ValorFinal = (atualizacao.ValorPrevisto / diasPacote) * (diasPacote + diasAtraso);
+
             contexto.Entry(antigo).State = EntityState.Modified;
             contexto.SaveChanges();
         }

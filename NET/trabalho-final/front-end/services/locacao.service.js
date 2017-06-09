@@ -32,7 +32,7 @@ angular
             return $http.post(`${urlLocacao}/confirmar`, locacao);
         };
 
-        function devolver(locaco) {
+        function devolver(locacao) {
             return $http.put(urlLocacao, locacao);
         };
 
