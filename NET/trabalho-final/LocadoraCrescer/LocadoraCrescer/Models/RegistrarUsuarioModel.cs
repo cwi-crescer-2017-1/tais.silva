@@ -11,6 +11,6 @@ namespace LocadoraCrescer.Api.Models
         public string Email { get; set; }
         public string Nome { get; set; }
         public string Senha { get; set; }
-        public Cargo Cargo { get; set; }
+        public Permissoes Permissoes { get; set; }
     }
 }

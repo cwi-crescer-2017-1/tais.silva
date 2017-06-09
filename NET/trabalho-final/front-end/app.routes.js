@@ -7,12 +7,26 @@ angular
                 templateUrl: 'home/home.html'
             })
             .when('/login', {
-                  controller: 'LoginController',
-                  templateUrl: 'login/login.html'
-                })
+              controller: 'LoginController',
+              templateUrl: 'login/login.html',
+              resolve: {
+                autenticado: function (authService, $q, $location) {
+                  var deferred = $q.defer();
+
+                  if(authService.isAutenticado()) {
+                    $location.path("/administrativo");
+                    deferred.reject();
+                  } else {
+                    deferred.resolve();
+                  }
+
+                  return deferred.promise;
+                }
+              }
+            })
 
                 // privado
-            .when('/adminstrativo', {
+            .when('/administrativo', {
               controller: 'AdministrativoController',
               templateUrl: 'administrativo/administrativo.html',
               resolve: {

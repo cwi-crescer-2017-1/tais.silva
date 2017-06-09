@@ -5,6 +5,10 @@ body {
   margin: 0;
 	background-color: #8FD2E2;
 }
+a[type="button"] {
+  cursor: pointer;
+}
+
 .hover-livro {
 	background-color: #B26E93;
   padding: 10px;

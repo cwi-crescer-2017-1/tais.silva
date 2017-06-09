@@ -6,23 +6,28 @@ angular
 		$scope.usuarioAtual = authService.getUsuario();
 		$scope.operador = authService.possuiPermissao("Operador");
 		$scope.gerente = authService.possuiPermissao("Gerente");
+		$scope.registrar = registrar;
+		$scope.clientePego = {};
 
 		$scope.carregarCliente = function(cpf){
 			if ($scope.formCpf.$valid) {
 				administrativoService
-					.registrarCliente(cpf)
+					.carregarCliente(cpf)
 					.then(function(response){
+						$scope.clientePego = response.data.dados;
 						toastr.success('Cadastro encontrado com sucesso.', 'Dados do cliente abaixo!');
 		            }, function(response){
-							toastr.error('Cliente não cadastrado', 'Cadastre abaixo!');
+						toastr.error('Cliente não cadastrado', 'Cadastre abaixo!');
 					});
 			} else {
 				toastr.warning('Preencha todos os dados corretamente.', 'Depois tente novamente!');
 			}
 		}
 
-		$scope.registrar = function(cliente){
+		function registrar(cliente){
+			debugger
 			if ($scope.formCadastro.$valid) {
+				cliente.dataNascimento = new Date(cliente.dataNascimento).toLocaleString();
 				administrativoService
 					.registrarCliente(cliente)
 					.then(function(response){

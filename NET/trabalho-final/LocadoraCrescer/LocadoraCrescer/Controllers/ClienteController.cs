@@ -18,8 +18,8 @@ namespace LocadoraCrescer.Api.Controllers
         private ClienteRepositorio repositorio = new ClienteRepositorio();
 
         [BasicAuthorization]
-        [HttpGet, Route("cliente")]
-        public HttpResponseMessage Obter(string cpf)
+        [HttpGet, Route("obter/{cpf}")]
+        public HttpResponseMessage ObterCliente(string cpf)
         {
             // só pode obter as informações do usuário corrente (logado, autenticado)
             var cliente = repositorio.Obter(cpf);

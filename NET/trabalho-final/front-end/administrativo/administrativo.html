@@ -22,15 +22,16 @@
     </div>
   </div>
 
-<!-- CADASTRO DE CLIENTE - COLLAPSE -->
+  {{clientePego}}
+  operador {{operador}}
+  gerente {{gerente}}
 
-  <div id="collapse" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="cadastre o cliente">
-    <div class="div-painel panel-body p-relative">
-      <div class="pull-left">
+<!-- CADASTRO DE CLIENTE -->
+
         <div>
           <h1 class="page-header">Cadastro de cliente</h1>
-          <div class="row">
-            <div class="col-sm-4">
+          <div>
+            <div>
               <form novalidate name="formCadastro" ng-submit="registrar(cliente)">
 
                 <div class="form-group">
@@ -50,27 +51,72 @@
 
                 <div class="form-group">
                   <label for="nome">Gênero</label>
-                  <select ng-model="cliente.Genero " type="text" class="form-control" name="nome" ng-repeat="genero in genero">{{genero}}</select>
+                  <select ng-model="cliente.Genero " type="text" class="form-control" name="nome" >
+                    <option type="text" class="form-control" name="nome" ng-value="1">Masculino</option>
+                    <option type="text" class="form-control" name="nome" ng-value="2">Feminino</option>
+                    <option type="text" class="form-control" name="nome" ng-value="3">Outro</option>
+                  </select>
                 </div>  
 
                 <div class="form-group">
                   <label for="nome">Data Nascimento</label>
-                  <input ng-model="cliente.DataNascimento" type="text" class="form-control" name="nome">
+                  <input type="date" ng-model="cliente.DataNascimento" class="form-control" name="nome">
                 </div>                      
           
-                <button class="btn btn-default">Cadastrar</button>
+                <button type="submit" class="btn btn-default">Cadastrar</button>
           
               </form>
             </div>
           </div>
-        </div>        
-      </div>
-    </div>
-  </div>   
+        </div>     
+
+<!-- CADASTRO DE LOCACAO  -->
+
+        <div>
+          <h1 class="page-header">Cadastro de locação</h1>
+          <div>
+            <div>
+              <form novalidate name="formCadastro" ng-submit="registrar(cliente)">
+
+                <div class="form-group">
+                  <label for="nome">Nome</label>
+                  <input ng-model="cliente.Nome" type="text" class="form-control" name="nome">
+                </div>  
+
+                <div class="form-group">
+                  <label for="nome">Endereço</label>
+                  <input ng-model="cliente.Endereco" type="text" class="form-control" name="nome">
+                </div>    
+
+                <div class="form-group">
+                  <label for="nome">CPF</label>
+                  <input ng-model="cliente.Cpf" type="text" class="form-control" name="nome">
+                </div>  
+
+                <div class="form-group">
+                  <label for="nome">Gênero</label>
+                  <select ng-model="cliente.Genero " type="text" class="form-control" name="nome" >
+                    <option type="text" class="form-control" name="nome" ng-value="1">Masculino</option>
+                    <option type="text" class="form-control" name="nome" ng-value="2">Feminino</option>
+                    <option type="text" class="form-control" name="nome" ng-value="3">Outro</option>
+                  </select>
+                </div>  
+
+                <div class="form-group">
+                  <label for="nome">Data Nascimento</label>
+                  <input type="date" ng-model="cliente.DataNascimento" class="form-control" name="nome">
+                </div>                      
+          
+                <button type="submit" class="btn btn-default">Cadastrar</button>
+          
+              </form>
+            </div>
+          </div>
+        </div>     
 
 <!-- MODAL RELATÓRIOS -->
   
-  <div class="botao-detalhes">
+  <!-- <div class="botao-detalhes">
     <button type="button" class="btn" ng-click="carregarInformacoes(livro.Isbn)" title="detalhes">Ver detalhes</button>
   </div>        
 
@@ -96,6 +142,6 @@
       <div class="modal-footer">
           <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
       </div>  
-  </script>
+  </script> -->
 
 </div>

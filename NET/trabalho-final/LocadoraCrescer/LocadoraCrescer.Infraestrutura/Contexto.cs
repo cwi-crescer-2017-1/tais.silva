@@ -22,7 +22,7 @@ namespace LocadoraCrescer.Infraestrutura
         public DbSet<Locacao> Locacao { get; set; }
         public DbSet<Pacote> Pacote { get; set; }
         public DbSet<Extra> Extra { get; set; }
-        public DbSet<Cargo> Cargo { get; set; }
+        public DbSet<Permissoes> Permissoes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

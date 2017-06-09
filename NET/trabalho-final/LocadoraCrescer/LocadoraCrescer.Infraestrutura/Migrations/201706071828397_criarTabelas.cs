@@ -8,11 +8,11 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Cargo",
+                "dbo.Permissoes",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        NomeCargo = c.String(),
+                        NomePermissoes = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -97,11 +97,11 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
                         Nome = c.String(),
                         Email = c.String(),
                         Senha = c.String(),
-                        IdCargo = c.Int(nullable: false),
+                        IdPermissoes = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cargo", t => t.IdCargo, cascadeDelete: true)
-                .Index(t => t.IdCargo);
+                .ForeignKey("dbo.Permissoes", t => t.IdPermissoes, cascadeDelete: true)
+                .Index(t => t.IdPermissoes);
             
             CreateTable(
                 "dbo.LocacaoExtra",
@@ -121,7 +121,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Locacao", "IdFuncionario", "dbo.Usuario");
-            DropForeignKey("dbo.Usuario", "IdCargo", "dbo.Cargo");
+            DropForeignKey("dbo.Usuario", "IdPermissoes", "dbo.Permissoes");
             DropForeignKey("dbo.Locacao", "IdProduto", "dbo.Produto");
             DropForeignKey("dbo.Locacao", "IdPacote", "dbo.Pacote");
             DropForeignKey("dbo.LocacaoExtra", "Extra_Id", "dbo.Extra");
@@ -129,7 +129,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
             DropForeignKey("dbo.Locacao", "IdCliente", "dbo.Cliente");
             DropIndex("dbo.LocacaoExtra", new[] { "Extra_Id" });
             DropIndex("dbo.LocacaoExtra", new[] { "IdExtra" });
-            DropIndex("dbo.Usuario", new[] { "IdCargo" });
+            DropIndex("dbo.Usuario", new[] { "IdPermissoes" });
             DropIndex("dbo.Locacao", new[] { "IdFuncionario" });
             DropIndex("dbo.Locacao", new[] { "IdProduto" });
             DropIndex("dbo.Locacao", new[] { "IdPacote" });
@@ -141,7 +141,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
             DropTable("dbo.Locacao");
             DropTable("dbo.Extra");
             DropTable("dbo.Cliente");
-            DropTable("dbo.Cargo");
+            DropTable("dbo.Permissoes");
         }
     }
 }

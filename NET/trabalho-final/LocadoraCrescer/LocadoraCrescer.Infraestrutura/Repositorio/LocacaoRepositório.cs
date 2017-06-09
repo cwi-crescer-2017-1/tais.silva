@@ -30,6 +30,16 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
             return contexto.Locacao.Where(x => x.Cliente.Equals(cliente)).ToList();
         }
 
+        public DateTime DataAtual()
+        {
+            return DateTime.Now;
+        }
+
+        public DateTime DataPrevista(int duracao)
+        {
+            return DateTime.Now.AddDays(duracao);
+        }
+
         public void Confirmar(Locacao locacao)
         {
             contexto.Locacao.Add(locacao);

@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\EntidadeBasica.cs" />
-    <Compile Include="Entidades\Cargo.cs" />
+    <Compile Include="Entidades\Permissoes.cs" />
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\Extra.cs" />
     <Compile Include="Entidades\Enum\Genero.cs" />

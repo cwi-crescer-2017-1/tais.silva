@@ -8,7 +8,7 @@ angular
         var urlExtra = 'http://localhost:64006/api/extra';
 
         function carregarCliente(cpf) {
-            return $http.get(urlCliente, cpf);
+            return $http.get(`${urlCliente}/obter/${cpf}`);
         };
 
         function registrarCliente(cliente) {

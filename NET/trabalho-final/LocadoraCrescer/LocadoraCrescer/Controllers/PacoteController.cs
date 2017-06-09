@@ -16,9 +16,8 @@ namespace LocadoraCrescer.Api.Controllers
     public class PacoteController : ControllerBasica
     {
         private PacoteRepositorio repositorio = new PacoteRepositorio();
-
-        [BasicAuthorization]
-        [HttpGet, Route("{id: int}")]
+        
+        [HttpGet, Route("{id:int}")]
         public HttpResponseMessage Obter(int id)
         {
             var pacote = repositorio.Obter(id);

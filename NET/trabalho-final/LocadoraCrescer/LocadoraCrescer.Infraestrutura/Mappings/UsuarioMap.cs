@@ -13,7 +13,7 @@ namespace LocadoraCrescer.Infraestrutura.Mappings
         public UsuarioMap()
         {
             ToTable("Usuario");
-            HasRequired(x => x.Cargo).WithMany().Map(x => x.MapKey("IdCargo"));           
+            HasRequired(x => x.Permissoes).WithMany().Map(x => x.MapKey("IdPermissoes"));           
             
         }
 

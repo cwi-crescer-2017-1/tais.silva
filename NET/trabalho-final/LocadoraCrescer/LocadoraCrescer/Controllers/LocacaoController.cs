@@ -4,6 +4,8 @@ using LocadoraCrescer.Api.Models;
 using LocadoraCrescer.Dominio.Entidades;
 using LocadoraCrescer.Infraestrutura.Repositorio;
 using System;
+using LocadoraCrescer.Api.App_Start;
+using System.Collections.Generic;
 
 namespace LocadoraCrescer.Api.Controllers
 {   
@@ -15,16 +17,24 @@ namespace LocadoraCrescer.Api.Controllers
         private UsuarioRepositorio repositorioUsuario = new UsuarioRepositorio();
         private ProdutoRepositorio repositorioProduto = new ProdutoRepositorio();
         private PacoteRepositorio repositorioPacote = new PacoteRepositorio();
-        
-        [HttpGet]
+        private ExtraRepositorio repositorioExtra = new ExtraRepositorio();
+
+        [HttpPost, Route("orcamento")]
         public HttpResponseMessage Orcamento([FromBody]RegistrarLocacaoModel model)
         {
             var cliente = repositorioCliente.Obter(model.CpfCliente);
-            var usuario = repositorioUsuario.Obter(model.EmailUsuario);
             var produto = repositorioProduto.Obter(model.IdProduto);
             var pacote = repositorioPacote.Obter(model.IdPacote);
+            var extras = new List<Extra>();
+            foreach (int id in model.IdExtras)
+            {
+                var extraAtual = repositorioExtra.Obter(id);
+                extras.Add(extraAtual);
+            }            
+            var DataPedido = repositorio.DataAtual();
+            var DataPrevista = repositorio.DataPrevista(pacote.Duracao); 
 
-            var locacao = new Locacao(cliente, usuario, produto, pacote, model.Extras, model.DataPedido, model.DataPrevista, model.ValorPrevisto);
+            var locacao = new Locacao(cliente, produto, pacote, extras, DataPedido, DataPrevista, model.ValorPrevisto);
 
             return ResponderOK(locacao);
         }
@@ -41,24 +51,26 @@ namespace LocadoraCrescer.Api.Controllers
             var cliente = repositorioCliente.Obter(cpf);
             return ResponderOK(repositorio.ObterPorCliente(cliente));
         }
-
-        [HttpGet, Route("relatorio")]
+        
+        [Authorize(Roles = "Gerente")]
+        [HttpPost, Route("relatorio")]
         public HttpResponseMessage RelatorioMensal(DateTime data)
         {
             var relatorio = repositorio.ObterFinalizadasUltimos30Dias(data);
 
             return ResponderOK(relatorio);
         }
-
+        
+        [Authorize(Roles = "Gerente")]
         [HttpGet, Route("atrasados")]
-        public HttpResponseMessage RelatorioAtrasados(DateTime data)
+        public HttpResponseMessage RelatorioAtrasados()
         {
             var relatorio = repositorio.ObterAtrasados();
 
             return ResponderOK(relatorio);
         }
 
-        [HttpPost]
+        [HttpPost, Route("confirmar")]
         public void Confirmar(Locacao locacao)
         {
             repositorio.Confirmar(locacao);

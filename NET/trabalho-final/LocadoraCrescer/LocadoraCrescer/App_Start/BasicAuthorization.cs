@@ -51,7 +51,7 @@ namespace LocadoraCrescer.Api.App_Start
                 Usuario usuario = null;
                 if (ValidarUsuario(userNameAndPassword[0], userNameAndPassword[1], out usuario))
                 {
-                    string[] papeis = { usuario.Cargo.NomeCargo };
+                    string[] papeis = { usuario.Permissoes.NomePermissoes };
                     var identidade = new GenericIdentity(usuario.Email);
                     var genericUser = new GenericPrincipal(identidade, papeis);
 

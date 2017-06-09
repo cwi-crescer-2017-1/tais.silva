@@ -16,7 +16,7 @@
                 <tr ng-repeat="produto in produtos | orderBy: 'Nome'">
                     <td>{{ produto.Id }}</td>
                     <td>{{ produto.Nome }}</td>
-                    <td>{{ produto.Quantidade }} itens</td>
+                    <td>{{ produto.Quantidade }} itens</td>                    
                     <td>{{ produto.Valor }}</td>
                 </tr>
             </tbody>
@@ -33,6 +33,7 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Estoque</th>
+                    <th>Duração</th>
                     <th>Valor</th>
                     <th>Descrição</th>
                 </tr>
@@ -42,6 +43,7 @@
                     <td>{{ pacote.Id }}</td>
                     <td>{{ pacote.Nome }}</td>
                     <td>{{ pacote.Quantidade }} itens</td>
+                    <td>{{ pacote.Duracao }}</td>
                     <td>{{ pacote.Valor }}</td>
                     <td>{{ pacote.Descricao }}</td>
                 </tr>

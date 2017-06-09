@@ -58,10 +58,19 @@
     <Compile Include="Migrations\201706080310191_atualizarTabelas.Designer.cs">
       <DependentUpon>201706080310191_atualizarTabelas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706082242185_alterarLocacao.cs" />
+    <Compile Include="Migrations\201706082242185_alterarLocacao.Designer.cs">
+      <DependentUpon>201706082242185_alterarLocacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706090011382_alterarCargoParaPermissoes.cs" />
+    <Compile Include="Migrations\201706090011382_alterarCargoParaPermissoes.Designer.cs">
+      <DependentUpon>201706090011382_alterarCargoParaPermissoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\LocacaoRepositório.cs" />
     <Compile Include="Repositorio\ClienteRepositório.cs" />
+    <Compile Include="Repositorio\ExtraRepositorio.cs" />
     <Compile Include="Repositorio\PacoteRepositorio.cs" />
     <Compile Include="Repositorio\ProdutoRepositorio.cs" />
     <Compile Include="Repositorio\UsuarioRepositorio.cs" />
@@ -76,6 +85,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706080310191_atualizarTabelas.resx">
       <DependentUpon>201706080310191_atualizarTabelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706082242185_alterarLocacao.resx">
+      <DependentUpon>201706082242185_alterarLocacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706090011382_alterarCargoParaPermissoes.resx">
+      <DependentUpon>201706090011382_alterarCargoParaPermissoes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

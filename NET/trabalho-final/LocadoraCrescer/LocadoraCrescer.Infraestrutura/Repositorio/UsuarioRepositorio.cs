@@ -15,13 +15,13 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
 
         public Usuario Obter(string email)
         {
-            return contexto.Usuario.Include("Cargo").FirstOrDefault(u => u.Email.Equals(email));
+            return contexto.Usuario.Include("Permissoes").FirstOrDefault(u => u.Email.Equals(email));
         }
 
         public void Criar(Usuario usuario)
         {
             contexto.Usuario.Add(usuario);
-            contexto.Entry(usuario.Cargo).State = System.Data.Entity.EntityState.Unchanged;
+            contexto.Entry(usuario.Permissoes).State = System.Data.Entity.EntityState.Unchanged;
             contexto.SaveChanges();
         }
 

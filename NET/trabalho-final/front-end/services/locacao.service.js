@@ -13,7 +13,7 @@ angular
         };
 
         function orcamento(locacao) {
-            return $http.get(urlLocacao, locacao);
+            return $http.post(urlLocacao, locacao);
         };
 
         function relatorioMensal(data) {

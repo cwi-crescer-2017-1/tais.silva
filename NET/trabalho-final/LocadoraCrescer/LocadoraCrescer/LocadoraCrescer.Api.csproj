@@ -99,6 +99,7 @@
     <Compile Include="App_Start\BasicAuthorization.cs" />
     <Compile Include="App_Start\ErrosGlobaisFilterAttribute.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ExtraController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\PacoteController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />

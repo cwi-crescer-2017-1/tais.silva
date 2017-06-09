@@ -16,17 +16,17 @@ namespace LocadoraCrescer.Dominio.Entidades
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public Cargo Cargo { get; private set; }
+        public Permissoes Permissoes { get; private set; }
 
         protected Usuario() { }
 
-        public Usuario(string nome, string email, string senha, Cargo cargo)
+        public Usuario(string nome, string email, string senha, Permissoes permissoes)
         {
             Nome = nome;
             Email = email;
             if (!string.IsNullOrWhiteSpace(senha))
                 Senha = CriptografarSenha(senha);
-            Cargo = cargo;
+            Permissoes = permissoes;
         }
 
         private string CriptografarSenha(string senha)

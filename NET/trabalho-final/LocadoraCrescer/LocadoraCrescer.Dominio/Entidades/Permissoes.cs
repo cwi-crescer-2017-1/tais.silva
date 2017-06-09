@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Dominio.Entidades
 {
-    public class Cargo
+    public class Permissoes
     {
         public int Id { get; set; }
-        public string NomeCargo { get; set; }
+        public string NomePermissoes { get; set; }
 
-        protected Cargo() { }
+        protected Permissoes() { }
     }
 }
