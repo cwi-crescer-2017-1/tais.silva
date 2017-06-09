@@ -70,7 +70,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorio
         {
             var antigo = Obter(atualizacao.Id);
             antigo.DataDevolucao = DateTime.Now;            
-            antigo.ValorFinal = atualizacao.ValorFinal;
+            antigo.ValorFinal = atualizacao.ValorPrevisto;
             contexto.Entry(antigo).State = EntityState.Modified;
             contexto.SaveChanges();
         }
