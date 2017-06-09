@@ -33,11 +33,6 @@ a[type="button"] {
 	position: relative;
 	margin-top: 25px;
 }
-.botao-detalhes {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-}
 .adicionar-autor,
 .adicionar-livro {
 	margin: 20px;

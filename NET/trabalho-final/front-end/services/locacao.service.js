@@ -13,7 +13,7 @@ angular
         };
 
         function orcamento(locacao) {
-            return $http.post(urlLocacao, locacao);
+            return $http.post(`${urlLocacao}/orcamento`, locacao);
         };
 
         function relatorioMensal(data) {
@@ -22,6 +22,10 @@ angular
 
         function relatorioAtrasados() {
             return $http.get(`${urlLocacao}/relatorio`);
+        };
+
+        function listaLocacaoCpf(id) {
+            return $http.get(`${urlLocacao}/listacpf/${id}`);
         };
 
         function confirmar(locacao) {
@@ -39,6 +43,7 @@ angular
             relatorioMensal: relatorioMensal,
             relatorioAtrasados: relatorioAtrasados,
             confirmar: confirmar,
-            devolver: devolver   
+            devolver: devolver,
+            listaLocacaoCpf: listaLocacaoCpf   
         }   
     });

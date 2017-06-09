@@ -45,7 +45,7 @@ namespace LocadoraCrescer.Api.Controllers
             return ResponderOK(repositorio.ObterTodos());
         }
 
-        [HttpGet, Route("lista")]
+        [HttpGet, Route("listacpf")]
         public HttpResponseMessage ListaLocacoes(string cpf)
         {
             var cliente = repositorioCliente.Obter(cpf);

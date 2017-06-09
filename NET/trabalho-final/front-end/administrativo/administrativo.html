@@ -1,6 +1,6 @@
 <div class="container">
 
- 	<h1 class="page-header">Página Administrativa</h1>
+ 	<h1>Página Administrativa</h1>
 
 <!-- BUSCAR CADASTRO DE CLIENTE -->
 
@@ -24,47 +24,47 @@
 
 <!-- CADASTRO DE CLIENTE -->
 
+    <div>
+      <h1 class="page-header">Cadastro de cliente</h1>
+      <div>
         <div>
-          <h1 class="page-header">Cadastro de cliente</h1>
-          <div>
-            <div>
-              <form novalidate name="formCadastro" ng-submit="registrar(cliente)">
+          <form novalidate name="formCadastro" ng-submit="registrar(cliente)">
 
-                <div class="form-group">
-                  <label for="nome">Nome</label>
-                  <input ng-model="cliente.Nome" type="text" class="form-control" name="nome">
-                </div>  
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input ng-model="cliente.Nome" type="text" class="form-control" name="nome">
+            </div>  
 
-                <div class="form-group">
-                  <label for="nome">Endereço</label>
-                  <input ng-model="cliente.Endereco" type="text" class="form-control" name="nome">
-                </div>    
+            <div class="form-group">
+              <label for="nome">Endereço</label>
+              <input ng-model="cliente.Endereco" type="text" class="form-control" name="nome">
+            </div>    
 
-                <div class="form-group">
-                  <label for="nome">CPF</label>
-                  <input ng-model="cliente.Cpf" type="text" class="form-control" name="nome">
-                </div>  
+            <div class="form-group">
+              <label for="nome">CPF</label>
+              <input ng-model="cliente.Cpf" type="text" class="form-control" name="nome">
+            </div>  
 
-                <div class="form-group">
-                  <label for="nome">Gênero</label>
-                  <select ng-model="cliente.Genero " type="text" class="form-control" name="nome" >
-                    <option type="text" class="form-control" name="nome" ng-value="1">Masculino</option>
-                    <option type="text" class="form-control" name="nome" ng-value="2">Feminino</option>
-                    <option type="text" class="form-control" name="nome" ng-value="3">Outro</option>
-                  </select>
-                </div>  
+            <div class="form-group">
+              <label for="nome">Gênero</label>
+              <select ng-model="cliente.Genero " type="text" class="form-control" name="nome" >
+                <option type="text" class="form-control" name="nome" ng-value="1">Masculino</option>
+                <option type="text" class="form-control" name="nome" ng-value="2">Feminino</option>
+                <option type="text" class="form-control" name="nome" ng-value="3">Outro</option>
+              </select>
+            </div>  
 
-                <div class="form-group">
-                  <label for="nome">Data Nascimento</label>
-                  <input type="date" ng-model="cliente.DataNascimento" class="form-control" name="nome">
-                </div>                      
-          
-                <button type="submit" class="btn btn-default">Cadastrar</button>
-          
-              </form>
-            </div>
-          </div>
-        </div>     
+            <div class="form-group">
+              <label for="nome">Data Nascimento</label>
+              <input type="date" ng-model="cliente.DataNascimento" class="form-control" name="nome">
+            </div>                      
+      
+            <button type="submit" class="btn btn-default">Cadastrar</button>
+      
+          </form>
+        </div>
+      </div>
+    </div>     
 
 <!-- CADASTRO DE LOCACAO  -->
 
@@ -72,36 +72,46 @@
           <h1 class="page-header">Cadastro de locação</h1>
           <div>
             <div>
-              <form novalidate name="formCadastro" ng-submit="registrar(cliente)">
-
-                <div class="form-group">
-                  <label for="nome">Nome</label>
-                  <input ng-model="cliente.Nome" type="text" class="form-control" name="nome">
-                </div>  
-
-                <div class="form-group">
-                  <label for="nome">Endereço</label>
-                  <input ng-model="cliente.Endereco" type="text" class="form-control" name="nome">
-                </div>    
+              <form novalidate name="formLocacao" ng-submit="orcamento(locacao)">
 
                 <div class="form-group">
                   <label for="nome">CPF</label>
-                  <input ng-model="cliente.Cpf" type="text" class="form-control" name="nome">
-                </div>  
+                  <input ng-model="locacao.CpfCliente" type="text" class="form-control" name="nome">
+                </div> 
 
                 <div class="form-group">
-                  <label for="nome">Gênero</label>
-                  <select ng-model="cliente.Genero " type="text" class="form-control" name="nome" >
-                    <option type="text" class="form-control" name="nome" ng-value="1">Masculino</option>
-                    <option type="text" class="form-control" name="nome" ng-value="2">Feminino</option>
-                    <option type="text" class="form-control" name="nome" ng-value="3">Outro</option>
+                  <label for="nome">Produto</label>
+                  <select ng-model="locacao.IdProduto " type="text" class="form-control" name="nome" >
+                    <option type="text" class="form-control" name="nome" ng-value="1">Consoles PS3</option>
+                    <option type="text" class="form-control" name="nome" ng-value="2">Nintendo</option>
+                    <option type="text" class="form-control" name="nome" ng-value="3">X-Box</option>
+                    <option type="text" class="form-control" name="nome" ng-value="4">Atari</option>
                   </select>
-                </div>  
+                </div> 
 
                 <div class="form-group">
-                  <label for="nome">Data Nascimento</label>
-                  <input type="date" ng-model="cliente.DataNascimento" class="form-control" name="nome">
-                </div>                      
+                  <label for="nome">Pacote</label>
+                  <select ng-model="locacao.IdPacote" type="text" class="form-control" name="nome" >
+                    <option type="text" class="form-control" name="nome" ng-value="1">Diário</option>
+                    <option type="text" class="form-control" name="nome" ng-value="2">Finde</option>
+                    <option type="text" class="form-control" name="nome" ng-value="3">Semanal</option>
+                  </select>
+                </div> 
+
+                <div class="form-group">
+                  <label for="nome">Opicionais</label>
+                  <select multiple ng-model="locacao.Extras" type="text" class="form-control" name="nome" >
+                    <option type="text" class="form-control" name="nome" ng-value="1">Jogos</option>
+                    <option type="text" class="form-control" name="nome" ng-value="2">Memory Card (Exceto para Atari e Nintendo)</option>
+                    <option type="text" class="form-control" name="nome" ng-value="3">Controles</option>
+                    <option type="text" class="form-control" name="nome" ng-value="4">Guia de Cheat</option>
+                  </select>
+                </div> 
+
+                <div class="form-group">
+                  <label for="nome">Valor Previsto</label>
+                  <input ng-model="locacao.Nome" type="text" class="form-control" name="nome">
+                </div>                                      
           
                 <button type="submit" class="btn btn-default">Cadastrar</button>
           
@@ -110,34 +120,83 @@
           </div>
         </div>     
 
+{{orcamentoFeito}}
+
+<!-- CONFIRMAR LOCAÇÃO -->
+
+  <div ng-if="!!orcamentoFeito">
+    <h1 class="page-header">Confirmar locação</h1>
+    <div>
+      <div>
+        Valor: R${{orcamentoFeito.ValorPrevisto}}
+        <button class="btn btn-default" ng-click="confirmarLocacao(orcamentoFeito)">Confirmar</button>       
+    </div>
+  </div>
+
+<!-- DEVOLVER LOCAÇÃO -->
+
+  <div ng-if="!!locacaoDevolver">
+    <h1 class="page-header">Devolver locação</h1>
+    <div>
+      <div>
+        {{orcamentoSelecionado}}
+        <button class="btn btn-default" ng-click="confirmarLocacao(locacaoDevolver)">Confirmar</button>       
+    </div>
+  </div>
+
 <!-- MODAL RELATÓRIOS -->
-  
-  <!-- <div class="botao-detalhes">
-    <button type="button" class="btn" ng-click="carregarInformacoes(livro.Isbn)" title="detalhes">Ver detalhes</button>
-  </div>        
+
+  <div>
+    <h1 class="page-header"></h1>      
+    <form novalidate name="formRelatorio">
+      <div class="form-group">
+        <label for="dataM">Buscar relatório dos últimos 30 dias até:</label>
+        <input type="date" ng-model="ateData" class="form-control" name="dataM">
+      </div>
+    <div>
+      <button type="submit" class="btn" ng-click="carregarRelatorioMensal(ateData)" title="detalhes">Carregar relatório mensal</button>
+    </div>  
+   </form>
+  </div>      
 
   <script type="text/ng-template" id="myModalContent.html">
-      <div class="modal-header">
-                      <button type="button" class="close" ng-click="cancel()">&times;</button>
-                      <h4 class="modal-title">Detalhes do livro</h4>
-                  </div>
-                  <div class="modal-body">
-                      <div>
-                        <h5>{{livroComp.Titulo}}</h5>
-                        <p>Autor: {{livroComp.Autor.Nome}}</p>
-                        <p>Gênero: {{livroComp.Genero}}</p>
-                        <p>Descrição: {{livroComp.Descricao}}</p>
-                        <p>Data da publicação: {{livroComp.DataPublicacao}}</p>
-                        <p>Isbn: {{livroComp.Isbn}}</p>
-                      </div>
-                      <button class="btn" ng-if="revisor && revisado(livroComp.Isbn)" ng-click="revisar(livroComp.Isbn, livroComp)">Revisar</button>
-                      <button class="btn" ng-if="publicar" ng-click="publicar(livroComp.Isbn, livroComp)">Publicar</button>
-                      <button class="btn" ng-click="excluirLivro(livroComp.Isbn, livroComp)">Excluir livro</button>
-                      <button class="btn" ng-click="carregarInformacoes2(livroComp)">Editar livro</button>
-                  </div>
-      <div class="modal-footer">
-          <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-      </div>  
-  </script> -->
+    <div class="modal-header">
+      <button type="button" class="close" ng-click="cancel()">&times;</button>
+      <h4 class="modal-title">Relatório Mensal</h4>
+    </div>
+    <div class="modal-body">
+      <div>
+        {{relatorioMensal}}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>  
+  </script>
+
+  <!-- MODAL RELATÓRIOS ATRASADOS-->
+
+  <div>
+    <h1 class="page-header"></h1>  
+    <div>
+      <button type="submit" class="btn" ng-click="carregarRelatorioAtrasados()" title="detalhes">Carregar relatório mensal</button>
+    </div>  
+  </div>      
+
+  <script type="text/ng-template" id="myModalContent2.html">
+    <div class="modal-header">
+      <button type="button" class="close" ng-click="cancel()">&times;</button>
+      <h4 class="modal-title">Relatório Atrasados</h4>
+    </div>
+    <div class="modal-body">
+        <div>
+          {{relatorioAtrasados}}
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>  
+  </script>
+
 
 </div>
