@@ -73,21 +73,23 @@ END;
 -- os Pedidos desde período. Deve imprimir o nome do material e quantidade total.
 DECLARE
  CURSOR C_ListaPro (pIDProduto in number, vData in date) IS
-     Select SUM(pi.Quantidade) as QuantidadeTotal, 
-     		pi.IdProduto
+     Select SUM(pi.Quantidade) as QuantidadePedido, pi.IdProduto as IdProduto
      From   PedidoItem pi
      INNER JOIN Pedido ped ON pi.IDPedido = ped.IDPedido
-     Where  EXTRACT(Month FROM DataPedido) = EXTRACT(Month FROM vData) AND EXTRACT(Year FROM DataPedido) = EXTRACT(Year FROM vData)
-     Group By pi.IdProduto;
- 
-
+     Where  EXTRACT(Month FROM ped.DataPedido) = EXTRACT(Month FROM vData) AND EXTRACT(Year FROM ped.DataPedido) = EXTRACT(Year FROM vData) AND ped.IdProduto = pIdProduto;
+ CURSOR C_ListaMate (pIDProduto in number) IS
+     Select SUM(pm.Quantidade) as QuantidadeTotal, pr.Nome as NomeMaterial
+     From   ProdutoMaterial  pm
+     INNER JOIN Produto pr ON pm.IDProduto = pr.IDProduto
+     Where  pm.IdProduto = pIDProduto;
   vProduto  Produto.IDProduto%TYPE;
   vData     Pedido.DataPedido%TYPE;
 BEGIN
    vProduto := 5;
-   vData := 
-   for reg in C_ListaPro(vProduto, vData) loop
-      
-      DBMS_OUTPUT.PUT_LINE('Material: ' || reg.NomeMaterial, 'Quantidade': || reg.QuantidadeTotal);
+   vData := ;
+   for mate in C_ListaMate(vProduto) loop
+      for pro in C_ListaPro(vProduto, vData) loop
+        DBMS_OUTPUT.PUT_LINE('Material: ' || mate.NomeMaterial, 'Quantidade': || (pro.QuantidadePedido * mate.QuantidadeTotal));
+      end loop;
     end loop;   
 END;
