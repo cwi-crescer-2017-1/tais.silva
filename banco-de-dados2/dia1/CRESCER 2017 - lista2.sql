@@ -72,18 +72,22 @@ END;
 -- a lista de materiais (incluindo a quantidade) é necessário para atender todos 
 -- os Pedidos desde período. Deve imprimir o nome do material e quantidade total.
 DECLARE
- CURSOR C_ListaPed (pIDPedido in number) IS
-     Select SUM(Quantidade * PrecoUnitario) as ValorTotal
-     From   PedidoItem
-     Where  IDPedido = pIDPedido;
+ CURSOR C_ListaPro (pIDProduto in number, vData in date) IS
+     Select SUM(pi.Quantidade) as QuantidadeTotal, 
+     		pi.IdProduto
+     From   PedidoItem pi
+     INNER JOIN Pedido ped ON pi.IDPedido = ped.IDPedido
+     Where  EXTRACT(Month FROM DataPedido) = EXTRACT(Month FROM vData) AND EXTRACT(Year FROM DataPedido) = EXTRACT(Year FROM vData)
+     Group By pi.IdProduto;
+ 
+
   vProduto  Produto.IDProduto%TYPE;
-  vData     Pedido.DataEntrega%TYPE;
+  vData     Pedido.DataPedido%TYPE;
 BEGIN
    vProduto := 5;
-   vData := 00;
-   for reg in C_ListaPed(vPedido)loop
-      update PEDIDO
-      set VALORPEDIDO = reg.ValorTotal
-      where IDPedido = vPedido;
+   vData := 
+   for reg in C_ListaPro(vProduto, vData) loop
+      
+      DBMS_OUTPUT.PUT_LINE('Material: ' || reg.NomeMaterial, 'Quantidade': || reg.QuantidadeTotal);
     end loop;   
 END;
