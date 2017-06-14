@@ -2,32 +2,36 @@
 -- Atualmente a tabela de Cidade tem registros duplicados (nome e UF).
 -- Faça um código (PL/SQL) que liste quais são as cidades duplicadas. 
 -- Após isso liste todos os clientes que estão relacionados com estas cidades
-DECLARE
-   CURSOR C_ListaDupli IS
-     Select Nome,
-            Uf
-     From   Cidade
-     Group  By Nome, Uf
-     Having count(1) > 1;
-   --
-   CURSOR C_ListaCli IS
-     Select cl.IDCliente,
-            cl.Nome as NomeCliente,
-            cd.Nome,
-            cd.Uf
-     From   Cidade cd
-     Inner Join Cliente cl on cl.IDCidade = cd.IDCidade
-     Order By cl.Nome;
-BEGIN
-  FOR cli IN C_ListaCli LOOP
-    FOR dup IN C_ListaDupli LOOP
-      if(cli.Nome = dup.Nome and cli.Uf = dup.Uf) then 
-        DBMS_OUTPUT.PUT_LINE('Nome: ' || cli.NomeCliente);
-      END IF;
-    END LOOP;
-   END LOOP;
-END;
+declare
+  cursor c_cidades is
+       select Nome, UF
+       from   Cidade
+       group  by Nome, UF
+       having count(1) >1;
+  ----
+  cursor c_clientes (pNome in varchar2,
+                     pUF   in varchar2) is
+     select cli.IDCliente,
+            cli.Nome as Nome_Cliente,
+            cid.Nome as Nome_Cidade,
+            cid.UF
+     from   Cliente cli
+      inner join Cidade cid on cid.IDCidade = cli.IDCidade
+     where  cid.Nome = pNome
+     and    cid.UF   = pUF;
+begin
 
+  FOR c in c_cidades LOOP     
+      dbms_output.put_line('Cidade: '|| c.Nome );
+      FOR i in c_clientes (c.Nome, c.UF) LOOP
+           dbms_output.put_line('Cliente: '|| i.Nome_Cliente );
+      END LOOP;
+  END LOOP;
+
+end;
+
+create index IX_Cidade_NomeUF   on Cidade (Nome,UF);
+create index IX_Cliente_Cidade  on Cliente (IDCidade);
 -- Exercício 2
 -- Faça uma rotina que permita atualizar o valor do pedido a partir dos seus itens.
 --Esta rotina deve receber por parametro o IDPedido e então verificar o valor total de seus itens (quantidade x valor unitário).
@@ -45,7 +49,23 @@ BEGIN
       where IDPedido = vPedido;
     end loop;   
 END;
+-- Versão do Nunes
+CREATE OR REPLACE
+PROCEDURE Atualiza_Valor_Pedido (pIDPedido IN INTEGER) AS
+  vValorPedido  Pedido.ValorPedido%type;
+BEGIN
 
+   Select SUM(Quantidade * PrecoUnitario)
+   into   vValorPedido
+   From   PedidoItem
+   Where  IDPedido = pIDPedido;
+   
+   Update Pedido
+   Set    ValorPedido = vValorPedido
+   Where  IDPedido    = pIDPedido;
+
+END;
+  
 -- Exercício 3
 -- Crie uma rotina que atualize todos os clientes que não realizaram nenhum 
 -- pedido nos últimos 6 meses (considere apenas o mês, dia 01 do 6º mês anterior). 
@@ -66,6 +86,7 @@ BEGIN
     end loop;   
 END;
 
+
 -- Exercício 4
 -- Faça uma rotina que receba dois parâmetros: IDProduto & Mês e Ano
 -- E então faça uma rotina que verifique no ANO/MÊS para o produto informado qual
@@ -76,20 +97,25 @@ DECLARE
      Select SUM(pi.Quantidade) as QuantidadePedido, pi.IdProduto as IdProduto
      From   PedidoItem pi
      INNER JOIN Pedido ped ON pi.IDPedido = ped.IDPedido
-     Where  EXTRACT(Month FROM ped.DataPedido) = EXTRACT(Month FROM vData) AND EXTRACT(Year FROM ped.DataPedido) = EXTRACT(Year FROM vData) AND ped.IdProduto = pIdProduto;
+     Where  EXTRACT(Month FROM ped.DataPedido) = EXTRACT(Month FROM vData) 
+            AND EXTRACT(Year FROM ped.DataPedido) = EXTRACT(Year FROM vData) AND ped.IdProduto = pIdProduto
+     Group By pi.IdProduto;
  CURSOR C_ListaMate (pIDProduto in number) IS
      Select SUM(pm.Quantidade) as QuantidadeTotal, pr.Nome as NomeMaterial
      From   ProdutoMaterial  pm
      INNER JOIN Produto pr ON pm.IDProduto = pr.IDProduto
-     Where  pm.IdProduto = pIDProduto;
+     Where  pm.IdProduto = pIDProduto
+     Group By pr.Nome;
   vProduto  Produto.IDProduto%TYPE;
   vData     Pedido.DataPedido%TYPE;
 BEGIN
    vProduto := 5;
-   vData := ;
+   vData := to_date('02/2014', 'mm/yyyy');
    for mate in C_ListaMate(vProduto) loop
       for pro in C_ListaPro(vProduto, vData) loop
-        DBMS_OUTPUT.PUT_LINE('Material: ' || mate.NomeMaterial, 'Quantidade': || (pro.QuantidadePedido * mate.QuantidadeTotal));
+        DBMS_OUTPUT.PUT_LINE('Material: ' || mate.NomeMaterial, 'Quantidade:' || (pro.QuantidadePedido * mate.QuantidadeTotal));
       end loop;
     end loop;   
 END;
+
+select* from pedido ;
