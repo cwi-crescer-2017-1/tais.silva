@@ -30,15 +30,12 @@ create or replace package body pck_cidades as
                  where IDCliente = i.IDCliente;
             END LOOP;
             delete cidade
-            where IDCidade != c.MenorId;
-        END LOOP;             
-      
-      end;
+            where IDCidade != c.MenorId AND Nome = c.Nome AND UF = c.UF;
+        END LOOP;              
       
     end eliminar_duplicadas; 
   ---------------------------------------------------------------------------------
 end;
-
 
 begin
   pck_cidades.eliminar_duplicadas;  
