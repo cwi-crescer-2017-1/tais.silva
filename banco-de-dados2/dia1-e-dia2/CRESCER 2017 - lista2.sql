@@ -100,12 +100,14 @@ DECLARE
      Where  EXTRACT(Month FROM ped.DataPedido) = EXTRACT(Month FROM vData) 
             AND EXTRACT(Year FROM ped.DataPedido) = EXTRACT(Year FROM vData) AND ped.IdProduto = pIdProduto
      Group By pi.IdProduto;
+     ------------------
  CURSOR C_ListaMate (pIDProduto in number) IS
      Select SUM(pm.Quantidade) as QuantidadeTotal, pr.Nome as NomeMaterial
      From   ProdutoMaterial  pm
      INNER JOIN Produto pr ON pm.IDProduto = pr.IDProduto
      Where  pm.IdProduto = pIDProduto
      Group By pr.Nome;
+     -------------------     
   vProduto  Produto.IDProduto%TYPE;
   vData     Pedido.DataPedido%TYPE;
 BEGIN
@@ -118,4 +120,4 @@ BEGIN
     end loop;   
 END;
 
-select* from pedido ;
+select* from pedido;
