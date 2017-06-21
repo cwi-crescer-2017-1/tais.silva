@@ -6,6 +6,7 @@
 package br.com.crescer.tema1;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,15 +26,17 @@ public class ParceladorGeral implements Parcelador {
     */
     @Override
     public Map<String, BigDecimal> calcular(BigDecimal valorParcelar, int numeroParcelas, double taxaJuros, Date dataPrimeiroVencimento){
-        Map map = new HashMap();
+        SimpleDateFormat FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+        Map map = new HashMap();        
+        Double parcelaComJuros = valorParcelar.doubleValue() + (valorParcelar.doubleValue() * (taxaJuros / 100)) / numeroParcelas;
+        
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(dataPrimeiroVencimento);
-        Double parcelaComJuros = (valorParcelar.doubleValue() * (taxaJuros / 100)) / numeroParcelas;
         
         int i = 0;
         while( i < numeroParcelas) {
-            i++;            
-            map.put(parcelaComJuros, calendar.getTime());
+            i++;      
+            map.put(FORMAT.format(calendar.getTime()), parcelaComJuros);
             calendar.add(Calendar.MONTH, 1);
         }
         return map;
