@@ -14,12 +14,8 @@ import java.text.Normalizer;
 public class StringGeral implements StringUtils {
     /*O método isEmpty deve validar se a string está nula e vazia.*/
     @Override
-    public boolean isEmpty(String string){
-        if(string != null && !string.isEmpty()){
-            return false;
-        } else {
-            return true;
-        }
+    public boolean isEmpty(String string){ 
+        return string == null || string.trim().isEmpty();
     };
     /*O método inverter deve inverter uma string caso a mesma não estiver vazia, exemplo - carlos > solrac*/
     @Override

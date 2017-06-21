@@ -298,3 +298,5 @@ __pycache__/
 
 # End of https://www.gitignore.io/api/visualstudio
 /java/tema1/target/
+/java/tema1/nbproject/
+/java/aula2/target/
