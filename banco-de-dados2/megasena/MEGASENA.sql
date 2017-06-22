@@ -114,49 +114,124 @@ create or replace package body pck_megasena is
       
    end geraProximoConcurso;
   ---------------------------------------------------------------------------------------------------------------------------------------
-      /* Busca apostas de um concurso */
-  function comparaDezena(pIdConcurso in number)return number as 
-        v_valorArrecadado number;
-        begin
-            select IdAposta
-            from aposta
-            where IdConcurso = pIdConcurso;            
-            
-            return v_valorArrecadado;
-        end buscaApostasPorConcurso;  
-  ---------------------------------------------------------------------------------------------------------------------------------------
     /*
      Questão "B" - implementar rotina que irá inserir todos os acertadores de um determinado concurso
     */
-  procedure atualizaAcertadores (pIdConcurso in integer) as
-        cursor c_apostasConcurso is
+  procedure atualizaAcertadores (pConcurso in integer) as
+        CURSOR c_apostasConcurso(pConcurso in number) is
             select IdAposta
             from aposta
-            where IdConcurso = pIdConcurso;
-        ---------------------------------------------------------
-        cursor c_numeroAposta (pIdAposta in number) is
-            select IdNumero_Aposta, numero
+            where IdConcurso = pConcurso;   
+        ------------------------------------------------------------------------        
+         CURSOR c_numero_Aposta (pIdAposta in number) is
+            select IdNumero_Aposta, numero 
             from numero_aposta
             where IdAposta = pIdAposta;
-        ----------------------------------------------------------
-        cursor c_comparaDezena (pIdNumero_Aposta in number) is
-            select IdNumero_Aposta, numero
-            from numero_aposta
-            inner join concurso con on 
-            where IdAposta = pIdAposta;
-        ----------------------------------------------------------
-      begin
+        ------------------------------------------------------------------------        
+         CURSOR c_tabelaPremiada (pConcurso in number) is
+            select app.acertos as tipoAcerto, COUNT(1) as total
+            from aposta_premiada app
+            inner join aposta apo on app.IdAposta = apo.IdAposta
+            where apo.IdConcurso = pConcurso
+            group by app.acertos;
+         ------------------------------------------------------------------------       
+         CURSOR c_tabelaPremiadaAposta (pConcurso in number) is
+            select app.IdAposta as IdAposta
+            from aposta_premiada app
+            inner join aposta apo on app.IdAposta = apo.IdAposta
+            where apo.IdConcurso = pConcurso;   
+        ------------------------------------------------------------------------    
+        /* Valores dos Prêmios */
+        vPremio NUMBER;
+        vPremio_Sena NUMBER;
+        vPremio_Quina NUMBER;
+        vPremio_Quadra NUMBER;
+        
+        /* Valores das Dezenas */
+        vPrimeira_Dezena NUMBER;
+        vSegunda_Dezena NUMBER;
+        vTerceira_Dezena NUMBER;
+        vQuarta_Dezena NUMBER;
+        vQuinta_Dezena NUMBER;
+        vSexta_Dezena NUMBER;
+        
+        /* Apostas Premiadas */
+        vIdAposta NUMBER;
+        vAcertos NUMBER;
+        vValor NUMBER;
+                
+        /* Verificação se Acumulou */
+        vAcumulou NUMBER;
+        
+    begin
+    -- limpa tabela aposta_premiada para passar nos testes
+        delete aposta_premiada
+        where EXISTS
+            (select *
+            from aposta_premiada app
+            inner join aposta apo on app.IdAposta = apo.IdAposta
+            where apo.IdConcurso = pConcurso);
+        
+        select Premio_Sena, Premio_Quina, Premio_Quadra, Primeira_Dezena, Segunda_Dezena, Terceira_Dezena, Quarta_Dezena, Quinta_Dezena, Sexta_Dezena
+        into vPremio_Sena, vPremio_Quina, vPremio_Quadra, vPrimeira_Dezena, vSegunda_Dezena, vTerceira_Dezena, vQuarta_Dezena, vQuinta_Dezena, vSexta_Dezena
+        from concurso 
+        where IdConcurso = pConcurso;
+     
+        vAcumulou := 1;
       
-        FOR apo in c_apostasConcurso LOOP            
-            FOR num in c_numeroAposta (apo.IdAposta) LOOP
-                FOR numap in c_numeroAposta (num.IdNumero_Aposta) LOOP
-                    
-                END LOOP;
+        FOR apo in c_apostasConcurso(pConcurso) LOOP
+            vAcertos := 0;
+            FOR num in c_numero_aposta (apo.IdAposta) LOOP
+                IF(num.numero = vPrimeira_Dezena) THEN 
+                    vAcertos := vAcertos + 1;
+                ELSIF(num.numero = vPrimeira_Dezena) THEN
+                    vAcertos := vAcertos + 1;
+                ELSIF(num.numero = vSegunda_Dezena) THEN
+                    vAcertos := vAcertos + 1;
+                ELSIF(num.numero = vTerceira_Dezena) THEN
+                    vAcertos := vAcertos + 1;
+                ELSIF(num.numero = vQuarta_Dezena) THEN
+                    vAcertos := vAcertos + 1;
+                ELSIF(num.numero = vQuinta_Dezena) THEN
+                    vAcertos := vAcertos + 1;
+                ELSIF(num.numero = vSexta_Dezena) THEN
+                    vAcertos := vAcertos + 1;
+                END IF;               
             END LOOP;
-        END LOOP;              
+
+            IF(vAcertos = 6) THEN
+                   insert into aposta_premiada (IdAposta, Acertos, Valor) values (apo.IdAposta, vAcertos, 0.0);
+                   vAcumulou := 0;
+                ELSIF(vAcertos = 5) THEN
+                   insert into aposta_premiada (IdAposta, Acertos, Valor) values (apo.IdAposta, vAcertos, 0.0);
+                ELSIF(vAcertos = 4) THEN
+                   insert into aposta_premiada (IdAposta, Acertos, Valor) values (apo.IdAposta, vAcertos, 0.0);
+            END IF;
+        END LOOP;  
+
+       FOR pre in c_tabelaPremiada(pConcurso) LOOP
+            vPremio := 0;
+            vValor := 0;
             
-      buscaApostasPorConcurso(pIdConcurso);
-      
+            IF(pre.tipoAcerto = 6) THEN 
+                vPremio := vPremio_Sena;
+            ELSIF(pre.tipoAcerto = 5) THEN
+                vPremio := vPremio_Quina;
+            ELSIF(pre.tipoAcerto = 4) THEN
+                vPremio := vPremio_Quadra;
+            END IF;
+
+            vValor :=  vPremio / pre.total;
+
+            FOR preAposta in c_tabelaPremiadaAposta(pConcurso) LOOP
+                update aposta_premiada
+                set valor = vValor
+                where IdAposta = preAposta.IdAposta and acertos = pre.tipoAcerto;
+            END LOOP;
+            
+            update concurso set acumulou = vAcumulou WHERE IdConcurso = pConcurso;            
+              
+        END LOOP;
    end atualizaAcertadores;
    
 begin
