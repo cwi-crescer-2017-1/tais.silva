@@ -112,7 +112,7 @@ public class CalendarUtilsTest {
         CALENDAR.set(1985, 0, 29, 0, 0, 0); // 1985-01-29 00:00:00    
 
         final String tempo = calendarUtils.tempoDecorrido(CALENDAR.getTime());
-        final String format = String.format("%s ano(s), %s messe(s) e %s dia(s)", 
+        final String format = String.format("%s ano(s), %s mes(es) e %s dia(s)", 
                 between.getYears(), 
                 between.getMonths(), 
                 between.getDays());
