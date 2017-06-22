@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Taís
  */
-public class FileUtisImpl implements FileUtis {
+public class FileUtilsImpl implements FileUtis {
     /* O método mk deve criar um arquivo ou diretório. */
     @Override
     public boolean mk(String string){     
@@ -27,7 +27,7 @@ public class FileUtisImpl implements FileUtis {
                 }
             }            
         } catch (IOException ex) {
-            Logger.getLogger(FileUtisImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
         }        
         return false;
     };
@@ -42,7 +42,7 @@ public class FileUtisImpl implements FileUtis {
             try {
                 throw new Exception("Arquivo é inválido!");
             } catch (Exception ex) {
-                Logger.getLogger(FileUtisImpl.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FileUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }        
         return false;
@@ -73,7 +73,7 @@ public class FileUtisImpl implements FileUtis {
             try {
                 throw new Exception("Arquivo é inválido!");
             } catch (Exception ex) {
-                Logger.getLogger(FileUtisImpl.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FileUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }        
         return false;       

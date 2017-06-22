@@ -6,12 +6,10 @@
 package br.com.crescer.aula2;
 
 /**
- *
- * @author Taís
+ * @author carloshenrique
  */
-public class Teste {
-    public static void main(String[] args) {
-        String novo = new ReaderUtilsImpl().read("olu.txt");
-        System.out.println(novo);
-    }
+public interface ReaderUtils {
+    
+    String read(String string);
+    
 }
