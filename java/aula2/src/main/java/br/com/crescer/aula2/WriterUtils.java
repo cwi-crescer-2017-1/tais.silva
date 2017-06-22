@@ -6,11 +6,10 @@
 package br.com.crescer.aula2;
 
 /**
- *
- * @author Taís
+ * @author carloshenrique
  */
-public class Teste {
-    public static void main(String[] args) {
-        new WriterUtilsImpl().write("olu.txt", "olaaaaaaaaaaaaaaaaaa");
-    }
+public interface WriterUtils {
+
+    void write(String file, String conteudo);
+
 }
