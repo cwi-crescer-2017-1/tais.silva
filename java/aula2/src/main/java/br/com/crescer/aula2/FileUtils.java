@@ -8,7 +8,7 @@ package br.com.crescer.aula2;
 /**
  * @author carloshenrique
  */
-public interface FileUtis {
+public interface FileUtils {
 
     boolean mk(String string);
 

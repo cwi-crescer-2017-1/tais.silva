@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Taís
  */
-public class FileUtilsImpl implements FileUtis {
+public class FileUtilsImpl implements FileUtils {
     /* O método mk deve criar um arquivo ou diretório. */
     @Override
     public boolean mk(String string){     
