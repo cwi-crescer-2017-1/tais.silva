@@ -9,6 +9,6 @@ package br.com.crescer.aula3.mapeamento;
  *
  * @author tais.silva
  */
-public interface PaisDao extends Dao<Pais>{
+public interface EstadoDao extends Dao<Estado>{
     
 }

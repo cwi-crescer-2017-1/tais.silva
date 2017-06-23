@@ -5,10 +5,19 @@
  */
 package br.com.crescer.aula3.mapeamento;
 
+import java.io.File;
+
 /**
- *
- * @author tais.silva
+ * @author carloshenrique
  */
-public interface PaisDao extends Dao<Pais>{
+public interface SQLUtils {
+
+    void runFile(String filename);
+
+    String executeQuery(String query);
     
+    void importCSV(File file);
+    
+    File importCSV(String query);
+
 }

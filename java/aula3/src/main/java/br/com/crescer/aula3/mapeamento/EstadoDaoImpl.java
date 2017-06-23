@@ -14,21 +14,20 @@ import java.sql.SQLException;
  *
  * @author tais.silva
  */
-public class PaisDaoImpl implements PaisDao { 
+public class EstadoDaoImpl implements EstadoDao { 
     
-    private static final String INSERT_PAIS = "INSERT INTO PAIS (ID, NOME, SIGLA) VALUES (?,?, ?)";
-    private static final String UPDATE_PAIS = "UPDATE PAIS SET NOME = ? WHERE ID = ?";
-    private static final String DELETE_PAIS = "DELETE FROM PAIS WHERE ID = ?";
-    private static final String LOAD_PAIS = "SELECT * FROM PAIS WHERE ID = ?";
+    private static final String INSERT_ESTADO = "INSERT INTO PESSOA (ID, NOME) VALUES (?,?)";
+    private static final String UPDATE_ESTADO = "UPDATE PESSOA SET NOME = ? WHERE ID = ?";
+    private static final String DELETE_ESTADO = "DELETE FROM PESSOA WHERE ID = ?";
+    private static final String LOAD_ESTADO = "SELECT * FROM PESSOA WHERE ID = ?";
 
     @Override
-    public void insert(Pais pais) {
+    public void insert(Estado estado) {
         try (final PreparedStatement preparedStatement
-                = ConnectionUtils.getConnection().prepareStatement(INSERT_PAIS)) {
+                = ConnectionUtils.getConnection().prepareStatement(INSERT_ESTADO)) {
 
-            preparedStatement.setLong(1, pais.getId());
-            preparedStatement.setString(2, pais.getNome());
-            preparedStatement.setString(3, pais.getNome());
+            preparedStatement.setLong(1, estado.getId());
+            preparedStatement.setString(2, estado.getNome());
             preparedStatement.executeUpdate();
         } catch (final SQLException e) {
             System.err.format("SQLException: %s", e);
@@ -36,11 +35,11 @@ public class PaisDaoImpl implements PaisDao {
     }
 
     @Override
-    public void update(Pais pais) {
+    public void update(Estado estado) {
         try (final PreparedStatement preparedStatement
-                = ConnectionUtils.getConnection().prepareStatement(UPDATE_PAIS)) {
-            preparedStatement.setString(1, pais.getNome());
-            preparedStatement.setLong(2, pais.getId());
+                = ConnectionUtils.getConnection().prepareStatement(UPDATE_ESTADO)) {
+            preparedStatement.setString(1, estado.getNome());
+            preparedStatement.setLong(2, estado.getId());
             preparedStatement.executeUpdate();
         } catch (final SQLException e) {
             System.err.format("SQLException: %s", e);
@@ -48,10 +47,10 @@ public class PaisDaoImpl implements PaisDao {
     }
 
     @Override
-    public void delete(Pais pais) {
+    public void delete(Estado estado) {
         try (final PreparedStatement preparedStatement
-                = ConnectionUtils.getConnection().prepareStatement(DELETE_PAIS)) {
-            preparedStatement.setLong(1, pais.getId());
+                = ConnectionUtils.getConnection().prepareStatement(DELETE_ESTADO)) {
+            preparedStatement.setLong(1, estado.getId());
             preparedStatement.executeUpdate();
         } catch (final SQLException e) {
             System.err.format("SQLException: %s", e);
@@ -59,16 +58,16 @@ public class PaisDaoImpl implements PaisDao {
     }
 
     @Override
-    public Pais loadBy(Long id) {
-        final Pais pais = new Pais();
+    public Estado loadBy(Long id) {
+        final Estado estado = new Estado();
         try (final PreparedStatement preparedStatement
-                = ConnectionUtils.getConnection().prepareStatement(LOAD_PAIS)) {
+                = ConnectionUtils.getConnection().prepareStatement(LOAD_ESTADO)) {
             preparedStatement.setLong(1, id);
             try (final ResultSet resultSet = preparedStatement.executeQuery()) {
 
                 while (resultSet.next()) {
-                    pais.setId(resultSet.getLong("ID"));
-                    pais.setNome(resultSet.getString("NOME"));
+                    estado.setId(resultSet.getLong("ID"));
+                    estado.setNome(resultSet.getString("NOME"));
                 }
             } catch (final SQLException e) {
                 System.err.format("SQLException: %s", e);
@@ -76,6 +75,6 @@ public class PaisDaoImpl implements PaisDao {
         } catch (final SQLException e) {
             System.err.format("SQLException: %s", e);
         }
-        return pais;
+        return estado;
     }
 }
