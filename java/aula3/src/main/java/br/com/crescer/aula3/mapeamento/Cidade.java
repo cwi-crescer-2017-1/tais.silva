@@ -14,6 +14,8 @@ public class Cidade {
 
     private String nome;
 
+    private Long estado;
+    
     public Long getId() {
         return id;
     }
@@ -29,4 +31,13 @@ public class Cidade {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public Long getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Long estado) {
+        this.estado = estado;
+    }
+    
 }

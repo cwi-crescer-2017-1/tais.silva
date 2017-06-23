@@ -28,7 +28,7 @@ public class PaisDaoImpl implements PaisDao {
 
             preparedStatement.setLong(1, pais.getId());
             preparedStatement.setString(2, pais.getNome());
-            preparedStatement.setString(3, pais.getNome());
+            preparedStatement.setString(3, pais.getSigla());
             preparedStatement.executeUpdate();
         } catch (final SQLException e) {
             System.err.format("SQLException: %s", e);

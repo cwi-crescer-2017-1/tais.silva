@@ -1,4 +1,6 @@
-INSERT INTO pais (id, nome, sigla) VALUES (3, 'TESTE', 'TT');
+INSERT INTO pais (id, nome, sigla)
+
+ VALUES (3, 'TESTE', 'TT');
 
 INSERT INTO pais (id, nome, sigla) VALUES (4, 'TESTE', 'TT');
 

@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class CidadeDaoImpl implements CidadeDao { 
     
-    private static final String INSERT_CIDADE = "INSERT INTO PESSOA (ID, NOME) VALUES (?,?)";
+    private static final String INSERT_CIDADE = "INSERT INTO PESSOA (ID, NOME, ESTADO) VALUES (?,?, ?)";
     private static final String UPDATE_CIDADE = "UPDATE PESSOA SET NOME = ? WHERE ID = ?";
     private static final String DELETE_CIDADE = "DELETE FROM PESSOA WHERE ID = ?";
     private static final String LOAD_CIDADE = "SELECT * FROM PESSOA WHERE ID = ?";
@@ -28,6 +28,7 @@ public class CidadeDaoImpl implements CidadeDao {
 
             preparedStatement.setLong(1, cidade.getId());
             preparedStatement.setString(2, cidade.getNome());
+            preparedStatement.setLong(3, cidade.getEstado());
             preparedStatement.executeUpdate();
         } catch (final SQLException e) {
             System.err.format("SQLException: %s", e);
