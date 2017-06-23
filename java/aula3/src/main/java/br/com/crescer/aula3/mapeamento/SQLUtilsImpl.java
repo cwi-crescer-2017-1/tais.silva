@@ -12,13 +12,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -149,7 +147,7 @@ public class SQLUtilsImpl implements SQLUtils {
     }
 
     @Override
-    public File importCSV(String query) {
+    public File exportCSV(String query) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
