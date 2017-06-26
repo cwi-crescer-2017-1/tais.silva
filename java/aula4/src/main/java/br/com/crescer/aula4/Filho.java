@@ -1,29 +1,36 @@
 package br.com.crescer.aula4;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * @author carloshenrique
  */
 @Entity
-public class Cliente {
+public class Filho {
 
     @Id // Identifica a PK
     @Basic(optional = false)
-    @Column(name = "ID_CLIENTE")
+    @Column(name = "ID_FILHO")
     private Long id;
 
     @Basic(optional = false)
-    @Column(name = "NM_CLIENTE")
+    @Column(name = "NM_FILHO")
     private String nome;
 
-    public Cliente() {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_PESSOA")
+    private Pessoa pessoa;
+
+    public Filho() {
     }
 
-    public Cliente(Long id, String nome) {
+    public Filho(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -42,6 +49,14 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
 }

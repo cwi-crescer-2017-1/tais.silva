@@ -1,7 +1,6 @@
 package br.com.crescer.aula4;
 
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,25 +8,23 @@ import javax.persistence.Id;
  * @author carloshenrique
  */
 @Entity
-public class Cliente {
+public class Pessoa {
 
     @Id // Identifica a PK
     @Basic(optional = false)
-    @Column(name = "ID_CLIENTE")
     private Long id;
 
     @Basic(optional = false)
-    @Column(name = "NM_CLIENTE")
     private String nome;
 
-    public Cliente() {
+    public Pessoa() {
     }
 
-    public Cliente(Long id, String nome) {
+    public Pessoa(Long id, String nome) {
         this.id = id;
         this.nome = nome;
-    }
-
+    }    
+    
     public Long getId() {
         return id;
     }
