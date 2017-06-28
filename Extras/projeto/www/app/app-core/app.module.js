@@ -1,1 +1,1 @@
-angular.module('app', []);
+angular.module('app', ['ngRoute', 'auth', 'ui.bootstrap', 'ngAnimate', 'toastr', 'ngStorage', 'luegg.directives']);
