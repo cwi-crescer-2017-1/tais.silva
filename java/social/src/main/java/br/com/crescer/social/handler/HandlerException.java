@@ -1,4 +1,4 @@
-package br.com.crescer.aula7.handler;
+package br.com.crescer.social.handler;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

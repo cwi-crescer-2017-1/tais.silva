@@ -5,13 +5,13 @@
  */
 package br.com.crescer.social.repositorio;
 
-import br.com.crescer.social.entidade.Usuario;
-import org.springframework.data.repository.CrudRepository;
+import br.com.crescer.social.entidade.Post;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  *
  * @author tais.silva
  */
-public interface UsuarioRepositorio extends CrudRepository<Usuario, Long>  {
+public interface PostPageRepositorio extends PagingAndSortingRepository<Post, Long>  {
     
 }
