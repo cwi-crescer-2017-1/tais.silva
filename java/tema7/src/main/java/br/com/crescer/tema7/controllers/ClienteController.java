@@ -32,9 +32,9 @@ public class ClienteController {
         return clienteService.save(cliente);
     }
     
-    @DeleteMapping
-    public void remove(Cliente t) {
-        clienteService.remove(t);
+    @DeleteMapping("/{id}")
+    public void remove(@PathVariable Long id) {
+        clienteService.remove(clienteService.loadById(id));
     }
     
     @GetMapping("/{id}")

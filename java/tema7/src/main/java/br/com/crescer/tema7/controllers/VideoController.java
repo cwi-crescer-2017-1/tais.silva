@@ -32,9 +32,9 @@ public class VideoController {
         return videoService.save(video);
     }
     
-    @DeleteMapping
-    public void remove(Video t) {
-        videoService.remove(t);
+    @DeleteMapping("/{id}")
+    public void remove(@PathVariable Long id) {
+        videoService.remove(videoService.loadById(id));
     }
     
     @GetMapping("/{id}")

@@ -32,9 +32,9 @@ public class LocacaoController {
         return locacaoService.save(locacao);
     }
     
-    @DeleteMapping
-    public void remove(Locacao t) {
-        locacaoService.remove(t);
+    @DeleteMapping("/{id}")
+    public void remove(@PathVariable Long id) {
+        locacaoService.remove(locacaoService.loadById(id));
     }
     
     @GetMapping("/{id}")

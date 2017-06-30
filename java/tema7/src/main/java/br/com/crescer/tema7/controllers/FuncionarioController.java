@@ -32,9 +32,9 @@ public class FuncionarioController {
         return funcionarioService.save(funcionario);
     }
     
-    @DeleteMapping
-    public void remove(Funcionario t) {
-        funcionarioService.remove(t);
+    @DeleteMapping("/{id}")
+    public void remove(@PathVariable Long id) {
+        funcionarioService.remove(funcionarioService.loadById(id));
     }
     
     @GetMapping("/{id}")

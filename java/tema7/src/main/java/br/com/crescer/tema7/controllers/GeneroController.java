@@ -32,9 +32,9 @@ public class GeneroController {
         return generoService.save(genero);
     }
     
-    @DeleteMapping
-    public void remove(Genero t) {
-        generoService.remove(t);
+    @DeleteMapping("/{id}")
+    public void remove(@PathVariable Long id) {
+        generoService.remove(loadById(id));
     }
     
     @GetMapping("/{id}")
