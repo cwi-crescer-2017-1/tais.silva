@@ -32,7 +32,7 @@ public class ReacaoController {
         return reacaoService.findAll();
     }  
    
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     public Reacao loadById(@PathVariable Long id) {
         return reacaoService.loadById(id);
     }
@@ -42,7 +42,7 @@ public class ReacaoController {
         return reacaoService.save(reacao);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = "/{id}")
     public void remove(@PathVariable Long id) {
         reacaoService.remove(reacaoService.loadById(id));
     }   

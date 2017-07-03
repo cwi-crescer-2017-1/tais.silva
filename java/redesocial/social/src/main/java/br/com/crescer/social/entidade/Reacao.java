@@ -6,7 +6,6 @@
 package br.com.crescer.social.entidade;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -42,7 +41,7 @@ public class Reacao implements Serializable {
     @Column(name = "ID")
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_REACAO")
     @SequenceGenerator(name = "SEQ_REACAO", sequenceName = "SEQ_REACAO", allocationSize = 1)
-    private BigDecimal id;
+    private Long id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DATA_ATUAL")
@@ -58,20 +57,20 @@ public class Reacao implements Serializable {
     public Reacao() {
     }
 
-    public Reacao(BigDecimal id) {
+    public Reacao(Long id) {
         this.id = id;
     }
 
-    public Reacao(BigDecimal id, Date dataAtual) {
+    public Reacao(Long id, Date dataAtual) {
         this.id = id;
         this.dataAtual = dataAtual;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

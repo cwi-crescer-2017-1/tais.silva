@@ -5,6 +5,7 @@
  */
 package br.com.crescer.social.entidade;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -44,12 +45,12 @@ public class Usuario implements Serializable {
     @Column(name = "ID")
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_USUARIO")
     @SequenceGenerator(name = "SEQ_USUARIO", sequenceName = "SEQ_USUARIO", allocationSize = 1)
-    private BigDecimal id;
+    private Long id;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", unique = true)
     private String email;
     @Basic(optional = false)
     @NotNull
@@ -76,19 +77,21 @@ public class Usuario implements Serializable {
     private Set<Comentario> comentarioSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private Set<Reacao> reacaoSet;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "solicitante")
     private Set<Amizade> amizadeSet;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "solicitado")
     private Set<Amizade> amizadeSet1;
 
     public Usuario() {
     }
 
-    public Usuario(BigDecimal id) {
+    public Usuario(Long id) {
         this.id = id;
     }
 
-    public Usuario(BigDecimal id, String email, String nome, Character sexo, Date dataNascimento, String senha) {
+    public Usuario(Long id, String email, String nome, Character sexo, Date dataNascimento, String senha) {
         this.id = id;
         this.email = email;
         this.nome = nome;
@@ -97,11 +100,11 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

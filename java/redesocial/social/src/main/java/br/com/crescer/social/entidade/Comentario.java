@@ -6,7 +6,6 @@
 package br.com.crescer.social.entidade;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -43,7 +42,7 @@ public class Comentario implements Serializable {
     @Column(name = "ID")
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_COMENTARIO")
     @SequenceGenerator(name = "SEQ_COMENTARIO", sequenceName = "SEQ_COMENTARIO", allocationSize = 1)
-    private BigDecimal id;
+    private Long id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DATA_ATUAL")
@@ -64,21 +63,21 @@ public class Comentario implements Serializable {
     public Comentario() {
     }
 
-    public Comentario(BigDecimal id) {
+    public Comentario(Long id) {
         this.id = id;
     }
 
-    public Comentario(BigDecimal id, Date dataAtual, String texto) {
+    public Comentario(Long id, Date dataAtual, String texto) {
         this.id = id;
         this.dataAtual = dataAtual;
         this.texto = texto;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

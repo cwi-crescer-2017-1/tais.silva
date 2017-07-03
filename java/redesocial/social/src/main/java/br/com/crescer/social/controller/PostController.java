@@ -37,7 +37,7 @@ public class PostController {
         return postService.findAll();
     }  
    
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     public Post loadById(@PathVariable Long id) {
         return postService.loadById(id);
     }
@@ -47,7 +47,7 @@ public class PostController {
         return postService.save(post);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = "/{id}")
     public void remove(@PathVariable Long id) {
         postService.remove(postService.loadById(id));
     }   

@@ -6,7 +6,6 @@
 package br.com.crescer.social.entidade;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -42,7 +41,7 @@ public class Amizade implements Serializable {
     @Column(name = "ID")
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_AMIZADE")
     @SequenceGenerator(name = "SEQ_AMIZADE", sequenceName = "SEQ_AMIZADE", allocationSize = 1)
-    private BigDecimal id;
+    private Long id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DATA_ATUAL")
@@ -62,21 +61,21 @@ public class Amizade implements Serializable {
     public Amizade() {
     }
 
-    public Amizade(BigDecimal id) {
+    public Amizade(Long id) {
         this.id = id;
     }
 
-    public Amizade(BigDecimal id, Date dataAtual, Character situacao) {
+    public Amizade(Long id, Date dataAtual, Character situacao) {
         this.id = id;
         this.dataAtual = dataAtual;
         this.situacao = situacao;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

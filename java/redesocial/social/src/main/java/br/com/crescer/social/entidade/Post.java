@@ -6,7 +6,6 @@
 package br.com.crescer.social.entidade;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -46,7 +45,7 @@ public class Post implements Serializable {
     @Column(name = "ID")
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_POST")
     @SequenceGenerator(name = "SEQ_POST", sequenceName = "SEQ_POST", allocationSize = 1)
-    private BigDecimal id;
+    private Long id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DATA_ATUAL")
@@ -71,21 +70,21 @@ public class Post implements Serializable {
     public Post() {
     }
 
-    public Post(BigDecimal id) {
+    public Post(Long id) {
         this.id = id;
     }
 
-    public Post(BigDecimal id, Date dataAtual, String texto) {
+    public Post(Long id, Date dataAtual, String texto) {
         this.id = id;
         this.dataAtual = dataAtual;
         this.texto = texto;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

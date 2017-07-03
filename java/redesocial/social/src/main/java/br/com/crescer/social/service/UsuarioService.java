@@ -22,17 +22,17 @@ public class UsuarioService {
     @Autowired
     UsuarioRepositorio usuarioRepositorio;   
     
-    public Usuario save(Usuario usuario) {      
+    public Usuario save(Usuario usuario) {  
       usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha())); 
       return usuarioRepositorio.save(usuario);
     }
-    
+   
     public void remove(Usuario t) {
       usuarioRepositorio.delete(t);
     }
     
-    public Usuario findByEmail(String string) {
-      return usuarioRepositorio.findByEmail(string);
+    public Usuario findByEmail(String email) {
+      return usuarioRepositorio.findByEmail(email);
     }
     
     public Usuario loadById(Long id) {

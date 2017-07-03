@@ -32,7 +32,7 @@ public class ComentarioController {
         return comentarioService.findAll();
     }  
    
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     public Comentario loadById(@PathVariable Long id) {
         return comentarioService.loadById(id);
     }
@@ -42,7 +42,7 @@ public class ComentarioController {
         return comentarioService.save(comentario);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = "/{id}")
     public void remove(@PathVariable Long id) {
         comentarioService.remove(comentarioService.loadById(id));
     }   

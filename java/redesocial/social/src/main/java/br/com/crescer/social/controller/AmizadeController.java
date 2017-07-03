@@ -32,7 +32,7 @@ public class AmizadeController {
         return amizadeService.findAll();
     }  
    
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     public Amizade loadById(@PathVariable Long id) {
         return amizadeService.loadById(id);
     }
@@ -42,7 +42,7 @@ public class AmizadeController {
         return amizadeService.save(amizade);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = "/{id}")
     public void remove(@PathVariable Long id) {
         amizadeService.remove(amizadeService.loadById(id));
     }   
