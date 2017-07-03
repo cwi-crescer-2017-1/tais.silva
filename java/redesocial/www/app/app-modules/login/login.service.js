@@ -8,8 +8,8 @@ angular
             return $http.post(`$(urlUsuarios)/usuario`);
         };
 
-        function criarUsuario() {
-            return $http.post(`$(urlUsuarios)/registrar`);
+        function salvarUsuario(usuario) {
+            return $http.post(urlUsuarios, usuario);
         };
         
         function resetarSenha() {
@@ -18,7 +18,7 @@ angular
 
         return {
             carregar: carregarUsuario,
-            criar: criarUsuario,
+            salvar: salvarUsuario,
             resetar: resetarSenha
         };
     });

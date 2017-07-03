@@ -1,3 +1,4 @@
-angular.module("app")
+angular.module("app.core")
 		.constant('AppConstants', {
 		});
+

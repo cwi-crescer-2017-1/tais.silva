@@ -1,0 +1,82 @@
+.home-top {
+	background-image: linear-gradient(to bottom right, lightblue, lightgreen);
+	height: 47px;
+}
+
+.home-top .container {
+	height: 100%;
+}
+
+.home-top .row {
+	/*display: flex;*/
+	/*align-items: center;*/
+	height: 100%;
+}
+
+.home-top span {
+	color: white;
+	transform: translateY(50%);
+}
+
+.main {
+	margin: 60px 0;
+	padding: 60px 0;
+	max-height: 375px;
+}
+
+/*.background {
+	background-image: url('/img/cute-cartoon-cat.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 50%;
+	top: 0;
+	right: 0;
+}*/
+
+.main-pic {
+	height: 100%;	
+	object-fit: contain; /*faz imagem caber na div*/
+}
+
+.container-img {
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+.acessar:hover {
+	color: grey;
+}
+
+.botao-cadastrar:hover {
+	background-color: lightblue;
+}
+.botao-entrar:hover {
+	background-color: lightgreen;
+}
+
+/*utilidades*/
+.p-relat {
+	position: relative;
+}
+.p-abs {
+	position: absolute;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.bold {
+	font-weight: bold;
+}
+
+.privado {
+	width: 100%;
+	min-height: 100vh;
+	background-color: #e6ecf0;
+}

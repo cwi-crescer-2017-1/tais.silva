@@ -10,6 +10,10 @@ angular
                 controller: 'LoginController',
                 templateUrl: 'app/app-modules/login/login.html'
             })
+            .when('/privado', {
+                controller: 'LoginController',
+                templateUrl: 'app/app-modules/privado/privado.html'
+            })
 
                 // privado
             .when('/adminstrativo', {
