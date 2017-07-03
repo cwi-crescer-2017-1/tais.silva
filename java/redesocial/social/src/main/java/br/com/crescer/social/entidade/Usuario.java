@@ -73,7 +73,7 @@ public class Usuario implements Serializable {
     private String senha;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 500)
     @Column(name = "IMAGEM")
     private String imagem;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")

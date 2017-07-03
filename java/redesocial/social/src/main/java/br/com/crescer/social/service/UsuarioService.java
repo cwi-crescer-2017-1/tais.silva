@@ -7,11 +7,14 @@ package br.com.crescer.social.service;
 
 import br.com.crescer.social.entidade.Usuario;
 import br.com.crescer.social.repositorio.UsuarioRepositorio;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -47,6 +50,16 @@ public class UsuarioService {
                 .getUsername();
     }
     
+    public Usuario getUsuario() {
+        return Optional
+                .ofNullable(SecurityContextHolder.getContext().getAuthentication())
+                .map(Authentication::getPrincipal)
+                .map(User.class::cast)
+                .map(User::getUsername)
+                .map(usuarioRepositorio::findByEmail)
+                .orElse(null);
+    }
+    
     public Usuario save(Usuario usuario) {  
       usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha())); 
       return usuarioRepositorio.save(usuario);
@@ -77,5 +90,9 @@ public class UsuarioService {
     
     public Iterable<Usuario> findAll() {
       return usuarioRepositorio.findAll();
+    }
+    
+    public Iterable<Usuario> findAllNovos(List<Long> amigos) {  
+      return usuarioRepositorio.findByIdNotIn(amigos);
     }
 }

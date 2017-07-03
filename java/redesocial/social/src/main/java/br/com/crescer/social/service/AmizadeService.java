@@ -6,7 +6,11 @@
 package br.com.crescer.social.service;
 
 import br.com.crescer.social.entidade.Amizade;
+import br.com.crescer.social.entidade.Usuario;
 import br.com.crescer.social.repositorio.AmizadeRepositorio;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,26 +18,63 @@ import org.springframework.stereotype.Service;
  *
  * @author tais.silva
  */
-
 @Service
 public class AmizadeService {
 
     @Autowired
-    AmizadeRepositorio amizadeRepositorio;   
+    AmizadeRepositorio amizadeRepositorio;
     
+    @Autowired
+    UsuarioService usuarioService;
+    
+    public Iterable<Amizade> findAll() {        
+        return amizadeRepositorio.findAllBySolicitante(usuarioService.getUsuario());
+    }
+    
+    public Iterable<Usuario> findAllNovos() {      
+        List<Amizade> amigos = (List<Amizade>) findAllAceitos();
+        
+        List<Long> result = new ArrayList<>();
+        
+        amigos
+            .stream()
+            .map(Amizade::getSolicitado)
+            .map(Usuario::getId)
+            .forEach(result::add);       
+        
+        return usuarioService.findAllNovos(result);
+    }
+    
+    public Iterable<Amizade> findAllPendentes() {                
+        return amizadeRepositorio.findAllBySolicitanteAndSituacao(usuarioService.getUsuario(), 'p');
+    }
+    
+    public Iterable<Amizade> findAllAceitos() {                
+        return amizadeRepositorio.findAllBySolicitanteAndSituacao(usuarioService.getUsuario(), 'a');
+    }
+
     public Amizade save(Amizade t) {
-      return amizadeRepositorio.save(t);
+        return amizadeRepositorio.save(t);
     }
-    
-    public void remove(Amizade t) {
-      amizadeRepositorio.delete(t);
+
+    public void remove(Long id) {        
+        amizadeRepositorio.delete(loadById(id));
     }
-    
+
     public Amizade loadById(Long id) {
-      return amizadeRepositorio.findOne(id);
+        return amizadeRepositorio.findOne(id);
     }
     
-    public Iterable<Amizade> findAll() {
-      return amizadeRepositorio.findAll();
+    public Amizade save(Long idSolicitado) {
+        Amizade amizade = new Amizade();
+        amizade.setSolicitado(usuarioService.loadById(idSolicitado));
+        amizade.setDataAtual(new Date());
+        amizade.setSolicitante(usuarioService.loadById(usuarioService.getUsuario().getId()));
+        amizade.setSituacao('p');
+        return amizadeRepositorio.save(amizade);
+    }
+
+    public Amizade atualizar(Long id) {
+        return amizadeRepositorio.save(loadById(id));
     }
 }

@@ -6,6 +6,7 @@
 package br.com.crescer.social.repositorio;
 
 import br.com.crescer.social.entidade.Amizade;
+import br.com.crescer.social.entidade.Usuario;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -13,5 +14,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author tais.silva
  */
 public interface AmizadeRepositorio extends CrudRepository<Amizade, Long>  {
-    
+    Amizade findById(Long id);
+    Iterable<Amizade> findAllBySolicitante(Usuario solicitante);
+    Iterable<Amizade> findAllBySolicitanteAndSituacao(Usuario solicitante, Character situacao);
 }

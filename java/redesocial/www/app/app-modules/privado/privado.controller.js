@@ -6,6 +6,8 @@ angular
 			$location.path('/home');
 		}
 
+		$scope.solicitantes = ()=> {Login}
+
 		$scope.usuario = null;
 
 		logado = null;

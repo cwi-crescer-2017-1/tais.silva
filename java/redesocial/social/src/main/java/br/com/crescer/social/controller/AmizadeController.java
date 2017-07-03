@@ -6,12 +6,14 @@
 package br.com.crescer.social.controller;
 
 import br.com.crescer.social.entidade.Amizade;
+import br.com.crescer.social.entidade.Usuario;
 import br.com.crescer.social.service.AmizadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,10 +29,25 @@ public class AmizadeController {
     @Autowired
     private AmizadeService amizadeService;
     
-    @GetMapping
+    @GetMapping (value = "/listar")
     public Iterable<Amizade> listar() {
         return amizadeService.findAll();
-    }  
+    } 
+    
+    @GetMapping (value = "/novos")
+    public Iterable<Usuario> listarNovos() {
+        return amizadeService.findAllNovos();
+    } 
+    
+    @GetMapping (value = "/pendentes")
+    public Iterable<Amizade> listarPendentes() {
+        return amizadeService.findAllPendentes();
+    }
+    
+    @GetMapping (value = "/aceitas")
+    public Iterable<Amizade> listarAceitos() {
+        return amizadeService.findAllAceitos();
+    }
    
     @GetMapping(value = "/{id}")
     public Amizade loadById(@PathVariable Long id) {
@@ -38,12 +55,17 @@ public class AmizadeController {
     }
     
     @PostMapping
-    public Amizade save(@RequestBody Amizade amizade) {
-        return amizadeService.save(amizade);
+    public Amizade save(@RequestBody Long idSolicitado) {
+        return amizadeService.save(idSolicitado);
     }
     
-    @DeleteMapping(value = "/{id}")
-    public void remove(@PathVariable Long id) {
-        amizadeService.remove(amizadeService.loadById(id));
-    }   
+    @PutMapping (value = "/aceitar")
+    public Amizade aceitar(@RequestBody Long id) {
+        return amizadeService.atualizar(id);
+    }
+    
+    @DeleteMapping (value = "/rejeitar")
+    public void rejeitar(@RequestBody Long id) {
+        amizadeService.remove(id);
+    }  
 }

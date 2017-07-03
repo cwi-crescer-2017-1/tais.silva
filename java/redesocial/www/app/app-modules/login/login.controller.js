@@ -6,10 +6,7 @@ angular
 
 		$scope.cadastrar = (usuario) => 
 		{
-			var myDate = new Date(usuario.dataNascimento);
-			var dataEditada =   myDate.getFullYear() + "-" + (myDate.getMonth() + 1) + "-" +  myDate.getDate() + " 00:00:00" ;	
-			usuario.dataNascimento = dataEditada;
-
+			usuario.dataNascimento = formatarData(usuario.dataNascimento);
 			console.log(usuario);
 
 			LoginService
@@ -19,6 +16,11 @@ angular
 					(r)=> {toastr.warning('Erro no cadastro.', 'Depois tente novamente!')}
 				)
 		};
+
+		function formatarData(data){
+			var myDate = new Date(data);
+			return myDate.getFullYear() + "-" + ('0' + (myDate.getMonth() + 1)).slice(-2) + "-" +  ('0' + myDate.getDate()).slice(-2) + " 00:00:00";	
+		}
         
 		if(authService.isAutenticado()){
 			$location.path('/privado');
