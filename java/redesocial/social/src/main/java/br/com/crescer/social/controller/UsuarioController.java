@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,14 +44,8 @@ public class UsuarioController {
     }  
     
     @GetMapping
-    public Map<String, Object> pegarUsuario(Authentication authentication) {
-        User usuario = Optional.ofNullable(authentication)
-                                .map(Authentication::getPrincipal)
-                                .map(User.class::cast)
-                                .orElse(null);
-        final HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("dados", usuario);
-        return hashMap;
+    public Map<String, Object> usuarioLogado(Authentication authentication) {
+        return usuarioService.usuarioLogado(authentication);
     }
     
     @GetMapping(value = "/email/{email:.+}")
@@ -61,6 +56,12 @@ public class UsuarioController {
     @PostMapping
     public Usuario save(@RequestBody Usuario usuario) {    
         return usuarioService.save(usuario);
+    }
+    
+    @PutMapping
+    public Usuario atualizar(@RequestBody Usuario usuarioAtualizado, Authentication authentication) {        
+        Usuario logado = usuarioService.findByEmail(usuarioService.usuarioLogadoEmail(authentication));
+        return usuarioService.atualizar(usuarioAtualizado, logado);
     }
     
     @DeleteMapping(value = "/{id}")

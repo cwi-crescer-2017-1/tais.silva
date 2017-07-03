@@ -16,7 +16,7 @@ angular
     ]);
 
 // Configurações utilizadas pelo módulo de autenticação (authService)
-angular.module('app')
+angular.module('app.core')
 		.constant('authConfig', {
 
 			// Obrigatória - URL da API que retorna o usuário

@@ -11,14 +11,18 @@ angular
                 templateUrl: 'app/app-modules/login/login.html'
             })
             .when('/privado', {
-                controller: 'LoginController',
+                controller: 'PrivadoController',
                 templateUrl: 'app/app-modules/privado/privado.html'
+            })
+            .when('/perfil', {
+                controller: 'PerfilController',
+                templateUrl: 'app/app-modules/perfil/perfil.html'
             })
 
                 // privado
-            .when('/adminstrativo', {
-              controller: 'AdminstrativoController',
-              templateUrl: 'app/app-modules/adminstrativo/adminstrativo.html',
+            .when('/privado', {
+              controller: 'PrivadoController',
+              templateUrl: 'app/app-modules/privado/privado.html',
               resolve: {
                 // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
                 autenticado: function (authService) {

@@ -1,10 +1,93 @@
-<div class="home-top">
+<div class="privado-top">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <span class="left">MINHA REDE SOCIAL SEM NOME, AINDA...</span> <a href="#!/login"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
+                <span class="left">MINHA REDE SOCIAL SEM NOME, AINDA...</span> <a ng-click="logout()"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
             </div>
         </div>
     </div>
 </div>
-<div class="privado"></div>
+<section class="privado">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="user p-relat">
+					<img class="user-pic" src="/img/user1.jpg" alt="">
+					<span class="username">{{usuario.nome}}</span>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="post">
+					<img class="user-pic-post" src="/img/user1.jpg" alt="">
+					<textarea class="input" type="text" rows="3" placeholder="O que você acha que está pensando?"></textarea>
+					<div class="botao-grupo-postar">
+						<button class="botao-postar">Postar</button>
+					</div>
+				</div>
+				<div class="feed-item clearfix">
+					<div class="clearfix p-relat feed-item-header">
+						<img class="user-pic-feed" src="/img/user2.jpg" alt="">
+						<span class="username-feed">Firelilgal</span>
+						<label for="curtir"><span hidden>curtir</span><i class="fa fa-heart-o fa-2x curtir p-abs" title="curtir"></i></label>
+					</div>
+					<div class="feed-post">
+						<div>"No, you can't have a pony. My dad said". OK!!</div>
+						<img class="feed-img" src="/img/disaster-girl.jpg" alt="">
+					</div>
+				</div>
+				<div class="feed-item clearfix">
+					<div class="clearfix p-relat feed-item-header">
+						<img class="user-pic-feed" src="/img/user2.jpg" alt="">
+						<span class="username-feed">Firelilgal</span>
+						<label for="curtir"><span hidden>curtir</span><i class="fa fa-heart-o fa-2x curtir p-abs" title="curtir"></i></label>
+					</div>
+					<div class="feed-post">
+						<div>"No, you can't have a pony. My dad said". OK!!</div>
+						<img class="feed-img" src="/img/disaster-girl.jpg" alt="">
+					</div>
+				</div>
+				<div class="carregar">
+					<span class="carregar-mais">Carregar mais...</span>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="solicitacoes">
+					<span class="bold">Solicitações de amizade</span>
+					<div class="solicitacao clearfix">
+						<img class="user-pic-solic" src="/img/user2.jpg" alt="">
+						<div class="bold user-add">Firelilgal</div>
+						<span class="add"><i class="fa fa-check"></i></span> 
+						<span class="rejeitar"><i class="fa fa-close"></i></span>
+					</div>
+					<div class="solicitacao clearfix">
+						<img class="user-pic-solic" src="/img/user2.jpg" alt="">
+						<div class="bold user-add">Firelilgal</div>
+						<span class="add"><i class="fa fa-check"></i></span> 
+						<span class="rejeitar"><i class="fa fa-close"></i></span>
+					</div>
+					<div class="solicitacao clearfix">
+						<img class="user-pic-solic" src="/img/user2.jpg" alt="">
+						<div class="bold user-add">Firelilgal</div>
+						<span class="add"><i class="fa fa-check"></i></span> 
+						<span class="rejeitar"><i class="fa fa-close"></i></span>
+					</div>
+				</div>
+				<div class="solicitacoes">
+					<span class="bold">Solicitações pendentes</span>
+					<div class="solicitacao clearfix">
+						<img class="user-pic-solic" src="/img/user2.jpg" alt="">
+						<div class="bold user-add">Firelilgal</div>
+					</div>
+					<div class="solicitacao clearfix">
+						<img class="user-pic-solic" src="/img/user2.jpg" alt="">
+						<div class="bold user-add">Firelilgal</div>
+					</div>
+					<div class="solicitacao clearfix">
+						<img class="user-pic-solic" src="/img/user2.jpg" alt="">
+						<div class="bold user-add">Firelilgal</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

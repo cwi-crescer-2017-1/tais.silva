@@ -71,6 +71,11 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "SENHA")
     private String senha;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "IMAGEM")
+    private String imagem;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private Set<Post> postSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
@@ -146,6 +151,14 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     public Set<Post> getPostSet() {
