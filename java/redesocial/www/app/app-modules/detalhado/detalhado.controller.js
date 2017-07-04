@@ -1,6 +1,6 @@
 angular
 	.module('app.core')
-	.controller('PrivadoController', function ($scope, authService, toastr, LoginService, PrivadoService, $routeParams, PostsService) {
+	.controller('DetalhadoController', function ($scope, authService, toastr, LoginService, PrivadoService, $routeParams) {
 
 		if(!authService.isAutenticado()){
 			$location.path('/home');
@@ -22,17 +22,6 @@ angular
 				.then((r) => { $scope.usuario = r.data; console.log(r.data); $scope.usuario.senha = null}),
 				(r)=> {toastr.warning('Erro na atualização.', 'Depois tente novamente!');};
 		}
-
-		// Carregar posts
-		$scope.posts = null;
-		carregarPosts();
-		function carregarPosts(){
-			PostsService
-				.carregarPosts()
-				.then((r) => { $scope.posts = r.data; console.log(r.data);}),
-				(r)=> {toastr.warning('Erro na atualização.', 'Depois tente novamente!');};
-		}
-		// Fim carregar posts
 
 		// Solicitações de amizade
 		$scope.solicitantes = null;

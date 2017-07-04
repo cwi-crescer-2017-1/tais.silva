@@ -1,0 +1,36 @@
+	<div class="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 top-col">
+                <span class="left">MINHA REDE SOCIAL SEM NOME, AINDA...</span> <a href="#!/login"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="perfil">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5 col-sm-offset-1">
+				<h1 class="page-header annie">Pesquise por novos amigos:</h1>
+				<form novalidate name="pesquisarForm">
+		
+					<div class="form-group">
+						<label for="nome" hidden>Digite o nome ou email:</label>
+						<input ng-model="filtro.nome" type="text" class="form-control" name="nome" placeholder="Nome ou email" required>
+					</div>
+
+					<div ng-repeat="usuario in usuarios | filter: filtro">
+						<div class="clearfix">
+							<img class="user-pic-solic" src="{{usuario.imagem}}" alt="" ng-click="verPerfil(usuario.id)">
+							<div class="bold user-add" ng-click="verPerfil(usuario.id)">{{usuario.nome}}</div>
+						</div>
+					</div>
+			
+				</form>
+			</div>
+			<div class="col-sm-6 perfil-img-container">
+				<img src="/img/orange-cat-head.png" alt="">
+			</div>
+		</div>
+	</div>
+</section>

@@ -5,6 +5,14 @@
   src: local('Annie Use Your Telescope'), local('AnnieUseYourTelescope'), url(https://fonts.gstatic.com/s/annieuseyourtelescope/v6/2cuiO5VmaR09C8SLGEQjGka-vN3cnM35kL5a2hXIL_33rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
+
+.annie {
+	font-family: 'Annie Use Your Telescope';
+	font-size: 30px;
+}
+.rosa {
+	color: #f5adb4;
+}
 /*utilidades*/
 .p-relat {
 	position: relative;
@@ -62,10 +70,14 @@ body {
 }
 .top-col > span,
 .top-col .right {
-	transform: translateY(30%);
+	/*transform: translateY(30%);*/
 }
 .top-col {
-	transform: translateY(22%);
+	height: 100%;
+	/*transform: translateY(22%);*/
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 .main {
 	margin: 30px 0;
@@ -119,11 +131,12 @@ body {
 	/*background-size: 100% 50%;*/
 	background: linear-gradient(to bottom, #49a3af 50%, #fff 50%);
 	padding: 20px;
+	text-align: center;
 }
 
 .user-pic {
-	width: 75px;
-	height: 75px;
+	width: 220px;
+	height: 220px;
 }
 .user-pic-post {
 	width: 50px;
@@ -147,8 +160,10 @@ body {
 .username {
 	text-transform: uppercase;
 	font-weight: bold;
-	position: relative;
-	top: 10px;
+	margin-top: 15px;
+}
+.usermail {
+	margin-top: 10px;
 }
 
 .post {
@@ -167,7 +182,7 @@ body {
 
 .botao-grupo-postar {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	margin-top: 10px;
 }
 .botao-postar {
@@ -282,8 +297,9 @@ body {
 }
 .menu {
 	height: 100%;
-	display: inline;
 	margin-left: 30px;
+	display: flex;
+	align-items: center;
 }
 .menu > * {
 	margin-left: 30px;
@@ -298,9 +314,18 @@ button.search {
 	border: none;
 	background: none;
 }
-.fa-search {
-	top: 0;
+.fa-upload {
+	top: 13px;
 	right: 20px;
 }
+.inputFoto {
+	border: 1px solid #797979;
+	border-radius: 17px;	
+	padding: 10px 20px;
+	margin-left: 65px;	
+}
 
-
+.acoes-amigos:hover {
+	background-color: #e8f5fd; 
+	cursor: pointer;
+} 

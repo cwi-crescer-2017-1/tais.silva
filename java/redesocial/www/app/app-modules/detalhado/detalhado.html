@@ -4,11 +4,12 @@
             <div class="col-sm-12 top-col">
                 <span class="left bold annie rosa">Cute Cat</span>
                 <div class="menu">
-					<a href="#!/privado"><span><i class="fa fa-bar-chart"></i> Dashboard</span></a>
-					<a href="#!/amigos"><span><i class="fa fa-user-o"></i> Amigos</span></a>
-					<a href="#!/perfil"><span><i class="fa fa-cogs"></i> Meu perfil</span></a>
-					<a href="#!/pesquisar"><span><i class="fa fa-search"></i> Pesquisar pessoas</span></a>
-				</div>
+                	<a href="#!/amigos"><span><i class="fa fa-user-o"></i> Amigos</span></a>
+                	<a href="#!/perfil"><span><i class="fa fa-cogs"></i> Meu perfil</span></a>
+                	<a href="#!/pesquisar"><span><i class="fa fa-search"></i> Pesquisar pessoas</span></a>
+                	<!-- <span class="p-relat"><label for="pesquisar" hidden>Pesquisar pessoas</label><input class="pesquisar" type="text" name="pesquisar" placeholder="Pesquisar pessoas"><button class="search"><i class="fa fa-search p-abs"></i></button></span> -->
+                </div>
+
                 <a href="#!/login" ng-click="logout()"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
             </div>
         </div>
@@ -19,14 +20,14 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="user p-relat">
-					<img class="user-pic" src="{{usuario.imagem}}" alt="">
-					<div class="username">{{usuario.nome}}</div>
-					<div class="usermail">{{usuario.email}}</div>
+					<img class="user-pic" src="/img/user1.jpg" alt="">
+					<div class="username">Uglygir</div>
+					<div class="usermail">girl@gmail.com</div>
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<div class="post">
-					<img class="user-pic-post" src="{{usuario.imagem}}" alt="">
+					<img class="user-pic-post" src="/img/user1.jpg" alt="">
 					<textarea class="input" type="text" rows="3" placeholder="O que você acha que está pensando?"></textarea>
 					<div class="botao-grupo-postar">
 						<span class="p-relat">
@@ -35,17 +36,31 @@
 						<button class="botao-postar">Postar</button>
 					</div>
 				</div>
-				<div class="feed-item clearfix" ng-repeat="post in posts | OrderBy: post.dataAtual">
+				<div class="feed-item clearfix">
 					<div class="clearfix p-relat feed-item-header">
-						<img class="user-pic-feed" src="{{post.usuario.imagem}}" alt="">
-						<span class="username-feed">{{post.usuario.nome}}</span>
+						<img class="user-pic-feed" src="/img/user2.jpg" alt="">
+						<span class="username-feed">Firelilgal</span>
 						<label for="curtir"><span hidden>curtir</span><i class="fa fa-heart-o fa-2x curtir p-abs" title="curtir"></i></label>
 					</div>
-					<div class="feed-post" ng-if="!post.imagem === null">
-						<div>{{post.texto}}</div>
-						<img class="feed-img" src="{{post.imagem}}" alt="">
+					<div class="feed-post">
+						<div>"No, you can't have a pony. My dad said". OK!!</div>
+						<img class="feed-img" src="/img/disaster-girl.jpg" alt="">
 					</div>
-				</div>				
+				</div>
+				<div class="feed-item clearfix">
+					<div class="clearfix p-relat feed-item-header">
+						<img class="user-pic-feed" src="/img/user2.jpg" alt="">
+						<span class="username-feed">Firelilgal</span>
+						<label for="curtir"><span hidden>curtir</span><i class="fa fa-heart-o fa-2x curtir p-abs" title="curtir"></i></label>
+					</div>
+					<div class="feed-post">
+						<div>"No, you can't have a pony. My dad said". OK!!</div>
+						<img class="feed-img" src="/img/disaster-girl.jpg" alt="">
+					</div>
+				</div>
+				<div class="carregar">
+					<span class="carregar-mais">Carregar mais...</span>
+				</div>
 			</div>
 			
 			<div class="col-lg-3">

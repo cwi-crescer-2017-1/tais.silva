@@ -2,8 +2,6 @@ angular
 	.module('app')
 	.controller('LoginController', function ($scope, authService, $location, $localStorage, toastr, LoginService) {
 
-		$usuarioLogado = null;
-
 		$scope.cadastrar = (usuario) => 
 		{
 			usuario.dataNascimento = formatarData(usuario.dataNascimento);
@@ -29,13 +27,10 @@ angular
 	  $scope.login = function (usuario) {
 	    authService.login(usuario)
 	      .then(
-	        function (response) {
-	          // $log.debug(response);
+	        function (response) {						
 	          toastr.success('Login realizado com sucesso.', 'Você está dentro!');
-
 	        },
 	        function (response) {
-	          // $log.debug(response);
 	          toastr.warning('Erro no login.', 'Depois tente novamente!');
 	        });
 	  };

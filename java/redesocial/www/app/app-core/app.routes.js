@@ -18,6 +18,18 @@ angular
                 controller: 'PerfilController',
                 templateUrl: 'app/app-modules/perfil/perfil.html'
             })
+            .when('/pesquisar', {
+                controller: 'PesquisarController',
+                templateUrl: 'app/app-modules/pesquisar/pesquisar.html'
+            })
+            .when('/amigos', {
+                controller: 'AmigosController',
+                templateUrl: 'amigos.html'
+            })
+            .when('/detalhado/:id', {
+                controller: 'DetalhadoController',
+                templateUrl: 'detalhado.html'
+            })
 
                 // privado
             .when('/privado', {
