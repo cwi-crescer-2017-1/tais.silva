@@ -8,6 +8,7 @@ package br.com.crescer.social.service;
 import br.com.crescer.social.entidade.Amizade;
 import br.com.crescer.social.entidade.Usuario;
 import br.com.crescer.social.repositorio.AmizadeRepositorio;
+import br.com.crescer.social.repositorio.UsuarioRepositorio;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,6 +27,9 @@ public class AmizadeService {
     
     @Autowired
     UsuarioService usuarioService;
+    
+    @Autowired
+    UsuarioRepositorio usuarioRepositorio;
     
     public Iterable<Amizade> findAll() {        
         return amizadeRepositorio.findAllBySolicitante(usuarioService.getUsuario());
@@ -52,6 +56,10 @@ public class AmizadeService {
     
     public Iterable<Amizade> findAllSolitacoesPendentes() {                
         return amizadeRepositorio.findAllBySolicitadoAndSituacao(usuarioService.getUsuario(), 'p');
+    }
+    
+    public Iterable<Amizade> findAllSolitacoesAceitos() {                
+        return amizadeRepositorio.findAllBySolicitadoAndSituacao(usuarioService.getUsuario(), 'a');
     }
     
     public Iterable<Amizade> findAllAceitos() {                
@@ -84,4 +92,11 @@ public class AmizadeService {
         amizade.setSituacao('a');
         return amizadeRepositorio.save(amizade);
     }
+    
+//    public Iterable<Usuario> amigosDoUsuario(Long id) {
+//        Iterable<Usuario> lista = usuarioRepositorio.findBySolicitadoInLista(findAllAceitos());
+//        lista.
+//                .add(usuarioRepositorio.findBySolicitanteInLista(findAllSolitacoesAceitos()));
+//        return lista;
+//    }
 }

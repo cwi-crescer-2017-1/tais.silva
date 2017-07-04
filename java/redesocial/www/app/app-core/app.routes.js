@@ -24,11 +24,11 @@ angular
             })
             .when('/amigos', {
                 controller: 'AmigosController',
-                templateUrl: 'amigos.html'
+                templateUrl: 'app/app-modules/amigos/amigos.html'
             })
-            .when('/detalhado/:id', {
+            .when('/detalhado/:email', {
                 controller: 'DetalhadoController',
-                templateUrl: 'detalhado.html'
+                templateUrl: 'app/app-modules/detalhado/detalhado.html'
             })
 
                 // privado

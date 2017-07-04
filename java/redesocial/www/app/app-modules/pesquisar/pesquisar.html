@@ -1,8 +1,32 @@
-	<div class="top">
+<div class="top grande">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 top-col">
-                <span class="left">MINHA REDE SOCIAL SEM NOME, AINDA...</span> <a href="#!/login"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
+                <span class="left bold annie rosa">Cute Cat</span>
+                <div class="menu">
+					<a href="#!/privado"><span><i class="fa fa-bar-chart"></i> Dashboard</span></a>
+					<a href="#!/amigos"><span><i class="fa fa-user-o"></i> Amigos</span></a>
+					<a href="#!/perfil"><span><i class="fa fa-cogs"></i> Meu perfil</span></a>
+					<a href="#!/pesquisar"><span><i class="fa fa-search"></i> Pesquisar pessoas</span></a>
+				</div>
+                <a href="#!/login" ng-click="logout()"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="top pequena">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 top-col">
+                <span class="left bold annie rosa">Cute Cat</span>
+                <div class="menu">
+					<a href="#!/privado"><span><i class="fa fa-bar-chart"></i> </span></a>
+					<a href="#!/amigos"><span><i class="fa fa-user-o"></i> </span></a>
+					<a href="#!/perfil"><span><i class="fa fa-cogs"></i> </span></a>
+					<a href="#!/pesquisar"><span><i class="fa fa-search"></i> </span></a>
+				</div>
+                <a href="#!/login" ng-click="logout()"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
             </div>
         </div>
     </div>
@@ -19,10 +43,14 @@
 						<input ng-model="filtro.nome" type="text" class="form-control" name="nome" placeholder="Nome ou email" required>
 					</div>
 
-					<div ng-repeat="usuario in usuarios | filter: filtro">
-						<div class="clearfix">
-							<img class="user-pic-solic" src="{{usuario.imagem}}" alt="" ng-click="verPerfil(usuario.id)">
-							<div class="bold user-add" ng-click="verPerfil(usuario.id)">{{usuario.nome}}</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="feed-item clearfix" ng-repeat="usuario in usuarios | filter: filtro">
+									<img class="user-pic-solic" src="{{usuario.imagem}}" alt="" ng-click="verPerfil(usuario.id)">
+									<div class="bold user-add" ng-click="verPerfil(usuario.email)">{{usuario.nome}}</div>
+								</div>
+							</div>
 						</div>
 					</div>
 			

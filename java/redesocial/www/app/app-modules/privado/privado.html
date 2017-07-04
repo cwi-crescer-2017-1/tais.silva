@@ -1,4 +1,4 @@
-<div class="top">
+<div class="top grande">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 top-col">
@@ -8,6 +8,23 @@
 					<a href="#!/amigos"><span><i class="fa fa-user-o"></i> Amigos</span></a>
 					<a href="#!/perfil"><span><i class="fa fa-cogs"></i> Meu perfil</span></a>
 					<a href="#!/pesquisar"><span><i class="fa fa-search"></i> Pesquisar pessoas</span></a>
+				</div>
+                <a href="#!/login" ng-click="logout()"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="top pequena">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 top-col">
+                <span class="left bold annie rosa">Cute Cat</span>
+                <div class="menu">
+					<a href="#!/privado"><span><i class="fa fa-bar-chart"></i> </span></a>
+					<a href="#!/amigos"><span><i class="fa fa-user-o"></i> </span></a>
+					<a href="#!/perfil"><span><i class="fa fa-cogs"></i> </span></a>
+					<a href="#!/pesquisar"><span><i class="fa fa-search"></i> </span></a>
 				</div>
                 <a href="#!/login" ng-click="logout()"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
             </div>
@@ -29,10 +46,10 @@
 					<img class="user-pic-post" src="{{usuario.imagem}}" alt="">
 					<textarea class="input" type="text" rows="3" placeholder="O que você acha que está pensando?" ng-model="postSalvo.texto"></textarea>
 					<div class="botao-grupo-postar">
-						<span class="p-relat">
-							<label for="foto" hidden>Foto</label><input class="inputFoto" type="text" name="foto" ng-model="postSalvo.imagem" placeholder="Foto"><i class="fa fa-upload p-abs"></i>
-						</span>
-						<button class="botao-postar" ng-click="salvarPost(postSalvo)">Postar</button>
+							<span class="p-relat">
+								<label for="foto" hidden>Foto</label><input class="inputFoto" type="text" name="foto" ng-model="postSalvo.imagem" placeholder="Foto"><i class="fa fa-upload p-abs"></i>
+							</span>			
+							<button class="botao-postar" ng-click="salvarPost(postSalvo)">Postar</button>									
 					</div>
 				</div>
 				<div class="feed-item clearfix" ng-repeat="post in posts | orderBy: '-dataAtual'">
@@ -42,7 +59,7 @@
 						<label for="curtir"><span hidden>curtir</span><i class="fa fa-heart-o fa-2x curtir p-abs" title="curtir" ng-class="{active:post.reagido}" ng-click="reagir(post)"></i></label>
 					</div>
 					<div class="feed-post">
-						<div>{{post.texto}}</div>
+						<div class="texto">{{post.texto}}</div>
 						<img class="feed-img" src="{{post.imagem}}" alt="" ng-if="post.imagem !== null">
 					</div>
 				</div>				

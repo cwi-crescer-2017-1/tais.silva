@@ -1,16 +1,32 @@
-<div class="top">
+<div class="top grande">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 top-col">
                 <span class="left bold annie rosa">Cute Cat</span>
                 <div class="menu">
-                	<a href="#!/amigos"><span><i class="fa fa-user-o"></i> Amigos</span></a>
-                	<a href="#!/perfil"><span><i class="fa fa-cogs"></i> Meu perfil</span></a>
-                	<a href="#!/pesquisar"><span><i class="fa fa-search"></i> Pesquisar pessoas</span></a>
-                	<!-- <span class="p-relat"><label for="pesquisar" hidden>Pesquisar pessoas</label><input class="pesquisar" type="text" name="pesquisar" placeholder="Pesquisar pessoas"><button class="search"><i class="fa fa-search p-abs"></i></button></span> -->
-                </div>
+					<a href="#!/privado"><span><i class="fa fa-bar-chart"></i> Dashboard</span></a>
+					<a href="#!/amigos"><span><i class="fa fa-user-o"></i> Amigos</span></a>
+					<a href="#!/perfil"><span><i class="fa fa-cogs"></i> Meu perfil</span></a>
+					<a href="#!/pesquisar"><span><i class="fa fa-search"></i> Pesquisar pessoas</span></a>
+				</div>
+                <a href="#!/login" ng-click="logout()"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <a href="#!/login"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
+<div class="top pequena">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 top-col">
+                <span class="left bold annie rosa">Cute Cat</span>
+                <div class="menu">
+					<a href="#!/privado"><span><i class="fa fa-bar-chart"></i> </span></a>
+					<a href="#!/amigos"><span><i class="fa fa-user-o"></i> </span></a>
+					<a href="#!/perfil"><span><i class="fa fa-cogs"></i> </span></a>
+					<a href="#!/pesquisar"><span><i class="fa fa-search"></i> </span></a>
+				</div>
+                <a href="#!/login" ng-click="logout()"><span class="right bold acessar">Sair &nbsp<i class="fa fa-arrow-left"></i></span></a>
             </div>
         </div>
     </div>
@@ -18,45 +34,11 @@
 <section class="privado">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3">
-				<div class="user p-relat">
-					<img class="user-pic" src="/img/user1.jpg" alt="">
-					<div class="username">Uglygir</div>
-					<div class="usermail">girl@gmail.com</div>
-				</div>
-			</div>
 			<div class="col-lg-6">
-				<div class="feed-item clearfix">
-					<img class="user-pic-feed" src="/img/user2.jpg" alt="">
-					<div>Uglygir</div>	
-					<div>uglygir@gmail.com</div>
-				</div>
-			</div>
-			
-			<div class="col-lg-3">
-				<div class="solicitacoes acoes-amigos">
-					<span class="bold">Adicionar aos amigos</span>
-				</div>
-				<div class="solicitacoes acoes-amigos">
-					<span class="bold">Remover amizade</span>
-				</div>
-				<div class="solicitacoes">
-					<span class="bold">Solicitações de amizade</span>
-					<div class="solicitacao clearfix" ng-repeat="solicitante in solicitantes">
-						<img class="user-pic-solic" src="{{solicitante.solicitante.imagem}}" alt="">
-						<div class="bold user-add">{{solicitante.solicitante.nome}}</div>
-						<span class="add" ng-click="aceitar(solicitante.id)"><i class="fa fa-check"></i></span> 
-						<span class="rejeitar" ng-click="rejeitar(solicitante.id)"><i class="fa fa-close"></i></span>
-					</div>
-					<div ng-if="solicitantes.length === 0">Você não tem solicitações de amizades no momento!</div>
-				</div>
-				<div class="solicitacoes">
-					<span class="bold">Solicitações pendentes</span>
-					<div class="solicitacao clearfix" ng-repeat="pendente in pendentes">
-						<img class="user-pic-solic" src="{{pendente.solicitado.imagem}}" alt="">
-						<div class="bold user-add">{{pendente.solicitado.nome}}</div>
-					</div>
-					<div ng-if="pendentes.length === 0">Você não tem solicitações pendentes de aceitação no momento!</div>
+				<div class="feed-item clearfix" ng-repeat="amigo in amigos">
+					<img class="user-pic-feed" src="{{amigo.solicitado.imagem}}" alt="">
+					<div>{{amigo.solicitado.nome}}</div>	
+					<div>{{amigo.solicitado.email}}</div>
 				</div>
 			</div>
 		</div>

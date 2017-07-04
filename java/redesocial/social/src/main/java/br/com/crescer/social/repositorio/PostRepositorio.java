@@ -6,6 +6,9 @@
 package br.com.crescer.social.repositorio;
 
 import br.com.crescer.social.entidade.Post;
+import br.com.crescer.social.entidade.Usuario;
+import java.util.Collection;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -13,5 +16,6 @@ import org.springframework.data.repository.CrudRepository;
  * @author tais.silva
  */
 public interface PostRepositorio extends CrudRepository<Post, Long>  {
-    
+   // List<Post> findByUsuarioInLista(Iterable<Usuario> lista);
+    //Iterable<Post> findByUsuario(Usuario usuario);
 }

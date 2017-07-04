@@ -49,7 +49,7 @@ public class Reacao implements Serializable {
     @Column(name = "DATA_ATUAL")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtual;
-    @JsonManagedReference
+//    @JsonManagedReference
     @JoinColumn(name = "POST", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Post post;

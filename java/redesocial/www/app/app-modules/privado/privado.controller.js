@@ -33,13 +33,13 @@ angular
 			console.log("post usuario", post)
 			PostsService
 				.salvarPost(post)
-				.then((r) => { console.log("post antes",r.data); $scope.postSalvo = null; carregarPosts(); console.log("post depois", $scope.postSalvo);}),
-				(r)=> {toastr.warning('Erro na atualização.', 'Depois tente novamente!');};
+				.then((r) => { console.log("post antes",r.data); $scope.postSalvo = null; carregarPosts(); console.log("post depois", $scope.postSalvo);})
+				.catch(error => console.log(error))
 		}
 
 		function formatarData(data){
 			var myDate = new Date(data);
-			return ('0' + myDate.getDate()).slice(-2) +  "/" + ('0' + (myDate.getMonth() + 1)).slice(-2) + "/" + myDate.getFullYear() + " " + myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds();	
+			return ('0' + myDate.getDate()).slice(-2) +  "/" + ('0' + (myDate.getMonth() + 1)).slice(-2) + "/" + myDate.getFullYear() + " " + ('0' + myDate.getHours()).slice(-2) + ":" + ('0' + myDate.getMinutes()).slice(-2) + ":" + ('0' + myDate.getSeconds()).slice(-2);	
 		}
 		// Fim salvar posts
 
@@ -132,7 +132,6 @@ angular
 
 		function reagir(post) {
 			var reacao = {};
-			debugger
 			reacao.post = post;
 			reacao.dataAtual = formatarData(new Date());
 			reacao.usuario = $scope.usuario;

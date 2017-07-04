@@ -25,6 +25,9 @@ public class PostService {
     PostRepositorio postRepositorio;  
     PostPageRepositorio postPageRepositorio;  
     
+    @Autowired
+    AmizadeService amizadeService;  
+    
     public Post save(Post t) {
       return postRepositorio.save(t);
     }
@@ -37,7 +40,7 @@ public class PostService {
       return postRepositorio.findOne(id);
     }
     
-    public Iterable<Post> findAll() {
+    public Iterable<Post> findAll() {      
       return postRepositorio.findAll();
     }
     

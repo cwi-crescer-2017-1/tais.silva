@@ -5,8 +5,10 @@
  */
 package br.com.crescer.social.repositorio;
 
+import br.com.crescer.social.entidade.Amizade;
 import br.com.crescer.social.entidade.Usuario;
 import java.util.Collection;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -16,5 +18,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface UsuarioRepositorio extends CrudRepository<Usuario, Long>  {
     
     Usuario findByEmail(String email); 
-    Iterable<Usuario> findByIdNotIn(Collection<Long> id);
+    Iterable<Usuario> findByIdNotIn(Collection<Long> id); 
 }

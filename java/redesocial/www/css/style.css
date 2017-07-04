@@ -6,6 +6,11 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
+.body{
+	box-sizing: border-box;
+	margin: 0;
+}
+
 .annie {
 	font-family: 'Annie Use Your Telescope';
 	font-size: 30px;
@@ -329,3 +334,40 @@ button.search {
 	background-color: #e8f5fd; 
 	cursor: pointer;
 } 
+.texto {
+	word-break: break-all;	
+}
+.pequena {
+	display: none;
+}
+
+@media screen and (max-width: 657px) {
+    .user-pic-post {
+       display: none;
+    }
+	.inputFoto {
+       margin-left: 0;
+    }
+	.botao-grupo-postar {
+		margin: 10px;
+	}
+	.botao-postar{
+		align-items: center;
+		margin: 10px;
+	}
+	.fa.fa-upload.p-abs {
+		display: none;
+	}
+	.grande {
+		display: none;
+	}
+	.pequena {
+		display: initial;
+	}
+	.left.bold.annie.rosa {
+		font-size: 20px;
+	}
+	.right.bold.acessar {
+		font-size: 10px;
+	}
+}

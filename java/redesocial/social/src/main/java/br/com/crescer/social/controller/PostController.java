@@ -8,12 +8,14 @@ package br.com.crescer.social.controller;
 import br.com.crescer.social.entidade.Post;
 import br.com.crescer.social.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -36,13 +38,20 @@ public class PostController {
     public Iterable<Post> listarTodos() {
         return postService.findAll();
     }  
+    
+//    @GetMapping(value = "/usuario/")
+//    public Iterable<Post> listarPosts() {
+//        return postService.findAllPost();
+//    }  
+   
    
     @GetMapping(value = "/{id}")
     public Post loadById(@PathVariable Long id) {
         return postService.loadById(id);
     }
     
-    @PostMapping
+    @PostMapping (consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
     public Post save(@RequestBody Post post) {
         return postService.save(post);
     }

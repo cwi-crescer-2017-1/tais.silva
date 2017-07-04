@@ -10,8 +10,17 @@ angular
         };
         
         function salvarPost(post) {
-            return $http.post(urlPosts, post);
-        };
+            console.log({
+            url: urlPosts,
+            method: 'POST',
+            data: post
+        });
+            return $http({
+            url: urlPosts,
+            method: 'POST',
+            data: post
+        });   
+        };     
 
         function carregarReagir(idPost) {
             return $http.get(`${urlReacoes}/listar/${idPost}`);
