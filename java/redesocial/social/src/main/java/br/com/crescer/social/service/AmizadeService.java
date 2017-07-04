@@ -35,6 +35,7 @@ public class AmizadeService {
         List<Amizade> amigos = (List<Amizade>) findAllAceitos();
         
         List<Long> result = new ArrayList<>();
+        result.add(usuarioService.getUsuario().getId());
         
         amigos
             .stream()
@@ -47,6 +48,10 @@ public class AmizadeService {
     
     public Iterable<Amizade> findAllPendentes() {                
         return amizadeRepositorio.findAllBySolicitanteAndSituacao(usuarioService.getUsuario(), 'p');
+    }
+    
+    public Iterable<Amizade> findAllSolitacoesPendentes() {                
+        return amizadeRepositorio.findAllBySolicitadoAndSituacao(usuarioService.getUsuario(), 'p');
     }
     
     public Iterable<Amizade> findAllAceitos() {                
@@ -75,6 +80,8 @@ public class AmizadeService {
     }
 
     public Amizade atualizar(Long id) {
-        return amizadeRepositorio.save(loadById(id));
+        Amizade amizade = loadById(id);
+        amizade.setSituacao('a');
+        return amizadeRepositorio.save(amizade);
     }
 }

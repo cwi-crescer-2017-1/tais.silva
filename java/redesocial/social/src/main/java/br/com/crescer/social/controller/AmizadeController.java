@@ -41,6 +41,11 @@ public class AmizadeController {
     
     @GetMapping (value = "/pendentes")
     public Iterable<Amizade> listarPendentes() {
+        return amizadeService.findAllSolitacoesPendentes();
+    }
+    
+    @GetMapping (value = "/solicitacoespendentes")
+    public Iterable<Amizade> listarSolicitacoesPendentes() {
         return amizadeService.findAllPendentes();
     }
     
@@ -64,8 +69,8 @@ public class AmizadeController {
         return amizadeService.atualizar(id);
     }
     
-    @DeleteMapping (value = "/rejeitar")
-    public void rejeitar(@RequestBody Long id) {
+    @DeleteMapping (value = "/rejeitar/{id}")
+    public void rejeitar(@PathVariable Long id) {
         amizadeService.remove(id);
     }  
 }

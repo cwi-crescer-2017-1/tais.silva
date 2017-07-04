@@ -93,6 +93,6 @@ public class UsuarioService {
     }
     
     public Iterable<Usuario> findAllNovos(List<Long> amigos) {  
-      return usuarioRepositorio.findByIdNotIn(amigos);
+       return usuarioRepositorio.findByIdNotIn(amigos);
     }
 }

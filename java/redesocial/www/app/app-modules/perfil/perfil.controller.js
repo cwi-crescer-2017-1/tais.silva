@@ -22,7 +22,6 @@ angular
 				.then((r) => { 
 					$scope.novoUsuario = r.data; console.log(r.data); 
 					$scope.novoUsuario.senha = null;
-					$scope.novoUsuario.dataNascimento = formatarData(r.data.dataNascimento, "invertido");
 				}),
 				(r)=> {toastr.warning('Erro na atualização.', 'Depois tente novamente!');};
 		}
@@ -41,12 +40,12 @@ angular
 				)
 		};
 		
-		function formatarData(data, tipo){
-			var myDate = new Date(data);
-			return	tipo !== "invertido" ? 
-			( myDate.getFullYear() + "-" + ('0' + (myDate.getMonth() + 1)).slice(-2) + "-" +  ('0' + myDate.getDate()).slice(-2) + " 00:00:00") 
-			: (('0' + myDate.getDate()).slice(-2)  + "-" + ('0' + (myDate.getMonth() + 1)).slice(-2) + "-" + myDate.getFullYear());
-		}
+		// function formatarData(data, tipo){
+		// 	var myDate = new Date(data);
+		// 	return	tipo !== "invertido" ? 
+		// 	( myDate.getFullYear() + "-" + ('0' + (myDate.getMonth() + 1)).slice(-2) + "-" +  ('0' + myDate.getDate()).slice(-2) + " 00:00:00") 
+		// 	: (('0' + myDate.getDate()).slice(-2)  + "-" + ('0' + (myDate.getMonth() + 1)).slice(-2) + "-" + myDate.getFullYear());
+		// }
 
 		$scope.logout = function () {
 				authService.logout();

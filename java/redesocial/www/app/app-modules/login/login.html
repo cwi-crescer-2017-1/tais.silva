@@ -1,14 +1,14 @@
-<div class="home-top">
+<div class="top">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 top-col">
                 <span class="left">MINHA REDE SOCIAL SEM NOME, AINDA...</span>
             </div>
         </div>
     </div>
 </div>
 <div class="container">
-  <div class="row">
+  <div class="row main">
     <div class="col-sm-6">
       <h1 class="page-header">Cadastre-se</h1>
       <form novalidate name="formCadastro">
@@ -21,9 +21,9 @@
           <input ng-model="novoUsuario.nome" type="text" class="form-control" name="nome" placeholder="Nome completo" required>
         </div>
 
-        <div class="form-group">
-          <label for="sexo">Masculino <input type="radio" ng-model="novoUsuario.sexo" ng-value="'m'" name="sexo" required></label >
-          <label for="sexo">Feminino <input type="radio" ng-model="novoUsuario.sexo" ng-value="'f'" name="sexo" required></label >
+        <div class="form-group row">
+          <label class="col-sm-3" for="sexo">Masculino <input type="radio" ng-model="novoUsuario.sexo" ng-value="'m'" name="sexo" required></label >
+          <label class="col-sm-3" for="sexo">Feminino <input type="radio" ng-model="novoUsuario.sexo" ng-value="'f'" name="sexo" required></label >
         </div>
 
         <div class="form-group">
@@ -62,6 +62,3 @@
     </div>
   </div>
 </div>
-
-https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVIaDdltvjX797So9xpT58yDvIknZuXlKsKGkAJrjDZ5ncjHd19PcCnh4
-

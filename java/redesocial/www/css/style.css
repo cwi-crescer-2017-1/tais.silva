@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Annie Use Your Telescope';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Annie Use Your Telescope'), local('AnnieUseYourTelescope'), url(https://fonts.gstatic.com/s/annieuseyourtelescope/v6/2cuiO5VmaR09C8SLGEQjGka-vN3cnM35kL5a2hXIL_33rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
 /*utilidades*/
 .p-relat {
 	position: relative;
@@ -19,42 +26,50 @@
   display: table;
   clear: both;
 }
-/*fim utilidades*/
-
-.home-top {
-	background-image: linear-gradient(to bottom right, lightblue, lightgreen);
-	height: 47px;
+.btn-default {
+	width: 100%;
 }
 
-.privado-top {
-	background-image: linear-gradient(to bottom right, lightblue, lightgreen);
+body {
+	/*font-family: 'Annie Use Your Telescope';*/
+	background-color: #ccf6f8;	
+}
+/*fim utilidades*/
+
+.top {
+	/*background-image: linear-gradient(to bottom right, #f5adb4, #49a3af);*/
+	background-color: #fff;
 	height: 47px;
 	width: 100%;
 	position: fixed;
 	z-index: 1;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
 }
 
-.home-top .container,
-.privado-top .container {
+.top .container {
 	height: 100%;
 }
 
-.home-top .row,
-.privado-top .row {
+.top .row {
 	/*display: flex;*/
 	/*align-items: center;*/
 	height: 100%;
 }
 
-.home-top span, 
-.privado-top span {
-	color: white;
-	transform: translateY(50%);
+.top > * {
+	color: #797979;
+	/*transform: translateY(30%);*/
 }
-
+.top-col > span,
+.top-col .right {
+	transform: translateY(30%);
+}
+.top-col {
+	transform: translateY(22%);
+}
 .main {
-	margin: 60px 0;
-	padding: 60px 0;
+	margin: 30px 0;
+	padding: 30px 0;
 	max-height: 375px;
 }
 
@@ -80,25 +95,29 @@
 	width: 50%;
 	display: flex;
 	justify-content: center;
+	margin-top: 30px;
 }
 .acessar:hover {
 	color: grey;
 }
 
-.botao-cadastrar:hover {
+.botao-cadastrar:hover, 
+.botao-entrar:hover {
 	background-color: lightblue;
 }
-.botao-entrar:hover {
-	background-color: lightgreen;
-}
-.privado {
-	background-color: #e6ecf0;
+
+.privado, 
+.perfil {
+	/*background-color: #e6ecf0;*/
 	min-height: 100vh;
 	padding: 57px 0;
 }
 
 .user {
-	background: linear-gradient(to bottom, #1da1f2 50%, #fff 50%);
+	/*background-image: url('/img/background.jpg');*/
+	/*background-position: top;*/
+	/*background-size: 100% 50%;*/
+	background: linear-gradient(to bottom, #49a3af 50%, #fff 50%);
 	padding: 20px;
 }
 
@@ -138,10 +157,10 @@
 }
 
 .post .input {
-	border: 2px solid #a4d9f9;
+	border: 2px solid #49a3af;
 	border-radius: 17px;
 	padding: 20px;
-	width: 86%;
+	width: 87%;
 	resize: none; /*tira os risquinhos no canto inferior direito*/ 
 	margin-left: 15px;
 }
@@ -149,11 +168,12 @@
 .botao-grupo-postar {
 	display: flex;
 	justify-content: flex-end;
+	margin-top: 10px;
 }
 .botao-postar {
 	color: #fff;
-	background-color: #1da1f2;
-	border-radius: 20px;
+	background-color: #49a3af;
+	border-radius: 17px;
 	padding: 10px 20px; 
 	border: none;
 }
@@ -192,6 +212,7 @@
 .curtir {
 	right: 10px;
 	top: 15px;
+	color: #797979;
 }
 .curtir:hover {
 	cursor: pointer;
@@ -255,4 +276,31 @@
 	text-decoration: underline;
 	cursor: pointer;
 }
+.perfil-img-container {
+	text-align: center;
+	padding-top: 70px;
+}
+.menu {
+	height: 100%;
+	display: inline;
+	margin-left: 30px;
+}
+.menu > * {
+	margin-left: 30px;
+}
+.pesquisar {
+	border: 1px solid #797979;
+	border-radius: 100px;	
+	padding: 5px 20px;
+	margin-left: 30px;
+}
+button.search {
+	border: none;
+	background: none;
+}
+.fa-search {
+	top: 0;
+	right: 20px;
+}
+
 

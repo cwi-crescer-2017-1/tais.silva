@@ -12,6 +12,10 @@ angular
             return $http.get(`${urlAmizades}/pendentes`);
         };
 
+        function carregarSolicitacoesPendentes() {
+            return $http.get(`${urlAmizades}/solicitacoespendentes`);
+        };
+
         function carregarAmizadesAceitas() {
             return $http.get(`${urlAmizades}/aceitas`);
         };
@@ -24,13 +28,14 @@ angular
             return $http.put(`${urlAmizades}/aceitar`, idAmizade);
         };
 
-        function rejeitarAmizade(amizade) {
-            return $http.put(`${idAmizade}/rejeitar`, idAmizade);
+        function rejeitarAmizade(idAmizade) {
+            return $http.delete(`${urlAmizades}/rejeitar/${idAmizade}`);
         };
 
         return {
             carregarAmizades: carregarAmizades,
-            carregarPendentes: carregarAmizadesPendentes,
+            carregarAmizadesPendentes: carregarAmizadesPendentes,
+            carregarPendentes: carregarSolicitacoesPendentes,
             carregarAceitas: carregarAmizadesAceitas,
             salvarAmizades: salvarAmizade,
             aceitar: aceitarAmizade,

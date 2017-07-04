@@ -17,4 +17,5 @@ public interface AmizadeRepositorio extends CrudRepository<Amizade, Long>  {
     Amizade findById(Long id);
     Iterable<Amizade> findAllBySolicitante(Usuario solicitante);
     Iterable<Amizade> findAllBySolicitanteAndSituacao(Usuario solicitante, Character situacao);
+    Iterable<Amizade> findAllBySolicitadoAndSituacao(Usuario solicitado, Character situacao);
 }
