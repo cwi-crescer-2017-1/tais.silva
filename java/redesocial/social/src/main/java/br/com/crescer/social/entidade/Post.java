@@ -5,6 +5,7 @@
  */
 package br.com.crescer.social.entidade;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -64,6 +65,7 @@ public class Post implements Serializable {
     private Usuario usuario;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private Set<Comentario> comentarioSet;
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private Set<Reacao> reacaoSet;
 

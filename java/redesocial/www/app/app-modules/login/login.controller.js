@@ -17,7 +17,7 @@ angular
 
 		function formatarData(data){
 			var myDate = new Date(data);
-			return myDate.getFullYear() + "-" + ('0' + (myDate.getMonth() + 1)).slice(-2) + "-" +  ('0' + myDate.getDate()).slice(-2) + " 00:00:00";	
+			return ('0' + myDate.getDate()).slice(-2) +  "/" + ('0' + (myDate.getMonth() + 1)).slice(-2) + "/" + myDate.getFullYear() + " 00:00:00";	
 		}
         
 		if(authService.isAutenticado()){

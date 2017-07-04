@@ -27,34 +27,28 @@
 			<div class="col-lg-6">
 				<div class="post">
 					<img class="user-pic-post" src="{{usuario.imagem}}" alt="">
-					<textarea class="input" type="text" rows="3" placeholder="O que você acha que está pensando?"></textarea>
+					<textarea class="input" type="text" rows="3" placeholder="O que você acha que está pensando?" ng-model="postSalvo.texto"></textarea>
 					<div class="botao-grupo-postar">
 						<span class="p-relat">
-							<label for="foto" hidden>Foto</label><input class="inputFoto" type="text" name="foto" placeholder="Foto"><i class="fa fa-upload p-abs"></i>
+							<label for="foto" hidden>Foto</label><input class="inputFoto" type="text" name="foto" ng-model="postSalvo.imagem" placeholder="Foto"><i class="fa fa-upload p-abs"></i>
 						</span>
-						<button class="botao-postar">Postar</button>
+						<button class="botao-postar" ng-click="salvarPost(postSalvo)">Postar</button>
 					</div>
 				</div>
-				<div class="feed-item clearfix" ng-repeat="post in posts | OrderBy: post.dataAtual">
+				<div class="feed-item clearfix" ng-repeat="post in posts | orderBy: '-dataAtual'">
 					<div class="clearfix p-relat feed-item-header">
-						<img class="user-pic-feed" src="{{post.usuario.imagem}}" alt="">
+						<img class="user-pic-feed" ng-src="{{post.usuario.imagem}}" alt="">
 						<span class="username-feed">{{post.usuario.nome}}</span>
-						<label for="curtir"><span hidden>curtir</span><i class="fa fa-heart-o fa-2x curtir p-abs" title="curtir"></i></label>
+						<label for="curtir"><span hidden>curtir</span><i class="fa fa-heart-o fa-2x curtir p-abs" title="curtir" ng-class="{active:post.reagido}" ng-click="reagir(post)"></i></label>
 					</div>
-					<div class="feed-post" ng-if="!post.imagem === null">
+					<div class="feed-post">
 						<div>{{post.texto}}</div>
-						<img class="feed-img" src="{{post.imagem}}" alt="">
+						<img class="feed-img" src="{{post.imagem}}" alt="" ng-if="post.imagem !== null">
 					</div>
 				</div>				
 			</div>
 			
 			<div class="col-lg-3">
-				<div class="solicitacoes acoes-amigos">
-					<span class="bold"><i class="fa fa-check"></i> Adicionar aos amigos </span>
-				</div>
-				<div class="solicitacoes acoes-amigos">
-					<span class="bold"><i class="fa fa-close"></i> Remover amizade </span>
-				</div>
 				<div class="solicitacoes">
 					<span class="bold">Solicitações de amizade</span>
 					<div class="solicitacao clearfix" ng-repeat="solicitante in solicitantes">

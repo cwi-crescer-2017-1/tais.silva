@@ -5,6 +5,8 @@
  */
 package br.com.crescer.social.entidade;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -47,6 +49,7 @@ public class Reacao implements Serializable {
     @Column(name = "DATA_ATUAL")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtual;
+    @JsonManagedReference
     @JoinColumn(name = "POST", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Post post;

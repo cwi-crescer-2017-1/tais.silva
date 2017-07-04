@@ -76,10 +76,13 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 500)
     @Column(name = "IMAGEM")
     private String imagem;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private Set<Post> postSet;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private Set<Comentario> comentarioSet;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private Set<Reacao> reacaoSet;
     @JsonIgnore
