@@ -1,0 +1,21 @@
+body {
+  background: #f50000;
+  color: #ff2929;
+  color: #c20000; }
+
+h1 {
+  margin: 30px; }
+
+p {
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.4); }
+
+.container {
+  margin: 0; }
+  .container .row {
+    background: blue; }
+    .container .row .col {
+      color: red; }
+      .container .row .col:hover {
+        background: green; }
+
+/*# sourceMappingURL=main.css.map */
